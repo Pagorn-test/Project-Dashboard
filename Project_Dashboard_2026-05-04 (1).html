@@ -1,0 +1,3660 @@
+<!DOCTYPE html>
+<html lang="en" style="--sb-width: 320px; --gt-label-width: 412px;"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Project Dashboard — Pagorn | 28 Apr 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Light theme */
+      --bg: #F0F4F8;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --border2: #CBD5E1;
+      /* Sidebar (deep navy) */
+      --sb: #0A1628;
+      --sb2: #111D30;
+      --sb3: #182B45;
+      --sb-t: #7A9BB8;
+      --sb-ta: #EDF2F7;
+      --sb-bdr: #1A2D44;
+      /* Text */
+      --t1: #0D1B2A;
+      --t2: #374151;
+      --t3: #6B7280;
+      --t4: #9CA3AF;
+      /* Accents */
+      --blue: #2563EB;
+      --blue-s: #EFF6FF;
+      --blue-m: #BFDBFE;
+      --amber: #B45309;
+      --amber-s: #FFFBEB;
+      --red: #DC2626;
+      --red-s: #FEF2F2;
+      --green: #059669;
+      --green-s: #ECFDF5;
+      --purple: #7C3AED;
+      --purple-s: #F5F3FF;
+      --orange: #EA580C;
+      --orange-s: #FFF7ED;
+      --slate: #475569;
+      --slate-s: #F8FAFC;
+      /* Fonts */
+      --fh: 'Barlow Condensed', sans-serif;
+      --fb: 'Figtree', sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: var(--fb);
+      background: var(--bg);
+      color: var(--t1);
+      overflow: hidden;
+    }
+
+    /* ── LAYOUT ── */
+    .app {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sb {
+      width: var(--sb-width, 280px);
+      flex-shrink: 0;
+      background: linear-gradient(180deg, #0A1628 0%, #0E1E34 50%, #0A1628 100%);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    :root {
+      --sb-width: 280px;
+      --gt-label-width: 360px;
+    }
+
+    .sb-resizer {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      cursor: col-resize;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .sb-resizer:hover,
+    .sb-resizer.resizing {
+      background: rgba(93, 184, 244, 0.4);
+    }
+
+    .sb-head {
+      padding: 24px 20px 18px;
+      border-bottom: 1px solid rgba(93, 184, 244, 0.1);
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(93, 184, 244, 0.04) 0%, transparent 100%);
+    }
+
+    .sb-logo {
+      font-family: var(--fh);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .3em;
+      color: var(--sb-t);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sb-title {
+      font-family: var(--fh);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--sb-ta);
+      line-height: 1.15;
+      letter-spacing: .04em;
+    }
+
+    .sb-title b {
+      color: #5DB8F4;
+    }
+
+    .sb-sub {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      color: var(--sb-t);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .sb-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FBB022;
+      color: #000;
+      font-family: var(--fm);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 3px;
+      margin-top: 9px;
+      letter-spacing: .08em;
+    }
+
+    .sb-sect {
+      padding: 14px 18px 6px;
+      font-family: var(--fm);
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--sb-t);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .sb-nav {
+      padding: 6px 10px 2px;
+      flex-shrink: 0;
+    }
+
+    .nb {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: var(--sb-t);
+      font-family: var(--fb);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      transition: all .15s;
+      margin-bottom: 2px;
+    }
+
+    .nb:hover {
+      background: var(--sb2);
+      color: var(--sb-ta);
+    }
+
+    .nb.on {
+      background: linear-gradient(90deg, rgba(93, 184, 244, 0.12) 0%, var(--sb3) 100%);
+      color: var(--sb-ta);
+      border-left: 2px solid #5DB8F4;
+      padding-left: 8px;
+    }
+
+    .nb svg {
+      flex-shrink: 0;
+      opacity: .65;
+    }
+
+    .nb.on svg {
+      opacity: 1;
+    }
+
+    .sb-divider {
+      height: 1px;
+      background: var(--sb-bdr);
+      margin: 4px 14px 6px;
+    }
+
+    .sb-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 2px 8px 16px;
+    }
+
+    .sb-list::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .sb-list::-webkit-scrollbar-thumb {
+      background: var(--sb3);
+      border-radius: 2px;
+    }
+
+    .pj-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: background .12s;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+    }
+
+    .pj-btn:hover {
+      background: var(--sb2);
+    }
+
+    .pj-btn.on {
+      background: var(--sb3);
+      border-left-color: #5DB8F4;
+    }
+
+    .pj-num {
+      font-family: var(--fh);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #5DB8F4;
+      width: 38px;
+      flex-shrink: 0;
+      opacity: .65;
+      transition: opacity .12s;
+    }
+
+    .pj-btn.on .pj-num {
+      opacity: 1;
+    }
+
+    .pj-nm {
+      font-size: 11.5px;
+      color: var(--sb-t);
+      flex: 1;
+      overflow: hidden;
+      white-space: normal;
+      line-height: 1.3;
+      transition: color .12s;
+    }
+
+    .pj-btn.on .pj-nm,
+    .pj-btn:hover .pj-nm {
+      color: var(--sb-ta);
+    }
+
+    .pj-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── STAGGERED ANIMATION ── */
+    .stagger-item {
+      animation: fadeInUp 0.4s ease-out both;
+      animation-delay: calc(var(--i, 0) * 0.04s);
+    }
+
+    .sb-search-wrap {
+      padding: 10px 18px;
+      margin-top: 4px;
+    }
+
+    .sb-search {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #fff;
+      font-family: var(--fb);
+      font-size: 12px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .sb-search:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #5DB8F4;
+      box-shadow: 0 0 0 3px rgba(93, 184, 244, 0.15);
+    }
+
+    .sb-search::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .view {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .view.on {
+      display: flex;
+      animation: fadeInUp 0.4s ease-out both;
+    }
+
+    /* ── VIEW HEADER ── */
+    .vhdr {
+      padding: 20px 32px 16px;
+      border-bottom: none;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .vhdr::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 32px;
+      right: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--purple), transparent);
+      border-radius: 2px;
+    }
+
+    .vtitle {
+      font-family: var(--fh);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--t1);
+      letter-spacing: .06em;
+      line-height: 1;
+    }
+
+    .vsub {
+      font-size: 12px;
+      color: var(--t3);
+      margin-top: 4px;
+    }
+
+    .vmeta {
+      font-family: var(--fm);
+      font-size: 10px;
+      color: var(--t4);
+      background: var(--blue-s);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--blue-m);
+    }
+
+    /* ── SCROLLABLE BODY ── */
+    .vbody {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 32px;
+    }
+
+    .vbody::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .vbody::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    /* ── OVERVIEW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .sc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sc:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+    }
+
+    .sc:nth-child(2)::before {
+      background: linear-gradient(90deg, #2563EB, #3B82F6);
+    }
+
+    .sc:nth-child(3)::before {
+      background: linear-gradient(90deg, #7C3AED, #A78BFA);
+    }
+
+    .sc:nth-child(4)::before {
+      background: linear-gradient(90deg, #059669, #34D399);
+    }
+
+    .sc-lbl {
+      font-size: 10.5px;
+      color: var(--t3);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .sc-val {
+      font-family: var(--fh);
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--t1);
+      line-height: 1;
+    }
+
+    .sc-note {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 6px;
+    }
+
+    .sec-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-title {
+      font-family: var(--fh);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--t1);
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sec-title::before {
+      content: '';
+      width: 3px;
+      height: 16px;
+      background: linear-gradient(180deg, var(--blue), var(--purple));
+      border-radius: 2px;
+    }
+
+    .sec-hint {
+      font-size: 12px;
+      color: var(--t4);
+      font-style: italic;
+    }
+
+    /* project table */
+    .ptbl {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ptbl thead th {
+      padding: 14px 16px;
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--t4);
+      text-align: left;
+      background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .ptbl tbody tr {
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .ptbl tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .ptbl tbody tr:hover {
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.03) 100%);
+    }
+
+    .ptbl tbody tr:hover td.td-no {
+      color: var(--blue);
+      transform: scale(1.1);
+    }
+
+    .ptbl td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--t2);
+      vertical-align: middle;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .ptbl tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    td.td-no {
+      font-family: var(--fh);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--blue);
+      transition: transform 0.15s ease;
+    }
+
+    td.td-nm {
+      font-weight: 600;
+      color: var(--t1);
+      max-width: 260px;
+    }
+
+    td.td-nm small {
+      display: block;
+      font-size: 11px;
+      color: var(--t4);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* status badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.3;
+      max-width: 100%;
+      transition: transform 0.15s ease;
+    }
+
+    .ptbl tbody tr:hover .badge {
+      transform: translateX(2px);
+    }
+
+    .badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── DETAIL ── */
+    .det-top {
+      padding: 10px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--t2);
+      font-size: 12.5px;
+      font-family: var(--fb);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .back-btn:hover {
+      background: var(--blue-s);
+      border-color: var(--blue-m);
+      color: var(--blue);
+      transform: translateX(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .det-nav {
+      font-family: var(--fm);
+      font-size: 10px;
+      color: var(--t4);
+      margin-left: 4px;
+    }
+
+    .det-hdr {
+      padding: 16px 28px 14px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .dhdr-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .dhdr-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .d-lbl {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      color: var(--t4);
+      letter-spacing: .15em;
+      align-self: center;
+    }
+
+    .d-num {
+      font-family: var(--fh);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .d-name {
+      font-family: var(--fh);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--t1);
+      line-height: 1.1;
+    }
+
+    .d-sub {
+      font-size: 12px;
+      color: var(--t3);
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    .rank-tag {
+      padding: 5px 14px;
+      background: #FEF3C7;
+      color: #92400E;
+      font-family: var(--fm);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 5px;
+      letter-spacing: .08em;
+      border: 1px solid #FDE68A;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .dbody {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 28px 28px;
+    }
+
+    .dbody::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .dbody::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    /* info grid */
+    .igrid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .irow {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .irow.c3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .irow.c4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .irow.c12 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .icell {
+      background: var(--card);
+      padding: 13px 16px;
+    }
+
+    .icell-full {
+      background: var(--card);
+      padding: 13px 16px;
+    }
+
+    .ilab {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .18em;
+      color: var(--t4);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .ival {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--t1);
+      line-height: 1.3;
+    }
+
+    .ival.mono {
+      font-family: var(--fm);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--t2);
+    }
+
+    .ival.blue {
+      color: var(--blue);
+    }
+
+    .ival.am {
+      color: var(--amber);
+    }
+
+    .ival.sm {
+      font-size: 13px;
+    }
+
+    /* progress */
+    .pct {
+      font-family: var(--fh);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .pbar {
+      height: 7px;
+      background: #F1F5F9;
+      border-radius: 4px;
+      margin-top: 9px;
+      border: 1px solid var(--border);
+    }
+
+    .pfill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 4px;
+      transition: width .5s;
+    }
+
+    .pnote {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 5px;
+    }
+
+    /* note */
+    .note-box {
+      background: #FFFBEB;
+      border-left: 3px solid #D97706;
+      padding: 14px 18px;
+    }
+
+    .note-lab {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .18em;
+      color: #92400E;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .task-grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .task-hrow,
+    .task-item {
+      display: grid;
+      grid-template-columns: 30px 1fr 100px 100px 60px 30px;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid rgba(217, 119, 6, 0.1);
+      padding: 8px 4px;
+    }
+
+    .task-hrow {
+      border-bottom: 2px solid rgba(217, 119, 6, 0.2);
+      font-family: var(--fm);
+      font-size: 11px;
+      color: #D97706;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-weight: 700;
+      padding-bottom: 8px;
+    }
+
+    .task-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .task-check {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #D97706;
+      justify-self: center;
+    }
+
+    .task-txt {
+      font-family: var(--fm);
+      font-size: 13px;
+      color: #92400E;
+      outline: none;
+      min-height: 1.4em;
+    }
+
+    .task-txt.done {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .t-sd,
+    .t-ed,
+    .t-pct-wrap {
+      font-size: 11px;
+      color: #92400E;
+      font-family: var(--fm);
+    }
+
+    .t-date-input {
+      border: none;
+      background: transparent;
+      font-family: var(--fm);
+      font-size: 11px;
+      color: #92400E;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .t-date-input:disabled {
+      color: inherit;
+      cursor: default;
+      -webkit-appearance: none;
+    }
+
+    .t-pct-wrap {
+      text-align: center;
+    }
+
+    .t-pct {
+      border-bottom: 1px dashed rgba(217, 119, 6, 0.3);
+    }
+
+    .ival-date {
+      border: none;
+      background: transparent;
+      font-family: var(--fh);
+      font-size: 15px;
+      font-weight: 600;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .ival-date:disabled {
+      color: inherit;
+      cursor: default;
+      -webkit-appearance: none;
+    }
+
+    .ival-date.blue {
+      color: var(--blue);
+    }
+
+    .ival-date.am {
+      color: var(--amber);
+    }
+
+    .add-task-btn {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: #D97706;
+    }
+
+    .task-txt {
+      flex: 1;
+      font-family: var(--fm);
+      font-size: 13px;
+      color: #92400E;
+      outline: none;
+      min-height: 1.4em;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    .task-txt.done {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .add-task-btn {
+      background: #FEF3C7;
+      border: 1px solid #FDE68A;
+      color: #D97706;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .del-task-btn {
+      color: #F87171;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.5;
+    }
+
+    .del-task-btn:hover {
+      opacity: 1;
+    }
+
+    .add-task-btn:hover {
+      background: #FDE68A;
+    }
+
+    /* prev/next */
+    .det-pager {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── TIMELINE ── */
+    #gantt-container {
+      flex: 1;
+      display: flex;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+
+    #gantt-labels-wrap {
+      width: var(--gt-label-width, 360px);
+      flex-shrink: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-right: 1px solid var(--border);
+      background: #F8FAFC;
+      z-index: 5;
+      position: relative;
+    }
+
+    #gantt-labels-wrap::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar but keep functionality */
+    }
+
+    .gantt-resizer {
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      cursor: col-resize;
+      z-index: 10;
+    }
+
+    .gantt-resizer:hover {
+      background: rgba(93, 184, 244, 0.4);
+    }
+
+    #gantt-timeline-wrap {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+
+    #gantt-timeline-wrap::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    #gantt-timeline-wrap::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    #gantt-labels-svg,
+    #gantt-timeline-svg {
+      display: block;
+    }
+
+    .tl-leg {
+      padding: 10px 28px;
+      border-top: 1px solid var(--border);
+      background: var(--card);
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .leg {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--t3);
+    }
+
+    .leg-sq {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── GANTT FILTER ── */
+    .gantt-filter-wrap {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .gantt-filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--border2);
+      background: var(--card);
+      font-size: 12px;
+      font-family: var(--fm);
+      color: var(--t2);
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .gantt-filter-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .gantt-filter-btn .badge-count {
+      background: var(--blue);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .gantt-filter-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+      width: 260px;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .gantt-filter-panel.open {
+      display: block;
+    }
+
+    .gfp-head {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    .gfp-head-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .gfp-head-btns button {
+      font-size: 10px;
+      font-family: var(--fm);
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--t3);
+      transition: all .1s;
+    }
+
+    .gfp-head-btns button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .gfp-list {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 6px 0;
+    }
+
+    .gfp-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background .1s;
+    }
+
+    .gfp-item:hover {
+      background: #F0F6FF;
+    }
+
+    .gfp-item input[type=checkbox] {
+      accent-color: var(--blue);
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .gfp-item label {
+      font-size: 12px;
+      color: var(--t1);
+      cursor: pointer;
+      line-height: 1.3;
+    }
+
+    /* ══ MOBILE RESPONSIVE ══ */
+    @media (max-width: 768px) {
+      .app {
+        display: block;
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .sb {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        width: 280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .sb.show {
+        left: 0;
+      }
+
+      .main {
+        padding: 15px;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+      }
+
+      .stat-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ptbl-wrap {
+        overflow-x: auto;
+        margin: 0 -15px;
+        padding: 0 15px;
+      }
+
+      .vhdr {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .vmeta {
+        align-self: flex-end;
+        font-size: 10px;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      /* Detail Grid Fix */
+      .igrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .irow.c3,
+      .irow.c4,
+      .irow.c12 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .icell {
+        padding: 12px;
+      }
+
+      .dhdr-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .rank-tag {
+        align-self: flex-end;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-row {
+        grid-template-columns: 1fr;
+      }
+
+      .vtitle {
+        font-size: 24px;
+      }
+    }
+
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      color: #fff;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.5);
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mobile-toggle:active {
+      transform: scale(0.92);
+    }
+
+    /* Smooth page load animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sc {
+      animation: fadeInUp 0.4s ease both;
+    }
+
+    .sc:nth-child(2) {
+      animation-delay: 0.06s;
+    }
+
+    .sc:nth-child(3) {
+      animation-delay: 0.12s;
+    }
+
+    .sc:nth-child(4) {
+      animation-delay: 0.18s;
+    }
+
+    .ptbl {
+      animation: fadeInUp 0.5s ease 0.24s both;
+    }
+  </style>
+</head>
+
+<body class="edit-on">
+  <div class="app">
+    <!-- Mobile Menu Button -->
+    <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside class="sb">
+      <div class="sb-head">
+        <div class="sb-logo editable-text" contenteditable="true" spellcheck="false">Project Dashboard</div>
+        <div class="sb-title editable-text" contenteditable="true" spellcheck="false">PROGRESS<br><b>UPDATE</b></div>
+        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>4 MAY 2026</div>
+        <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
+        </div>
+      </div>
+
+
+      <div class="sb-nav">
+        <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
+            <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
+            <rect x="1" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
+            <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
+          </svg>
+          Overview
+        </button>
+        <button class="nb" id="nb-tl" onclick="gotoView('tl')">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <rect x="1" y="3.5" width="13" height="2" rx="1" fill="currentColor" opacity=".7"></rect>
+            <rect x="1" y="7" width="9" height="2" rx="1" fill="currentColor"></rect>
+            <rect x="1" y="10.5" width="11" height="2" rx="1" fill="currentColor" opacity=".7"></rect>
+          </svg>
+          Timeline (Gantt)
+        </button>
+      </div>
+      <div class="sb-resizer" id="sb-resizer"></div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-search-wrap">
+        <input type="text" class="sb-search" placeholder="Search project..." oninput="buildSidebar(this.value)">
+      </div>
+
+      <div class="sb-sect-row">
+        <div class="sb-sect" style="padding:0">PROJECTS (<span id="pj-count">13</span>)</div>
+        <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
+      </div>
+      <div class="sb-list" id="sb-list"><div class="sb-list-item stagger-item" draggable="true" style="--i: 0; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb0" style="flex: 1 1 0%;"><span class="pj-num">1</span><span class="pj-nm">Contaminate Inspection Line Q</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 1; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb1" style="flex: 1 1 0%;"><span class="pj-num">2</span><span class="pj-nm">Inspection Cap&amp;Level line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 2; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb2" style="flex: 1 1 0%;"><span class="pj-num">3</span><span class="pj-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 3; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb3" style="flex: 1 1 0%;"><span class="pj-num">4</span><span class="pj-nm">Connect Machine Data: Line P to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 4; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb4" style="flex: 1 1 0%;"><span class="pj-num">5</span><span class="pj-nm">Connect Machine Data: Line Q to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 5; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb5" style="flex: 1 1 0%;"><span class="pj-num">6</span><span class="pj-nm">Contaminate Inspection Vision System E</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb6" style="flex: 1 1 0%;"><span class="pj-num">7</span><span class="pj-nm">Contaminate Inspection Vision System C</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb7" style="flex: 1 1 0%;"><span class="pj-num">8</span><span class="pj-nm">Contaminate Inspection Vision System D</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 8; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb8" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection Cap: Line C, D, E, P</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 9; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb9" style="flex: 1 1 0%;"><span class="pj-num">10</span><span class="pj-nm">Inspection External Code: Line C, D, E</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb10" style="flex: 1 1 0%;"><span class="pj-num">11</span><span class="pj-nm">Install Interface: Carton Coding ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 11; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb11" style="flex: 1 1 0%;"><span class="pj-num">12</span><span class="pj-nm">Install Carton Counting System to Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)" title="Delete Project">×</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 12; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb12" style="flex: 1 1 0%;"><span class="pj-num">13</span><span class="pj-nm">Install Interface: Customer Coding (Bottle) ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(12)" title="Delete Project">×</button>
+      </div></div></div>
+
+      <div class="sb-edit-btn">
+        <button class="edit-btn" onclick="toggleEditMode()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+          TOGGLE EDIT MODE
+        </button>
+      </div>
+    </aside>
+
+    <!-- ══ MAIN ══ -->
+    <main class="main">
+
+      <!-- OVERVIEW -->
+      <div class="view on" id="v-ov" style="">
+        <div class="vhdr">
+          <div>
+            <div class="vtitle">OVERVIEW</div>
+            <div class="vsub">10 projects — Current Responsible: Pagorn</div>
+          </div>
+          <div class="vmeta">UPDATE: <span class="curr-date-long">4 May 2026</span></div>
+        </div>
+        <div class="vbody" id="ov-body">
+    <div class="stat-row">
+      <div class="sc"><div class="sc-lbl">Total Projects</div><div class="sc-val">13</div><div class="sc-note">Responsible: Pagorn</div></div>
+      <div class="sc"><div class="sc-lbl">Machine</div><div class="sc-val" style="color:var(--blue)">8</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">System Integrate</div><div class="sc-val" style="color:var(--purple)">5</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">Progress</div><div class="sc-val" style="color:hsl(55.199999999999996, 70%, 40%)">46%</div><div class="sc-note">Based on 8 started</div></div>
+    </div>
+    <div class="sec-hdr">
+      <div class="sec-title">ALL PROJECTS</div>
+      <div class="sec-hint">Click any row to view detail →</div>
+    </div>
+    <table class="ptbl" style="width: 100%; table-layout: auto;">
+      <thead><tr>
+        <th style="width:50px">No.</th>
+        <th style="width:400px">Project Name</th>
+        <th style="width:120px; white-space:nowrap">Start</th>
+        <th style="width:120px; white-space:nowrap">Finish</th>
+        <th style="width:110px; text-align:center">% Complete</th>
+        <th style="width:auto">Status</th>
+      </tr></thead>
+      <tbody>
+        
+        <tr onclick="openDetail(0)" class="stagger-item" style="--i: 0">
+          <td class="td-no">1</td>
+          <td class="td-nm">Contaminate Inspection Line Q</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">31 Jul 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:90%;height:100%;background:hsl(108, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(108, 70%, 40%);min-width:30px">90%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ Supplier ส่งแผน SAT รอบที่ 2</span></td>
+        </tr>
+        <tr onclick="openDetail(1)" class="stagger-item" style="--i: 1">
+          <td class="td-no">2</td>
+          <td class="td-nm">Inspection Cap&amp;Level line Q (1 M/C)</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
+        </tr>
+        <tr onclick="openDetail(2)" class="stagger-item" style="--i: 2">
+          <td class="td-no">3</td>
+          <td class="td-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">1 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
+        </tr>
+        <tr onclick="openDetail(3)" class="stagger-item" style="--i: 3">
+          <td class="td-no">4</td>
+          <td class="td-nm">Connect Machine Data: Line P to Data Tank</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
+        </tr>
+        <tr onclick="openDetail(4)" class="stagger-item" style="--i: 4">
+          <td class="td-no">5</td>
+          <td class="td-nm">Connect Machine Data: Line Q to Data Tank</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
+        </tr>
+        <tr onclick="openDetail(5)" class="stagger-item" style="--i: 5">
+          <td class="td-no">6</td>
+          <td class="td-nm">Contaminate Inspection Vision System E<small>Priority No. 01 — Highest Priority</small></td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:10%;height:100%;background:hsl(12, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(12, 70%, 40%);min-width:30px">10%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว</span></td>
+        </tr>
+        <tr onclick="openDetail(6)" class="stagger-item" style="--i: 6">
+          <td class="td-no">7</td>
+          <td class="td-nm">Contaminate Inspection Vision System C<small>Priority No. 03</small></td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(7)" class="stagger-item" style="--i: 7">
+          <td class="td-no">8</td>
+          <td class="td-nm">Contaminate Inspection Vision System D<small>Priority No. 02</small></td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(8)" class="stagger-item" style="--i: 8">
+          <td class="td-no">9</td>
+          <td class="td-nm">Inspection Cap: Line C, D, E, P</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(9)" class="stagger-item" style="--i: 9">
+          <td class="td-no">10</td>
+          <td class="td-nm">Inspection External Code: Line C, D, E</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(10)" class="stagger-item" style="--i: 10">
+          <td class="td-no">11</td>
+          <td class="td-nm">Install Interface: Carton Coding ↔ Data Tank</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(11)" class="stagger-item" style="--i: 11">
+          <td class="td-no">12</td>
+          <td class="td-nm">Install Carton Counting System to Data Tank</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+        </tr>
+        <tr onclick="openDetail(12)" class="stagger-item" style="--i: 12">
+          <td class="td-no">13</td>
+          <td class="td-nm">Install Interface: Customer Coding (Bottle) ↔ Data Tank</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+            </div>
+          </td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+      </div>
+
+      <!-- DETAIL -->
+      <div class="view" id="v-det" style="">
+        <div class="det-top">
+          <button class="back-btn" onclick="gotoView('ov')">← Overview</button>
+          <span class="det-nav" id="det-nav">1 of 13</span>
+        </div>
+        <div class="det-hdr" id="det-hdr">
+          <div class="dhdr-row">
+            <div class="dhdr-left">
+              <span class="d-lbl">PROJECT</span>
+              <span class="d-num" data-key="num">1</span>
+              <div>
+                <div class="d-name" data-key="name">Contaminate Inspection Line Q</div>
+                <div class="d-sub" data-key="sub" style=""></div>
+              </div>
+            </div>
+            <div class="rank-tag" data-key="rank">B</div>
+          </div>
+        </div>
+        <div class="dbody" id="det-body">
+          <div class="igrid">
+            <div class="irow c3">
+              <div class="icell">
+                <div class="ilab">IO / AUC</div>
+                <div class="ival mono" data-key="io">TBD</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Start Date</div>
+                <div class="ival blue">18 Mar 2026</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Finish Date</div>
+                <div class="ival am">31 Jul 2026</div>
+              </div>
+            </div>
+            <div class="irow c4">
+              <div class="icell">
+                <div class="ilab">Location</div>
+                <div class="ival" data-key="loc">Line Q</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Size</div>
+                <div class="ival" data-key="size">Medium</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Type</div>
+                <div class="ival" data-key="type" style="color:var(--blue)">Machine</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Lead Time</div>
+                <div class="ival" data-key="lead"></div>
+              </div>
+            </div>
+            <div class="icell-full">
+              <div class="ilab">Impact / Goal</div>
+              <div class="ival blue sm" data-key="impact">New project impact</div>
+            </div>
+          </div>
+
+          <div class="igrid">
+            <div class="irow c12">
+              <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
+                <div class="ilab">Status</div>
+                <div style="margin-top:6px; " data-key="status"><span class="badge" style="color:#475569;background:#F1F5F9;font-size:13px;padding:5px 13px">รอ Supplier ส่งแผน SAT
+                    รอบที่ 2</span></div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Progress</div>
+                <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
+                  <span class="pct" data-key="pct" style="color:hsl(108, 70%, 40%)">90%</span>
+                  <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
+                </div>
+                <div class="pbar">
+                  <div class="pfill" style="width:90%; background:hsl(108, 70%, 40%)"></div>
+                </div>
+                <div class="pnote">Current progress as of 4 May 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="igrid">
+            <div class="note-box">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <div class="note-lab">TASKS</div>
+                <button class="add-task-btn" onclick="addTask(0)" style="display:none">+</button>
+              </div>
+              <div class="task-grid">
+                <div class="task-hrow">
+                  <div></div>
+                  <div>Task Description</div>
+                  <div>Start Date</div>
+                  <div>Finish Date</div>
+                  <div style="text-align:center">%</div>
+                  <div></div>
+                </div>
+                <div id="task-list">
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 0, this.checked)" title="Mark as done">
+                    <div class="task-txt done" contenteditable="false">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</div>
+                    <div class="t-sd">
+                      18 Mar 2026
+                    </div>
+                    <div class="t-ed">
+                      18 Mar 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 0)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 1, this.checked)" title="Mark as done">
+                    <div class="task-txt done" contenteditable="false">SAT รอบที่ 1</div>
+                    <div class="t-sd">
+                      18 Mar 2026
+                    </div>
+                    <div class="t-ed">
+                      18 Mar 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 1)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 2, this.checked)" title="Mark as done">
+                    <div class="task-txt done" contenteditable="false">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</div>
+                    <div class="t-sd">
+                      25 Apr 2026
+                    </div>
+                    <div class="t-ed">
+                      25 Apr 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 2)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 3, this.checked)" title="Mark as done">
+                    <div class="task-txt done" contenteditable="false">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation
+                    </div>
+                    <div class="t-sd">
+                      2 May 2026
+                    </div>
+                    <div class="t-ed">
+                      2 May 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 3)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 4, this.checked)" title="Mark as done">
+                    <div class="task-txt " contenteditable="false">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 4)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 5, this.checked)" title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Training</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 5)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 6, this.checked)" title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Handover Document</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 6)" style="display:none">×</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="det-pager">
+
+            <button class="back-btn" onclick="openDetail(1)">2 →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="view" id="v-tl" style="">
+        <div class="vhdr">
+          <div>
+            <div class="vtitle">PROJECT TIMELINE</div>
+            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ▶ Today: <span class="curr-date-long">4 May 2026</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long">4 May 2026</span></div>
+            <!-- Filter Button -->
+            <div class="gantt-filter-wrap">
+              <button class="gantt-filter-btn" id="gantt-filter-btn" onclick="toggleFilterPanel()">
+                ☰ Filter Projects
+                <span class="badge-count" id="gantt-filter-count">0</span>
+              </button>
+              <div class="gantt-filter-panel" id="gantt-filter-panel">
+                <div class="gfp-head">
+                  Projects
+                  <div class="gfp-head-btns">
+                    <button onclick="setAllFilter(true)">All</button>
+                    <button onclick="setAllFilter(false)">None</button>
+                  </div>
+                </div>
+                <div class="gfp-list" id="gantt-filter-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="gantt-container">
+          <div id="gantt-labels-wrap">
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="412" height="544" viewBox="0 0 412 544"><rect x="0" y="0" width="412" height="544" fill="#F8FAFC"></rect><rect x="0" y="0" width="412" height="30" fill="#EDF2F7"></rect><line x1="0" y1="30" x2="412" y2="30" stroke="#CBD5E1" stroke-width="1"></line><rect x="0" y="36" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="74" x2="412" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="56" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Line Q</text><circle cx="399" cy="55" r="4.5" fill="#475569"></circle><rect x="0" y="74" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="112" x2="412" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="94" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="94" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">2</text><text x="78" y="94" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection Cap&amp;Level line Q (1 M/C)</text><circle cx="399" cy="93" r="4.5" fill="#475569"></circle><rect x="0" y="112" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="150" x2="412" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="132" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="132" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">3</text><text x="78" y="132" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection sleeve, external code and sticker line Q (2 M/C)</text><circle cx="399" cy="131" r="4.5" fill="#475569"></circle><rect x="0" y="150" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="188" x2="412" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="170" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="170" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">4</text><text x="78" y="170" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line P to Data Tank</text><circle cx="399" cy="169" r="4.5" fill="#475569"></circle><rect x="0" y="188" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="226" x2="412" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="208" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="208" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">5</text><text x="78" y="208" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line Q to Data Tank</text><circle cx="399" cy="207" r="4.5" fill="#475569"></circle><rect x="0" y="226" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="264" x2="412" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="246" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="246" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">6</text><text x="78" y="246" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System E</text><circle cx="399" cy="245" r="4.5" fill="#475569"></circle><rect x="0" y="264" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="302" x2="412" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="284" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="284" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">7</text><text x="78" y="284" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System C</text><circle cx="399" cy="283" r="4.5" fill="#6D28D9"></circle><rect x="0" y="302" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="340" x2="412" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="322" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="322" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">8</text><text x="78" y="322" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System D</text><circle cx="399" cy="321" r="4.5" fill="#6D28D9"></circle><rect x="0" y="340" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="378" x2="412" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="360" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="360" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">9</text><text x="78" y="360" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection Cap: Line C, D, E, P</text><circle cx="399" cy="359" r="4.5" fill="#6D28D9"></circle><rect x="0" y="378" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="416" x2="412" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="398" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="398" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">10</text><text x="78" y="398" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection External Code: Line C, D, E</text><circle cx="399" cy="397" r="4.5" fill="#6D28D9"></circle><rect x="0" y="416" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="454" x2="412" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="436" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="436" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">11</text><text x="78" y="436" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Carton Coding ↔ Data Tank</text><circle cx="399" cy="435" r="4.5" fill="#6D28D9"></circle><rect x="0" y="454" width="412" height="38" fill="#F1F5F9"></rect><line x1="0" y1="492" x2="412" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="474" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="474" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">12</text><text x="78" y="474" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Carton Counting System to Data Tank</text><circle cx="399" cy="473" r="4.5" fill="#6D28D9"></circle><rect x="0" y="492" width="412" height="38" fill="#F8FAFC"></rect><line x1="0" y1="530" x2="412" y2="530" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="512" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="512" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">13</text><text x="78" y="512" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Customer Coding (Bottle) ↔ Data Tank</text><circle cx="399" cy="511" r="4.5" fill="#6D28D9"></circle></svg>
+            <div class="gantt-resizer" id="gantt-resizer"></div>
+          </div>
+          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="600" height="544" viewBox="0 0 600 544"><rect x="0" y="0" width="600" height="544" fill="#FFFFFF"></rect><rect x="0" y="0" width="600" height="30" fill="#F1F5F9"></rect><line x1="0" y1="30" x2="600" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text><line x1="75" y1="0" x2="75" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="150" y="0" width="75" height="544" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Apr 26</text><line x1="150" y1="0" x2="150" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">May 26</text><line x1="225" y1="0" x2="225" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jun 26</text><line x1="300" y1="0" x2="300" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jul 26</text><line x1="375" y1="0" x2="375" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Aug 26</text><line x1="450" y1="0" x2="450" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Sept 26</text><line x1="525" y1="0" x2="525" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="0" y="36" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="74" x2="600" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="45" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="120" y="45" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="120" y="45" width="332.5" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% — รอ Supplier ส่งแผน SAT รอบที่ 2</text><rect x="0" y="74" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="112" x2="600" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="83" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="120" y="83" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="120" y="83" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="94" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text><rect x="0" y="112" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="150" x2="600" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="152.5" y="121" width="222.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="152.5" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="152.5" y="121" width="222.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="165.5" y="132" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text><rect x="0" y="150" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="188" x2="600" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="159" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="182.50000000000003" y="159" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="182.50000000000003" y="159" width="192.49999999999997" height="20" fill="none" stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="170" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</text><rect x="0" y="188" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="226" x2="600" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="197" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="182.50000000000003" y="197" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="182.50000000000003" y="197" width="192.49999999999997" height="20" fill="none" stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="208" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</text><rect x="0" y="226" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="264" x2="600" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="235" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="235" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="235" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="246" dominant-baseline="middle" fill="hsl(12, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% — Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว</text><rect x="0" y="264" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="302" x2="600" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="273" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="273" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text><rect x="0" y="302" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="340" x2="600" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="311" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="311" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="311" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="322" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text><rect x="0" y="340" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="378" x2="600" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="378" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="416" x2="600" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="416" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="454" x2="600" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="454" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="492" x2="600" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="492" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="530" x2="600" y2="530" stroke="#F1F5F9" stroke-width="0.7"></line><line x1="235" y1="0" x2="235" y2="544" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"></line><text x="239" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">TODAY</text></svg></div>
+        </div>
+        <div class="tl-leg">
+          <span style="font-family:var(--fm);font-size:9px;color:var(--t4);letter-spacing:.18em">LEGEND</span>
+          <div class="leg">
+            <div class="leg-sq" style="background:#3B82F6"></div>Machine
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#8B5CF6"></div>System Integration
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#DC2626;width:2px;height:14px;border-radius:1px"></div>Today
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#8B5CF6;opacity:.3"></div>Study the project
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#EA580C;opacity:.5"></div>Project List
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#94A3B8"></div>No Status
+          </div>
+          <div class="leg" style="font-family:var(--fm);font-size:11px">▶ = TBD end</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══ EDIT MODE CONTROLS ══ -->
+  <div id="edit-ctrls" style="display: flex; position: fixed; bottom: 20px; right: 28px; z-index: 9999; background: var(--sb); color: rgb(255, 255, 255); padding: 12px 20px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 25px; align-items: center; gap: 15px; border: 1px solid var(--sb-bdr);">
+    <div style="font-size:12px;font-weight:600;color:var(--sb-t);letter-spacing:0.05em">EDIT MODE ACTIVE</div>
+    <button onclick="saveAllChanges()" style="background: rgb(93, 184, 244); color: rgb(15, 29, 46); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 6px 16px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; transition: transform 0.1s; transform: scale(1);" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">SAVE ALL
+      CHANGES</button>
+    <button onclick="exportAsHTML()" style="background:var(--green);color:#fff;border:none;padding:6px 16px;border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;transition:transform 0.1s">EXPORT
+      AS HTML</button>
+    <button onclick="toggleEditMode()" style="background:transparent;border:1px solid var(--sb-bdr);color:var(--sb-t);padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer">CANCEL</button>
+  </div>
+
+  <style>
+    /* Edit Mode Styles */
+    [contenteditable="true"] {
+      outline: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: text;
+    }
+
+    .edit-on [contenteditable="true"]:hover {
+      background: rgba(93, 184, 244, 0.1);
+      box-shadow: 0 0 0 2px rgba(93, 184, 244, 0.2);
+    }
+
+    .edit-on [contenteditable="true"]:focus {
+      background: #fff;
+      box-shadow: 0 0 0 2px #5DB8F4;
+      color: #000 !important;
+    }
+
+    .sb-edit-btn {
+      margin-top: auto;
+      padding: 16px 18px;
+      border-top: 1px solid var(--sb-bdr);
+    }
+
+    .edit-btn {
+      width: 100%;
+      padding: 10px;
+      background: var(--sb2);
+      border: 1px solid var(--sb-bdr);
+      color: var(--sb-t);
+      border-radius: 6px;
+      font-family: var(--fm);
+      font-size: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .edit-btn:hover {
+      background: var(--sb3);
+      color: var(--sb-ta);
+    }
+
+    .edit-on .edit-btn {
+      background: #5DB8F4;
+      color: #0F1D2E;
+      border-color: #5DB8F4;
+    }
+
+    .pj-ctrls {
+      display: none;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
+    }
+
+    .edit-on .pj-ctrls {
+      display: flex;
+    }
+
+    .pj-ctrl-btn {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--sb3);
+      border: 1px solid var(--sb-bdr);
+      color: var(--sb-t);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 10px;
+      transition: all 0.1s;
+    }
+
+    .pj-ctrl-btn:hover {
+      background: #5DB8F4;
+      color: #0F1D2E;
+    }
+
+    .pj-ctrl-btn.del:hover {
+      background: #EF4444;
+      color: #fff;
+      border-color: #EF4444;
+    }
+
+    .sb-list-item {
+      transition: all 0.2s;
+      border-radius: 7px;
+      margin-bottom: 2px;
+    }
+
+    .sb-list-item.drag-over {
+      border-top: 2px solid #5DB8F4;
+    }
+
+    /* ── TASK DRAGGING ── */
+    .task-item.dragging {
+      opacity: 0.4;
+      background: var(--blue-s) !important;
+      border: 1px dashed var(--blue);
+    }
+
+    .task-item.drag-over {
+      border-top: 2px solid var(--blue) !important;
+    }
+
+    .sb-sect-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 6px;
+    }
+
+    .add-pj-btn {
+      background: transparent;
+      border: 1px dashed var(--sb-t);
+      color: var(--sb-t);
+      border-radius: 4px;
+      width: 18px;
+      height: 18px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .edit-on .add-pj-btn {
+      display: flex;
+    }
+
+    .add-pj-btn:hover {
+      border-color: #5DB8F4;
+      color: #5DB8F4;
+    }
+  </style>
+
+  <script>
+    // ── STATE ──
+    let editMode = false;
+    let currentProjectIndex = -1;
+    let ganttFilter = null; // null = show all; Set = show only matching indices
+    let expandedProjects = new Set(); // Set of indices that are expanded in Gantt
+
+    // ── DATA ──
+    const DEFAULT_P = [
+  {
+    "num": "1",
+    "rank": "B",
+    "name": "Contaminate Inspection Line Q",
+    "sub": "",
+    "loc": "Line Q",
+    "status": "รอ Supplier ส่งแผน SAT รอบที่ 2",
+    "pct": 90,
+    "io": "TBD",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "New project impact",
+    "lead": "",
+    "start": "18 Mar 2026",
+    "finish": "31 Jul 2026",
+    "sd": "2026-03-18T00:00:00.000Z",
+    "fd": "2026-07-31T00:00:00.000Z",
+    "note": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
+    "tasks": [
+      {
+        "txt": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
+        "done": true,
+        "sd": "2026-03-18",
+        "ed": "2026-03-18",
+        "pct": 100
+      },
+      {
+        "txt": "SAT รอบที่ 1",
+        "done": true,
+        "sd": "2026-03-18",
+        "ed": "2026-03-18",
+        "pct": 100
+      },
+      {
+        "txt": "ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2",
+        "done": true,
+        "sd": "2026-04-25",
+        "ed": "2026-04-25",
+        "pct": 100
+      },
+      {
+        "txt": "ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation",
+        "done": true,
+        "sd": "2026-05-02",
+        "ed": "2026-05-02",
+        "pct": 100
+      },
+      {
+        "txt": "SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Training",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Handover Document",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "2",
+    "rank": "B",
+    "name": "Inspection Cap&Level line Q (1 M/C)",
+    "sub": "",
+    "loc": "Line Q",
+    "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
+    "pct": 70,
+    "io": "TBD",
+    "size": "Small",
+    "type": "Machine",
+    "impact": "New project impact",
+    "lead": "",
+    "start": "18 Mar 2026",
+    "finish": "30 Jun 2026",
+    "sd": "2026-03-18T00:00:00.000Z",
+    "fd": "2026-06-30T00:00:00.000Z",
+    "note": "Install Machine On Site",
+    "tasks": [
+      {
+        "txt": "Install Machine On Site",
+        "done": true,
+        "sd": "2026-03-18",
+        "ed": "2026-04-30",
+        "pct": 100
+      },
+      {
+        "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 50
+      },
+      {
+        "txt": "Site Acceptance Test",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Training",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Handover Document",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "3",
+    "rank": "B",
+    "name": "Inspection sleeve, external code and sticker line Q (2 M/C)",
+    "sub": "",
+    "loc": "Line Q",
+    "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
+    "pct": 70,
+    "io": "-",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "New project impact",
+    "lead": "",
+    "start": "1 Apr 2026",
+    "finish": "30 Jun 2026",
+    "sd": "2026-04-01T00:00:00.000Z",
+    "fd": "2026-06-30T00:00:00.000Z",
+    "note": "Install Machine On Site",
+    "tasks": [
+      {
+        "txt": "Install Machine On Site",
+        "done": true,
+        "sd": "2026-03-18",
+        "ed": "2026-04-30",
+        "pct": 100
+      },
+      {
+        "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 50
+      },
+      {
+        "txt": "Site Acceptance Test",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Training",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Handover Document",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "4",
+    "rank": "B",
+    "name": "Connect Machine Data: Line P to Data Tank",
+    "sub": "",
+    "loc": "Line P",
+    "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
+    "pct": 65,
+    "io": "1200333/882000000297-(0-10)",
+    "size": "Medium",
+    "type": "System Integration",
+    "impact": "Centralize capacity monitoring & control for optimized new factory startup",
+    "lead": "",
+    "start": "13 Apr 2026",
+    "finish": "30 Jun 2026",
+    "note": "Create Kepware Tag",
+    "sd": "2026-04-13T00:00:00.000Z",
+    "fd": "2026-06-30T00:00:00.000Z",
+    "tasks": [
+      {
+        "txt": "Create Kepware Tag",
+        "done": true,
+        "sd": "2026-04-27",
+        "ed": "2026-04-27",
+        "pct": 100
+      },
+      {
+        "txt": "Send Requirement To Integra",
+        "done": true,
+        "sd": "2026-04-28",
+        "ed": "2026-04-28",
+        "pct": 100
+      },
+      {
+        "txt": "Send Requirement To Techlong",
+        "done": true,
+        "sd": "2026-04-30",
+        "ed": "2026-04-30",
+        "pct": 100
+      },
+      {
+        "txt": "เข้าตรวจสอบ IP Address PLC UHT High Care (Ping ไม่เจอ)",
+        "done": false,
+        "sd": "2026-05-04",
+        "ed": "2026-05-05",
+        "pct": 0
+      },
+      {
+        "txt": "ทดสอบความถูกต้อง Data Techlong",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "ทดสอบความถูกต้อง Data Integra",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "5",
+    "rank": "B",
+    "name": "Connect Machine Data: Line Q to Data Tank",
+    "sub": "",
+    "loc": "Line Q",
+    "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
+    "pct": 65,
+    "io": "1200345",
+    "size": "Small",
+    "type": "System Integration",
+    "impact": "OEE Up",
+    "lead": "",
+    "start": "13 Apr 2026",
+    "finish": "30 Jun 2026",
+    "note": "Create Kepware Tag",
+    "sd": "2026-04-13T00:00:00.000Z",
+    "fd": "2026-06-30T00:00:00.000Z",
+    "tasks": [
+      {
+        "txt": "Create Kepware Tag",
+        "done": true,
+        "sd": "2026-04-27",
+        "ed": "2026-04-28",
+        "pct": 100
+      },
+      {
+        "txt": "Send Requirement To Techlong",
+        "done": true,
+        "sd": "2026-04-30",
+        "ed": "2026-04-30",
+        "pct": 100
+      },
+      {
+        "txt": "Tetra Pack เข้ามาเพิ่ม PLC Tag & Connect Kepware 05-may-2026",
+        "done": false,
+        "sd": "2026-05-05",
+        "ed": "2026-05-07",
+        "pct": 0
+      },
+      {
+        "txt": "ทดสอบความถูกต้อง Data Tetra Pack",
+        "done": false,
+        "sd": "2026-05-05",
+        "ed": "2026-05-07",
+        "pct": 0
+      },
+      {
+        "txt": "ทดสอบความถูกต้อง Data Techlong",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "6",
+    "rank": "AA",
+    "name": "Contaminate Inspection Vision System E",
+    "sub": "Priority No. 01 — Highest Priority",
+    "loc": "Line E",
+    "status": "Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว",
+    "pct": 10,
+    "io": "1200313/882000000218-0",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "Compliance / Foreign body contaminations down",
+    "lead": "",
+    "start": "20 Apr 2026",
+    "finish": "28 Aug 2026",
+    "note": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
+    "sd": "2026-04-20T00:00:00.000Z",
+    "fd": "2026-08-28T00:00:00.000Z",
+    "tasks": [
+      {
+        "txt": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
+        "done": false,
+        "sd": "2026-04-30",
+        "ed": "2026-04-30",
+        "pct": 0
+      },
+      {
+        "txt": "Demo",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "7",
+    "rank": "AA",
+    "name": "Contaminate Inspection Vision System C",
+    "sub": "Priority No. 03",
+    "loc": "Line C",
+    "status": "Study Project",
+    "pct": 0,
+    "io": "1200313/882000000218-0",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "Compliance / Foreign body contaminations down",
+    "lead": "",
+    "start": "20 Apr 2026",
+    "finish": "28 Aug 2026",
+    "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.",
+    "sd": "2026-04-20T00:00:00.000Z",
+    "fd": "2026-08-28T00:00:00.000Z",
+    "tasks": []
+  },
+  {
+    "num": "8",
+    "rank": "AA",
+    "name": "Contaminate Inspection Vision System D",
+    "sub": "Priority No. 02",
+    "loc": "Line D",
+    "status": "Study Project",
+    "pct": 0,
+    "io": "1200313/882000000218-0",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "Compliance / Foreign body contaminations down",
+    "lead": "",
+    "start": "20 Apr 2026",
+    "finish": "28 Aug 2026",
+    "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO.",
+    "sd": "2026-04-20T00:00:00.000Z",
+    "fd": "2026-08-28T00:00:00.000Z",
+    "tasks": [
+      {
+        "txt": "Sub-project of Vision System (Project 6). Budget shared under parent IO.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "9",
+    "rank": "AA",
+    "name": "Inspection Cap: Line C, D, E, P",
+    "sub": "",
+    "loc": "Build B",
+    "status": "IE Study Project",
+    "pct": 0,
+    "io": "Pending",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "Compliance / Foreign body contaminations down",
+    "lead": "",
+    "start": "",
+    "finish": "",
+    "note": "Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.",
+    "sd": null,
+    "fd": null,
+    "tasks": [
+      {
+        "txt": "Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "10",
+    "rank": "AA",
+    "name": "Inspection External Code: Line C, D, E",
+    "sub": "",
+    "loc": "Build B",
+    "status": "IE Study Project",
+    "pct": 0,
+    "io": "Pending — memo not written",
+    "size": "Medium",
+    "type": "Machine",
+    "impact": "Compliance / Foreign body contaminations down",
+    "lead": "",
+    "start": "",
+    "finish": "",
+    "note": "Waiting for IE team study. Project memo not yet written. No IO number assigned.",
+    "sd": null,
+    "fd": null,
+    "tasks": [
+      {
+        "txt": "Waiting for IE team study. Project memo not yet written. No IO number assigned.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "11",
+    "rank": "AA",
+    "name": "Install Interface: Carton Coding ↔ Data Tank",
+    "sub": "",
+    "loc": "Build B",
+    "status": "IE Study Project",
+    "pct": 0,
+    "io": "Pending",
+    "size": "Small",
+    "type": "System Integration",
+    "impact": "Centralize capacity monitoring & control for new factory startup",
+    "lead": "",
+    "start": "",
+    "finish": "",
+    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+    "sd": null,
+    "fd": null,
+    "tasks": [
+      {
+        "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "12",
+    "rank": "AA",
+    "name": "Install Carton Counting System to Data Tank",
+    "sub": "",
+    "loc": "Build B",
+    "status": "IE Study Project",
+    "pct": 0,
+    "io": "Pending",
+    "size": "Medium",
+    "type": "System Integration",
+    "impact": "Centralize capacity monitoring & control for new factory startup",
+    "lead": "",
+    "start": "",
+    "finish": "",
+    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+    "sd": null,
+    "fd": null,
+    "tasks": [
+      {
+        "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  },
+  {
+    "num": "13",
+    "rank": "AA",
+    "name": "Install Interface: Customer Coding (Bottle) ↔ Data Tank",
+    "sub": "",
+    "loc": "Build B",
+    "status": "IE Study Project",
+    "pct": 0,
+    "io": "Pending",
+    "size": "Small",
+    "type": "System Integration",
+    "impact": "Centralize capacity monitoring & control for new factory startup",
+    "lead": "",
+    "start": "",
+    "finish": "",
+    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+    "sd": null,
+    "fd": null,
+    "tasks": [
+      {
+        "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      }
+    ]
+  }
+];
+
+    let P = JSON.parse(localStorage.getItem('P_DATA')) || JSON.parse(JSON.stringify(DEFAULT_P));
+
+    // ── SIDEBAR RESIZE ──
+    let sbWidth = localStorage.getItem('SB_WIDTH') || '280';
+    let gtWidth = localStorage.getItem('GT_WIDTH') || '360';
+    document.documentElement.style.setProperty('--sb-width', sbWidth + 'px');
+    document.documentElement.style.setProperty('--gt-label-width', gtWidth + 'px');
+
+    function initResizer() {
+      const sbResizer = document.getElementById('sb-resizer');
+      const gtResizer = document.getElementById('gantt-resizer');
+      let resizeType = null; // 'sb' or 'gt'
+
+      const startResize = (e, type) => {
+        resizeType = type;
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+      };
+
+      if (sbResizer) sbResizer.addEventListener('mousedown', (e) => startResize(e, 'sb'));
+      if (gtResizer) gtResizer.addEventListener('mousedown', (e) => startResize(e, 'gt'));
+
+      window.addEventListener('mousemove', (e) => {
+        if (!resizeType) return;
+
+        if (resizeType === 'sb') {
+          let newWidth = e.clientX;
+          if (newWidth < 200) newWidth = 200;
+          if (newWidth > 600) newWidth = 600;
+          document.documentElement.style.setProperty('--sb-width', newWidth + 'px');
+          sbWidth = newWidth;
+        } else {
+          // For Gantt, calculate relative to the container? No, just mouse X minus sidebar
+          const container = document.getElementById('gantt-container');
+          const rect = container.getBoundingClientRect();
+          let newWidth = e.clientX - rect.left;
+          if (newWidth < 150) newWidth = 150;
+          if (newWidth > 1000) newWidth = 1000;
+          document.documentElement.style.setProperty('--gt-label-width', newWidth + 'px');
+          gtWidth = newWidth;
+        }
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!resizeType) return;
+        const type = resizeType;
+        resizeType = null;
+        document.body.style.cursor = 'default';
+        document.body.style.userSelect = 'auto';
+
+        if (type === 'sb') {
+          localStorage.setItem('SB_WIDTH', sbWidth);
+        } else {
+          localStorage.setItem('GT_WIDTH', gtWidth);
+          buildGantt();
+        }
+      });
+    }
+    window.addEventListener('DOMContentLoaded', initResizer);
+
+    // ── GLOBAL META ──
+    let META = {
+  "logo": "Project Dashboard",
+  "title": "PROGRESS<br><b>UPDATE</b>",
+  "sub": "RESPONSIBLE: PAGORN<br>4 MAY 2026",
+  "chip": "ACCOUNTABLE: CHAINARA"
+};
+
+    // FORCE UPDATE: ล้างชื่อเก่าออกจากความจำเครื่องคุณ
+    if (META.chip && (META.chip.includes('PANKAJ') || META.chip.includes('Chainara'))) {
+      META.chip = 'ACCOUNTABLE: CHAINARA';
+      localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
+    }
+
+    function loadMeta() {
+      const logoEl = document.querySelector('.sb-logo');
+      const titleEl = document.querySelector('.sb-title');
+      const subEl = document.querySelector('.sb-sub');
+      const chipEl = document.querySelector('.sb-chip');
+      if (logoEl) logoEl.innerHTML = META.logo;
+      if (titleEl) titleEl.innerHTML = META.title;
+      if (subEl) subEl.innerHTML = META.sub;
+      if (chipEl) chipEl.innerHTML = META.chip;
+
+      // Update all current date spans
+      const now = new Date();
+      const longDate = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      document.querySelectorAll('.curr-date-long').forEach(el => el.textContent = longDate);
+    }
+
+    // Restore Date objects if loaded from localStorage
+    P.forEach(p => {
+      if (p.sd) p.sd = new Date(p.sd);
+      if (p.fd) p.fd = new Date(p.fd);
+    });
+
+    function saveData() {
+      localStorage.setItem('P_DATA', JSON.stringify(P));
+      localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
+    }
+
+    function stInfo(s) {
+      if (!s || !s.trim()) return { c: '#475569', bg: '#F1F5F9', label: 'No Status' };
+      const l = s.toLowerCase();
+      if (l.includes('on track')) return { c: '#047857', bg: '#ECFDF5', label: s };
+      if (l.includes('delay') || l.includes('risk')) return { c: '#B91C1C', bg: '#FEF2F2', label: s };
+      if (l.includes('study')) return { c: '#6D28D9', bg: '#F5F3FF', label: s };
+      if (l.includes('project list')) return { c: '#C2410C', bg: '#FFF7ED', label: s };
+      if (l.includes('handover') || l.includes('complete')) return { c: '#047857', bg: '#ECFDF5', label: s };
+      // Fallback for custom text: use the text itself with a neutral color
+      return { c: '#475569', bg: '#F1F5F9', label: s };
+    }
+
+    // ── SIDEBAR LIST ──
+    let draggedIdx = -1;
+
+    function buildSidebar(filterText = '') {
+      const sbList = document.getElementById('sb-list');
+      const countEl = document.getElementById('pj-count');
+      const filtered = P.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()) || p.num.includes(filterText));
+
+      if (countEl) countEl.textContent = filtered.length;
+      sbList.innerHTML = '';
+      filtered.forEach((p, i) => {
+        const originalIdx = P.indexOf(p);
+        const st = stInfo(p.status);
+        const item = document.createElement('div');
+        item.className = 'sb-list-item stagger-item';
+        item.style.setProperty('--i', i);
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.paddingRight = '8px';
+
+        if (editMode) {
+          item.draggable = true;
+          item.style.cursor = 'grab';
+          item.ondragstart = (e) => {
+            draggedIdx = i;
+            item.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+          };
+          item.ondragend = () => item.classList.remove('dragging');
+          item.ondragover = (e) => {
+            e.preventDefault();
+            item.classList.add('drag-over');
+          };
+          item.ondragleave = () => item.classList.remove('drag-over');
+          item.ondrop = (e) => {
+            e.preventDefault();
+            item.classList.remove('drag-over');
+            if (draggedIdx !== i) {
+              const movedItem = P.splice(draggedIdx, 1)[0];
+              P.splice(i, 0, movedItem);
+              saveData();
+              refreshAllViews();
+            }
+          };
+        }
+
+        const btn = document.createElement('button');
+        btn.className = 'pj-btn'; btn.id = `pb${originalIdx}`;
+        btn.style.flex = '1';
+        btn.innerHTML = `<span class="pj-num">${p.num}</span><span class="pj-nm">${p.name}</span><span class="pj-dot" style="background:${st.c}"></span>`;
+        btn.onclick = () => openDetail(originalIdx);
+
+        item.appendChild(btn);
+
+        if (editMode) {
+          const ctrls = document.createElement('div');
+          ctrls.className = 'pj-ctrls';
+          ctrls.innerHTML = `
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(${i})" title="Delete Project">×</button>
+      `;
+          item.appendChild(ctrls);
+        }
+
+        sbList.appendChild(item);
+      });
+    }
+    buildSidebar();
+
+    function addNewProject() {
+      const nextNum = P.length > 0 ? (parseFloat(P[P.length - 1].num) + 1).toFixed(1) : "1.0";
+      const newP = {
+        num: nextNum, rank: 'B', name: 'New Project Name', sub: '',
+        loc: 'TBD', status: 'No Status', pct: 0, io: 'TBD', size: 'Small', type: 'Machine',
+        impact: 'New project impact', lead: 'TBD', start: '—', finish: '—',
+        sd: null, fd: null, note: 'Added on ' + new Date().toLocaleDateString()
+      };
+      P.push(newP);
+      saveData();
+      refreshAllViews();
+      openDetail(P.length - 1); // Open the new project
+    }
+
+    function moveProject(idx, dir) {
+      const newIdx = idx + dir;
+      if (newIdx < 0 || newIdx >= P.length) return;
+      const temp = P[idx];
+      P[idx] = P[newIdx];
+      P[newIdx] = temp;
+      saveData();
+      refreshAllViews();
+    }
+
+    function deleteProject(idx) {
+      if (!confirm('Are you sure you want to delete this project?')) return;
+      P.splice(idx, 1);
+      if (currentProjectIndex === idx) currentProjectIndex = -1;
+      else if (currentProjectIndex > idx) currentProjectIndex--;
+      saveData();
+      refreshAllViews();
+      if (currentProjectIndex === -1) gotoView('ov');
+    }
+
+    // ── BADGE HTML ──
+    function badge(s, big) {
+      const st = stInfo(s);
+      const sz = big ? 'font-size:13px;padding:5px 13px' : '';
+      return `<span class="badge" style="color:${st.c};background:${st.bg};${sz}">${st.label}</span>`;
+    }
+
+    function getPctColor(pct) {
+      // 0 = red (0), 120 = green (120)
+      const hue = Math.min(120, (pct || 0) * 1.2);
+      return `hsl(${hue}, 70%, 40%)`;
+    }
+
+    // ── OVERVIEW ──
+    function buildOverview() {
+      const mC = P.filter(p => p.type === 'Machine').length;
+      const sC = P.filter(p => p.type === 'System Integration' || p.type === 'System Integrate').length;
+
+      // Calculate progress only for projects with a Start Date
+      const startedProjects = P.filter(p => p.start && p.start.trim() !== '');
+      const sumPct = startedProjects.reduce((acc, p) => acc + (parseInt(p.pct) || 0), 0);
+      const avgPct = startedProjects.length > 0 ? Math.round(sumPct / startedProjects.length) : 0;
+
+      document.getElementById('ov-body').innerHTML = `
+    <div class="stat-row">
+      <div class="sc"><div class="sc-lbl">Total Projects</div><div class="sc-val">${P.length}</div><div class="sc-note">Responsible: Pagorn</div></div>
+      <div class="sc"><div class="sc-lbl">Machine</div><div class="sc-val" style="color:var(--blue)">${mC}</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">System Integrate</div><div class="sc-val" style="color:var(--purple)">${sC}</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">Progress</div><div class="sc-val" style="color:${getPctColor(avgPct)}">${avgPct}%</div><div class="sc-note">Based on ${startedProjects.length} started</div></div>
+    </div>
+    <div class="sec-hdr">
+      <div class="sec-title">ALL PROJECTS</div>
+      <div class="sec-hint">Click any row to view detail →</div>
+    </div>
+    <table class="ptbl" style="width: 100%; table-layout: auto;">
+      <thead><tr>
+        <th style="width:50px">No.</th>
+        <th style="width:400px">Project Name</th>
+        <th style="width:120px; white-space:nowrap">Start</th>
+        <th style="width:120px; white-space:nowrap">Finish</th>
+        <th style="width:110px; text-align:center">% Complete</th>
+        <th style="width:auto">Status</th>
+      </tr></thead>
+      <tbody>
+        ${P.map((p, i) => `
+        <tr onclick="openDetail(${i})" class="stagger-item" style="--i: ${i}">
+          <td class="td-no">${p.num}</td>
+          <td class="td-nm">${p.name}${p.sub ? `<small>${p.sub}</small>` : ''}</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">${p.start}</td>
+          <td style="font-family:var(--fm);font-size:12px; color:${p.finish === 'TBD' ? 'var(--amber)' : 'var(--t2)'}; white-space:nowrap">${p.finish}</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:${p.pct}%;height:100%;background:${getPctColor(p.pct)}"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${getPctColor(p.pct)};min-width:30px">${p.pct}%</span>
+            </div>
+          </td>
+          <td>${badge(p.status)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+    }
+    buildOverview();
+
+    // ── DETAIL ──
+    function openDetail(i) {
+      currentProjectIndex = i;
+      const p = P[i]; const st = stInfo(p.status);
+      const tC = p.type === 'Machine' ? 'var(--blue)' : 'var(--purple)';
+
+      // sidebar highlight
+      document.querySelectorAll('.pj-btn').forEach((b, j) => b.classList.toggle('on', j === i));
+      document.getElementById('det-nav').textContent = `${i + 1} of ${P.length}`;
+
+      const ed = editMode ? 'contenteditable="true" spellcheck="false"' : '';
+
+      document.getElementById('det-hdr').innerHTML = `
+    <div class="dhdr-row">
+      <div class="dhdr-left">
+        <span class="d-lbl">PROJECT</span>
+        <span class="d-num" data-key="num" ${ed}>${p.num}</span>
+        <div>
+          <div class="d-name" data-key="name" ${ed}>${p.name}</div>
+          <div class="d-sub" data-key="sub" ${ed} style="${!p.sub && editMode ? 'min-height:1em;background:#f0f0f0' : ''}">${p.sub || ''}</div>
+        </div>
+      </div>
+      <div class="rank-tag" data-key="rank" ${ed}>${p.rank}</div>
+    </div>`;
+
+      document.getElementById('det-body').innerHTML = `
+    <div class="igrid">
+      <div class="irow c3">
+        <div class="icell"><div class="ilab">IO / AUC</div><div class="ival mono" data-key="io" ${ed}>${p.io}</div></div>
+        <div class="icell">
+          <div class="ilab">Start Date</div>
+          ${editMode
+          ? `<input type="date" class="ival-date blue" data-key="start" value="${fmtInputDate(p.sd)}">`
+          : `<div class="ival blue">${fmtDate(p.sd)}</div>`
+        }
+        </div>
+        <div class="icell">
+          <div class="ilab">Finish Date</div>
+          ${editMode
+          ? `<input type="date" class="ival-date am" data-key="finish" value="${fmtInputDate(p.fd)}">`
+          : `<div class="ival am">${p.fd ? fmtDate(p.fd) : 'TBD'}</div>`
+        }
+        </div>
+      </div>
+      <div class="irow c4">
+        <div class="icell"><div class="ilab">Location</div><div class="ival" data-key="loc" ${ed}>${p.loc}</div></div>
+        <div class="icell"><div class="ilab">Size</div><div class="ival" data-key="size" ${ed}>${p.size}</div></div>
+        <div class="icell"><div class="ilab">Type</div><div class="ival" data-key="type" ${ed} style="color:${tC}">${p.type}</div></div>
+        <div class="icell"><div class="ilab">Lead Time</div><div class="ival" data-key="lead" ${ed}>${p.lead}</div></div>
+      </div>
+      <div class="icell-full"><div class="ilab">Impact / Goal</div><div class="ival blue sm" data-key="impact" ${ed}>${p.impact}</div></div>
+    </div>
+
+    <div class="igrid">
+      <div class="irow c12">
+        <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
+          <div class="ilab">Status</div>
+          <div style="margin-top:6px; ${editMode ? 'background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text' : ''}" 
+            data-key="status" ${ed}>${editMode ? (p.status || '') : badge(p.status, true)}</div>
+        </div>
+        <div class="icell">
+          <div class="ilab">Progress</div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
+            <span class="pct" data-key="pct" ${ed} style="color:${getPctColor(p.pct)}">${p.pct}%</span>
+            <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">${p.pct === 100 ? 'Completed' : p.pct > 0 ? 'In Progress' : 'Not started'}</span>
+          </div>
+          <div class="pbar"><div class="pfill" style="width:${p.pct}%; background:${getPctColor(p.pct)}"></div></div>
+          <div class="pnote">Current progress as of ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="igrid">
+      <div class="note-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div class="note-lab">TASKS</div>
+          <button class="add-task-btn" onclick="addTask(${i})" style="display:${editMode ? 'flex' : 'none'}">+</button>
+        </div>
+        <div class="task-grid">
+          <div class="task-hrow">
+            <div></div>
+            <div>Task Description</div>
+            <div>Start Date</div>
+            <div>Finish Date</div>
+            <div style="text-align:center">%</div>
+            <div></div>
+          </div>
+          <div id="task-list">
+            ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '—', ed: '—', pct: 0 }] : [])).map((t, ti) => `
+              <div class="task-item" ${editMode ? 'draggable="true" ondragstart="startTaskDrag(event, ' + ti + ')" ondragover="event.preventDefault(); this.classList.add(\'drag-over\')" ondragleave="this.classList.remove(\'drag-over\')" ondrop="dropTask(event, ' + ti + ')"' : ''}>
+                <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
+                  onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
+                <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
+                <div class="t-sd">
+                  ${editMode
+            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.sd)}" data-task-field="sd">`
+            : fmtDate(t.sd)
+          }
+                </div>
+                <div class="t-ed">
+                  ${editMode
+            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.ed)}" data-task-field="ed">`
+            : fmtDate(t.ed)
+          }
+                </div>
+                <div class="t-pct-wrap"><span class="t-pct" contenteditable="${editMode}">${t.pct || 0}</span>%</div>
+                <button class="del-task-btn" onclick="delTask(${i}, ${ti})" 
+                  style="display:${editMode ? 'block' : 'none'}">×</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="det-pager">
+      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})">← ${P[i - 1].num}</button>` : ''}
+      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num} →</button>` : ''}
+    </div>`;
+
+      if (editMode) syncCurrentState();
+      gotoView('det', false);
+    }
+
+    // ── GANTT ──
+    function buildGantt() {
+      const NS = 'http://www.w3.org/2000/svg';
+      const GL = document.getElementById('gantt-labels-svg');
+      const GT = document.getElementById('gantt-timeline-svg');
+
+      // Apply filter: show all if null, otherwise filter by index
+      const FP = (ganttFilter !== null)
+        ? P.filter((_, i) => ganttFilter.has(i))
+        : P;
+
+      // ── AUTO SCALE LOGIC ──
+      let minD = new Date(2026, 0, 1); // fallback
+      let maxD = new Date(2026, 11, 31);
+
+      const allDates = FP.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      if (allDates.length > 0) {
+        minD = new Date(Math.min(...allDates));
+        maxD = new Date(Math.max(...allDates));
+        minD.setMonth(minD.getMonth() - 1);
+        maxD.setMonth(maxD.getMonth() + 1);
+      }
+
+      const REF = new Date(minD.getFullYear(), minD.getMonth(), 1);
+      const totalMonths = (maxD.getFullYear() - REF.getFullYear()) * 12 + (maxD.getMonth() - REF.getMonth()) + 1;
+      const NM = Math.max(6, totalMonths);
+
+      const MONTHS = [];
+      for (let m = 0; m < NM; m++) {
+        const d = new Date(REF.getFullYear(), REF.getMonth() + m, 1);
+        MONTHS.push(d.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' }));
+      }
+
+      const LW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gt-label-width')) || 320;
+      const containerWrap = document.getElementById('gantt-timeline-wrap');
+      const availW = containerWrap ? containerWrap.clientWidth : 800;
+      const MW = Math.max(75, availW / NM); // Auto-scale MW to fit, min 75px
+      const CW = NM * MW;
+      const RH = 38, HH = 30, PT = 6;
+      const SH = HH + PT + FP.length * RH + 14;
+
+      // Calculate SH dynamically based on expansion
+      let totalSH = HH + PT;
+      FP.forEach((p, i) => {
+        totalSH += RH;
+        const originalIdx = P.indexOf(p);
+        if (expandedProjects.has(originalIdx)) {
+          totalSH += (p.tasks?.length || 0) * 24 + 10;
+        }
+      });
+      totalSH += 14;
+
+      // Set SVG dimensions
+      GL.setAttribute('width', LW); GL.setAttribute('height', totalSH); GL.setAttribute('viewBox', `0 0 ${LW} ${totalSH}`);
+      GT.setAttribute('width', CW); GT.setAttribute('height', totalSH); GT.setAttribute('viewBox', `0 0 ${CW} ${totalSH}`);
+
+      function el(t, a, p) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p && p.appendChild(e); return e; }
+      function tx(s, a, p) { const e = el('text', a, p); e.textContent = s; return e; }
+      function moOff(d) {
+        if (!d) return 0;
+        const dt = (typeof d === 'string') ? new Date(d) : d;
+        if (isNaN(dt.getTime())) return 0;
+        return (dt.getFullYear() - REF.getFullYear()) * 12 + (dt.getMonth() - REF.getMonth()) + dt.getDate() / 30;
+      }
+      function toX(d) { return (moOff(d) / NM) * CW; }
+
+      // ── CLEAR SVGS ──
+      GL.innerHTML = ''; GT.innerHTML = '';
+
+      // ── BACKGROUNDS ──
+      el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
+      el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
+      el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
+
+      el('rect', { x: 0, y: 0, width: CW, height: totalSH, fill: '#FFFFFF' }, GT);
+      el('rect', { x: 0, y: 0, width: CW, height: HH, fill: '#F1F5F9' }, GT);
+      el('line', { x1: 0, y1: HH, x2: CW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
+
+      // month headers
+      MONTHS.forEach((m, i) => {
+        const x = i * MW;
+        if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: totalSH, fill: '#F5F3FF', opacity: .45 }, GT);
+        tx(m, {
+          x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+          fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10
+        }, GT);
+        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
+      });
+
+      const typeC = { 'Machine': '#3B82F6', 'System Integration': '#8B5CF6' };
+      let currentY = HH + PT;
+
+      FP.forEach((p, i) => {
+        const originalIdx = P.indexOf(p);
+        const isExp = expandedProjects.has(originalIdx);
+        const ry = currentY, by = ry + 9, bh = RH - 18;
+        const st = stInfo(p.status);
+        const bc = getPctColor(p.pct);
+
+        // Label part
+        el('rect', { x: 0, y: ry, width: LW, height: RH, fill: i % 2 ? '#F1F5F9' : '#F8FAFC' }, GL);
+        el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
+
+        // Expand/Collapse Arrow
+        const arrow = tx(isExp ? '▼' : '▶', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
+        arrow.onclick = () => { toggleGanttExpand(originalIdx); };
+
+        tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { toggleGanttExpand(originalIdx); };
+        tx(p.name, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11 }, GL);
+        el('circle', { cx: LW - 13, cy: ry + RH / 2, r: 4.5, fill: st.c }, GL);
+
+        // Timeline part
+        el('rect', { x: 0, y: ry, width: CW, height: RH, fill: i % 2 ? '#FAFBFC' : '#FFFFFF' }, GT);
+        el('line', { x1: 0, y1: ry + RH, x2: CW, y2: ry + RH, stroke: '#F1F5F9', 'stroke-width': .7 }, GT);
+
+        if (p.sd) {
+          const sx = toX(p.sd), ex = p.fd ? toX(p.fd) : CW;
+          if (ex > 0 && sx < CW) {
+            const bw = Math.max(6, ex - sx);
+            const bar = el('rect', { x: sx, y: by, width: bw, height: bh, fill: bc, opacity: .16, rx: 3, cursor: editMode ? 'move' : 'default' }, GT);
+            const handle = el('rect', { x: sx, y: by, width: 7, height: bh, fill: bc, opacity: .8, rx: 3 }, GT);
+            el('rect', { x: sx, y: by, width: bw, height: bh, fill: 'none', stroke: bc, 'stroke-width': .9, opacity: .35, rx: 3 }, GT);
+
+            if (editMode) {
+              bar.onmousedown = (e) => startGanttDrag(e, originalIdx, 'move');
+              handle.onmousedown = (e) => { e.stopPropagation(); startGanttDrag(e, originalIdx, 'resize'); };
+              handle.style.cursor = 'ew-resize';
+            }
+            if (bw > 50) tx(p.pct + '% — ' + (p.status || ''), { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9, 'font-weight': 600 }, GT);
+          }
+        }
+
+        currentY += RH;
+
+        // Render Sub-tasks if expanded
+        if (isExp && p.tasks) {
+          p.tasks.forEach((t, ti) => {
+            const ty = currentY, tby = ty + 6, tbh = 12;
+            const tbc = t.done ? '#10B981' : '#94A3B8';
+
+            // Sub-label
+            el('rect', { x: 0, y: ty, width: LW, height: 24, fill: '#F1F5F9', opacity: 0.5 }, GL);
+            el('line', { x1: 10, y1: ty + 24, x2: LW, y2: ty + 24, stroke: '#E2E8F0', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GL);
+            tx(t.txt, { x: 92, y: ty + 12, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'Figtree,sans-serif', 'font-size': 10 }, GL);
+
+            // Sub-timeline
+            el('rect', { x: 0, y: ty, width: CW, height: 24, fill: '#F8FAFC', opacity: 0.5 }, GT);
+            el('line', { x1: 0, y1: ty + 24, x2: CW, y2: ty + 24, stroke: '#F1F5F9', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GT);
+            if (t.sd) {
+              const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
+              const tbw = Math.max(8, tex - tsx);
+              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: tbc, rx: 2, opacity: 0.6 }, GT);
+              if (t.pct > 0) el('rect', { x: tsx, y: tby, width: tbw * (t.pct / 100), height: tbh, fill: tbc, rx: 2 }, GT);
+            }
+
+            currentY += 24;
+          });
+          currentY += 10; // Extra padding after tasks
+        }
+      });
+
+      // ── TODAY LINE (Rendered last to be on top) ──
+      const today = new Date();
+      const TX = toX(today);
+      if (TX >= 0 && TX <= CW) {
+        el('line', { x1: TX, y1: 0, x2: TX, y2: totalSH, stroke: '#DC2626', 'stroke-width': 1.5, 'stroke-dasharray': '5,3' }, GT);
+        tx('TODAY', { x: TX + 4, y: 11, fill: '#DC2626', 'font-family': 'JetBrains Mono,monospace', 'font-size': 8, 'font-weight': 700 }, GT);
+      }
+
+      // Drag functionality
+      let dragData = null;
+      function startGanttDrag(e, idx, type) {
+        const rect = GT.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * CW;
+        dragData = { idx, type, startX: x, originalSd: new Date(P[idx].sd), originalFd: P[idx].fd ? new Date(P[idx].fd) : null };
+        window.onmousemove = doGanttDrag;
+        window.onmouseup = stopGanttDrag;
+      }
+      function doGanttDrag(e) {
+        if (!dragData) return;
+        const rect = GT.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * CW;
+        const dx = x - dragData.startX;
+        const p = P[dragData.idx];
+        const timeDelta = (dx / CW) * NM * (30.44 * 24 * 60 * 60 * 1000);
+
+        if (dragData.type === 'move') {
+          p.sd = new Date(dragData.originalSd.getTime() + timeDelta);
+          if (dragData.originalFd) p.fd = new Date(dragData.originalFd.getTime() + timeDelta);
+        } else if (dragData.type === 'resize') {
+          p.sd = new Date(dragData.originalSd.getTime() + timeDelta);
+        }
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
+        p.start = p.sd.toLocaleDateString('en-GB', options);
+        if (p.fd) p.finish = p.fd.toLocaleDateString('en-GB', options);
+        buildGantt();
+      }
+      function stopGanttDrag() {
+        dragData = null;
+        window.onmousemove = null; window.onmouseup = null;
+        saveData(); refreshAllViews();
+      }
+    }
+
+    function toggleGanttExpand(idx) {
+      if (expandedProjects.has(idx)) expandedProjects.delete(idx);
+      else expandedProjects.add(idx);
+      buildGantt();
+    }
+
+    function scrollToToday() {
+      const wrap = document.getElementById('gantt-timeline-wrap');
+      if (!wrap) return;
+
+      // Calculate Today X (Using same logic as buildGantt)
+      const today = new Date();
+      const allDates = P.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      let minD = new Date(2026, 0, 1);
+      if (allDates.length > 0) minD = new Date(Math.min(...allDates));
+      minD.setMonth(minD.getMonth() - 1);
+      const REF = new Date(minD.getFullYear(), minD.getMonth(), 1);
+
+      const allDates2 = P.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      let maxD = new Date(2026, 11, 31);
+      if (allDates2.length > 0) maxD = new Date(Math.max(...allDates2));
+      maxD.setMonth(maxD.getMonth() + 1);
+
+      const totalMonths = (maxD.getFullYear() - REF.getFullYear()) * 12 + (maxD.getMonth() - REF.getMonth()) + 1;
+      const NM = Math.max(6, totalMonths);
+      const CW = NM * 110;
+
+      const moOff = (today.getFullYear() - REF.getFullYear()) * 12 + (today.getMonth() - REF.getMonth()) + today.getDate() / 30;
+      const TX = (moOff / NM) * CW;
+
+      wrap.scrollLeft = TX - (wrap.offsetWidth / 2);
+    }
+
+    buildGantt();
+
+    // ── VIEW SWITCHING ──
+    function gotoView(v, resetSb = true) {
+      if (editMode) syncCurrentState();
+      const views = ['ov', 'det', 'tl'];
+      views.forEach(id => {
+        const el = document.getElementById(`v-${id}`);
+        if (id === v) {
+          el.classList.add('on');
+          // Restart animation
+          el.style.animation = 'none';
+          el.offsetHeight; // trigger reflow
+          el.style.animation = '';
+        } else {
+          el.classList.remove('on');
+        }
+      });
+      ['ov', 'tl'].forEach(id => document.getElementById(`nb-${id}`)?.classList.toggle('on', id === v));
+      if (resetSb && v !== 'det') {
+        document.querySelectorAll('.pj-btn').forEach(b => b.classList.remove('on'));
+        currentProjectIndex = -1;
+      }
+      if (v === 'tl') {
+        setTimeout(scrollToToday, 50); // Small delay to ensure layout is ready
+      }
+    }
+
+    // ── EDIT MODE LOGIC ──
+    function toggleEditMode() {
+      editMode = !editMode;
+      document.body.classList.toggle('edit-on', editMode);
+      document.getElementById('edit-ctrls').style.display = editMode ? 'flex' : 'none';
+
+      // Toggle static editable elements
+      document.querySelectorAll('.editable-text').forEach(el => {
+        el.contentEditable = editMode;
+        if (editMode) el.setAttribute('spellcheck', 'false');
+      });
+
+      // Update current view to enable/disable editing
+      if (currentProjectIndex >= 0) {
+        openDetail(currentProjectIndex);
+      } else {
+        const activeView = ['ov', 'tl'].find(v => document.getElementById(`v-${v}`).classList.contains('on'));
+        if (activeView === 'ov') buildOverview();
+      }
+    }
+
+    function saveAllChanges() {
+      syncCurrentState();
+      saveData();
+      refreshAllViews();
+      alert('All changes saved to your browser!');
+    }
+
+    // New helper to sync DOM to P array without refreshing the whole UI
+    function syncCurrentState() {
+      // 1. Sync Sidebar/Header Meta
+      const logoEl = document.querySelector('.sb-logo');
+      const titleEl = document.querySelector('.sb-title');
+      const subEl = document.querySelector('.sb-sub');
+      const chipEl = document.querySelector('.sb-chip');
+
+      if (logoEl) META.logo = logoEl.innerHTML;
+      if (titleEl) META.title = titleEl.innerHTML;
+      if (subEl) META.sub = subEl.innerHTML;
+      if (chipEl) META.chip = chipEl.innerHTML;
+
+      // 2. Sync Project Data
+      if (currentProjectIndex >= 0) {
+        const p = P[currentProjectIndex];
+
+        // Sync basic fields + dates
+        document.querySelectorAll('#v-det [data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (el.tagName === 'INPUT' && el.type === 'date') {
+            const val = el.value;
+            if (val) {
+              const d = new Date(val);
+              if (!isNaN(d.getTime())) {
+                if (key === 'start') { p.sd = d; p.start = fmtDate(d); }
+                else { p.fd = d; p.finish = fmtDate(d); }
+              }
+            } else {
+              if (key === 'start') { p.sd = null; p.start = ''; }
+              else { p.fd = null; p.finish = ''; }
+            }
+          } else {
+            let val = el.innerText.trim();
+            if (key === 'pct') {
+              val = parseInt(val.replace('%', '')) || 0;
+              if (val < 0) val = 0; if (val > 100) val = 100;
+              p[key] = val;
+            } else {
+              p[key] = val;
+            }
+          }
+        });
+
+        // Sync Tasks (Safer)
+        const taskElements = document.querySelectorAll('#task-list .task-item');
+        if (taskElements.length > 0) {
+          p.tasks = [];
+          taskElements.forEach(el => {
+            const txtEl = el.querySelector('.task-txt');
+            const chkEl = el.querySelector('.task-check');
+            const sdEl = el.querySelector('[data-task-field="sd"]');
+            const edEl = el.querySelector('[data-task-field="ed"]');
+            const pctEl = el.querySelector('.t-pct');
+
+            if (txtEl) {
+              const txt = txtEl.innerText.trim();
+              const done = chkEl ? chkEl.checked : false;
+              const sd = sdEl ? sdEl.value : "";
+              const ed = edEl ? edEl.value : "";
+              const pct = pctEl ? (parseInt(pctEl.innerText.trim()) || 0) : 0;
+              p.tasks.push({ txt, done, sd, ed, pct });
+            }
+          });
+        }
+      }
+    }
+
+    function fmtInputDate(d) {
+      if (!d) return "";
+      const dt = (typeof d === 'string') ? new Date(d) : d;
+      if (isNaN(dt.getTime())) return "";
+      return dt.toISOString().split('T')[0];
+    }
+
+    function fmtDate(d) {
+      if (!d || d === '—') return "";
+      const dt = (typeof d === 'string') ? new Date(d) : d;
+      if (isNaN(dt.getTime())) return "";
+      return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function addTask(idx) {
+      if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, done: false, sd: '', ed: '', pct: 0 }] : [];
+      P[idx].tasks.push({ txt: 'New task...', done: false, sd: '', ed: '', pct: 0 });
+      openDetail(idx);
+    }
+
+    function toggleTask(pIdx, tIdx, done) {
+      P[pIdx].tasks[tIdx].done = done;
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function delTask(pIdx, tIdx) {
+      P[pIdx].tasks.splice(tIdx, 1);
+      saveData();
+      openDetail(pIdx);
+    }
+
+    let draggedTaskIdx = -1;
+    function startTaskDrag(e, ti) {
+      draggedTaskIdx = ti;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(() => e.target.classList.add('dragging'), 0);
+    }
+    function dropTask(e, ti) {
+      e.preventDefault();
+      const el = e.target.closest('.task-item');
+      if (el) el.classList.remove('drag-over');
+
+      if (draggedTaskIdx === -1 || draggedTaskIdx === ti) return;
+
+      const tasks = P[currentProjectIndex].tasks;
+      const movedTask = tasks.splice(draggedTaskIdx, 1)[0];
+      tasks.splice(ti, 0, movedTask);
+      draggedTaskIdx = -1;
+
+      openDetail(currentProjectIndex);
+      saveData();
+    }
+
+    function exportAsHTML() {
+      // 1. Sync current UI changes to P and META variables first
+      saveAllChanges();
+
+      // 2. Prepare data strings
+      const dataStr = JSON.stringify(P, null, 2);
+      const metaStr = JSON.stringify(META, null, 2);
+
+      // 3. Get HTML source and clean up
+      let html = document.documentElement.outerHTML;
+
+      // Clean runtime states
+      html = html.replace(/<body>/g, '<body>');
+      html = html.replace(/display: none; position: fixed; bottom: 20px; right: 28px; z-index: 9999;/g, 'display: none; position: fixed; bottom: 20px; right: 28px; z-index: 9999;');
+
+      // 4. Robust Replacement
+      const pRegex = /(const DEFAULT_P = )\[[\s\S]*?\];/;
+      html = html.replace(pRegex, `$1${dataStr};`);
+
+      const mRegex = /(let META = )JSON\.parse\(localStorage\.getItem\('DASHBOARD_META'\)\) \|\| \{[\s\S]*?\};/;
+      if (!mRegex.test(html)) {
+        const mSimpleRegex = /(let META = )\{[\s\S]*?\};/;
+        html = html.replace(mSimpleRegex, `$1${metaStr};`);
+      } else {
+        html = html.replace(mRegex, `$1${metaStr};`);
+      }
+
+      // 5. Download
+      const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const dateStr = new Date().toISOString().split('T')[0];
+      a.href = url;
+      a.download = `Project_Dashboard_${dateStr}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      alert('Dashboard exported successfully! This new file contains all your latest projects and tasks.');
+    }
+
+    function refreshAllViews() {
+      buildSidebar();
+      buildOverview();
+      buildGantt();
+      loadMeta();
+    }
+
+
+    // ── GANTT FILTER ──
+    // ganttFilter is declared in the main STATE section above
+
+    function initGanttFilter() {
+      // Initialize with all projects visible
+      ganttFilter = new Set(P.map((_, i) => i));
+    }
+
+    function buildFilterPanel() {
+      const list = document.getElementById('gantt-filter-list');
+      if (!list) return;
+      list.innerHTML = P.map((p, i) => `
+        <div class="gfp-item" onclick="toggleFilterItem(${i})">
+          <input type="checkbox" id="gfp-cb-${i}" ${ganttFilter.has(i) ? 'checked' : ''}
+            onclick="event.stopPropagation(); toggleFilterItem(${i})">
+          <label for="gfp-cb-${i}">
+            <strong style="color:var(--blue)">${p.num}</strong>
+            &nbsp;${p.name}
+          </label>
+        </div>
+      `).join('');
+      updateFilterCount();
+    }
+
+    function toggleFilterItem(i) {
+      if (ganttFilter.has(i)) ganttFilter.delete(i);
+      else ganttFilter.add(i);
+      const cb = document.getElementById(`gfp-cb-${i}`);
+      if (cb) cb.checked = ganttFilter.has(i);
+      updateFilterCount();
+      buildGantt();
+    }
+
+    function setAllFilter(val) {
+      if (val) ganttFilter = new Set(P.map((_, i) => i));
+      else ganttFilter.clear();
+      buildFilterPanel();
+      buildGantt();
+    }
+
+    function updateFilterCount() {
+      const el = document.getElementById('gantt-filter-count');
+      if (el) el.textContent = ganttFilter.size;
+    }
+
+    function toggleFilterPanel() {
+      const panel = document.getElementById('gantt-filter-panel');
+      if (!panel) return;
+      const isOpen = panel.classList.contains('open');
+      if (!isOpen) buildFilterPanel();
+      panel.classList.toggle('open');
+    }
+
+    // Sync Gantt Scroll
+    const gLabels = document.getElementById('gantt-labels-wrap');
+    const gTimeline = document.getElementById('gantt-timeline-wrap');
+    if (gLabels && gTimeline) {
+      gLabels.onscroll = () => { gTimeline.scrollTop = gLabels.scrollTop; };
+      gTimeline.onscroll = () => { gLabels.scrollTop = gTimeline.scrollTop; };
+    }
+
+    // Close filter panel when clicking outside
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('gantt-filter-btn')?.closest('.gantt-filter-wrap');
+      if (wrap && !wrap.contains(e.target)) {
+        document.getElementById('gantt-filter-panel')?.classList.remove('open');
+      }
+    });
+
+    // Initialize filter on first load
+    initGanttFilter();
+
+    // Initial Meta Load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadMeta();
+      refreshAllViews();
+      gotoView('ov');
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+</body></html>
