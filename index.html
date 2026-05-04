@@ -23,33 +23,33 @@
       /* Light theme */
       --bg: #F0F4F8;
       --card: #FFFFFF;
-      --border: #E4EAF2;
+      --border: #E2E8F0;
       --border2: #CBD5E1;
       /* Sidebar (deep navy) */
-      --sb: #0F1D2E;
-      --sb2: #162436;
-      --sb3: #1D3248;
+      --sb: #0A1628;
+      --sb2: #111D30;
+      --sb3: #182B45;
       --sb-t: #7A9BB8;
       --sb-ta: #EDF2F7;
-      --sb-bdr: #1D3248;
+      --sb-bdr: #1A2D44;
       /* Text */
       --t1: #0D1B2A;
       --t2: #374151;
       --t3: #6B7280;
       --t4: #9CA3AF;
       /* Accents */
-      --blue: #1D4ED8;
+      --blue: #2563EB;
       --blue-s: #EFF6FF;
       --blue-m: #BFDBFE;
       --amber: #B45309;
       --amber-s: #FFFBEB;
-      --red: #B91C1C;
+      --red: #DC2626;
       --red-s: #FEF2F2;
-      --green: #047857;
+      --green: #059669;
       --green-s: #ECFDF5;
-      --purple: #6D28D9;
+      --purple: #7C3AED;
       --purple-s: #F5F3FF;
-      --orange: #C2410C;
+      --orange: #EA580C;
       --orange-s: #FFF7ED;
       --slate: #475569;
       --slate-s: #F8FAFC;
@@ -57,6 +57,10 @@
       --fh: 'Barlow Condensed', sans-serif;
       --fb: 'Figtree', sans-serif;
       --fm: 'JetBrains Mono', monospace;
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
     }
 
     html,
@@ -79,7 +83,7 @@
     .sb {
       width: var(--sb-width, 280px);
       flex-shrink: 0;
-      background: var(--sb);
+      background: linear-gradient(180deg, #0A1628 0%, #0E1E34 50%, #0A1628 100%);
       display: flex;
       flex-direction: column;
       height: 100vh;
@@ -109,15 +113,16 @@
     }
 
     .sb-head {
-      padding: 22px 18px 16px;
-      border-bottom: 1px solid var(--sb-bdr);
+      padding: 24px 20px 18px;
+      border-bottom: 1px solid rgba(93, 184, 244, 0.1);
       flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(93, 184, 244, 0.04) 0%, transparent 100%);
     }
 
     .sb-logo {
       font-family: var(--fh);
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       letter-spacing: .3em;
       color: var(--sb-t);
       text-transform: uppercase;
@@ -200,8 +205,10 @@
     }
 
     .nb.on {
-      background: var(--sb3);
+      background: linear-gradient(90deg, rgba(93, 184, 244, 0.12) 0%, var(--sb3) 100%);
       color: var(--sb-ta);
+      border-left: 2px solid #5DB8F4;
+      padding-left: 8px;
     }
 
     .nb svg {
@@ -297,6 +304,40 @@
       margin-top: 2px;
     }
 
+    /* ── STAGGERED ANIMATION ── */
+    .stagger-item {
+      animation: fadeInUp 0.4s ease-out both;
+      animation-delay: calc(var(--i, 0) * 0.04s);
+    }
+
+    .sb-search-wrap {
+      padding: 10px 18px;
+      margin-top: 4px;
+    }
+
+    .sb-search {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #fff;
+      font-family: var(--fb);
+      font-size: 12px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .sb-search:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #5DB8F4;
+      box-shadow: 0 0 0 3px rgba(93, 184, 244, 0.15);
+    }
+
+    .sb-search::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
     /* ── MAIN ── */
     .main {
       flex: 1;
@@ -315,46 +356,68 @@
 
     .view.on {
       display: flex;
+      animation: fadeInUp 0.4s ease-out both;
     }
 
     /* ── VIEW HEADER ── */
     .vhdr {
-      padding: 16px 28px 12px;
-      border-bottom: 1px solid var(--border);
-      background: var(--card);
+      padding: 20px 32px 16px;
+      border-bottom: none;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       flex-shrink: 0;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .vhdr::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 32px;
+      right: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--purple), transparent);
+      border-radius: 2px;
     }
 
     .vtitle {
       font-family: var(--fh);
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 800;
       color: var(--t1);
-      letter-spacing: .05em;
+      letter-spacing: .06em;
       line-height: 1;
     }
 
     .vsub {
       font-size: 12px;
       color: var(--t3);
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .vmeta {
       font-family: var(--fm);
       font-size: 10px;
       color: var(--t4);
+      background: var(--blue-s);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--blue-m);
     }
 
     /* ── SCROLLABLE BODY ── */
     .vbody {
       flex: 1;
       overflow-y: auto;
-      padding: 22px 28px;
+      padding: 24px 32px;
     }
 
     .vbody::-webkit-scrollbar {
@@ -370,29 +433,60 @@
     .stat-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 22px;
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
     .sc {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 18px;
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sc:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+    }
+
+    .sc:nth-child(2)::before {
+      background: linear-gradient(90deg, #2563EB, #3B82F6);
+    }
+
+    .sc:nth-child(3)::before {
+      background: linear-gradient(90deg, #7C3AED, #A78BFA);
+    }
+
+    .sc:nth-child(4)::before {
+      background: linear-gradient(90deg, #059669, #34D399);
     }
 
     .sc-lbl {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--t3);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 8px;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
     }
 
     .sc-val {
       font-family: var(--fh);
-      font-size: 38px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--t1);
       line-height: 1;
@@ -401,55 +495,71 @@
     .sc-note {
       font-size: 11px;
       color: var(--t4);
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .sec-hdr {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
     .sec-title {
       font-family: var(--fh);
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--t1);
-      letter-spacing: .04em;
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sec-title::before {
+      content: '';
+      width: 3px;
+      height: 16px;
+      background: linear-gradient(180deg, var(--blue), var(--purple));
+      border-radius: 2px;
     }
 
     .sec-hint {
       font-size: 12px;
       color: var(--t4);
+      font-style: italic;
     }
 
     /* project table */
     .ptbl {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
 
     .ptbl thead th {
-      padding: 12px 14px;
+      padding: 14px 16px;
       font-family: var(--fm);
-      font-size: 11px;
-      letter-spacing: .08em;
+      font-size: 10px;
+      letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--t4);
       text-align: left;
-      background: #F8FAFC;
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+      border-bottom: 2px solid var(--border);
     }
 
     .ptbl tbody tr {
       border-bottom: 1px solid var(--border);
       cursor: pointer;
-      transition: background .1s;
+      transition: all .2s ease;
     }
 
     .ptbl tbody tr:last-child {
@@ -457,24 +567,35 @@
     }
 
     .ptbl tbody tr:hover {
-      background: #F0F6FF;
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.03) 100%);
+    }
+
+    .ptbl tbody tr:hover td.td-no {
+      color: var(--blue);
+      transform: scale(1.1);
     }
 
     .ptbl td {
-      padding: 10px 14px;
+      padding: 12px 16px;
       font-size: 13px;
       color: var(--t2);
       vertical-align: middle;
       white-space: normal;
       word-break: break-word;
       line-height: 1.4;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .ptbl tbody tr:last-child td {
+      border-bottom: none;
     }
 
     td.td-no {
       font-family: var(--fh);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--blue);
+      transition: transform 0.15s ease;
     }
 
     td.td-nm {
@@ -488,7 +609,7 @@
       font-size: 11px;
       color: var(--t4);
       font-weight: 400;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
     /* status badge */
@@ -496,7 +617,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 3px 9px;
+      padding: 4px 10px;
       border-radius: 20px;
       font-size: 11px;
       font-weight: 600;
@@ -504,6 +625,11 @@
       word-break: break-word;
       line-height: 1.3;
       max-width: 100%;
+      transition: transform 0.15s ease;
+    }
+
+    .ptbl tbody tr:hover .badge {
+      transform: translateX(2px);
     }
 
     .badge::before {
@@ -530,21 +656,25 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border: 1px solid var(--border);
-      border-radius: 7px;
+      border-radius: 8px;
       background: var(--card);
       color: var(--t2);
       font-size: 12.5px;
       font-family: var(--fb);
+      font-weight: 500;
       cursor: pointer;
-      transition: all .15s;
+      transition: all .2s ease;
+      box-shadow: var(--shadow-sm);
     }
 
     .back-btn:hover {
       background: var(--blue-s);
       border-color: var(--blue-m);
       color: var(--blue);
+      transform: translateX(-2px);
+      box-shadow: var(--shadow-md);
     }
 
     .det-nav {
@@ -641,9 +771,10 @@
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
     }
 
     .irow {
@@ -935,19 +1066,27 @@
     #gantt-container {
       flex: 1;
       display: flex;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       background: var(--card);
       border-top: 1px solid var(--border);
+      position: relative;
     }
 
     #gantt-labels-wrap {
       width: var(--gt-label-width, 360px);
       flex-shrink: 0;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       border-right: 1px solid var(--border);
       background: #F8FAFC;
       z-index: 5;
       position: relative;
+    }
+
+    #gantt-labels-wrap::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar but keep functionality */
     }
 
     .gantt-resizer {
@@ -967,7 +1106,7 @@
     #gantt-timeline-wrap {
       flex: 1;
       overflow-x: auto;
-      overflow-y: hidden;
+      overflow-y: auto;
     }
 
     #gantt-timeline-wrap::-webkit-scrollbar {
@@ -1233,20 +1372,58 @@
       right: 25px;
       width: 56px;
       height: 56px;
-      background: var(--blue);
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
       color: #fff;
       border-radius: 50%;
       align-items: center;
       justify-content: center;
       z-index: 1100;
-      box-shadow: 0 4px 20px rgba(29, 78, 216, 0.4);
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.5);
       cursor: pointer;
       border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mobile-toggle:active {
+      transform: scale(0.92);
+    }
+
+    /* Smooth page load animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sc {
+      animation: fadeInUp 0.4s ease both;
+    }
+
+    .sc:nth-child(2) {
+      animation-delay: 0.06s;
+    }
+
+    .sc:nth-child(3) {
+      animation-delay: 0.12s;
+    }
+
+    .sc:nth-child(4) {
+      animation-delay: 0.18s;
+    }
+
+    .ptbl {
+      animation: fadeInUp 0.5s ease 0.24s both;
     }
   </style>
 </head>
 
-<body class="edit-on">
+<body>
   <div class="app">
     <!-- Mobile Menu Button -->
     <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
@@ -1264,9 +1441,10 @@
         <div class="sb-title editable-text" contenteditable="true" spellcheck="false">PROGRESS<br><b>UPDATE</b></div>
         <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>28 APRIL 2026
         </div>
-        <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: Chainara</span>
+        <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
         </div>
       </div>
+
 
       <div class="sb-nav">
         <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
@@ -1290,6 +1468,11 @@
       <div class="sb-resizer" id="sb-resizer"></div>
 
       <div class="sb-divider"></div>
+
+      <div class="sb-search-wrap">
+        <input type="text" class="sb-search" placeholder="Search project..." oninput="buildSidebar(this.value)">
+      </div>
+
       <div class="sb-sect-row">
         <div class="sb-sect" style="padding:0">PROJECTS (<span id="pj-count">13</span>)</div>
         <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
@@ -2145,13 +2328,19 @@
       margin-bottom: 2px;
     }
 
-    .sb-list-item.dragging {
-      opacity: 0.4;
-      background: var(--sb3);
-    }
-
     .sb-list-item.drag-over {
       border-top: 2px solid #5DB8F4;
+    }
+
+    /* ── TASK DRAGGING ── */
+    .task-item.dragging {
+      opacity: 0.4;
+      background: var(--blue-s) !important;
+      border: 1px dashed var(--blue);
+    }
+
+    .task-item.drag-over {
+      border-top: 2px solid var(--blue) !important;
     }
 
     .sb-sect-row {
@@ -2191,6 +2380,7 @@
     let editMode = false;
     let currentProjectIndex = -1;
     let ganttFilter = null; // null = show all; Set = show only matching indices
+    let expandedProjects = new Set(); // Set of indices that are expanded in Gantt
 
     // ── DATA ──
     const DEFAULT_P = [
@@ -2694,9 +2884,15 @@
     let META = JSON.parse(localStorage.getItem('DASHBOARD_META')) || {
       logo: 'Project Dashboard',
       title: 'PROGRESS<br><b>UPDATE</b>',
-      sub: 'RESPONSIBLE: PAGORN<br>' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase(),
-      chip: 'ACCOUNTABLE: PANKAJ'
+      sub: 'RESPONSIBLE: PAGORN<br>28 APRIL 2026',
+      chip: 'ACCOUNTABLE: CHAINARA'
     };
+
+    // FORCE UPDATE: ล้างชื่อเก่าออกจากความจำเครื่องคุณ
+    if (META.chip && (META.chip.includes('PANKAJ') || META.chip.includes('Chainara'))) {
+      META.chip = 'ACCOUNTABLE: CHAINARA';
+      localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
+    }
 
     function loadMeta() {
       const logoEl = document.querySelector('.sb-logo');
@@ -2740,15 +2936,19 @@
     // ── SIDEBAR LIST ──
     let draggedIdx = -1;
 
-    function buildSidebar() {
+    function buildSidebar(filterText = '') {
       const sbList = document.getElementById('sb-list');
       const countEl = document.getElementById('pj-count');
-      if (countEl) countEl.textContent = P.length;
+      const filtered = P.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()) || p.num.includes(filterText));
+
+      if (countEl) countEl.textContent = filtered.length;
       sbList.innerHTML = '';
-      P.forEach((p, i) => {
+      filtered.forEach((p, i) => {
+        const originalIdx = P.indexOf(p);
         const st = stInfo(p.status);
         const item = document.createElement('div');
-        item.className = 'sb-list-item';
+        item.className = 'sb-list-item stagger-item';
+        item.style.setProperty('--i', i);
         item.style.display = 'flex';
         item.style.alignItems = 'center';
         item.style.paddingRight = '8px';
@@ -2780,10 +2980,10 @@
         }
 
         const btn = document.createElement('button');
-        btn.className = 'pj-btn'; btn.id = `pb${i}`;
+        btn.className = 'pj-btn'; btn.id = `pb${originalIdx}`;
         btn.style.flex = '1';
         btn.innerHTML = `<span class="pj-num">${p.num}</span><span class="pj-nm">${p.name}</span><span class="pj-dot" style="background:${st.c}"></span>`;
-        btn.onclick = () => openDetail(i);
+        btn.onclick = () => openDetail(originalIdx);
 
         item.appendChild(btn);
 
@@ -2880,7 +3080,7 @@
       </tr></thead>
       <tbody>
         ${P.map((p, i) => `
-        <tr onclick="openDetail(${i})">
+        <tr onclick="openDetail(${i})" class="stagger-item" style="--i: ${i}">
           <td class="td-no">${p.num}</td>
           <td class="td-nm">${p.name}${p.sub ? `<small>${p.sub}</small>` : ''}</td>
           <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">${p.start}</td>
@@ -2989,7 +3189,7 @@
           </div>
           <div id="task-list">
             ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '—', ed: '—', pct: 0 }] : [])).map((t, ti) => `
-              <div class="task-item">
+              <div class="task-item" ${editMode ? 'draggable="true" ondragstart="startTaskDrag(event, ' + ti + ')" ondragover="event.preventDefault(); this.classList.add(\'drag-over\')" ondragleave="this.classList.remove(\'drag-over\')" ondrop="dropTask(event, ' + ti + ')"' : ''}>
                 <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
                   onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
                 <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
@@ -3064,51 +3264,74 @@
       const RH = 38, HH = 30, PT = 6;
       const SH = HH + PT + FP.length * RH + 14;
 
+      // Calculate SH dynamically based on expansion
+      let totalSH = HH + PT;
+      FP.forEach((p, i) => {
+        totalSH += RH;
+        const originalIdx = P.indexOf(p);
+        if (expandedProjects.has(originalIdx)) {
+          totalSH += (p.tasks?.length || 0) * 24 + 10;
+        }
+      });
+      totalSH += 14;
+
       // Set SVG dimensions
-      GL.setAttribute('width', LW); GL.setAttribute('height', SH); GL.setAttribute('viewBox', `0 0 ${LW} ${SH}`);
-      GT.setAttribute('width', CW); GT.setAttribute('height', SH); GT.setAttribute('viewBox', `0 0 ${CW} ${SH}`);
+      GL.setAttribute('width', LW); GL.setAttribute('height', totalSH); GL.setAttribute('viewBox', `0 0 ${LW} ${totalSH}`);
+      GT.setAttribute('width', CW); GT.setAttribute('height', totalSH); GT.setAttribute('viewBox', `0 0 ${CW} ${totalSH}`);
 
       function el(t, a, p) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p && p.appendChild(e); return e; }
       function tx(s, a, p) { const e = el('text', a, p); e.textContent = s; return e; }
-      function moOff(d) { return (d.getFullYear() - REF.getFullYear()) * 12 + (d.getMonth() - REF.getMonth()) + d.getDate() / 30; }
+      function moOff(d) {
+        if (!d) return 0;
+        const dt = (typeof d === 'string') ? new Date(d) : d;
+        if (isNaN(dt.getTime())) return 0;
+        return (dt.getFullYear() - REF.getFullYear()) * 12 + (dt.getMonth() - REF.getMonth()) + dt.getDate() / 30;
+      }
       function toX(d) { return (moOff(d) / NM) * CW; }
 
       // ── CLEAR SVGS ──
       GL.innerHTML = ''; GT.innerHTML = '';
 
-      // ── LABELS BACKGROUND ──
-      el('rect', { x: 0, y: 0, width: LW, height: SH, fill: '#F8FAFC' }, GL);
+      // ── BACKGROUNDS ──
+      el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
       el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
       el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
 
-      // ── TIMELINE BACKGROUND ──
-      el('rect', { x: 0, y: 0, width: CW, height: SH, fill: '#FFFFFF' }, GT);
+      el('rect', { x: 0, y: 0, width: CW, height: totalSH, fill: '#FFFFFF' }, GT);
       el('rect', { x: 0, y: 0, width: CW, height: HH, fill: '#F1F5F9' }, GT);
       el('line', { x1: 0, y1: HH, x2: CW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
 
       // month headers
       MONTHS.forEach((m, i) => {
-        const x = i * MW, isApr = (m.includes('Apr')); // Simplified today check for visual
-        if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: SH, fill: '#F5F3FF', opacity: .45 }, GT);
+        const x = i * MW;
+        if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: totalSH, fill: '#F5F3FF', opacity: .45 }, GT);
         tx(m, {
           x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
           fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10
         }, GT);
-        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: SH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
+        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
       });
 
       const typeC = { 'Machine': '#3B82F6', 'System Integration': '#8B5CF6' };
+      let currentY = HH + PT;
 
       FP.forEach((p, i) => {
-        const ry = HH + PT + i * RH, by = ry + 9, bh = RH - 18;
+        const originalIdx = P.indexOf(p);
+        const isExp = expandedProjects.has(originalIdx);
+        const ry = currentY, by = ry + 9, bh = RH - 18;
         const st = stInfo(p.status);
         const bc = getPctColor(p.pct);
 
         // Label part
         el('rect', { x: 0, y: ry, width: LW, height: RH, fill: i % 2 ? '#F1F5F9' : '#F8FAFC' }, GL);
         el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
-        tx(p.num, { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800 }, GL);
-        tx(p.name, { x: 62, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11 }, GL);
+
+        // Expand/Collapse Arrow
+        const arrow = tx(isExp ? '▼' : '▶', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
+        arrow.onclick = () => { toggleGanttExpand(originalIdx); };
+
+        tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { toggleGanttExpand(originalIdx); };
+        tx(p.name, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11 }, GL);
         el('circle', { cx: LW - 13, cy: ry + RH / 2, r: 4.5, fill: st.c }, GL);
 
         // Timeline part
@@ -3124,12 +3347,40 @@
             el('rect', { x: sx, y: by, width: bw, height: bh, fill: 'none', stroke: bc, 'stroke-width': .9, opacity: .35, rx: 3 }, GT);
 
             if (editMode) {
-              bar.onmousedown = (e) => startGanttDrag(e, i, 'move');
-              handle.onmousedown = (e) => { e.stopPropagation(); startGanttDrag(e, i, 'resize'); };
+              bar.onmousedown = (e) => startGanttDrag(e, originalIdx, 'move');
+              handle.onmousedown = (e) => { e.stopPropagation(); startGanttDrag(e, originalIdx, 'resize'); };
               handle.style.cursor = 'ew-resize';
             }
-            if (bw > 50) tx(p.pct + '%', { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9.5, 'font-weight': 600 }, GT);
+            if (bw > 50) tx(p.pct + '% — ' + (p.status || ''), { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9, 'font-weight': 600 }, GT);
           }
+        }
+
+        currentY += RH;
+
+        // Render Sub-tasks if expanded
+        if (isExp && p.tasks) {
+          p.tasks.forEach((t, ti) => {
+            const ty = currentY, tby = ty + 6, tbh = 12;
+            const tbc = t.done ? '#10B981' : '#94A3B8';
+
+            // Sub-label
+            el('rect', { x: 0, y: ty, width: LW, height: 24, fill: '#F1F5F9', opacity: 0.5 }, GL);
+            el('line', { x1: 10, y1: ty + 24, x2: LW, y2: ty + 24, stroke: '#E2E8F0', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GL);
+            tx(t.txt, { x: 92, y: ty + 12, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'Figtree,sans-serif', 'font-size': 10 }, GL);
+
+            // Sub-timeline
+            el('rect', { x: 0, y: ty, width: CW, height: 24, fill: '#F8FAFC', opacity: 0.5 }, GT);
+            el('line', { x1: 0, y1: ty + 24, x2: CW, y2: ty + 24, stroke: '#F1F5F9', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GT);
+            if (t.sd) {
+              const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
+              const tbw = Math.max(8, tex - tsx);
+              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: tbc, rx: 2, opacity: 0.6 }, GT);
+              if (t.pct > 0) el('rect', { x: tsx, y: tby, width: tbw * (t.pct / 100), height: tbh, fill: tbc, rx: 2 }, GT);
+            }
+
+            currentY += 24;
+          });
+          currentY += 10; // Extra padding after tasks
         }
       });
 
@@ -3137,7 +3388,7 @@
       const today = new Date();
       const TX = toX(today);
       if (TX >= 0 && TX <= CW) {
-        el('line', { x1: TX, y1: 0, x2: TX, y2: SH, stroke: '#DC2626', 'stroke-width': 1.5, 'stroke-dasharray': '5,3' }, GT);
+        el('line', { x1: TX, y1: 0, x2: TX, y2: totalSH, stroke: '#DC2626', 'stroke-width': 1.5, 'stroke-dasharray': '5,3' }, GT);
         tx('TODAY', { x: TX + 4, y: 11, fill: '#DC2626', 'font-family': 'JetBrains Mono,monospace', 'font-size': 8, 'font-weight': 700 }, GT);
       }
 
@@ -3176,6 +3427,12 @@
       }
     }
 
+    function toggleGanttExpand(idx) {
+      if (expandedProjects.has(idx)) expandedProjects.delete(idx);
+      else expandedProjects.add(idx);
+      buildGantt();
+    }
+
     function scrollToToday() {
       const wrap = document.getElementById('gantt-timeline-wrap');
       if (!wrap) return;
@@ -3207,7 +3464,19 @@
 
     // ── VIEW SWITCHING ──
     function gotoView(v, resetSb = true) {
-      ['ov', 'det', 'tl'].forEach(id => document.getElementById(`v-${id}`).classList.toggle('on', id === v));
+      const views = ['ov', 'det', 'tl'];
+      views.forEach(id => {
+        const el = document.getElementById(`v-${id}`);
+        if (id === v) {
+          el.classList.add('on');
+          // Restart animation
+          el.style.animation = 'none';
+          el.offsetHeight; // trigger reflow
+          el.style.animation = '';
+        } else {
+          el.classList.remove('on');
+        }
+      });
       ['ov', 'tl'].forEach(id => document.getElementById(`nb-${id}`)?.classList.toggle('on', id === v));
       if (resetSb && v !== 'det') {
         document.querySelectorAll('.pj-btn').forEach(b => b.classList.remove('on'));
@@ -3240,6 +3509,18 @@
     }
 
     function saveAllChanges() {
+      // 1. Sync Sidebar/Header Meta
+      const logoEl = document.querySelector('.sb-logo');
+      const titleEl = document.querySelector('.sb-title');
+      const subEl = document.querySelector('.sb-sub');
+      const chipEl = document.querySelector('.sb-chip');
+
+      if (logoEl) META.logo = logoEl.innerHTML;
+      if (titleEl) META.title = titleEl.innerHTML;
+      if (subEl) META.sub = subEl.innerHTML;
+      if (chipEl) META.chip = chipEl.innerHTML;
+
+      // 2. Sync Project Data
       if (currentProjectIndex >= 0) {
         const p = P[currentProjectIndex];
 
@@ -3331,6 +3612,28 @@
       P[pIdx].tasks.splice(tIdx, 1);
       saveData();
       openDetail(pIdx);
+    }
+
+    let draggedTaskIdx = -1;
+    function startTaskDrag(e, ti) {
+      draggedTaskIdx = ti;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(() => e.target.classList.add('dragging'), 0);
+    }
+    function dropTask(e, ti) {
+      e.preventDefault();
+      const el = e.target.closest('.task-item');
+      if (el) el.classList.remove('drag-over');
+
+      if (draggedTaskIdx === -1 || draggedTaskIdx === ti) return;
+
+      const tasks = P[currentProjectIndex].tasks;
+      const movedTask = tasks.splice(draggedTaskIdx, 1)[0];
+      tasks.splice(ti, 0, movedTask);
+      draggedTaskIdx = -1;
+
+      openDetail(currentProjectIndex);
+      saveData();
     }
 
     function exportAsHTML() {
@@ -3427,6 +3730,14 @@
       const isOpen = panel.classList.contains('open');
       if (!isOpen) buildFilterPanel();
       panel.classList.toggle('open');
+    }
+
+    // Sync Gantt Scroll
+    const gLabels = document.getElementById('gantt-labels-wrap');
+    const gTimeline = document.getElementById('gantt-timeline-wrap');
+    if (gLabels && gTimeline) {
+      gLabels.onscroll = () => { gTimeline.scrollTop = gLabels.scrollTop; };
+      gTimeline.onscroll = () => { gLabels.scrollTop = gTimeline.scrollTop; };
     }
 
     // Close filter panel when clicking outside
