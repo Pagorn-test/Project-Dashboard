@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Dashboard — Pagorn | 28 Apr 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Light theme */
+      --bg: #F0F4F8;
+      --card: #FFFFFF;
+      --border: #E4EAF2;
+      --border2: #CBD5E1;
+      /* Sidebar (deep navy) */
+      --sb: #0F1D2E;
+      --sb2: #162436;
+      --sb3: #1D3248;
+      --sb-t: #7A9BB8;
+      --sb-ta: #EDF2F7;
+      --sb-bdr: #1D3248;
+      /* Text */
+      --t1: #0D1B2A;
+      --t2: #374151;
+      --t3: #6B7280;
+      --t4: #9CA3AF;
+      /* Accents */
+      --blue: #1D4ED8;
+      --blue-s: #EFF6FF;
+      --blue-m: #BFDBFE;
+      --amber: #B45309;
+      --amber-s: #FFFBEB;
+      --red: #B91C1C;
+      --red-s: #FEF2F2;
+      --green: #047857;
+      --green-s: #ECFDF5;
+      --purple: #6D28D9;
+      --purple-s: #F5F3FF;
+      --orange: #C2410C;
+      --orange-s: #FFF7ED;
+      --slate: #475569;
+      --slate-s: #F8FAFC;
+      /* Fonts */
+      --fh: 'Barlow Condensed', sans-serif;
+      --fb: 'Figtree', sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: var(--fb);
+      background: var(--bg);
+      color: var(--t1);
+      overflow: hidden;
+    }
+
+    /* ── LAYOUT ── */
+    .app {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sb {
+      width: var(--sb-width, 280px);
+      flex-shrink: 0;
+      background: var(--sb);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    :root {
+      --sb-width: 280px;
+      --gt-label-width: 360px;
+    }
+
+    .sb-resizer {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      cursor: col-resize;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .sb-resizer:hover,
+    .sb-resizer.resizing {
+      background: rgba(93, 184, 244, 0.4);
+    }
+
+    .sb-head {
+      padding: 22px 18px 16px;
+      border-bottom: 1px solid var(--sb-bdr);
+      flex-shrink: 0;
+    }
+
+    .sb-logo {
+      font-family: var(--fh);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      color: var(--sb-t);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sb-title {
+      font-family: var(--fh);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--sb-ta);
+      line-height: 1.15;
+      letter-spacing: .04em;
+    }
+
+    .sb-title b {
+      color: #5DB8F4;
+    }
+
+    .sb-sub {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      color: var(--sb-t);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .sb-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FBB022;
+      color: #000;
+      font-family: var(--fm);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 3px;
+      margin-top: 9px;
+      letter-spacing: .08em;
+    }
+
+    .sb-sect {
+      padding: 14px 18px 6px;
+      font-family: var(--fm);
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--sb-t);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .sb-nav {
+      padding: 6px 10px 2px;
+      flex-shrink: 0;
+    }
+
+    .nb {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: var(--sb-t);
+      font-family: var(--fb);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      transition: all .15s;
+      margin-bottom: 2px;
+    }
+
+    .nb:hover {
+      background: var(--sb2);
+      color: var(--sb-ta);
+    }
+
+    .nb.on {
+      background: var(--sb3);
+      color: var(--sb-ta);
+    }
+
+    .nb svg {
+      flex-shrink: 0;
+      opacity: .65;
+    }
+
+    .nb.on svg {
+      opacity: 1;
+    }
+
+    .sb-divider {
+      height: 1px;
+      background: var(--sb-bdr);
+      margin: 4px 14px 6px;
+    }
+
+    .sb-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 2px 8px 16px;
+    }
+
+    .sb-list::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .sb-list::-webkit-scrollbar-thumb {
+      background: var(--sb3);
+      border-radius: 2px;
+    }
+
+    .pj-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: background .12s;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+    }
+
+    .pj-btn:hover {
+      background: var(--sb2);
+    }
+
+    .pj-btn.on {
+      background: var(--sb3);
+      border-left-color: #5DB8F4;
+    }
+
+    .pj-num {
+      font-family: var(--fh);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #5DB8F4;
+      width: 38px;
+      flex-shrink: 0;
+      opacity: .65;
+      transition: opacity .12s;
+    }
+
+    .pj-btn.on .pj-num {
+      opacity: 1;
+    }
+
+    .pj-nm {
+      font-size: 11.5px;
+      color: var(--sb-t);
+      flex: 1;
+      overflow: hidden;
+      white-space: normal;
+      line-height: 1.3;
+      transition: color .12s;
+    }
+
+    .pj-btn.on .pj-nm,
+    .pj-btn:hover .pj-nm {
+      color: var(--sb-ta);
+    }
+
+    .pj-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .view {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .view.on {
+      display: flex;
+    }
+
+    /* ── VIEW HEADER ── */
+    .vhdr {
+      padding: 16px 28px 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .vtitle {
+      font-family: var(--fh);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--t1);
+      letter-spacing: .05em;
+      line-height: 1;
+    }
+
+    .vsub {
+      font-size: 12px;
+      color: var(--t3);
+      margin-top: 3px;
+    }
+
+    .vmeta {
+      font-family: var(--fm);
+      font-size: 10px;
+      color: var(--t4);
+    }
+
+    /* ── SCROLLABLE BODY ── */
+    .vbody {
+      flex: 1;
+      overflow-y: auto;
+      padding: 22px 28px;
+    }
+
+    .vbody::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .vbody::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    /* ── OVERVIEW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .sc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .sc-lbl {
+      font-size: 11px;
+      color: var(--t3);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+
+    .sc-val {
+      font-family: var(--fh);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--t1);
+      line-height: 1;
+    }
+
+    .sc-note {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 4px;
+    }
+
+    .sec-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .sec-title {
+      font-family: var(--fh);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--t1);
+      letter-spacing: .04em;
+    }
+
+    .sec-hint {
+      font-size: 12px;
+      color: var(--t4);
+    }
+
+    /* project table */
+    .ptbl {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .ptbl thead th {
+      padding: 12px 14px;
+      font-family: var(--fm);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--t4);
+      text-align: left;
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ptbl tbody tr {
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background .1s;
+    }
+
+    .ptbl tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .ptbl tbody tr:hover {
+      background: #F0F6FF;
+    }
+
+    .ptbl td {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--t2);
+      vertical-align: middle;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    td.td-no {
+      font-family: var(--fh);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    td.td-nm {
+      font-weight: 600;
+      color: var(--t1);
+      max-width: 260px;
+    }
+
+    td.td-nm small {
+      display: block;
+      font-size: 11px;
+      color: var(--t4);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    /* status badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.3;
+      max-width: 100%;
+    }
+
+    .badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── DETAIL ── */
+    .det-top {
+      padding: 10px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--card);
+      color: var(--t2);
+      font-size: 12.5px;
+      font-family: var(--fb);
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .back-btn:hover {
+      background: var(--blue-s);
+      border-color: var(--blue-m);
+      color: var(--blue);
+    }
+
+    .det-nav {
+      font-family: var(--fm);
+      font-size: 10px;
+      color: var(--t4);
+      margin-left: 4px;
+    }
+
+    .det-hdr {
+      padding: 16px 28px 14px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .dhdr-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .dhdr-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .d-lbl {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      color: var(--t4);
+      letter-spacing: .15em;
+      align-self: center;
+    }
+
+    .d-num {
+      font-family: var(--fh);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .d-name {
+      font-family: var(--fh);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--t1);
+      line-height: 1.1;
+    }
+
+    .d-sub {
+      font-size: 12px;
+      color: var(--t3);
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    .rank-tag {
+      padding: 5px 14px;
+      background: #FEF3C7;
+      color: #92400E;
+      font-family: var(--fm);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 5px;
+      letter-spacing: .08em;
+      border: 1px solid #FDE68A;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .dbody {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 28px 28px;
+    }
+
+    .dbody::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .dbody::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    /* info grid */
+    .igrid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .irow {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .irow.c3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .irow.c4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .irow.c12 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .icell {
+      background: var(--card);
+      padding: 13px 16px;
+    }
+
+    .icell-full {
+      background: var(--card);
+      padding: 13px 16px;
+    }
+
+    .ilab {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .18em;
+      color: var(--t4);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .ival {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--t1);
+      line-height: 1.3;
+    }
+
+    .ival.mono {
+      font-family: var(--fm);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--t2);
+    }
+
+    .ival.blue {
+      color: var(--blue);
+    }
+
+    .ival.am {
+      color: var(--amber);
+    }
+
+    .ival.sm {
+      font-size: 13px;
+    }
+
+    /* progress */
+    .pct {
+      font-family: var(--fh);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .pbar {
+      height: 7px;
+      background: #F1F5F9;
+      border-radius: 4px;
+      margin-top: 9px;
+      border: 1px solid var(--border);
+    }
+
+    .pfill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 4px;
+      transition: width .5s;
+    }
+
+    .pnote {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 5px;
+    }
+
+    /* note */
+    .note-box {
+      background: #FFFBEB;
+      border-left: 3px solid #D97706;
+      padding: 14px 18px;
+    }
+
+    .note-lab {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .18em;
+      color: #92400E;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .task-grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .task-hrow,
+    .task-item {
+      display: grid;
+      grid-template-columns: 30px 1fr 100px 100px 60px 30px;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid rgba(217, 119, 6, 0.1);
+      padding: 8px 4px;
+    }
+
+    .task-hrow {
+      border-bottom: 2px solid rgba(217, 119, 6, 0.2);
+      font-family: var(--fm);
+      font-size: 11px;
+      color: #D97706;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-weight: 700;
+      padding-bottom: 8px;
+    }
+
+    .task-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .task-check {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #D97706;
+      justify-self: center;
+    }
+
+    .task-txt {
+      font-family: var(--fm);
+      font-size: 13px;
+      color: #92400E;
+      outline: none;
+      min-height: 1.4em;
+    }
+
+    .task-txt.done {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .t-sd,
+    .t-ed,
+    .t-pct-wrap {
+      font-size: 11px;
+      color: #92400E;
+      font-family: var(--fm);
+    }
+
+    .t-date-input {
+      border: none;
+      background: transparent;
+      font-family: var(--fm);
+      font-size: 11px;
+      color: #92400E;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .t-date-input:disabled {
+      color: inherit;
+      cursor: default;
+      -webkit-appearance: none;
+    }
+
+    .t-pct-wrap {
+      text-align: center;
+    }
+
+    .t-pct {
+      border-bottom: 1px dashed rgba(217, 119, 6, 0.3);
+    }
+
+    .ival-date {
+      border: none;
+      background: transparent;
+      font-family: var(--fh);
+      font-size: 15px;
+      font-weight: 600;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .ival-date:disabled {
+      color: inherit;
+      cursor: default;
+      -webkit-appearance: none;
+    }
+
+    .ival-date.blue {
+      color: var(--blue);
+    }
+
+    .ival-date.am {
+      color: var(--amber);
+    }
+
+    .add-task-btn {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: #D97706;
+    }
+
+    .task-txt {
+      flex: 1;
+      font-family: var(--fm);
+      font-size: 13px;
+      color: #92400E;
+      outline: none;
+      min-height: 1.4em;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    .task-txt.done {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .add-task-btn {
+      background: #FEF3C7;
+      border: 1px solid #FDE68A;
+      color: #D97706;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .del-task-btn {
+      color: #F87171;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.5;
+    }
+
+    .del-task-btn:hover {
+      opacity: 1;
+    }
+
+    .add-task-btn:hover {
+      background: #FDE68A;
+    }
+
+    /* prev/next */
+    .det-pager {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── TIMELINE ── */
+    #gantt-container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+    }
+
+    #gantt-labels-wrap {
+      width: var(--gt-label-width, 360px);
+      flex-shrink: 0;
+      overflow: hidden;
+      border-right: 1px solid var(--border);
+      background: #F8FAFC;
+      z-index: 5;
+      position: relative;
+    }
+
+    .gantt-resizer {
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      cursor: col-resize;
+      z-index: 10;
+    }
+
+    .gantt-resizer:hover {
+      background: rgba(93, 184, 244, 0.4);
+    }
+
+    #gantt-timeline-wrap {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    #gantt-timeline-wrap::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    #gantt-timeline-wrap::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    #gantt-labels-svg,
+    #gantt-timeline-svg {
+      display: block;
+    }
+
+    .tl-leg {
+      padding: 10px 28px;
+      border-top: 1px solid var(--border);
+      background: var(--card);
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .leg {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--t3);
+    }
+
+    .leg-sq {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── GANTT FILTER ── */
+    .gantt-filter-wrap {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .gantt-filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--border2);
+      background: var(--card);
+      font-size: 12px;
+      font-family: var(--fm);
+      color: var(--t2);
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .gantt-filter-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .gantt-filter-btn .badge-count {
+      background: var(--blue);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .gantt-filter-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+      width: 260px;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .gantt-filter-panel.open {
+      display: block;
+    }
+
+    .gfp-head {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    .gfp-head-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .gfp-head-btns button {
+      font-size: 10px;
+      font-family: var(--fm);
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--t3);
+      transition: all .1s;
+    }
+
+    .gfp-head-btns button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .gfp-list {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 6px 0;
+    }
+
+    .gfp-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background .1s;
+    }
+
+    .gfp-item:hover {
+      background: #F0F6FF;
+    }
+
+    .gfp-item input[type=checkbox] {
+      accent-color: var(--blue);
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .gfp-item label {
+      font-size: 12px;
+      color: var(--t1);
+      cursor: pointer;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside class="sb">
+      <div class="sb-head">
+        <div class="sb-logo editable-text">Project Dashboard</div>
+        <div class="sb-title editable-text">PROGRESS<br><b>UPDATE</b></div>
+        <div class="sb-sub editable-text">RESPONSIBLE: PAGORN<br>28 Apr 2026</div>
+        <div><span class="sb-chip editable-text">ACCOUNTABLE: PANKAJ</span></div>
+      </div>
+
+      <div class="sb-nav">
+        <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+            <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+            <rect x="1" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+            <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+          </svg>
+          Overview
+        </button>
+        <button class="nb" id="nb-tl" onclick="gotoView('tl')">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <rect x="1" y="3.5" width="13" height="2" rx="1" fill="currentColor" opacity=".7" />
+            <rect x="1" y="7" width="9" height="2" rx="1" fill="currentColor" />
+            <rect x="1" y="10.5" width="11" height="2" rx="1" fill="currentColor" opacity=".7" />
+          </svg>
+          Timeline (Gantt)
+        </button>
+      </div>
+      <div class="sb-resizer" id="sb-resizer"></div>
+
+      <div class="sb-divider"></div>
+      <div class="sb-sect-row">
+        <div class="sb-sect" style="padding:0">PROJECTS (<span id="pj-count">10</span>)</div>
+        <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
+      </div>
+      <div class="sb-list" id="sb-list"></div>
+
+      <div class="sb-edit-btn">
+        <button class="edit-btn" onclick="toggleEditMode()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+          TOGGLE EDIT MODE
+        </button>
+      </div>
+    </aside>
+
+    <!-- ══ MAIN ══ -->
+    <main class="main">
+
+      <!-- OVERVIEW -->
+      <div class="view on" id="v-ov">
+        <div class="vhdr">
+          <div>
+            <div class="vtitle">OVERVIEW</div>
+            <div class="vsub">10 projects — Current Responsible: Pagorn</div>
+          </div>
+          <div class="vmeta">UPDATE: <span class="curr-date-long"></span></div>
+        </div>
+        <div class="vbody" id="ov-body"></div>
+      </div>
+
+      <!-- DETAIL -->
+      <div class="view" id="v-det">
+        <div class="det-top">
+          <button class="back-btn" onclick="gotoView('ov')">← Overview</button>
+          <span class="det-nav" id="det-nav"></span>
+        </div>
+        <div class="det-hdr" id="det-hdr"></div>
+        <div class="dbody" id="det-body"></div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="view" id="v-tl">
+        <div class="vhdr">
+          <div>
+            <div class="vtitle">PROJECT TIMELINE</div>
+            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ▶ Today: <span class="curr-date-long"></span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long"></span></div>
+            <!-- Filter Button -->
+            <div class="gantt-filter-wrap">
+              <button class="gantt-filter-btn" id="gantt-filter-btn" onclick="toggleFilterPanel()">
+                ☰ Filter Projects
+                <span class="badge-count" id="gantt-filter-count">0</span>
+              </button>
+              <div class="gantt-filter-panel" id="gantt-filter-panel">
+                <div class="gfp-head">
+                  Projects
+                  <div class="gfp-head-btns">
+                    <button onclick="setAllFilter(true)">All</button>
+                    <button onclick="setAllFilter(false)">None</button>
+                  </div>
+                </div>
+                <div class="gfp-list" id="gantt-filter-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="gantt-container">
+          <div id="gantt-labels-wrap">
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+            <div class="gantt-resizer" id="gantt-resizer"></div>
+          </div>
+          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg"></svg></div>
+        </div>
+        <div class="tl-leg">
+          <span style="font-family:var(--fm);font-size:9px;color:var(--t4);letter-spacing:.18em">LEGEND</span>
+          <div class="leg">
+            <div class="leg-sq" style="background:#3B82F6"></div>Machine
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#8B5CF6"></div>System Integration
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#DC2626;width:2px;height:14px;border-radius:1px"></div>Today
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#8B5CF6;opacity:.3"></div>Study the project
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#EA580C;opacity:.5"></div>Project List
+          </div>
+          <div class="leg">
+            <div class="leg-sq" style="background:#94A3B8"></div>No Status
+          </div>
+          <div class="leg" style="font-family:var(--fm);font-size:11px">▶ = TBD end</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══ EDIT MODE CONTROLS ══ -->
+  <div id="edit-ctrls"
+    style="display:none;position:fixed;bottom:20px;right:28px;z-index:9999;background:var(--sb);color:#fff;padding:12px 20px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.2);align-items:center;gap:15px;border:1px solid var(--sb-bdr)">
+    <div style="font-size:12px;font-weight:600;color:var(--sb-t);letter-spacing:0.05em">EDIT MODE ACTIVE</div>
+    <button onclick="saveAllChanges()"
+      style="background:#5DB8F4;color:#0F1D2E;border:none;padding:6px 16px;border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;transition:transform 0.1s"
+      onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">SAVE ALL
+      CHANGES</button>
+    <button onclick="exportAsHTML()"
+      style="background:var(--green);color:#fff;border:none;padding:6px 16px;border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;transition:transform 0.1s">EXPORT
+      AS HTML</button>
+    <button onclick="toggleEditMode()"
+      style="background:transparent;border:1px solid var(--sb-bdr);color:var(--sb-t);padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer">CANCEL</button>
+  </div>
+
+  <style>
+    /* Edit Mode Styles */
+    [contenteditable="true"] {
+      outline: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: text;
+    }
+
+    .edit-on [contenteditable="true"]:hover {
+      background: rgba(93, 184, 244, 0.1);
+      box-shadow: 0 0 0 2px rgba(93, 184, 244, 0.2);
+    }
+
+    .edit-on [contenteditable="true"]:focus {
+      background: #fff;
+      box-shadow: 0 0 0 2px #5DB8F4;
+      color: #000 !important;
+    }
+
+    .sb-edit-btn {
+      margin-top: auto;
+      padding: 16px 18px;
+      border-top: 1px solid var(--sb-bdr);
+    }
+
+    .edit-btn {
+      width: 100%;
+      padding: 10px;
+      background: var(--sb2);
+      border: 1px solid var(--sb-bdr);
+      color: var(--sb-t);
+      border-radius: 6px;
+      font-family: var(--fm);
+      font-size: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .edit-btn:hover {
+      background: var(--sb3);
+      color: var(--sb-ta);
+    }
+
+    .edit-on .edit-btn {
+      background: #5DB8F4;
+      color: #0F1D2E;
+      border-color: #5DB8F4;
+    }
+
+    .pj-ctrls {
+      display: none;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
+    }
+
+    .edit-on .pj-ctrls {
+      display: flex;
+    }
+
+    .pj-ctrl-btn {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--sb3);
+      border: 1px solid var(--sb-bdr);
+      color: var(--sb-t);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 10px;
+      transition: all 0.1s;
+    }
+
+    .pj-ctrl-btn:hover {
+      background: #5DB8F4;
+      color: #0F1D2E;
+    }
+
+    .pj-ctrl-btn.del:hover {
+      background: #EF4444;
+      color: #fff;
+      border-color: #EF4444;
+    }
+
+    .sb-list-item {
+      transition: all 0.2s;
+      border-radius: 7px;
+      margin-bottom: 2px;
+    }
+
+    .sb-list-item.dragging {
+      opacity: 0.4;
+      background: var(--sb3);
+    }
+
+    .sb-list-item.drag-over {
+      border-top: 2px solid #5DB8F4;
+    }
+
+    .sb-sect-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 6px;
+    }
+
+    .add-pj-btn {
+      background: transparent;
+      border: 1px dashed var(--sb-t);
+      color: var(--sb-t);
+      border-radius: 4px;
+      width: 18px;
+      height: 18px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .edit-on .add-pj-btn {
+      display: flex;
+    }
+
+    .add-pj-btn:hover {
+      border-color: #5DB8F4;
+      color: #5DB8F4;
+    }
+  </style>
+
+  <script>
+    // ── STATE ──
+    let editMode = false;
+    let currentProjectIndex = -1;
+    let ganttFilter = null; // null = show all; Set = show only matching indices
+
+    // ── DATA ──
+    const DEFAULT_P = [
+      {
+        num: '6.1', rank: 'AA', name: 'Contaminate Inspection Vision System C', sub: 'Priority No. 03',
+        loc: 'Build B', status: '', pct: 0, io: '1200313/882000000218-0', size: 'Medium', type: 'Machine',
+        impact: 'Compliance / Foreign body contaminations down',
+        lead: '5 months', start: '7 Jan 2025', finish: '6 Jun 2025',
+        note: 'Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.',
+        sd: new Date(2025, 0, 7), fd: new Date(2025, 5, 6)
+      },
+      {
+        num: '6.2', rank: 'AA', name: 'Contaminate Inspection Vision System D', sub: 'Priority No. 02',
+        loc: 'Build B', status: '', pct: 0, io: '1200313/882000000218-0', size: 'Medium', type: 'Machine',
+        impact: 'Compliance / Foreign body contaminations down',
+        lead: '5 months', start: '12 Jan 2026', finish: '11 Jun 2026',
+        note: 'Sub-project of Vision System (Project 6). Budget shared under parent IO.',
+        sd: new Date(2026, 0, 12), fd: new Date(2026, 5, 11)
+      },
+      {
+        num: '6.3', rank: 'AA', name: 'Contaminate Inspection Vision System E', sub: 'Priority No. 01 — Highest Priority',
+        loc: 'Build B', status: '', pct: 0, io: '1200313/882000000218-0', size: 'Medium', type: 'Machine',
+        impact: 'Compliance / Foreign body contaminations down',
+        lead: '5 months', start: '17 Feb 2026', finish: '17 Jul 2026',
+        note: 'Sub-project of Vision System (Project 6). Highest priority among the 3 Vision System sub-projects.',
+        sd: new Date(2026, 1, 17), fd: new Date(2026, 6, 17)
+      },
+      {
+        num: '51.1', rank: 'B', name: 'Connect Machine Data: Line P to Data Tank', sub: '',
+        loc: 'General', status: '', pct: 0, io: '1200333/882000000297-(0-10)', size: 'Medium', type: 'System Integration',
+        impact: 'Centralize capacity monitoring & control for optimized new factory startup',
+        lead: '3 months', start: '8 Jan 2026', finish: 'TBD',
+        note: 'Sub-project of Line P 400BPM (Project 51). Finish date has #REF! error in source — needs clarification.',
+        sd: new Date(2026, 0, 8), fd: null
+      },
+      {
+        num: '61.2', rank: 'B', name: 'Connect Machine Data: Line Q to Data Tank', sub: '',
+        loc: 'Build F', status: '', pct: 0, io: '1200345', size: 'Small', type: 'System Integration',
+        impact: 'OEE Up',
+        lead: '3 months', start: '8 Jan 2026', finish: '8 Apr 2026',
+        note: 'Sub-project of New Production Line 800BPM Line Q (Project 61).',
+        sd: new Date(2026, 0, 8), fd: new Date(2026, 3, 8)
+      },
+      {
+        num: '89', rank: 'AA', name: 'Inspection External Code: Line C, D, E', sub: '',
+        loc: 'Build B', status: 'Study the project', pct: 0, io: 'Pending — memo not written', size: 'Medium', type: 'Machine',
+        impact: 'Compliance / Foreign body contaminations down',
+        lead: '4 months', start: '—', finish: '—',
+        note: 'Waiting for IE team study. Project memo not yet written. No IO number assigned.',
+        sd: null, fd: null
+      },
+      {
+        num: '93', rank: 'AA', name: 'Install Carton Counting System to Data Tank', sub: '',
+        loc: 'Build B', status: 'Study the project', pct: 0, io: 'Pending', size: 'Medium', type: 'Machine',
+        impact: 'Centralize capacity monitoring & control for new factory startup',
+        lead: '—', start: '28 Nov 2025', finish: '28 Feb 2026',
+        note: 'Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.',
+        sd: new Date(2025, 10, 28), fd: new Date(2026, 1, 28)
+      },
+      {
+        num: '94', rank: 'AA', name: 'Install Interface: Carton Coding ↔ Data Tank', sub: '',
+        loc: 'Build B', status: 'Study the project', pct: 0, io: 'Pending', size: 'Small', type: 'Machine',
+        impact: 'Centralize capacity monitoring & control for new factory startup',
+        lead: '—', start: '28 Nov 2025', finish: '28 Feb 2026',
+        note: 'Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.',
+        sd: new Date(2025, 10, 28), fd: new Date(2026, 1, 28)
+      },
+      {
+        num: '95', rank: 'AA', name: 'Install Interface: Customer Coding (Bottle) ↔ Data Tank', sub: '',
+        loc: 'Build B', status: 'Study the project', pct: 0, io: 'Pending', size: 'Small', type: 'Machine',
+        impact: 'Centralize capacity monitoring & control for new factory startup',
+        lead: '—', start: '28 Nov 2025', finish: '28 Feb 2026',
+        note: 'Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.',
+        sd: new Date(2025, 10, 28), fd: new Date(2026, 1, 28)
+      },
+      {
+        num: '97', rank: 'AA', name: 'Inspection Cap: Line C, D, E, P', sub: '',
+        loc: 'Build B', status: 'Project List', pct: 0, io: 'Pending', size: 'Medium', type: 'Machine',
+        impact: 'Compliance / Foreign body contaminations down',
+        lead: '—', start: '23 Feb 2026', finish: '1 May 2026',
+        note: 'Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.',
+        sd: new Date(2026, 1, 23), fd: new Date(2026, 4, 1)
+      },
+    ];
+
+    let P = JSON.parse(localStorage.getItem('P_DATA')) || JSON.parse(JSON.stringify(DEFAULT_P));
+
+    // ── SIDEBAR RESIZE ──
+    let sbWidth = localStorage.getItem('SB_WIDTH') || '280';
+    let gtWidth = localStorage.getItem('GT_WIDTH') || '360';
+    document.documentElement.style.setProperty('--sb-width', sbWidth + 'px');
+    document.documentElement.style.setProperty('--gt-label-width', gtWidth + 'px');
+
+    function initResizer() {
+      const sbResizer = document.getElementById('sb-resizer');
+      const gtResizer = document.getElementById('gantt-resizer');
+      let resizeType = null; // 'sb' or 'gt'
+
+      const startResize = (e, type) => {
+        resizeType = type;
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+      };
+
+      if (sbResizer) sbResizer.addEventListener('mousedown', (e) => startResize(e, 'sb'));
+      if (gtResizer) gtResizer.addEventListener('mousedown', (e) => startResize(e, 'gt'));
+
+      window.addEventListener('mousemove', (e) => {
+        if (!resizeType) return;
+
+        if (resizeType === 'sb') {
+          let newWidth = e.clientX;
+          if (newWidth < 200) newWidth = 200;
+          if (newWidth > 600) newWidth = 600;
+          document.documentElement.style.setProperty('--sb-width', newWidth + 'px');
+          sbWidth = newWidth;
+        } else {
+          // For Gantt, calculate relative to the container? No, just mouse X minus sidebar
+          const container = document.getElementById('gantt-container');
+          const rect = container.getBoundingClientRect();
+          let newWidth = e.clientX - rect.left;
+          if (newWidth < 150) newWidth = 150;
+          if (newWidth > 1000) newWidth = 1000;
+          document.documentElement.style.setProperty('--gt-label-width', newWidth + 'px');
+          gtWidth = newWidth;
+        }
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!resizeType) return;
+        const type = resizeType;
+        resizeType = null;
+        document.body.style.cursor = 'default';
+        document.body.style.userSelect = 'auto';
+
+        if (type === 'sb') {
+          localStorage.setItem('SB_WIDTH', sbWidth);
+        } else {
+          localStorage.setItem('GT_WIDTH', gtWidth);
+          buildGantt();
+        }
+      });
+    }
+    window.addEventListener('DOMContentLoaded', initResizer);
+
+    // ── GLOBAL META ──
+    let META = JSON.parse(localStorage.getItem('DASHBOARD_META')) || {
+      logo: 'Project Dashboard',
+      title: 'PROGRESS<br><b>UPDATE</b>',
+      sub: 'RESPONSIBLE: PAGORN<br>' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase(),
+      chip: 'ACCOUNTABLE: PANKAJ'
+    };
+
+    function loadMeta() {
+      const logoEl = document.querySelector('.sb-logo');
+      const titleEl = document.querySelector('.sb-title');
+      const subEl = document.querySelector('.sb-sub');
+      const chipEl = document.querySelector('.sb-chip');
+      if (logoEl) logoEl.innerHTML = META.logo;
+      if (titleEl) titleEl.innerHTML = META.title;
+      if (subEl) subEl.innerHTML = META.sub;
+      if (chipEl) chipEl.innerHTML = META.chip;
+
+      // Update all current date spans
+      const now = new Date();
+      const longDate = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      document.querySelectorAll('.curr-date-long').forEach(el => el.textContent = longDate);
+    }
+
+    // Restore Date objects if loaded from localStorage
+    P.forEach(p => {
+      if (p.sd) p.sd = new Date(p.sd);
+      if (p.fd) p.fd = new Date(p.fd);
+    });
+
+    function saveData() {
+      localStorage.setItem('P_DATA', JSON.stringify(P));
+      localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
+    }
+
+    function stInfo(s) {
+      if (!s || !s.trim()) return { c: '#475569', bg: '#F1F5F9', label: 'No Status' };
+      const l = s.toLowerCase();
+      if (l.includes('on track')) return { c: '#047857', bg: '#ECFDF5', label: s };
+      if (l.includes('delay') || l.includes('risk')) return { c: '#B91C1C', bg: '#FEF2F2', label: s };
+      if (l.includes('study')) return { c: '#6D28D9', bg: '#F5F3FF', label: s };
+      if (l.includes('project list')) return { c: '#C2410C', bg: '#FFF7ED', label: s };
+      if (l.includes('handover') || l.includes('complete')) return { c: '#047857', bg: '#ECFDF5', label: s };
+      // Fallback for custom text: use the text itself with a neutral color
+      return { c: '#475569', bg: '#F1F5F9', label: s };
+    }
+
+    // ── SIDEBAR LIST ──
+    let draggedIdx = -1;
+
+    function buildSidebar() {
+      const sbList = document.getElementById('sb-list');
+      const countEl = document.getElementById('pj-count');
+      if (countEl) countEl.textContent = P.length;
+      sbList.innerHTML = '';
+      P.forEach((p, i) => {
+        const st = stInfo(p.status);
+        const item = document.createElement('div');
+        item.className = 'sb-list-item';
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.paddingRight = '8px';
+
+        if (editMode) {
+          item.draggable = true;
+          item.style.cursor = 'grab';
+          item.ondragstart = (e) => {
+            draggedIdx = i;
+            item.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+          };
+          item.ondragend = () => item.classList.remove('dragging');
+          item.ondragover = (e) => {
+            e.preventDefault();
+            item.classList.add('drag-over');
+          };
+          item.ondragleave = () => item.classList.remove('drag-over');
+          item.ondrop = (e) => {
+            e.preventDefault();
+            item.classList.remove('drag-over');
+            if (draggedIdx !== i) {
+              const movedItem = P.splice(draggedIdx, 1)[0];
+              P.splice(i, 0, movedItem);
+              saveData();
+              refreshAllViews();
+            }
+          };
+        }
+
+        const btn = document.createElement('button');
+        btn.className = 'pj-btn'; btn.id = `pb${i}`;
+        btn.style.flex = '1';
+        btn.innerHTML = `<span class="pj-num">${p.num}</span><span class="pj-nm">${p.name}</span><span class="pj-dot" style="background:${st.c}"></span>`;
+        btn.onclick = () => openDetail(i);
+
+        item.appendChild(btn);
+
+        if (editMode) {
+          const ctrls = document.createElement('div');
+          ctrls.className = 'pj-ctrls';
+          ctrls.innerHTML = `
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(${i})" title="Delete Project">×</button>
+      `;
+          item.appendChild(ctrls);
+        }
+
+        sbList.appendChild(item);
+      });
+    }
+    buildSidebar();
+
+    function addNewProject() {
+      const nextNum = P.length > 0 ? (parseFloat(P[P.length - 1].num) + 1).toFixed(1) : "1.0";
+      const newP = {
+        num: nextNum, rank: 'B', name: 'New Project Name', sub: '',
+        loc: 'TBD', status: 'No Status', pct: 0, io: 'TBD', size: 'Small', type: 'Machine',
+        impact: 'New project impact', lead: 'TBD', start: '—', finish: '—',
+        sd: null, fd: null, note: 'Added on ' + new Date().toLocaleDateString()
+      };
+      P.push(newP);
+      saveData();
+      refreshAllViews();
+      openDetail(P.length - 1); // Open the new project
+    }
+
+    function moveProject(idx, dir) {
+      const newIdx = idx + dir;
+      if (newIdx < 0 || newIdx >= P.length) return;
+      const temp = P[idx];
+      P[idx] = P[newIdx];
+      P[newIdx] = temp;
+      saveData();
+      refreshAllViews();
+    }
+
+    function deleteProject(idx) {
+      if (!confirm('Are you sure you want to delete this project?')) return;
+      P.splice(idx, 1);
+      if (currentProjectIndex === idx) currentProjectIndex = -1;
+      else if (currentProjectIndex > idx) currentProjectIndex--;
+      saveData();
+      refreshAllViews();
+      if (currentProjectIndex === -1) gotoView('ov');
+    }
+
+    // ── BADGE HTML ──
+    function badge(s, big) {
+      const st = stInfo(s);
+      const sz = big ? 'font-size:13px;padding:5px 13px' : '';
+      return `<span class="badge" style="color:${st.c};background:${st.bg};${sz}">${st.label}</span>`;
+    }
+
+    function getPctColor(pct) {
+      // 0 = red (0), 120 = green (120)
+      const hue = Math.min(120, (pct || 0) * 1.2);
+      return `hsl(${hue}, 70%, 40%)`;
+    }
+
+    // ── OVERVIEW ──
+    function buildOverview() {
+      const mC = P.filter(p => p.type === 'Machine').length;
+      const sC = P.filter(p => p.type === 'System Integration').length;
+      const aaC = P.filter(p => p.rank === 'AA').length;
+      document.getElementById('ov-body').innerHTML = `
+    <div class="stat-row">
+      <div class="sc"><div class="sc-lbl">Total Projects</div><div class="sc-val">${P.length}</div><div class="sc-note">Responsible: Pagorn</div></div>
+      <div class="sc"><div class="sc-lbl">Machine</div><div class="sc-val" style="color:var(--blue)">${mC}</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">System Integrate</div><div class="sc-val" style="color:var(--purple)">${sC}</div><div class="sc-note">Project type</div></div>
+      <div class="sc"><div class="sc-lbl">Rank AA</div><div class="sc-val" style="color:#92400E">${aaC}</div><div class="sc-note">Priority projects</div></div>
+      <div class="sc"><div class="sc-lbl">Progress</div><div class="sc-val" style="color:var(--red)">0%</div><div class="sc-note">All not started</div></div>
+    </div>
+    <div class="sec-hdr">
+      <div class="sec-title">ALL PROJECTS</div>
+      <div class="sec-hint">Click any row to view detail →</div>
+    </div>
+    <table class="ptbl" style="width: 100%; table-layout: auto;">
+      <thead><tr>
+        <th style="width:50px">No.</th>
+        <th style="width:400px">Project Name</th>
+        <th style="width:120px; white-space:nowrap">Start</th>
+        <th style="width:120px; white-space:nowrap">Finish</th>
+        <th style="width:110px; text-align:center">% Complete</th>
+        <th style="width:auto">Status</th>
+      </tr></thead>
+      <tbody>
+        ${P.map((p, i) => `
+        <tr onclick="openDetail(${i})">
+          <td class="td-no">${p.num}</td>
+          <td class="td-nm">${p.name}${p.sub ? `<small>${p.sub}</small>` : ''}</td>
+          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">${p.start}</td>
+          <td style="font-family:var(--fm);font-size:12px; color:${p.finish === 'TBD' ? 'var(--amber)' : 'var(--t2)'}; white-space:nowrap">${p.finish}</td>
+          <td>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                <div style="width:${p.pct}%;height:100%;background:${getPctColor(p.pct)}"></div>
+              </div>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${getPctColor(p.pct)};min-width:30px">${p.pct}%</span>
+            </div>
+          </td>
+          <td>${badge(p.status)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+    }
+    buildOverview();
+
+    // ── DETAIL ──
+    function openDetail(i) {
+      currentProjectIndex = i;
+      const p = P[i]; const st = stInfo(p.status);
+      const tC = p.type === 'Machine' ? 'var(--blue)' : 'var(--purple)';
+
+      // sidebar highlight
+      document.querySelectorAll('.pj-btn').forEach((b, j) => b.classList.toggle('on', j === i));
+      document.getElementById('det-nav').textContent = `${i + 1} of ${P.length}`;
+
+      const ed = editMode ? 'contenteditable="true" spellcheck="false"' : '';
+
+      document.getElementById('det-hdr').innerHTML = `
+    <div class="dhdr-row">
+      <div class="dhdr-left">
+        <span class="d-lbl">PROJECT</span>
+        <span class="d-num" data-key="num" ${ed}>${p.num}</span>
+        <div>
+          <div class="d-name" data-key="name" ${ed}>${p.name}</div>
+          <div class="d-sub" data-key="sub" ${ed} style="${!p.sub && editMode ? 'min-height:1em;background:#f0f0f0' : ''}">${p.sub || ''}</div>
+        </div>
+      </div>
+      <div class="rank-tag" data-key="rank" ${ed}>${p.rank}</div>
+    </div>`;
+
+      document.getElementById('det-body').innerHTML = `
+    <div class="igrid">
+      <div class="irow c3">
+        <div class="icell"><div class="ilab">IO / AUC</div><div class="ival mono" data-key="io" ${ed}>${p.io}</div></div>
+        <div class="icell">
+          <div class="ilab">Start Date</div>
+          ${editMode
+          ? `<input type="date" class="ival-date blue" data-key="start" value="${fmtInputDate(p.sd)}">`
+          : `<div class="ival blue">${fmtDate(p.sd)}</div>`
+        }
+        </div>
+        <div class="icell">
+          <div class="ilab">Finish Date</div>
+          ${editMode
+          ? `<input type="date" class="ival-date am" data-key="finish" value="${fmtInputDate(p.fd)}">`
+          : `<div class="ival am">${p.fd ? fmtDate(p.fd) : 'TBD'}</div>`
+        }
+        </div>
+      </div>
+      <div class="irow c4">
+        <div class="icell"><div class="ilab">Location</div><div class="ival" data-key="loc" ${ed}>${p.loc}</div></div>
+        <div class="icell"><div class="ilab">Size</div><div class="ival" data-key="size" ${ed}>${p.size}</div></div>
+        <div class="icell"><div class="ilab">Type</div><div class="ival" data-key="type" ${ed} style="color:${tC}">${p.type}</div></div>
+        <div class="icell"><div class="ilab">Lead Time</div><div class="ival" data-key="lead" ${ed}>${p.lead}</div></div>
+      </div>
+      <div class="icell-full"><div class="ilab">Impact / Goal</div><div class="ival blue sm" data-key="impact" ${ed}>${p.impact}</div></div>
+    </div>
+
+    <div class="igrid">
+      <div class="irow c12">
+        <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
+          <div class="ilab">Status</div>
+          <div style="margin-top:6px; ${editMode ? 'background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text' : ''}" 
+            data-key="status" ${ed}>${editMode ? (p.status || '') : badge(p.status, true)}</div>
+        </div>
+        <div class="icell">
+          <div class="ilab">Progress</div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
+            <span class="pct" data-key="pct" ${ed} style="color:${getPctColor(p.pct)}">${p.pct}%</span>
+            <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">${p.pct === 100 ? 'Completed' : p.pct > 0 ? 'In Progress' : 'Not started'}</span>
+          </div>
+          <div class="pbar"><div class="pfill" style="width:${p.pct}%; background:${getPctColor(p.pct)}"></div></div>
+          <div class="pnote">Current progress as of ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="igrid">
+      <div class="note-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div class="note-lab">TASKS</div>
+          <button class="add-task-btn" onclick="addTask(${i})" style="display:${editMode ? 'flex' : 'none'}">+</button>
+        </div>
+        <div class="task-grid">
+          <div class="task-hrow">
+            <div></div>
+            <div>Task Description</div>
+            <div>Start Date</div>
+            <div>Finish Date</div>
+            <div style="text-align:center">%</div>
+            <div></div>
+          </div>
+          <div id="task-list">
+            ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '—', ed: '—', pct: 0 }] : [])).map((t, ti) => `
+              <div class="task-item">
+                <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
+                  onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
+                <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
+                <div class="t-sd">
+                  ${editMode
+            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.sd)}" data-task-field="sd">`
+            : fmtDate(t.sd)
+          }
+                </div>
+                <div class="t-ed">
+                  ${editMode
+            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.ed)}" data-task-field="ed">`
+            : fmtDate(t.ed)
+          }
+                </div>
+                <div class="t-pct-wrap"><span class="t-pct" contenteditable="${editMode}">${t.pct || 0}</span>%</div>
+                <button class="del-task-btn" onclick="delTask(${i}, ${ti})" 
+                  style="display:${editMode ? 'block' : 'none'}">×</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="det-pager">
+      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})">← ${P[i - 1].num}</button>` : ''}
+      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num} →</button>` : ''}
+    </div>`;
+
+      gotoView('det', false);
+    }
+
+    // ── GANTT ──
+    function buildGantt() {
+      const NS = 'http://www.w3.org/2000/svg';
+      const GL = document.getElementById('gantt-labels-svg');
+      const GT = document.getElementById('gantt-timeline-svg');
+
+      // Apply filter: show all if null, otherwise filter by index
+      const FP = (ganttFilter !== null)
+        ? P.filter((_, i) => ganttFilter.has(i))
+        : P;
+
+      // ── AUTO SCALE LOGIC ──
+      let minD = new Date(2026, 0, 1); // fallback
+      let maxD = new Date(2026, 11, 31);
+
+      const allDates = FP.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      if (allDates.length > 0) {
+        minD = new Date(Math.min(...allDates));
+        maxD = new Date(Math.max(...allDates));
+        minD.setMonth(minD.getMonth() - 1);
+        maxD.setMonth(maxD.getMonth() + 1);
+      }
+
+      const REF = new Date(minD.getFullYear(), minD.getMonth(), 1);
+      const totalMonths = (maxD.getFullYear() - REF.getFullYear()) * 12 + (maxD.getMonth() - REF.getMonth()) + 1;
+      const NM = Math.max(6, totalMonths);
+
+      const MONTHS = [];
+      for (let m = 0; m < NM; m++) {
+        const d = new Date(REF.getFullYear(), REF.getMonth() + m, 1);
+        MONTHS.push(d.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' }));
+      }
+
+      const LW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gt-label-width')) || 320;
+      const containerWrap = document.getElementById('gantt-timeline-wrap');
+      const availW = containerWrap ? containerWrap.clientWidth : 800;
+      const MW = Math.max(75, availW / NM); // Auto-scale MW to fit, min 75px
+      const CW = NM * MW;
+      const RH = 38, HH = 30, PT = 6;
+      const SH = HH + PT + FP.length * RH + 14;
+
+      // Set SVG dimensions
+      GL.setAttribute('width', LW); GL.setAttribute('height', SH); GL.setAttribute('viewBox', `0 0 ${LW} ${SH}`);
+      GT.setAttribute('width', CW); GT.setAttribute('height', SH); GT.setAttribute('viewBox', `0 0 ${CW} ${SH}`);
+
+      function el(t, a, p) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p && p.appendChild(e); return e; }
+      function tx(s, a, p) { const e = el('text', a, p); e.textContent = s; return e; }
+      function moOff(d) { return (d.getFullYear() - REF.getFullYear()) * 12 + (d.getMonth() - REF.getMonth()) + d.getDate() / 30; }
+      function toX(d) { return (moOff(d) / NM) * CW; }
+
+      // ── CLEAR SVGS ──
+      GL.innerHTML = ''; GT.innerHTML = '';
+
+      // ── LABELS BACKGROUND ──
+      el('rect', { x: 0, y: 0, width: LW, height: SH, fill: '#F8FAFC' }, GL);
+      el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
+      el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
+
+      // ── TIMELINE BACKGROUND ──
+      el('rect', { x: 0, y: 0, width: CW, height: SH, fill: '#FFFFFF' }, GT);
+      el('rect', { x: 0, y: 0, width: CW, height: HH, fill: '#F1F5F9' }, GT);
+      el('line', { x1: 0, y1: HH, x2: CW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
+
+      // month headers
+      MONTHS.forEach((m, i) => {
+        const x = i * MW, isApr = (m.includes('Apr')); // Simplified today check for visual
+        if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: SH, fill: '#F5F3FF', opacity: .45 }, GT);
+        tx(m, {
+          x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+          fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10
+        }, GT);
+        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: SH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
+      });
+
+      const typeC = { 'Machine': '#3B82F6', 'System Integration': '#8B5CF6' };
+
+      FP.forEach((p, i) => {
+        const ry = HH + PT + i * RH, by = ry + 9, bh = RH - 18;
+        const st = stInfo(p.status);
+        const bc = getPctColor(p.pct);
+
+        // Label part
+        el('rect', { x: 0, y: ry, width: LW, height: RH, fill: i % 2 ? '#F1F5F9' : '#F8FAFC' }, GL);
+        el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
+        tx(p.num, { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800 }, GL);
+        tx(p.name, { x: 62, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11 }, GL);
+        el('circle', { cx: LW - 13, cy: ry + RH / 2, r: 4.5, fill: st.c }, GL);
+
+        // Timeline part
+        el('rect', { x: 0, y: ry, width: CW, height: RH, fill: i % 2 ? '#FAFBFC' : '#FFFFFF' }, GT);
+        el('line', { x1: 0, y1: ry + RH, x2: CW, y2: ry + RH, stroke: '#F1F5F9', 'stroke-width': .7 }, GT);
+
+        if (p.sd) {
+          const sx = toX(p.sd), ex = p.fd ? toX(p.fd) : CW;
+          if (ex > 0 && sx < CW) {
+            const bw = Math.max(6, ex - sx);
+            const bar = el('rect', { x: sx, y: by, width: bw, height: bh, fill: bc, opacity: .16, rx: 3, cursor: editMode ? 'move' : 'default' }, GT);
+            const handle = el('rect', { x: sx, y: by, width: 7, height: bh, fill: bc, opacity: .8, rx: 3 }, GT);
+            el('rect', { x: sx, y: by, width: bw, height: bh, fill: 'none', stroke: bc, 'stroke-width': .9, opacity: .35, rx: 3 }, GT);
+
+            if (editMode) {
+              bar.onmousedown = (e) => startGanttDrag(e, i, 'move');
+              handle.onmousedown = (e) => { e.stopPropagation(); startGanttDrag(e, i, 'resize'); };
+              handle.style.cursor = 'ew-resize';
+            }
+            if (bw > 50) tx(p.pct + '%', { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9.5, 'font-weight': 600 }, GT);
+          }
+        }
+      });
+
+      // ── TODAY LINE (Rendered last to be on top) ──
+      const today = new Date();
+      const TX = toX(today);
+      if (TX >= 0 && TX <= CW) {
+        el('line', { x1: TX, y1: 0, x2: TX, y2: SH, stroke: '#DC2626', 'stroke-width': 1.5, 'stroke-dasharray': '5,3' }, GT);
+        tx('TODAY', { x: TX + 4, y: 11, fill: '#DC2626', 'font-family': 'JetBrains Mono,monospace', 'font-size': 8, 'font-weight': 700 }, GT);
+      }
+
+      // Drag functionality
+      let dragData = null;
+      function startGanttDrag(e, idx, type) {
+        const rect = GT.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * CW;
+        dragData = { idx, type, startX: x, originalSd: new Date(P[idx].sd), originalFd: P[idx].fd ? new Date(P[idx].fd) : null };
+        window.onmousemove = doGanttDrag;
+        window.onmouseup = stopGanttDrag;
+      }
+      function doGanttDrag(e) {
+        if (!dragData) return;
+        const rect = GT.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * CW;
+        const dx = x - dragData.startX;
+        const p = P[dragData.idx];
+        const timeDelta = (dx / CW) * NM * (30.44 * 24 * 60 * 60 * 1000);
+
+        if (dragData.type === 'move') {
+          p.sd = new Date(dragData.originalSd.getTime() + timeDelta);
+          if (dragData.originalFd) p.fd = new Date(dragData.originalFd.getTime() + timeDelta);
+        } else if (dragData.type === 'resize') {
+          p.sd = new Date(dragData.originalSd.getTime() + timeDelta);
+        }
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
+        p.start = p.sd.toLocaleDateString('en-GB', options);
+        if (p.fd) p.finish = p.fd.toLocaleDateString('en-GB', options);
+        buildGantt();
+      }
+      function stopGanttDrag() {
+        dragData = null;
+        window.onmousemove = null; window.onmouseup = null;
+        saveData(); refreshAllViews();
+      }
+    }
+
+    function scrollToToday() {
+      const wrap = document.getElementById('gantt-timeline-wrap');
+      if (!wrap) return;
+
+      // Calculate Today X (Using same logic as buildGantt)
+      const today = new Date();
+      const allDates = P.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      let minD = new Date(2026, 0, 1);
+      if (allDates.length > 0) minD = new Date(Math.min(...allDates));
+      minD.setMonth(minD.getMonth() - 1);
+      const REF = new Date(minD.getFullYear(), minD.getMonth(), 1);
+
+      const allDates2 = P.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      let maxD = new Date(2026, 11, 31);
+      if (allDates2.length > 0) maxD = new Date(Math.max(...allDates2));
+      maxD.setMonth(maxD.getMonth() + 1);
+
+      const totalMonths = (maxD.getFullYear() - REF.getFullYear()) * 12 + (maxD.getMonth() - REF.getMonth()) + 1;
+      const NM = Math.max(6, totalMonths);
+      const CW = NM * 110;
+
+      const moOff = (today.getFullYear() - REF.getFullYear()) * 12 + (today.getMonth() - REF.getMonth()) + today.getDate() / 30;
+      const TX = (moOff / NM) * CW;
+
+      wrap.scrollLeft = TX - (wrap.offsetWidth / 2);
+    }
+
+    buildGantt();
+
+    // ── VIEW SWITCHING ──
+    function gotoView(v, resetSb = true) {
+      ['ov', 'det', 'tl'].forEach(id => document.getElementById(`v-${id}`).classList.toggle('on', id === v));
+      ['ov', 'tl'].forEach(id => document.getElementById(`nb-${id}`)?.classList.toggle('on', id === v));
+      if (resetSb && v !== 'det') {
+        document.querySelectorAll('.pj-btn').forEach(b => b.classList.remove('on'));
+        currentProjectIndex = -1;
+      }
+      if (v === 'tl') {
+        setTimeout(scrollToToday, 50); // Small delay to ensure layout is ready
+      }
+    }
+
+    // ── EDIT MODE LOGIC ──
+    function toggleEditMode() {
+      editMode = !editMode;
+      document.body.classList.toggle('edit-on', editMode);
+      document.getElementById('edit-ctrls').style.display = editMode ? 'flex' : 'none';
+
+      // Toggle static editable elements
+      document.querySelectorAll('.editable-text').forEach(el => {
+        el.contentEditable = editMode;
+        if (editMode) el.setAttribute('spellcheck', 'false');
+      });
+
+      // Update current view to enable/disable editing
+      if (currentProjectIndex >= 0) {
+        openDetail(currentProjectIndex);
+      } else {
+        const activeView = ['ov', 'tl'].find(v => document.getElementById(`v-${v}`).classList.contains('on'));
+        if (activeView === 'ov') buildOverview();
+      }
+    }
+
+    function saveAllChanges() {
+      if (currentProjectIndex >= 0) {
+        const p = P[currentProjectIndex];
+
+        // Sync basic fields + dates
+        document.querySelectorAll('#v-det [data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (el.tagName === 'INPUT' && el.type === 'date') {
+            const val = el.value;
+            if (val) {
+              // Has value → parse and save
+              const d = new Date(val);
+              if (!isNaN(d.getTime())) {
+                if (key === 'start') { p.sd = d; p.start = fmtDate(d); }
+                else { p.fd = d; p.finish = fmtDate(d); }
+              }
+            } else {
+              // Empty (user pressed Clear) → wipe the field
+              if (key === 'start') { p.sd = null; p.start = ''; }
+              else { p.fd = null; p.finish = ''; }
+            }
+          } else {
+            let val = el.innerText.trim();
+            if (key === 'pct') {
+              val = parseInt(val.replace('%', '')) || 0;
+              if (val < 0) val = 0; if (val > 100) val = 100;
+              p[key] = val;
+            } else {
+              p[key] = val;
+            }
+          }
+        });
+
+        // Sync Tasks (Safer)
+        const taskElements = document.querySelectorAll('#task-list .task-item');
+        if (taskElements.length > 0) {
+          p.tasks = [];
+          taskElements.forEach(el => {
+            const txtEl = el.querySelector('.task-txt');
+            const chkEl = el.querySelector('.task-check');
+            const sdEl = el.querySelector('[data-task-field="sd"]');
+            const edEl = el.querySelector('[data-task-field="ed"]');
+            const pctEl = el.querySelector('.t-pct');
+
+            if (txtEl) {
+              const txt = txtEl.innerText.trim();
+              const done = chkEl ? chkEl.checked : false;
+              const sd = sdEl ? sdEl.value : "";
+              const ed = edEl ? edEl.value : "";
+              const pct = pctEl ? (parseInt(pctEl.innerText.trim()) || 0) : 0;
+              p.tasks.push({ txt, done, sd, ed, pct });
+            }
+          });
+          p.note = p.tasks.length > 0 ? p.tasks[0].txt : "";
+        }
+      }
+
+      saveData();
+      refreshAllViews();
+      if (editMode) toggleEditMode(); // Exit edit mode after saving
+    }
+
+    function fmtInputDate(d) {
+      if (!d) return "";
+      const dt = (typeof d === 'string') ? new Date(d) : d;
+      if (isNaN(dt.getTime())) return "";
+      return dt.toISOString().split('T')[0];
+    }
+
+    function fmtDate(d) {
+      if (!d || d === '—') return "";
+      const dt = (typeof d === 'string') ? new Date(d) : d;
+      if (isNaN(dt.getTime())) return "";
+      return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function addTask(idx) {
+      if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, done: false, sd: '', ed: '', pct: 0 }] : [];
+      P[idx].tasks.push({ txt: 'New task...', done: false, sd: '', ed: '', pct: 0 });
+      openDetail(idx);
+    }
+
+    function toggleTask(pIdx, tIdx, done) {
+      P[pIdx].tasks[tIdx].done = done;
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function delTask(pIdx, tIdx) {
+      P[pIdx].tasks.splice(tIdx, 1);
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function exportAsHTML() {
+      // 1. Prepare data
+      const dataStr = JSON.stringify(P, null, 2);
+      const metaStr = JSON.stringify(META, null, 2);
+
+      // 2. Get full HTML source
+      let html = document.documentElement.outerHTML;
+
+      // 3. Replace DEFAULT_P and META definitions with current values
+      // We use regex to find the variable definitions and replace their content
+      const pRegex = /(const DEFAULT_P = )\[[\s\S]*?\];/;
+      const mRegex = /(let META = )\{[\s\S]*?\};/;
+
+      html = html.replace(pRegex, `$1${dataStr};`);
+      html = html.replace(mRegex, `$2${metaStr};`);
+
+      // 4. Create Blob and Download
+      const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const fileName = `Dashboard_Export_${new Date().toISOString().split('T')[0]}.html`;
+
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+
+      setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 0);
+
+      alert('Exported! You can now open this new file on any machine with all data preserved.');
+    }
+
+    function refreshAllViews() {
+      buildSidebar();
+      buildOverview();
+      buildGantt();
+      loadMeta();
+    }
+
+
+    // ── GANTT FILTER ──
+    // ganttFilter is declared in the main STATE section above
+
+    function initGanttFilter() {
+      // Initialize with all projects visible
+      ganttFilter = new Set(P.map((_, i) => i));
+    }
+
+    function buildFilterPanel() {
+      const list = document.getElementById('gantt-filter-list');
+      if (!list) return;
+      list.innerHTML = P.map((p, i) => `
+        <div class="gfp-item" onclick="toggleFilterItem(${i})">
+          <input type="checkbox" id="gfp-cb-${i}" ${ganttFilter.has(i) ? 'checked' : ''}
+            onclick="event.stopPropagation(); toggleFilterItem(${i})">
+          <label for="gfp-cb-${i}">
+            <strong style="color:var(--blue)">${p.num}</strong>
+            &nbsp;${p.name}
+          </label>
+        </div>
+      `).join('');
+      updateFilterCount();
+    }
+
+    function toggleFilterItem(i) {
+      if (ganttFilter.has(i)) ganttFilter.delete(i);
+      else ganttFilter.add(i);
+      const cb = document.getElementById(`gfp-cb-${i}`);
+      if (cb) cb.checked = ganttFilter.has(i);
+      updateFilterCount();
+      buildGantt();
+    }
+
+    function setAllFilter(val) {
+      if (val) ganttFilter = new Set(P.map((_, i) => i));
+      else ganttFilter.clear();
+      buildFilterPanel();
+      buildGantt();
+    }
+
+    function updateFilterCount() {
+      const el = document.getElementById('gantt-filter-count');
+      if (el) el.textContent = ganttFilter.size;
+    }
+
+    function toggleFilterPanel() {
+      const panel = document.getElementById('gantt-filter-panel');
+      if (!panel) return;
+      const isOpen = panel.classList.contains('open');
+      if (!isOpen) buildFilterPanel();
+      panel.classList.toggle('open');
+    }
+
+    // Close filter panel when clicking outside
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('gantt-filter-btn')?.closest('.gantt-filter-wrap');
+      if (wrap && !wrap.contains(e.target)) {
+        document.getElementById('gantt-filter-panel')?.classList.remove('open');
+      }
+    });
+
+    // Initialize filter on first load
+    initGanttFilter();
+
+    // Initial Meta Load
+    window.addEventListener('DOMContentLoaded', loadMeta);
+  </script>
+</body>
+
+</html>
