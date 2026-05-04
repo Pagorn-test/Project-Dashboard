@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="--sb-width: 412px; --gt-label-width: 403px;">
+<html lang="en" style="--sb-width: 320px; --gt-label-width: 412px;">
 
 <head>
   <meta charset="UTF-8">
@@ -1423,7 +1423,7 @@
   </style>
 </head>
 
-<body>
+<body class="edit-on">
   <div class="app">
     <!-- Mobile Menu Button -->
     <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
@@ -1439,7 +1439,7 @@
       <div class="sb-head">
         <div class="sb-logo editable-text" contenteditable="true" spellcheck="false">Project Dashboard</div>
         <div class="sb-title editable-text" contenteditable="true" spellcheck="false">PROGRESS<br><b>UPDATE</b></div>
-        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>28 APRIL 2026
+        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>4 MAY 2026
         </div>
         <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
         </div>
@@ -1478,47 +1478,124 @@
         <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
       </div>
       <div class="sb-list" id="sb-list">
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 0; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb0" style="flex: 1 1 0%;"><span class="pj-num">1</span><span class="pj-nm">Contaminate Inspection Line
-              Q</span><span class="pj-dot" style="background:#475569"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Q</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 1; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb1" style="flex: 1 1 0%;"><span class="pj-num">2</span><span class="pj-nm">Inspection Cap&amp;Level
-              line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 2; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb2" style="flex: 1 1 0%;"><span class="pj-num">3</span><span class="pj-nm">Inspection sleeve, external
               code and sticker line Q (2 M/C)</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)"
+              title="Delete Project">×</button>
+          </div>
         </div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 3; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb3" style="flex: 1 1 0%;"><span class="pj-num">4</span><span class="pj-nm">Connect Machine Data: Line P
-              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 4; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb4" style="flex: 1 1 0%;"><span class="pj-num">5</span><span class="pj-nm">Connect Machine Data: Line Q
-              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 5; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb5" style="flex: 1 1 0%;"><span class="pj-num">6</span><span class="pj-nm">Contaminate Inspection
-              Vision System E</span><span class="pj-dot" style="background:#475569"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Vision System E</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb6" style="flex: 1 1 0%;"><span class="pj-num">7</span><span class="pj-nm">Contaminate Inspection
-              Vision System C</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Vision System C</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb7" style="flex: 1 1 0%;"><span class="pj-num">8</span><span class="pj-nm">Contaminate Inspection
-              Vision System D</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Vision System D</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 8; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb8" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection Cap: Line C, D,
-              E, P</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              E, P</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 9; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb9" style="flex: 1 1 0%;"><span class="pj-num">10</span><span class="pj-nm">Inspection External Code:
-              Line C, D, E</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Line C, D, E</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb10" style="flex: 1 1 0%;"><span class="pj-num">11</span><span class="pj-nm">Install Interface: Carton
-              Coding ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              Coding ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 11; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb11" style="flex: 1 1 0%;"><span class="pj-num">12</span><span class="pj-nm">Install Carton Counting
-              System to Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button></div>
-        <div class="sb-list-item" style="display: flex; align-items: center; padding-right: 8px;"><button class="pj-btn"
+              System to Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 12; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
             id="pb12" style="flex: 1 1 0%;"><span class="pj-num">13</span><span class="pj-nm">Install Interface:
               Customer Coding (Bottle) ↔ Data Tank</span><span class="pj-dot"
-              style="background:#6D28D9"></span></button></div>
+              style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(12)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
       </div>
 
       <div class="sb-edit-btn">
@@ -1537,7 +1614,7 @@
     <main class="main">
 
       <!-- OVERVIEW -->
-      <div class="view on" id="v-ov">
+      <div class="view on" id="v-ov" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">OVERVIEW</div>
@@ -1585,10 +1662,10 @@
             </thead>
             <tbody>
 
-              <tr onclick="openDetail(0)">
+              <tr onclick="openDetail(0)" class="stagger-item" style="--i: 0">
                 <td class="td-no">1</td>
                 <td class="td-nm">Contaminate Inspection Line Q</td>
-                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">1 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
                 <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">31 Jul 2026</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:8px;justify-content:center">
@@ -1603,10 +1680,10 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ Supplier ส่งแผน SAT รอบที่ 2</span>
                 </td>
               </tr>
-              <tr onclick="openDetail(1)">
+              <tr onclick="openDetail(1)" class="stagger-item" style="--i: 1">
                 <td class="td-no">2</td>
                 <td class="td-nm">Inspection Cap&amp;Level line Q (1 M/C)</td>
-                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">1 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
                 <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:8px;justify-content:center">
@@ -1621,7 +1698,7 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT
                     Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
               </tr>
-              <tr onclick="openDetail(2)">
+              <tr onclick="openDetail(2)" class="stagger-item" style="--i: 2">
                 <td class="td-no">3</td>
                 <td class="td-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">1 Apr 2026</td>
@@ -1639,7 +1716,7 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT
                     Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
               </tr>
-              <tr onclick="openDetail(3)">
+              <tr onclick="openDetail(3)" class="stagger-item" style="--i: 3">
                 <td class="td-no">4</td>
                 <td class="td-nm">Connect Machine Data: Line P to Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
@@ -1657,7 +1734,7 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ
                     Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
               </tr>
-              <tr onclick="openDetail(4)">
+              <tr onclick="openDetail(4)" class="stagger-item" style="--i: 4">
                 <td class="td-no">5</td>
                 <td class="td-nm">Connect Machine Data: Line Q to Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
@@ -1675,7 +1752,7 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ
                     Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
               </tr>
-              <tr onclick="openDetail(5)">
+              <tr onclick="openDetail(5)" class="stagger-item" style="--i: 5">
                 <td class="td-no">6</td>
                 <td class="td-nm">Contaminate Inspection Vision System E<small>Priority No. 01 — Highest
                     Priority</small></td>
@@ -1694,7 +1771,7 @@
                 <td><span class="badge" style="color:#475569;background:#F1F5F9;">Sourcing Supplier เบื้องต้น Riverplus
                     ได้นำขวดไปทดสอบแล้ว</span></td>
               </tr>
-              <tr onclick="openDetail(6)">
+              <tr onclick="openDetail(6)" class="stagger-item" style="--i: 6">
                 <td class="td-no">7</td>
                 <td class="td-nm">Contaminate Inspection Vision System C<small>Priority No. 03</small></td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
@@ -1711,7 +1788,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(7)">
+              <tr onclick="openDetail(7)" class="stagger-item" style="--i: 7">
                 <td class="td-no">8</td>
                 <td class="td-nm">Contaminate Inspection Vision System D<small>Priority No. 02</small></td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
@@ -1728,7 +1805,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(8)">
+              <tr onclick="openDetail(8)" class="stagger-item" style="--i: 8">
                 <td class="td-no">9</td>
                 <td class="td-nm">Inspection Cap: Line C, D, E, P</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
@@ -1745,7 +1822,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(9)">
+              <tr onclick="openDetail(9)" class="stagger-item" style="--i: 9">
                 <td class="td-no">10</td>
                 <td class="td-nm">Inspection External Code: Line C, D, E</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
@@ -1762,7 +1839,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(10)">
+              <tr onclick="openDetail(10)" class="stagger-item" style="--i: 10">
                 <td class="td-no">11</td>
                 <td class="td-nm">Install Interface: Carton Coding ↔ Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
@@ -1779,7 +1856,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(11)">
+              <tr onclick="openDetail(11)" class="stagger-item" style="--i: 11">
                 <td class="td-no">12</td>
                 <td class="td-nm">Install Carton Counting System to Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
@@ -1796,7 +1873,7 @@
                 </td>
                 <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
               </tr>
-              <tr onclick="openDetail(12)">
+              <tr onclick="openDetail(12)" class="stagger-item" style="--i: 12">
                 <td class="td-no">13</td>
                 <td class="td-nm">Install Interface: Customer Coding (Bottle) ↔ Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
@@ -1819,7 +1896,7 @@
       </div>
 
       <!-- DETAIL -->
-      <div class="view" id="v-det">
+      <div class="view" id="v-det" style="">
         <div class="det-top">
           <button class="back-btn" onclick="gotoView('ov')">← Overview</button>
           <span class="det-nav" id="det-nav">1 of 13</span>
@@ -1828,15 +1905,13 @@
           <div class="dhdr-row">
             <div class="dhdr-left">
               <span class="d-lbl">PROJECT</span>
-              <span class="d-num" data-key="num" contenteditable="true" spellcheck="false">1</span>
+              <span class="d-num" data-key="num">1</span>
               <div>
-                <div class="d-name" data-key="name" contenteditable="true" spellcheck="false">Contaminate Inspection
-                  Line Q</div>
-                <div class="d-sub" data-key="sub" contenteditable="true" spellcheck="false"
-                  style="min-height:1em;background:#f0f0f0"></div>
+                <div class="d-name" data-key="name">Contaminate Inspection Line Q</div>
+                <div class="d-sub" data-key="sub" style=""></div>
               </div>
             </div>
-            <div class="rank-tag" data-key="rank" contenteditable="true" spellcheck="false">B</div>
+            <div class="rank-tag" data-key="rank">B</div>
           </div>
         </div>
         <div class="dbody" id="det-body">
@@ -1844,40 +1919,38 @@
             <div class="irow c3">
               <div class="icell">
                 <div class="ilab">IO / AUC</div>
-                <div class="ival mono" data-key="io" contenteditable="true" spellcheck="false">TBD</div>
+                <div class="ival mono" data-key="io">TBD</div>
               </div>
               <div class="icell">
                 <div class="ilab">Start Date</div>
-                <input type="date" class="ival-date blue" data-key="start" value="2026-04-01">
+                <div class="ival blue">18 Mar 2026</div>
               </div>
               <div class="icell">
                 <div class="ilab">Finish Date</div>
-                <input type="date" class="ival-date am" data-key="finish" value="2026-07-31">
+                <div class="ival am">31 Jul 2026</div>
               </div>
             </div>
             <div class="irow c4">
               <div class="icell">
                 <div class="ilab">Location</div>
-                <div class="ival" data-key="loc" contenteditable="true" spellcheck="false">Line Q</div>
+                <div class="ival" data-key="loc">Line Q</div>
               </div>
               <div class="icell">
                 <div class="ilab">Size</div>
-                <div class="ival" data-key="size" contenteditable="true" spellcheck="false">Medium</div>
+                <div class="ival" data-key="size">Medium</div>
               </div>
               <div class="icell">
                 <div class="ilab">Type</div>
-                <div class="ival" data-key="type" contenteditable="true" spellcheck="false" style="color:var(--blue)">
-                  Machine</div>
+                <div class="ival" data-key="type" style="color:var(--blue)">Machine</div>
               </div>
               <div class="icell">
                 <div class="ilab">Lead Time</div>
-                <div class="ival" data-key="lead" contenteditable="true" spellcheck="false"></div>
+                <div class="ival" data-key="lead"></div>
               </div>
             </div>
             <div class="icell-full">
               <div class="ilab">Impact / Goal</div>
-              <div class="ival blue sm" data-key="impact" contenteditable="true" spellcheck="false">New project impact
-              </div>
+              <div class="ival blue sm" data-key="impact">New project impact</div>
             </div>
           </div>
 
@@ -1885,15 +1958,14 @@
             <div class="irow c12">
               <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
                 <div class="ilab">Status</div>
-                <div
-                  style="margin-top:6px; background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text"
-                  data-key="status" contenteditable="true" spellcheck="false">รอ Supplier ส่งแผน SAT รอบที่ 2</div>
+                <div style="margin-top:6px; " data-key="status"><span class="badge"
+                    style="color:#475569;background:#F1F5F9;font-size:13px;padding:5px 13px">รอ Supplier ส่งแผน SAT
+                    รอบที่ 2</span></div>
               </div>
               <div class="icell">
                 <div class="ilab">Progress</div>
                 <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
-                  <span class="pct" data-key="pct" contenteditable="true" spellcheck="false"
-                    style="color:hsl(108, 70%, 40%)">90%</span>
+                  <span class="pct" data-key="pct" style="color:hsl(108, 70%, 40%)">90%</span>
                   <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
                 </div>
                 <div class="pbar">
@@ -1908,7 +1980,7 @@
             <div class="note-box">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                 <div class="note-lab">TASKS</div>
-                <button class="add-task-btn" onclick="addTask(0)" style="display:flex">+</button>
+                <button class="add-task-btn" onclick="addTask(0)" style="display:none">+</button>
               </div>
               <div class="task-grid">
                 <div class="task-hrow">
@@ -1924,29 +1996,99 @@
                   <div class="task-item">
                     <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 0, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">SAT รอบที่ 1</div>
+                    <div class="task-txt done" contenteditable="false">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</div>
                     <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="sd">
+                      2 Feb 2026
                     </div>
                     <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="ed">
+                      27 Feb 2026
                     </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 0)" style="display:block">×</button>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 0)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 1, this.checked)"
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 1, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt " contenteditable="true">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</div>
+                    <div class="task-txt done" contenteditable="false">SAT รอบที่ 1</div>
                     <div class="t-sd">
-                      <input type="date" class="t-date-input" value="" data-task-field="sd">
+                      18 Mar 2026
                     </div>
                     <div class="t-ed">
-                      <input type="date" class="t-date-input" value="" data-task-field="ed">
+                      18 Mar 2026
                     </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 1)" style="display:block">×</button>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 1)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 2, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt done" contenteditable="false">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</div>
+                    <div class="t-sd">
+                      25 Apr 2026
+                    </div>
+                    <div class="t-ed">
+                      25 Apr 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 2)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 3, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation</div>
+                    <div class="t-sd">
+                      2 May 2026
+                    </div>
+                    <div class="t-ed">
+                      2 May 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 3)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 4, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 4)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 5, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Training</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 5)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 6, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Handover Document</div>
+                    <div class="t-sd">
+
+                    </div>
+                    <div class="t-ed">
+
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(0, 6)" style="display:none">×</button>
                   </div>
 
                 </div>
@@ -1962,7 +2104,7 @@
       </div>
 
       <!-- TIMELINE -->
-      <div class="view" id="v-tl">
+      <div class="view" id="v-tl" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">PROJECT TIMELINE</div>
@@ -1992,199 +2134,436 @@
         </div>
         <div id="gantt-container">
           <div id="gantt-labels-wrap">
-            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="403" height="544"
-              viewBox="0 0 403 544">
-              <rect x="0" y="0" width="403" height="544" fill="#F8FAFC"></rect>
-              <rect x="0" y="0" width="403" height="30" fill="#EDF2F7"></rect>
-              <line x1="0" y1="30" x2="403" y2="30" stroke="#CBD5E1" stroke-width="1"></line>
-              <rect x="0" y="36" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="74" x2="403" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56"
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="412" height="1324"
+              viewBox="0 0 412 1324">
+              <rect x="0" y="0" width="412" height="1324" fill="#F8FAFC"></rect>
+              <rect x="0" y="0" width="412" height="30" fill="#EDF2F7"></rect>
+              <line x1="0" y1="30" x2="412" y2="30" stroke="#CBD5E1" stroke-width="1"></line>
+              <rect x="0" y="36" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="74" x2="412" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="56"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">1</text><text x="62" y="56" dominant-baseline="middle" fill="#475569"
+                font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569"
                 font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Line Q</text>
-              <circle cx="390" cy="55" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="74" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="112" x2="403" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="94"
+              <circle cx="399" cy="55" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="74" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="98" x2="412" y2="98" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <text x="92" y="86" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</text>
+              <rect x="0" y="98" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="122" x2="412" y2="122" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="110" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">SAT รอบที่ 1</text>
+              <rect x="0" y="122" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="146" x2="412" y2="146" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="134" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</text>
+              <rect x="0" y="146" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="170" x2="412" y2="170" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="158" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation</text>
+              <rect x="0" y="170" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="194" x2="412" y2="194" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="182" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</text>
+              <rect x="0" y="194" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="218" x2="412" y2="218" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="206" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Training</text>
+              <rect x="0" y="218" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="242" x2="412" y2="242" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="230" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover Document</text>
+              <rect x="0" y="252" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="290" x2="412" y2="290" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="272"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="272"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">2</text><text x="62" y="94" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Inspection Cap&amp;Level line Q (1 M/C)</text>
-              <circle cx="390" cy="93" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="112" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="150" x2="403" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="132"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">3</text><text x="62" y="132" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Inspection sleeve, external code and sticker line Q (2
+                font-weight="800" cursor="pointer">2</text><text x="78" y="272" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection Cap&amp;Level line Q (1
                 M/C)</text>
-              <circle cx="390" cy="131" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="150" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="188" x2="403" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="170"
+              <circle cx="399" cy="271" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="290" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="314" x2="412" y2="314" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="302" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Install Machine On Site</text>
+              <rect x="0" y="314" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="338" x2="412" y2="338" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="326" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Function Test After Install Machine (รอจ่าย Line P ก่อน)</text>
+              <rect x="0" y="338" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="362" x2="412" y2="362" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="350" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Site Acceptance Test</text>
+              <rect x="0" y="362" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="386" x2="412" y2="386" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="374" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Training</text>
+              <rect x="0" y="386" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="410" x2="412" y2="410" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="398" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover Document</text>
+              <rect x="0" y="420" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="458" x2="412" y2="458" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="440"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="440"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">4</text><text x="62" y="170" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line P to Data Tank</text>
-              <circle cx="390" cy="169" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="188" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="226" x2="403" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="208"
+                font-weight="800" cursor="pointer">3</text><text x="78" y="440" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection sleeve, external code and
+                sticker line Q (2 M/C)</text>
+              <circle cx="399" cy="439" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="458" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="482" x2="412" y2="482" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="470" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Install Machine On Site</text>
+              <rect x="0" y="482" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="506" x2="412" y2="506" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="494" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Function Test After Install Machine (รอจ่าย Line P ก่อน)</text>
+              <rect x="0" y="506" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="530" x2="412" y2="530" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="518" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Site Acceptance Test</text>
+              <rect x="0" y="530" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="554" x2="412" y2="554" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="542" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Training</text>
+              <rect x="0" y="554" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="578" x2="412" y2="578" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="566" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover Document</text>
+              <rect x="0" y="588" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="626" x2="412" y2="626" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="608"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="608"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">5</text><text x="62" y="208" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line Q to Data Tank</text>
-              <circle cx="390" cy="207" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="226" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="264" x2="403" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="246"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">6</text><text x="62" y="246" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System E</text>
-              <circle cx="390" cy="245" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="264" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="302" x2="403" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="284"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">7</text><text x="62" y="284" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System C</text>
-              <circle cx="390" cy="283" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="302" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="340" x2="403" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="322"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">8</text><text x="62" y="322" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System D</text>
-              <circle cx="390" cy="321" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="340" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="378" x2="403" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="360"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">9</text><text x="62" y="360" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Inspection Cap: Line C, D, E, P</text>
-              <circle cx="390" cy="359" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="378" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="416" x2="403" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="398"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">10</text><text x="62" y="398" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Inspection External Code: Line C, D, E</text>
-              <circle cx="390" cy="397" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="416" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="454" x2="403" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="436"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">11</text><text x="62" y="436" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Install Interface: Carton Coding ↔ Data Tank</text>
-              <circle cx="390" cy="435" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="454" width="403" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="492" x2="403" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="474"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">12</text><text x="62" y="474" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Install Carton Counting System to Data Tank</text>
-              <circle cx="390" cy="473" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="492" width="403" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="530" x2="403" y2="530" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="512"
-                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800">13</text><text x="62" y="512" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Install Interface: Customer Coding (Bottle) ↔ Data
+                font-weight="800" cursor="pointer">4</text><text x="78" y="608" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line P to Data
                 Tank</text>
-              <circle cx="390" cy="511" r="4.5" fill="#6D28D9"></circle>
+              <circle cx="399" cy="607" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="626" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="650" x2="412" y2="650" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="638" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Create Kepware Tag</text>
+              <rect x="0" y="650" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="674" x2="412" y2="674" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="662" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Integra</text>
+              <rect x="0" y="674" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="698" x2="412" y2="698" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="686" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Techlong</text>
+              <rect x="0" y="698" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="722" x2="412" y2="722" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="710" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">เข้าตรวจสอบ IP Address PLC UHT High Care (Ping ไม่เจอ)</text>
+              <rect x="0" y="722" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="746" x2="412" y2="746" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="734" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ทดสอบความถูกต้อง Data Techlong</text>
+              <rect x="0" y="746" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="770" x2="412" y2="770" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="758" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ทดสอบความถูกต้อง Data Integra</text>
+              <rect x="0" y="780" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="818" x2="412" y2="818" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="800"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="800"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">5</text><text x="78" y="800" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line Q to Data
+                Tank</text>
+              <circle cx="399" cy="799" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="818" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="842" x2="412" y2="842" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="830" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Create Kepware Tag</text>
+              <rect x="0" y="842" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="866" x2="412" y2="866" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="854" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Techlong</text>
+              <rect x="0" y="866" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="890" x2="412" y2="890" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="878" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Tetra Pack เข้ามาเพิ่ม PLC Tag &amp; Connect Kepware 05-may-2026</text>
+              <rect x="0" y="890" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="914" x2="412" y2="914" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="902" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ทดสอบความถูกต้อง Data&nbsp;Tetra Pack</text>
+              <rect x="0" y="914" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="938" x2="412" y2="938" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="926" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ทดสอบความถูกต้อง Data&nbsp;Techlong</text>
+              <rect x="0" y="948" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="986" x2="412" y2="986" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="968"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="968"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">6</text><text x="78" y="968" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
+                E</text>
+              <circle cx="399" cy="967" r="4.5" fill="#475569"></circle>
+              <rect x="0" y="986" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="1010" x2="412" y2="1010" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="998" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Sourcing Supplier - Riverplus เข้ามารับ Requirement</text>
+              <rect x="0" y="1010" width="412" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="1034" x2="412" y2="1034" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="1022" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Demo</text>
+              <rect x="0" y="1044" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1082" x2="412" y2="1082" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1064"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1064"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">7</text><text x="78" y="1064" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
+                C</text>
+              <circle cx="399" cy="1063" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1082" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="1120" x2="412" y2="1120" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1102"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1102"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">8</text><text x="78" y="1102" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
+                D</text>
+              <circle cx="399" cy="1101" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1120" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1158" x2="412" y2="1158" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1140"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1140"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">9</text><text x="78" y="1140" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection Cap: Line C, D, E, P</text>
+              <circle cx="399" cy="1139" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1158" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="1196" x2="412" y2="1196" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1178"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1178"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">10</text><text x="78" y="1178" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection External Code: Line C, D,
+                E</text>
+              <circle cx="399" cy="1177" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1196" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1234" x2="412" y2="1234" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1216"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1216"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">11</text><text x="78" y="1216" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Carton Coding ↔ Data
+                Tank</text>
+              <circle cx="399" cy="1215" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1234" width="412" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="1272" x2="412" y2="1272" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1254"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1254"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">12</text><text x="78" y="1254" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Carton Counting System to Data
+                Tank</text>
+              <circle cx="399" cy="1253" r="4.5" fill="#6D28D9"></circle>
+              <rect x="0" y="1272" width="412" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1310" x2="412" y2="1310" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1292"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1292"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">13</text><text x="78" y="1292" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Customer Coding
+                (Bottle) ↔ Data Tank</text>
+              <circle cx="399" cy="1291" r="4.5" fill="#6D28D9"></circle>
             </svg>
             <div class="gantt-resizer" id="gantt-resizer"></div>
           </div>
-          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="525"
-              height="544" viewBox="0 0 525 544">
-              <rect x="0" y="0" width="525" height="544" fill="#FFFFFF"></rect>
-              <rect x="0" y="0" width="525" height="30" fill="#F1F5F9"></rect>
-              <line x1="0" y1="30" x2="525" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16"
+          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="600"
+              height="1324" viewBox="0 0 600 1324">
+              <rect x="0" y="0" width="600" height="1324" fill="#FFFFFF"></rect>
+              <rect x="0" y="0" width="600" height="30" fill="#F1F5F9"></rect>
+              <line x1="0" y1="30" x2="600" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
-                font-size="10">Mar 26</text>
-              <rect x="75" y="0" width="75" height="544" fill="#F5F3FF" opacity="0.45"></rect><text x="112.5" y="16"
+                font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle"
+                fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text>
+              <line x1="75" y1="0" x2="75" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <rect x="150" y="0" width="75" height="1324" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Apr 26</text>
-              <line x1="75" y1="0" x2="75" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="187.5" y="16"
+              <line x1="150" y1="0" x2="150" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">May 26</text>
-              <line x1="150" y1="0" x2="150" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16"
+              <line x1="225" y1="0" x2="225" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Jun 26</text>
-              <line x1="225" y1="0" x2="225" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16"
+              <line x1="300" y1="0" x2="300" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Jul 26</text>
-              <line x1="300" y1="0" x2="300" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16"
+              <line x1="375" y1="0" x2="375" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Aug 26</text>
-              <line x1="375" y1="0" x2="375" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16"
+              <line x1="450" y1="0" x2="450" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Sept 26</text>
-              <line x1="450" y1="0" x2="450" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line>
-              <rect x="0" y="36" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="74" x2="525" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="77.5" y="45" width="300" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3"
+              <line x1="525" y1="0" x2="525" y2="1324" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <rect x="0" y="36" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="74" x2="600" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="45" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="77.5" y="45" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="77.5" y="45" width="300" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="90.5" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">90%</text>
-              <rect x="0" y="74" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="112" x2="525" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="77.5" y="83" width="222.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="120" y="45" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="120" y="45" width="332.5" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% — รอ Supplier ส่งแผน SAT
+                รอบที่ 2</text>
+              <rect x="0" y="74" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="98" x2="600" y2="98" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="5" y="80" width="62.5" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="98" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="122" x2="600" y2="122" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="120" y="104" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="120" y="104" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="122" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="146" x2="600" y2="146" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="212.5" y="128" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="146" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="170" x2="600" y2="170" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="230.00000000000003" y="152" width="8" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="170" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="194" x2="600" y2="194" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="194" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="218" x2="600" y2="218" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="218" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="242" x2="600" y2="242" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="252" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="290" x2="600" y2="290" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="261" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="77.5" y="83" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="77.5" y="83" width="222.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="90.5" y="94" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">70%</text>
-              <rect x="0" y="112" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="150" x2="525" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="77.5" y="121" width="222.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="120" y="261" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="120" y="261" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="272" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install -
+                รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
+              <rect x="0" y="290" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="314" x2="600" y2="314" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="120" y="296" width="105" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="120" y="296" width="105" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="314" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="338" x2="600" y2="338" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="338" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="362" x2="600" y2="362" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="362" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="386" x2="600" y2="386" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="386" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="410" x2="600" y2="410" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="420" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="458" x2="600" y2="458" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="152.5" y="429" width="222.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="77.5" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="77.5" y="121" width="222.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="90.5" y="132" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">70%</text>
-              <rect x="0" y="150" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="188" x2="525" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="107.5" y="159" width="192.5" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="152.5" y="429" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="152.5" y="429" width="222.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)"
+                stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="165.5" y="440" dominant-baseline="middle"
+                fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% —
+                อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
+              <rect x="0" y="458" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="482" x2="600" y2="482" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="120" y="464" width="105" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="120" y="464" width="105" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="482" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="506" x2="600" y2="506" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="506" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="530" x2="600" y2="530" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="530" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="554" x2="600" y2="554" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="554" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="578" x2="600" y2="578" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="588" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="626" x2="600" y2="626" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="597" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)"
+                opacity="0.16" rx="3" cursor="default"></rect>
+              <rect x="182.50000000000003" y="597" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3">
+              </rect>
+              <rect x="182.50000000000003" y="597" width="192.49999999999997" height="20" fill="none"
+                stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
+                y="608" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
+                Kepware รอแล้ว</text>
+              <rect x="0" y="626" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="650" x2="600" y2="650" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="217.5" y="632" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="217.5" y="632" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="650" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="674" x2="600" y2="674" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="220.00000000000003" y="656" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="220.00000000000003" y="656" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="674" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="698" x2="600" y2="698" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="225" y="680" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="225" y="680" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="698" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="722" x2="600" y2="722" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="235" y="704" width="8" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="722" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="746" x2="600" y2="746" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="746" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="770" x2="600" y2="770" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="780" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="818" x2="600" y2="818" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="789" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)"
+                opacity="0.16" rx="3" cursor="default"></rect>
+              <rect x="182.50000000000003" y="789" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3">
+              </rect>
+              <rect x="182.50000000000003" y="789" width="192.49999999999997" height="20" fill="none"
+                stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
+                y="800" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
+                Kepware รอแล้ว</text>
+              <rect x="0" y="818" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="842" x2="600" y2="842" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="217.5" y="824" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="217.5" y="824" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="842" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="866" x2="600" y2="866" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="225" y="848" width="8" height="12" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="225" y="848" width="8" height="12" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="866" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="890" x2="600" y2="890" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="237.5" y="872" width="8" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="890" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="914" x2="600" y2="914" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="237.5" y="896" width="8" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="914" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="938" x2="600" y2="938" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="948" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="986" x2="600" y2="986" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="957" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="107.5" y="159" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="107.5" y="159" width="192.5" height="20" fill="none" stroke="hsl(78, 70%, 40%)"
-                stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="120.5" y="170" dominant-baseline="middle"
-                fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9.5"
-                font-weight="600">65%</text>
-              <rect x="0" y="188" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="226" x2="525" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="107.5" y="197" width="192.5" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="200" y="957" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="200" y="957" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="968" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% — Sourcing Supplier เบื้องต้น
+                Riverplus ได้นำขวดไปทดสอบแล้ว</text>
+              <rect x="0" y="986" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="1010" x2="600" y2="1010" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2">
+              </line>
+              <rect x="225" y="992" width="8" height="12" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="1010" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="1034" x2="600" y2="1034" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2">
+              </line>
+              <rect x="0" y="1044" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1082" x2="600" y2="1082" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="1053" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="107.5" y="197" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="107.5" y="197" width="192.5" height="20" fill="none" stroke="hsl(78, 70%, 40%)"
-                stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="120.5" y="208" dominant-baseline="middle"
-                fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9.5"
-                font-weight="600">65%</text>
-              <rect x="0" y="226" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="264" x2="525" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="125" y="235" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="200" y="1053" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="200" y="1053" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="1064" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
+              <rect x="0" y="1082" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="1120" x2="600" y2="1120" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="1091" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="default"></rect>
-              <rect x="125" y="235" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="125" y="235" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="138" y="246" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">10%</text>
-              <rect x="0" y="264" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="302" x2="525" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="125" y="273" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3"
-                cursor="default"></rect>
-              <rect x="125" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="125" y="273" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="138" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">0%</text>
-              <rect x="0" y="302" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="340" x2="525" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="125" y="311" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3"
-                cursor="default"></rect>
-              <rect x="125" y="311" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect>
-              <rect x="125" y="311" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="138" y="322" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
-                font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600">0%</text>
-              <rect x="0" y="340" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="378" x2="525" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="378" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="416" x2="525" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="416" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="454" x2="525" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="454" width="525" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="492" x2="525" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="492" width="525" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="530" x2="525" y2="530" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <line x1="159.99999999999997" y1="0" x2="159.99999999999997" y2="544" stroke="#DC2626" stroke-width="1.5"
-                stroke-dasharray="5,3"></line><text x="163.99999999999997" y="11" fill="#DC2626"
-                font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">TODAY</text>
+              <rect x="200" y="1091" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect>
+              <rect x="200" y="1091" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="1102" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
+              <rect x="0" y="1120" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1158" x2="600" y2="1158" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1158" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="1196" x2="600" y2="1196" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1196" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1234" x2="600" y2="1234" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1234" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="1272" x2="600" y2="1272" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1272" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1310" x2="600" y2="1310" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <line x1="235" y1="0" x2="235" y2="1324" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3">
+              </line><text x="239" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8"
+                font-weight="700">TODAY</text>
             </svg></div>
         </div>
         <div class="tl-leg">
@@ -2216,7 +2595,7 @@
 
   <!-- ══ EDIT MODE CONTROLS ══ -->
   <div id="edit-ctrls"
-    style="display: none; position: fixed; bottom: 20px; right: 28px; z-index: 9999; background: var(--sb); color: rgb(255, 255, 255); padding: 12px 20px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 25px; align-items: center; gap: 15px; border: 1px solid var(--sb-bdr);">
+    style="display: flex; position: fixed; bottom: 20px; right: 28px; z-index: 9999; background: var(--sb); color: rgb(255, 255, 255); padding: 12px 20px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 25px; align-items: center; gap: 15px; border: 1px solid var(--sb-bdr);">
     <div style="font-size:12px;font-weight:600;color:var(--sb-t);letter-spacing:0.05em">EDIT MODE ACTIVE</div>
     <button onclick="saveAllChanges()"
       style="background: rgb(93, 184, 244); color: rgb(15, 29, 46); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 6px 16px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; transition: transform 0.1s; transform: scale(1);"
@@ -2397,12 +2776,19 @@
         "type": "Machine",
         "impact": "New project impact",
         "lead": "",
-        "start": "1 Apr 2026",
+        "start": "18 Mar 2026",
         "finish": "31 Jul 2026",
-        "sd": "2026-04-01T00:00:00.000Z",
+        "sd": "2026-03-18T00:00:00.000Z",
         "fd": "2026-07-31T00:00:00.000Z",
-        "note": "SAT รอบที่ 1",
+        "note": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
         "tasks": [
+          {
+            "txt": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
+            "done": true,
+            "sd": "2026-02-02",
+            "ed": "2026-02-27",
+            "pct": 0
+          },
           {
             "txt": "SAT รอบที่ 1",
             "done": true,
@@ -2411,7 +2797,35 @@
             "pct": 100
           },
           {
+            "txt": "ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2",
+            "done": true,
+            "sd": "2026-04-25",
+            "ed": "2026-04-25",
+            "pct": 0
+          },
+          {
+            "txt": "ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation",
+            "done": false,
+            "sd": "2026-05-02",
+            "ed": "2026-05-02",
+            "pct": 0
+          },
+          {
             "txt": "SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Training",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2432,14 +2846,21 @@
         "type": "Machine",
         "impact": "New project impact",
         "lead": "",
-        "start": "1 Apr 2026",
+        "start": "18 Mar 2026",
         "finish": "30 Jun 2026",
-        "sd": "2026-04-01T00:00:00.000Z",
+        "sd": "2026-03-18T00:00:00.000Z",
         "fd": "2026-06-30T00:00:00.000Z",
-        "note": "Installation Machine & Function Test",
+        "note": "Install Machine On Site",
         "tasks": [
           {
-            "txt": "Installation Machine & Function Test",
+            "txt": "Install Machine On Site",
+            "done": true,
+            "sd": "2026-03-18",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
+            "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2453,11 +2874,18 @@
             "pct": 0
           },
           {
-            "txt": "Install Machine On Site",
-            "done": true,
+            "txt": "Training",
+            "done": false,
             "sd": "",
             "ed": "",
-            "pct": 100
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
           }
         ]
       },
@@ -2478,10 +2906,17 @@
         "finish": "30 Jun 2026",
         "sd": "2026-04-01T00:00:00.000Z",
         "fd": "2026-06-30T00:00:00.000Z",
-        "note": "Installation Machine & Function Test",
+        "note": "Install Machine On Site",
         "tasks": [
           {
-            "txt": "Installation Machine & Function Test",
+            "txt": "Install Machine On Site",
+            "done": true,
+            "sd": "2026-03-18",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
+            "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2495,11 +2930,18 @@
             "pct": 0
           },
           {
-            "txt": "Install Machine On Site",
-            "done": true,
+            "txt": "Training",
+            "done": false,
             "sd": "",
             "ed": "",
-            "pct": 100
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
           }
         ]
       },
@@ -2518,15 +2960,15 @@
         "lead": "",
         "start": "13 Apr 2026",
         "finish": "30 Jun 2026",
-        "note": "Send Requirement To Techlong",
+        "note": "Create Kepware Tag",
         "sd": "2026-04-13T00:00:00.000Z",
         "fd": "2026-06-30T00:00:00.000Z",
         "tasks": [
           {
-            "txt": "Send Requirement To Techlong",
+            "txt": "Create Kepware Tag",
             "done": true,
-            "sd": "2026-04-30",
-            "ed": "2026-04-30",
+            "sd": "2026-04-27",
+            "ed": "2026-04-27",
             "pct": 100
           },
           {
@@ -2537,10 +2979,10 @@
             "pct": 100
           },
           {
-            "txt": "Create Kepware Tag",
+            "txt": "Send Requirement To Techlong",
             "done": true,
-            "sd": "2026-04-27",
-            "ed": "2026-04-27",
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
             "pct": 100
           },
           {
@@ -2548,6 +2990,20 @@
             "done": false,
             "sd": "2026-05-04",
             "ed": "2026-05-05",
+            "pct": 0
+          },
+          {
+            "txt": "ทดสอบความถูกต้อง Data Techlong",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "ทดสอบความถูกต้อง Data Integra",
+            "done": false,
+            "sd": "",
+            "ed": "",
             "pct": 0
           }
         ]
@@ -2567,17 +3023,10 @@
         "lead": "",
         "start": "13 Apr 2026",
         "finish": "30 Jun 2026",
-        "note": "Send Requirement To Techlong",
+        "note": "Create Kepware Tag",
         "sd": "2026-04-13T00:00:00.000Z",
         "fd": "2026-06-30T00:00:00.000Z",
         "tasks": [
-          {
-            "txt": "Send Requirement To Techlong",
-            "done": true,
-            "sd": "2026-04-30",
-            "ed": "2026-04-30",
-            "pct": 100
-          },
           {
             "txt": "Create Kepware Tag",
             "done": true,
@@ -2586,7 +3035,28 @@
             "pct": 100
           },
           {
+            "txt": "Send Requirement To Techlong",
+            "done": true,
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
             "txt": "Tetra Pack เข้ามาเพิ่ม PLC Tag & Connect Kepware 05-may-2026",
+            "done": false,
+            "sd": "2026-05-05",
+            "ed": "2026-05-07",
+            "pct": 0
+          },
+          {
+            "txt": "ทดสอบความถูกต้อง Data Tetra Pack",
+            "done": false,
+            "sd": "2026-05-05",
+            "ed": "2026-05-07",
+            "pct": 0
+          },
+          {
+            "txt": "ทดสอบความถูกต้อง Data Techlong",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2609,12 +3079,19 @@
         "lead": "",
         "start": "20 Apr 2026",
         "finish": "28 Aug 2026",
-        "note": "Sub-project of Vision System (Project 6). Highest priority among the 3 Vision System sub-projects.",
+        "note": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
         "sd": "2026-04-20T00:00:00.000Z",
         "fd": "2026-08-28T00:00:00.000Z",
         "tasks": [
           {
-            "txt": "Sub-project of Vision System (Project 6). Highest priority among the 3 Vision System sub-projects.",
+            "txt": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
+            "done": false,
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
+            "pct": 0
+          },
+          {
+            "txt": "Demo",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2640,15 +3117,7 @@
         "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.",
         "sd": "2026-04-20T00:00:00.000Z",
         "fd": "2026-08-28T00:00:00.000Z",
-        "tasks": [
-          {
-            "txt": "Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.",
-            "done": false,
-            "sd": "",
-            "ed": "",
-            "pct": 0
-          }
-        ]
+        "tasks": []
       },
       {
         "num": "8",
@@ -3758,6 +4227,8 @@
       gotoView('ov');
     });
   </script>
+
+
 
 
 
