@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="--sb-width: 439px; --gt-label-width: 412px;">
+<html lang="en" style="--sb-width: 429px; --gt-label-width: 670px;">
 
 <head>
   <meta charset="UTF-8">
@@ -1423,7 +1423,7 @@
   </style>
 </head>
 
-<body class="edit-on">
+<body class="edit-on" style="cursor: default; user-select: auto;">
   <div class="app">
     <!-- Mobile Menu Button -->
     <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
@@ -1447,7 +1447,7 @@
 
 
       <div class="sb-nav">
-        <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
+        <button class="nb" id="nb-ov" onclick="gotoView('ov')">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
             <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
@@ -1456,7 +1456,7 @@
           </svg>
           Overview
         </button>
-        <button class="nb" id="nb-tl" onclick="gotoView('tl')">
+        <button class="nb on" id="nb-tl" onclick="gotoView('tl')">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <rect x="1" y="3.5" width="13" height="2" rx="1" fill="currentColor" opacity=".7"></rect>
             <rect x="1" y="7" width="9" height="2" rx="1" fill="currentColor"></rect>
@@ -1614,7 +1614,7 @@
     <main class="main">
 
       <!-- OVERVIEW -->
-      <div class="view on" id="v-ov" style="">
+      <div class="view" id="v-ov" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">OVERVIEW</div>
@@ -1701,7 +1701,7 @@
               <tr onclick="openDetail(2)" class="stagger-item" style="--i: 2">
                 <td class="td-no">3</td>
                 <td class="td-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</td>
-                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">1 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
                 <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:8px;justify-content:center">
@@ -1720,7 +1720,7 @@
                 <td class="td-no">4</td>
                 <td class="td-nm">Connect Machine Data: Line P to Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
-                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:8px;justify-content:center">
                     <div
@@ -1738,7 +1738,7 @@
                 <td class="td-no">5</td>
                 <td class="td-nm">Connect Machine Data: Line Q to Data Tank</td>
                 <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
-                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:8px;justify-content:center">
                     <div
@@ -1899,15 +1899,15 @@
       <div class="view" id="v-det" style="">
         <div class="det-top">
           <button class="back-btn" onclick="gotoView('ov')">← Overview</button>
-          <span class="det-nav" id="det-nav">1 of 13</span>
+          <span class="det-nav" id="det-nav">4 of 13</span>
         </div>
         <div class="det-hdr" id="det-hdr">
           <div class="dhdr-row">
             <div class="dhdr-left">
               <span class="d-lbl">PROJECT</span>
-              <span class="d-num" data-key="num">1</span>
+              <span class="d-num" data-key="num">4</span>
               <div>
-                <div class="d-name" data-key="name">Contaminate Inspection Line Q</div>
+                <div class="d-name" data-key="name">Connect Machine Data: Line P to Data Tank</div>
                 <div class="d-sub" data-key="sub" style=""></div>
               </div>
             </div>
@@ -1919,21 +1919,21 @@
             <div class="irow c3">
               <div class="icell">
                 <div class="ilab">IO / AUC</div>
-                <div class="ival mono" data-key="io">TBD</div>
+                <div class="ival mono" data-key="io">1200333/882000000297-(0-10)</div>
               </div>
               <div class="icell">
                 <div class="ilab">Start Date</div>
-                <div class="ival blue">18 Mar 2026</div>
+                <div class="ival blue">13 Apr 2026</div>
               </div>
               <div class="icell">
                 <div class="ilab">Finish Date</div>
-                <div class="ival am">31 Jul 2026</div>
+                <div class="ival am">5 Jun 2026</div>
               </div>
             </div>
             <div class="irow c4">
               <div class="icell">
                 <div class="ilab">Location</div>
-                <div class="ival" data-key="loc">Line Q</div>
+                <div class="ival" data-key="loc">Line P</div>
               </div>
               <div class="icell">
                 <div class="ilab">Size</div>
@@ -1941,7 +1941,7 @@
               </div>
               <div class="icell">
                 <div class="ilab">Type</div>
-                <div class="ival" data-key="type" style="color:var(--blue)">Machine</div>
+                <div class="ival" data-key="type" style="color:var(--purple)">System Integration</div>
               </div>
               <div class="icell">
                 <div class="ilab">Lead Time</div>
@@ -1950,7 +1950,8 @@
             </div>
             <div class="icell-full">
               <div class="ilab">Impact / Goal</div>
-              <div class="ival blue sm" data-key="impact">New project impact</div>
+              <div class="ival blue sm" data-key="impact">Centralize capacity monitoring &amp; control for optimized new
+                factory startup</div>
             </div>
           </div>
 
@@ -1959,17 +1960,17 @@
               <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
                 <div class="ilab">Status</div>
                 <div style="margin-top:6px; " data-key="status"><span class="badge"
-                    style="color:#475569;background:#F1F5F9;font-size:13px;padding:5px 13px">รอ Supplier ส่งแผน SAT
-                    รอบที่ 2</span></div>
+                    style="color:#475569;background:#F1F5F9;font-size:13px;padding:5px 13px">Send Requirement To
+                    Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></div>
               </div>
               <div class="icell">
                 <div class="ilab">Progress</div>
                 <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
-                  <span class="pct" data-key="pct" style="color:hsl(108, 70%, 40%)">90%</span>
+                  <span class="pct" data-key="pct" style="color:hsl(78, 70%, 40%)">65%</span>
                   <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
                 </div>
                 <div class="pbar">
-                  <div class="pfill" style="width:90%; background:hsl(108, 70%, 40%)"></div>
+                  <div class="pfill" style="width:65%; background:hsl(78, 70%, 40%)"></div>
                 </div>
                 <div class="pnote">Current progress as of 4 May 2026</div>
               </div>
@@ -1980,7 +1981,7 @@
             <div class="note-box">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                 <div class="note-lab">TASKS</div>
-                <button class="add-task-btn" onclick="addTask(0)" style="display:none">+</button>
+                <button class="add-task-btn" onclick="addTask(3)" style="display:none">+</button>
               </div>
               <div class="task-grid">
                 <div class="task-hrow">
@@ -1994,102 +1995,116 @@
                 <div id="task-list">
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 0, this.checked)"
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 0, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt done" contenteditable="false">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</div>
+                    <div class="task-txt done" contenteditable="false">Create Kepware Tag</div>
                     <div class="t-sd">
-                      18 Mar 2026
+                      27 Apr 2026
                     </div>
                     <div class="t-ed">
-                      18 Mar 2026
+                      27 Apr 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 0)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 0)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 1, this.checked)"
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 1, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt done" contenteditable="false">SAT รอบที่ 1</div>
+                    <div class="task-txt done" contenteditable="false">Send Requirement To Integra</div>
                     <div class="t-sd">
-                      18 Mar 2026
+                      28 Apr 2026
                     </div>
                     <div class="t-ed">
-                      18 Mar 2026
+                      28 Apr 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 1)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 1)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 2, this.checked)"
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 2, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt done" contenteditable="false">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</div>
+                    <div class="task-txt done" contenteditable="false">Send Requirement To Techlong</div>
                     <div class="t-sd">
-                      25 Apr 2026
+                      30 Apr 2026
                     </div>
                     <div class="t-ed">
-                      25 Apr 2026
+                      30 Apr 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 2)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 2)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 3, this.checked)"
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 3, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt done" contenteditable="false">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation
-                    </div>
+                    <div class="task-txt " contenteditable="false">Data Mapping Integra (ต้องเข้าไปตั้งค่า Default
+                      Gateway)</div>
                     <div class="t-sd">
-                      2 May 2026
+                      5 May 2026
                     </div>
                     <div class="t-ed">
-                      2 May 2026
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 3)" style="display:none">×</button>
-                  </div>
-
-                  <div class="task-item">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 4, this.checked)"
-                      title="Mark as done">
-                    <div class="task-txt " contenteditable="false">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</div>
-                    <div class="t-sd">
-
-                    </div>
-                    <div class="t-ed">
-
+                      8 May 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 4)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 3)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 5, this.checked)"
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 4, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt " contenteditable="false">Training</div>
+                    <div class="task-txt " contenteditable="false">Data Mapping Techlong</div>
                     <div class="t-sd">
-
+                      11 May 2026
                     </div>
                     <div class="t-ed">
-
+                      22 May 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 5)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 4)" style="display:none">×</button>
                   </div>
 
                   <div class="task-item">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 6, this.checked)"
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 5, this.checked)"
                       title="Mark as done">
-                    <div class="task-txt " contenteditable="false">Handover Document</div>
+                    <div class="task-txt " contenteditable="false">Techlong&nbsp;Data Validation</div>
                     <div class="t-sd">
-
+                      18 May 2026
                     </div>
                     <div class="t-ed">
-
+                      29 May 2026
                     </div>
                     <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 6)" style="display:none">×</button>
+                    <button class="del-task-btn" onclick="delTask(3, 5)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 6, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Integra&nbsp;Data Validation</div>
+                    <div class="t-sd">
+                      18 May 2026
+                    </div>
+                    <div class="t-ed">
+                      29 May 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 6)" style="display:none">×</button>
+                  </div>
+
+                  <div class="task-item">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 7, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="false">Handover to IT</div>
+                    <div class="t-sd">
+                      1 Jun 2026
+                    </div>
+                    <div class="t-ed">
+                      5 Jun 2026
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="false">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 7)" style="display:none">×</button>
                   </div>
 
                 </div>
@@ -2098,14 +2113,14 @@
           </div>
 
           <div class="det-pager">
-
-            <button class="back-btn" onclick="openDetail(1)">2 →</button>
+            <button class="back-btn" onclick="openDetail(2)">← 3</button>
+            <button class="back-btn" onclick="openDetail(4)">5 →</button>
           </div>
         </div>
       </div>
 
       <!-- TIMELINE -->
-      <div class="view" id="v-tl" style="">
+      <div class="view on" id="v-tl" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">PROJECT TIMELINE</div>
@@ -2135,143 +2150,436 @@
         </div>
         <div id="gantt-container">
           <div id="gantt-labels-wrap">
-            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="412" height="544"
-              viewBox="0 0 412 544">
-              <rect x="0" y="0" width="412" height="544" fill="#F8FAFC"></rect>
-              <rect x="0" y="0" width="412" height="30" fill="#EDF2F7"></rect>
-              <line x1="0" y1="30" x2="412" y2="30" stroke="#CBD5E1" stroke-width="1"></line>
-              <rect x="0" y="36" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="74" x2="412" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="56"
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="670" height="1184"
+              viewBox="0 0 670 1184">
+              <rect x="0" y="0" width="670" height="1184" fill="#F8FAFC"></rect>
+              <rect x="0" y="0" width="670" height="30" fill="#EDF2F7"></rect>
+              <line x1="0" y1="30" x2="670" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="78" y="16"
+                dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11"
+                font-weight="700">PROJECT NAME</text><text x="460" y="16" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11"
+                font-weight="700">START</text><text x="540" y="16" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">FINISH</text><text x="625"
+                y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)"
+                font-size="11" font-weight="700">PROGRESS (%)</text>
+              <rect x="0" y="36" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="74" x2="670" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="56"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
                 font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Line Q</text>
-              <circle cx="399" cy="55" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="74" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="112" x2="412" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="94"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="94"
+                font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Line
+                Q</text><text x="460" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540"
+                y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625"
+                y="56" text-anchor="middle" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">90%</text>
+              <rect x="0" y="74" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="98" x2="670" y2="98" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <text x="92" y="87" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</text><text x="460" y="87" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 Mar
+                2026</text><text x="540" y="87" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">18 Mar 2026</text><text x="625" y="87"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="98" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="122" x2="670" y2="122" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="111" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">SAT รอบที่ 1</text><text x="460" y="111" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 Mar 2026</text><text x="540"
+                y="111" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">18 Mar 2026</text><text x="625" y="111"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="122" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="146" x2="670" y2="146" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="135" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</text><text x="460" y="135" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">25 Apr
+                2026</text><text x="540" y="135" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">25 Apr 2026</text><text x="625" y="135"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="146" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="170" x2="670" y2="170" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="159" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation</text><text x="460" y="159"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">2 May 2026</text><text x="540" y="159" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">2 May 2026</text><text x="625"
+                y="159" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">100%</text>
+              <rect x="0" y="170" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="194" x2="670" y2="194" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="183" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)</text><text x="460" y="183"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">-</text><text x="540" y="183" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="183"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="194" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="218" x2="670" y2="218" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="207" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Training</text><text x="460" y="207" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="207"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">-</text><text x="625" y="207" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text>
+              <rect x="0" y="218" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="242" x2="670" y2="242" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="231" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover Document</text><text x="460" y="231" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">-</text><text x="540" y="231" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="231"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="252" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="290" x2="670" y2="290" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="272"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="272"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">2</text><text x="78" y="94" dominant-baseline="middle" fill="#475569"
-                font-family="Figtree,sans-serif" font-size="11">Inspection Cap&amp;Level line Q (1 M/C)</text>
-              <circle cx="399" cy="93" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="112" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="150" x2="412" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="132"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="132"
+                font-weight="800" cursor="pointer">2</text><text x="78" y="272" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap&amp;Level
+                line Q (1 M/C)</text><text x="460" y="272" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar
+                2026</text><text x="540" y="272" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun 2026</text><text x="625"
+                y="272" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text>
+              <rect x="0" y="290" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="328" x2="670" y2="328" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="310"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="310"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">3</text><text x="78" y="132" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection sleeve, external code and
-                sticker line Q (2 M/C)</text>
-              <circle cx="399" cy="131" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="150" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="188" x2="412" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="170"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="170"
+                font-weight="800" cursor="pointer">3</text><text x="78" y="310" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection sleeve,
+                external code and sticker line Q ...</text><text x="460" y="310" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10"
+                cursor="pointer">18 Mar 2026</text><text x="540" y="310" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun
+                2026</text><text x="625" y="310" text-anchor="middle" dominant-baseline="middle"
+                fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700"
+                cursor="pointer">70%</text>
+              <rect x="0" y="328" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="366" x2="670" y2="366" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="348"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="348"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">4</text><text x="78" y="170" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line P to Data
-                Tank</text>
-              <circle cx="399" cy="169" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="188" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="226" x2="412" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="208"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="208"
+                font-weight="800" cursor="pointer">4</text><text x="78" y="348" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data:
+                Line P to Data Tank</text><text x="460" y="348" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr
+                2026</text><text x="540" y="348" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625"
+                y="348" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text>
+              <rect x="0" y="366" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="390" x2="670" y2="390" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="379" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Create Kepware Tag</text><text x="460" y="379" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">27 Apr
+                2026</text><text x="540" y="379" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">27 Apr 2026</text><text x="625" y="379"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="390" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="414" x2="670" y2="414" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="403" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Integra</text><text x="460" y="403" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">28 Apr
+                2026</text><text x="540" y="403" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">28 Apr 2026</text><text x="625" y="403"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="414" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="438" x2="670" y2="438" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="427" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Techlong</text><text x="460" y="427" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">30 Apr
+                2026</text><text x="540" y="427" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">30 Apr 2026</text><text x="625" y="427"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="438" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="462" x2="670" y2="462" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="451" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Data Mapping Integra (ต้องเข้าไปตั้งค่า Default Gateway)</text><text x="460" y="451"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">5 May 2026</text><text x="540" y="451" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">8 May 2026</text><text x="625"
+                y="451" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">0%</text>
+              <rect x="0" y="462" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="486" x2="670" y2="486" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="475" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Data Mapping Techlong</text><text x="460" y="475" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">11 May
+                2026</text><text x="540" y="475" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">22 May 2026</text><text x="625" y="475"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="486" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="510" x2="670" y2="510" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="499" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Techlong&nbsp;Data Validation</text><text x="460" y="499" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 May
+                2026</text><text x="540" y="499" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">29 May 2026</text><text x="625" y="499"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="510" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="534" x2="670" y2="534" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="523" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Integra&nbsp;Data Validation</text><text x="460" y="523" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 May
+                2026</text><text x="540" y="523" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">29 May 2026</text><text x="625" y="523"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="534" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="558" x2="670" y2="558" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="547" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover to IT</text><text x="460" y="547" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 Jun
+                2026</text><text x="540" y="547" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">5 Jun 2026</text><text x="625" y="547"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="568" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="606" x2="670" y2="606" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="588"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="588"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">5</text><text x="78" y="208" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Connect Machine Data: Line Q to Data
-                Tank</text>
-              <circle cx="399" cy="207" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="226" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="264" x2="412" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="246"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="246"
+                font-weight="800" cursor="pointer">5</text><text x="78" y="588" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data:
+                Line Q to Data Tank</text><text x="460" y="588" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr
+                2026</text><text x="540" y="588" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625"
+                y="588" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text>
+              <rect x="0" y="606" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="630" x2="670" y2="630" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="619" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Create Kepware Tag</text><text x="460" y="619" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">27 Apr
+                2026</text><text x="540" y="619" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">28 Apr 2026</text><text x="625" y="619"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="630" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="654" x2="670" y2="654" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="643" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Send Requirement To Techlong</text><text x="460" y="643" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">30 Apr
+                2026</text><text x="540" y="643" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">30 Apr 2026</text><text x="625" y="643"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">100%</text>
+              <rect x="0" y="654" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="678" x2="670" y2="678" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="667" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Data Mapping Tetra Pack (Supplier เข้ามา Sync Data 06/05/26)</text><text x="460" y="667"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">5 May 2026</text><text x="540" y="667" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">8 May 2026</text><text x="625"
+                y="667" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">0%</text>
+              <rect x="0" y="678" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="702" x2="670" y2="702" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="691" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Data Mapping Techlong</text><text x="460" y="691" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">11 May
+                2026</text><text x="540" y="691" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">15 May 2026</text><text x="625" y="691"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="702" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="726" x2="670" y2="726" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="715" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Tetra Pack&nbsp;Data Validation</text><text x="460" y="715" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 May
+                2026</text><text x="540" y="715" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">29 May 2026</text><text x="625" y="715"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="726" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="750" x2="670" y2="750" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="739" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Techlong Data Validation</text><text x="460" y="739" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">18 May
+                2026</text><text x="540" y="739" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">29 May 2026</text><text x="625" y="739"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="750" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="774" x2="670" y2="774" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="763" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Handover to IT</text><text x="460" y="763" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 Jun
+                2026</text><text x="540" y="763" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">5 Jun 2026</text><text x="625" y="763"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="784" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="822" x2="670" y2="822" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="804"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▼</text><text x="26" y="804"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">6</text><text x="78" y="246" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
-                E</text>
-              <circle cx="399" cy="245" r="4.5" fill="#475569"></circle>
-              <rect x="0" y="264" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="302" x2="412" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="284"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="284"
+                font-weight="800" cursor="pointer">6</text><text x="78" y="804" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System E</text><text x="460" y="804" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="804" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="804" text-anchor="middle" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">10%</text>
+              <rect x="0" y="822" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="846" x2="670" y2="846" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="835" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Sourcing Supplier - Riverplus เข้ามารับ Requirement</text><text x="460" y="835"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">30 Apr 2026</text><text x="540" y="835" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">30 Apr 2026</text><text x="625"
+                y="835" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">100%</text>
+              <rect x="0" y="846" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="870" x2="670" y2="870" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="859" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Demo</text><text x="460" y="859" text-anchor="middle" dominant-baseline="middle"
+                fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 May 2026</text><text x="540"
+                y="859" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">29 May 2026</text><text x="625" y="859"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="870" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect>
+              <line x1="10" y1="894" x2="670" y2="894" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2">
+              </line><text x="92" y="883" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif"
+                font-size="10">Design Line Layout</text><text x="460" y="883" text-anchor="middle"
+                dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 Jun
+                2026</text><text x="540" y="883" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8"
+                font-family="JetBrains Mono,monospace" font-size="9">5 Jun 2026</text><text x="625" y="883"
+                text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace"
+                font-size="9">0%</text>
+              <rect x="0" y="904" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="942" x2="670" y2="942" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="924"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="924"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">7</text><text x="78" y="284" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
-                C</text>
-              <circle cx="399" cy="283" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="302" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="340" x2="412" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="322"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="322"
+                font-weight="800" cursor="pointer">7</text><text x="78" y="924" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System C</text><text x="460" y="924" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="924" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="924" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="942" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="980" x2="670" y2="980" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="962"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="962"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">8</text><text x="78" y="322" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Contaminate Inspection Vision System
-                D</text>
-              <circle cx="399" cy="321" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="340" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="378" x2="412" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="360"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="360"
+                font-weight="800" cursor="pointer">8</text><text x="78" y="962" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System D</text><text x="460" y="962" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="962" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="962" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="980" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1018" x2="670" y2="1018" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1000"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1000"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">9</text><text x="78" y="360" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection Cap: Line C, D, E, P</text>
-              <circle cx="399" cy="359" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="378" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="416" x2="412" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="398"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="398"
+                font-weight="800" cursor="pointer">9</text><text x="78" y="1000" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap: Line C,
+                D, E, P</text><text x="460" y="1000" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="1000"
+                text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace"
+                font-size="10" cursor="pointer">-</text><text x="625" y="1000" text-anchor="middle"
+                dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10"
+                font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="1018" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="1056" x2="670" y2="1056" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1038"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1038"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">10</text><text x="78" y="398" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Inspection External Code: Line C, D,
-                E</text>
-              <circle cx="399" cy="397" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="416" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="454" x2="412" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="436"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="436"
+                font-weight="800" cursor="pointer">10</text><text x="78" y="1038" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection External
+                Code: Line C, D, E</text><text x="460" y="1038" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="1038" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="1038"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="1056" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1094" x2="670" y2="1094" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1076"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1076"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">11</text><text x="78" y="436" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Carton Coding ↔ Data
-                Tank</text>
-              <circle cx="399" cy="435" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="454" width="412" height="38" fill="#F1F5F9"></rect>
-              <line x1="0" y1="492" x2="412" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="474"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="474"
+                font-weight="800" cursor="pointer">11</text><text x="78" y="1076" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface:
+                Carton Coding ↔ Data Tank</text><text x="460" y="1076" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="1076" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="1076"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="1094" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="1132" x2="670" y2="1132" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1114"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1114"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">12</text><text x="78" y="474" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Carton Counting System to Data
-                Tank</text>
-              <circle cx="399" cy="473" r="4.5" fill="#6D28D9"></circle>
-              <rect x="0" y="492" width="412" height="38" fill="#F8FAFC"></rect>
-              <line x1="0" y1="530" x2="412" y2="530" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="512"
-                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="512"
+                font-weight="800" cursor="pointer">12</text><text x="78" y="1114" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Carton Counting
+                System to Data Tank</text><text x="460" y="1114" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="1114" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="1114"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="1132" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="1170" x2="670" y2="1170" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="1152"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="1152"
                 dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
-                font-weight="800" cursor="pointer">13</text><text x="78" y="512" dominant-baseline="middle"
-                fill="#475569" font-family="Figtree,sans-serif" font-size="11">Install Interface: Customer Coding
-                (Bottle) ↔ Data Tank</text>
-              <circle cx="399" cy="511" r="4.5" fill="#6D28D9"></circle>
+                font-weight="800" cursor="pointer">13</text><text x="78" y="1152" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface:
+                Customer Coding (Bottle) ↔ Data Tank</text><text x="460" y="1152" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10"
+                cursor="pointer">-</text><text x="540" y="1152" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="625" y="1152" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <line x1="0" y1="0" x2="0" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="70" y1="0" x2="70" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="420" y1="0" x2="420" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="500" y1="0" x2="500" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="580" y1="0" x2="580" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="670" y1="0" x2="670" y2="1184" stroke="#CBD5E1" stroke-width="1"></line>
             </svg>
             <div class="gantt-resizer" id="gantt-resizer"></div>
           </div>
           <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="600"
-              height="544" viewBox="0 0 600 544">
-              <rect x="0" y="0" width="600" height="544" fill="#FFFFFF"></rect>
+              height="1184" viewBox="0 0 600 1184">
+              <rect x="0" y="0" width="600" height="1184" fill="#FFFFFF"></rect>
               <rect x="0" y="0" width="600" height="30" fill="#F1F5F9"></rect>
               <line x1="0" y1="30" x2="600" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle"
                 fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text>
-              <line x1="75" y1="0" x2="75" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line>
-              <rect x="150" y="0" width="75" height="544" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16"
+              <line x1="75" y1="0" x2="75" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <rect x="150" y="0" width="75" height="1184" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Apr 26</text>
-              <line x1="150" y1="0" x2="150" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16"
+              <line x1="150" y1="0" x2="150" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">May 26</text>
-              <line x1="225" y1="0" x2="225" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16"
+              <line x1="225" y1="0" x2="225" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Jun 26</text>
-              <line x1="300" y1="0" x2="300" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16"
+              <line x1="300" y1="0" x2="300" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Jul 26</text>
-              <line x1="375" y1="0" x2="375" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16"
+              <line x1="375" y1="0" x2="375" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Aug 26</text>
-              <line x1="450" y1="0" x2="450" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16"
+              <line x1="450" y1="0" x2="450" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16"
                 text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
                 font-size="10">Sept 26</text>
-              <line x1="525" y1="0" x2="525" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <line x1="525" y1="0" x2="525" y2="1184" stroke="#E4EAF2" stroke-width="0.8"></line>
               <rect x="0" y="36" width="600" height="38" fill="#FFFFFF"></rect>
               <line x1="0" y1="74" x2="600" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line>
               <rect x="120" y="45" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3"
@@ -2282,88 +2590,170 @@
                 opacity="0.35" rx="3"></rect><text x="133" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
                 font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% — รอ Supplier ส่งแผน SAT
                 รอบที่ 2</text>
-              <rect x="0" y="74" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="112" x2="600" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="120" y="83" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
-              </rect>
-              <rect x="120" y="83" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="0" y="74" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="98" x2="600" y2="98" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="120" y="82" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="120" y="82" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="98" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="122" x2="600" y2="122" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="120" y="106" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="120" y="106" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="122" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="146" x2="600" y2="146" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="212.5" y="130" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="212.5" y="130" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="146" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="170" x2="600" y2="170" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="230.00000000000003" y="154" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="230.00000000000003" y="154" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="170" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="194" x2="600" y2="194" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="194" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="218" x2="600" y2="218" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="218" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="242" x2="600" y2="242" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="0" y="252" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="290" x2="600" y2="290" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="261" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
+                cursor="move"></rect>
+              <rect x="120" y="261" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="120" y="83" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="133" y="94" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+              <rect x="120" y="261" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="272" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
                 font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install -
                 รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
-              <rect x="0" y="112" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="150" x2="600" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="152.5" y="121" width="222.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="0" y="290" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="328" x2="600" y2="328" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="299" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="move"></rect>
-              <rect x="152.5" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="120" y="299" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="152.5" y="121" width="222.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)"
-                stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="165.5" y="132" dominant-baseline="middle"
-                fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% —
-                อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
-              <rect x="0" y="150" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="188" x2="600" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="182.50000000000003" y="159" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)"
+              <rect x="120" y="299" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="310" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install -
+                รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
+              <rect x="0" y="328" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="366" x2="600" y2="366" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="337" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)"
                 opacity="0.16" rx="3" cursor="move"></rect>
-              <rect x="182.50000000000003" y="159" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="182.50000000000003" y="337" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="182.50000000000003" y="159" width="192.49999999999997" height="20" fill="none"
+              <rect x="182.50000000000003" y="337" width="129.99999999999997" height="20" fill="none"
                 stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
-                y="170" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                y="348" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
                 font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
                 Kepware รอแล้ว</text>
-              <rect x="0" y="188" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="226" x2="600" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="182.50000000000003" y="197" width="192.49999999999997" height="20" fill="hsl(78, 70%, 40%)"
+              <rect x="0" y="366" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="390" x2="600" y2="390" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="217.5" y="374" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="217.5" y="374" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="390" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="414" x2="600" y2="414" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="220.00000000000003" y="398" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="220.00000000000003" y="398" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="414" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="438" x2="600" y2="438" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="225" y="422" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="225" y="422" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="438" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="462" x2="600" y2="462" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="237.5" y="446" width="8" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="462" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="486" x2="600" y2="486" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="252.5" y="470" width="27.5" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="486" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="510" x2="600" y2="510" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="270" y="494" width="27.5" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="510" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="534" x2="600" y2="534" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="270" y="518" width="27.5" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="534" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="558" x2="600" y2="558" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="302.5" y="542" width="10" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="568" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="606" x2="600" y2="606" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="577" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)"
                 opacity="0.16" rx="3" cursor="move"></rect>
-              <rect x="182.50000000000003" y="197" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="182.50000000000003" y="577" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="182.50000000000003" y="197" width="192.49999999999997" height="20" fill="none"
+              <rect x="182.50000000000003" y="577" width="129.99999999999997" height="20" fill="none"
                 stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
-                y="208" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                y="588" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
                 font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
                 Kepware รอแล้ว</text>
-              <rect x="0" y="226" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="264" x2="600" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="200" y="235" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3"
+              <rect x="0" y="606" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="630" x2="600" y2="630" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="217.5" y="614" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="217.5" y="614" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="630" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="654" x2="600" y2="654" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="225" y="638" width="8" height="16" fill="#10B981" rx="2" opacity="0.6"></rect>
+              <rect x="225" y="638" width="8" height="16" fill="#10B981" rx="2"></rect>
+              <rect x="0" y="654" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="678" x2="600" y2="678" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="237.5" y="662" width="8" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="678" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="702" x2="600" y2="702" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="252.5" y="686" width="10" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="702" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="726" x2="600" y2="726" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="270" y="710" width="27.5" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="726" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="750" x2="600" y2="750" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="270" y="734" width="27.5" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="750" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="774" x2="600" y2="774" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="302.5" y="758" width="10" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="784" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="822" x2="600" y2="822" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="793" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3"
                 cursor="move"></rect>
-              <rect x="200" y="235" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="200" y="793" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="200" y="235" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="213" y="246" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
+              <rect x="200" y="793" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="804" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
                 font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% — Sourcing Supplier เบื้องต้น
                 Riverplus ได้นำขวดไปทดสอบแล้ว</text>
-              <rect x="0" y="264" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="302" x2="600" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="200" y="273" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
+              <rect x="0" y="822" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="846" x2="600" y2="846" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="225" y="830" width="8" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="225" y="830" width="8" height="16" fill="#94A3B8" rx="2"></rect>
+              <rect x="0" y="846" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="870" x2="600" y2="870" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="227.5" y="854" width="70" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="870" width="600" height="24" fill="#F8FAFC" opacity="0.5"></rect>
+              <line x1="0" y1="894" x2="600" y2="894" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line>
+              <rect x="302.5" y="878" width="10" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect>
+              <rect x="0" y="904" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="942" x2="600" y2="942" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="913" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
               </rect>
-              <rect x="200" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="200" y="913" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="200" y="273" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="213" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+              <rect x="200" y="913" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="924" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
                 font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
-              <rect x="0" y="302" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="340" x2="600" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="200" y="311" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
+              <rect x="0" y="942" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="980" x2="600" y2="980" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="951" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
               </rect>
-              <rect x="200" y="311" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
+              <rect x="200" y="951" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
                 style="cursor: ew-resize;"></rect>
-              <rect x="200" y="311" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
-                opacity="0.35" rx="3"></rect><text x="213" y="322" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+              <rect x="200" y="951" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="962" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
                 font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
-              <rect x="0" y="340" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="378" x2="600" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="378" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="416" x2="600" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="416" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="454" x2="600" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="454" width="600" height="38" fill="#FAFBFC"></rect>
-              <line x1="0" y1="492" x2="600" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <rect x="0" y="492" width="600" height="38" fill="#FFFFFF"></rect>
-              <line x1="0" y1="530" x2="600" y2="530" stroke="#F1F5F9" stroke-width="0.7"></line>
-              <line x1="235" y1="0" x2="235" y2="544" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"></line>
-              <text x="239" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8"
+              <rect x="0" y="980" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1018" x2="600" y2="1018" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1018" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="1056" x2="600" y2="1056" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1056" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1094" x2="600" y2="1094" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1094" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="1132" x2="600" y2="1132" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="1132" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="1170" x2="600" y2="1170" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <line x1="235" y1="0" x2="235" y2="1184" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3">
+              </line><text x="239" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8"
                 font-weight="700">TODAY</text>
             </svg></div>
         </div>
@@ -2656,8 +3046,8 @@
           {
             "txt": "Install Machine On Site",
             "done": true,
-            "sd": "2026-03-18",
-            "ed": "2026-04-30",
+            "sd": "",
+            "ed": "",
             "pct": 100
           },
           {
@@ -2703,17 +3093,17 @@
         "type": "Machine",
         "impact": "New project impact",
         "lead": "",
-        "start": "1 Apr 2026",
+        "start": "18 Mar 2026",
         "finish": "30 Jun 2026",
-        "sd": "2026-04-01T00:00:00.000Z",
+        "sd": "2026-03-18T00:00:00.000Z",
         "fd": "2026-06-30T00:00:00.000Z",
         "note": "Install Machine On Site",
         "tasks": [
           {
             "txt": "Install Machine On Site",
             "done": true,
-            "sd": "2026-03-18",
-            "ed": "2026-04-30",
+            "sd": "",
+            "ed": "",
             "pct": 100
           },
           {
@@ -2760,10 +3150,10 @@
         "impact": "Centralize capacity monitoring & control for optimized new factory startup",
         "lead": "",
         "start": "13 Apr 2026",
-        "finish": "30 Jun 2026",
+        "finish": "5 Jun 2026",
         "note": "Create Kepware Tag",
         "sd": "2026-04-13T00:00:00.000Z",
-        "fd": "2026-06-30T00:00:00.000Z",
+        "fd": "2026-06-05T00:00:00.000Z",
         "tasks": [
           {
             "txt": "Create Kepware Tag",
@@ -2787,24 +3177,38 @@
             "pct": 100
           },
           {
-            "txt": "เข้าตรวจสอบ IP Address PLC UHT High Care (Ping ไม่เจอ)",
+            "txt": "Data Mapping Integra (ต้องเข้าไปตั้งค่า Default Gateway)",
             "done": false,
-            "sd": "2026-05-04",
-            "ed": "2026-05-05",
+            "sd": "2026-05-05",
+            "ed": "2026-05-08",
             "pct": 0
           },
           {
-            "txt": "ทดสอบความถูกต้อง Data Techlong",
+            "txt": "Data Mapping Techlong",
             "done": false,
-            "sd": "",
-            "ed": "",
+            "sd": "2026-05-11",
+            "ed": "2026-05-22",
             "pct": 0
           },
           {
-            "txt": "ทดสอบความถูกต้อง Data Integra",
+            "txt": "Techlong Data Validation",
             "done": false,
-            "sd": "",
-            "ed": "",
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Integra Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Handover to IT",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
             "pct": 0
           }
         ]
@@ -2823,10 +3227,10 @@
         "impact": "OEE Up",
         "lead": "",
         "start": "13 Apr 2026",
-        "finish": "30 Jun 2026",
+        "finish": "5 Jun 2026",
         "note": "Create Kepware Tag",
         "sd": "2026-04-13T00:00:00.000Z",
-        "fd": "2026-06-30T00:00:00.000Z",
+        "fd": "2026-06-05T00:00:00.000Z",
         "tasks": [
           {
             "txt": "Create Kepware Tag",
@@ -2843,24 +3247,38 @@
             "pct": 100
           },
           {
-            "txt": "Tetra Pack เข้ามาเพิ่ม PLC Tag & Connect Kepware 05-may-2026",
+            "txt": "Data Mapping Tetra Pack (Supplier เข้ามา Sync Data 06/05/26)",
             "done": false,
             "sd": "2026-05-05",
-            "ed": "2026-05-07",
+            "ed": "2026-05-08",
             "pct": 0
           },
           {
-            "txt": "ทดสอบความถูกต้อง Data Tetra Pack",
+            "txt": "Data Mapping Techlong",
             "done": false,
-            "sd": "2026-05-05",
-            "ed": "2026-05-07",
+            "sd": "2026-05-11",
+            "ed": "2026-05-15",
             "pct": 0
           },
           {
-            "txt": "ทดสอบความถูกต้อง Data Techlong",
+            "txt": "Tetra Pack Data Validation",
             "done": false,
-            "sd": "",
-            "ed": "",
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Techlong Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Handover to IT",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
             "pct": 0
           }
         ]
@@ -2889,13 +3307,20 @@
             "done": false,
             "sd": "2026-04-30",
             "ed": "2026-04-30",
-            "pct": 0
+            "pct": 100
           },
           {
             "txt": "Demo",
             "done": false,
-            "sd": "",
-            "ed": "",
+            "sd": "2026-05-01",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
             "pct": 0
           }
         ]
@@ -2920,7 +3345,14 @@
         "fd": "2026-08-28T00:00:00.000Z",
         "tasks": [
           {
-            "txt": "test",
+            "txt": "Study Project",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2948,7 +3380,14 @@
         "fd": "2026-08-28T00:00:00.000Z",
         "tasks": [
           {
-            "txt": "Sub-project of Vision System (Project 6). Budget shared under parent IO.",
+            "txt": "Study Project",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
             "done": false,
             "sd": "",
             "ed": "",
@@ -2976,7 +3415,7 @@
         "fd": null,
         "tasks": [
           {
-            "txt": "Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.",
+            "txt": "Waiting for IE team study.",
             "done": false,
             "sd": "",
             "ed": "",
@@ -3004,7 +3443,7 @@
         "fd": null,
         "tasks": [
           {
-            "txt": "Waiting for IE team study. Project memo not yet written. No IO number assigned.",
+            "txt": "Waiting for IE team study.",
             "done": false,
             "sd": "",
             "ed": "",
@@ -3032,7 +3471,7 @@
         "fd": null,
         "tasks": [
           {
-            "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+            "txt": "Waiting for IE team study.",
             "done": false,
             "sd": "",
             "ed": "",
@@ -3060,7 +3499,7 @@
         "fd": null,
         "tasks": [
           {
-            "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+            "txt": "Waiting for IE team study.",
             "done": false,
             "sd": "",
             "ed": "",
@@ -3088,7 +3527,7 @@
         "fd": null,
         "tasks": [
           {
-            "txt": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+            "txt": "Waiting for IE team study.",
             "done": false,
             "sd": "",
             "ed": "",
@@ -3102,7 +3541,8 @@
 
     // ── SIDEBAR RESIZE ──
     let sbWidth = localStorage.getItem('SB_WIDTH') || '280';
-    let gtWidth = localStorage.getItem('GT_WIDTH') || '360';
+    let gtWidth = localStorage.getItem('GT_WIDTH') || '670';
+    if (parseInt(gtWidth) < 670) gtWidth = '670'; // Force minimum to cover all columns
     document.documentElement.style.setProperty('--sb-width', sbWidth + 'px');
     document.documentElement.style.setProperty('--gt-label-width', gtWidth + 'px');
 
@@ -3535,12 +3975,13 @@
         MONTHS.push(d.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' }));
       }
 
-      const LW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gt-label-width')) || 320;
+      const LW = 670;
       const containerWrap = document.getElementById('gantt-timeline-wrap');
       const availW = containerWrap ? containerWrap.clientWidth : 800;
       const MW = Math.max(75, availW / NM); // Auto-scale MW to fit, min 75px
       const CW = NM * MW;
       const RH = 38, HH = 30, PT = 6;
+      const TRH = 24; // Task row height
       const SH = HH + PT + FP.length * RH + 14;
 
       // Calculate SH dynamically based on expansion
@@ -3549,7 +3990,7 @@
         totalSH += RH;
         const originalIdx = P.indexOf(p);
         if (expandedProjects.has(originalIdx)) {
-          totalSH += (p.tasks?.length || 0) * 24 + 10;
+          totalSH += (p.tasks?.length || 0) * TRH + 10;
         }
       });
       totalSH += 14;
@@ -3560,6 +4001,35 @@
 
       function el(t, a, p) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p && p.appendChild(e); return e; }
       function tx(s, a, p) { const e = el('text', a, p); e.textContent = s; return e; }
+
+      // Helper to wrap text into multiple tspans
+      function wrapTx(s, a, maxChars, p) {
+        const textEl = el('text', a, p);
+        if (!s) return textEl;
+        const words = s.split(' ');
+        let line = '', lines = [];
+        words.forEach(w => {
+          if ((line + w).length > maxChars) { lines.push(line.trim()); line = w + ' '; }
+          else { line += w + ' '; }
+        });
+        lines.push(line.trim());
+
+        // If more than 2 lines, truncate the rest
+        if (lines.length > 2) { lines = [lines[0], lines[1].substring(0, maxChars - 3) + '...']; }
+
+        const lineH = 12;
+        const startY = (lines.length > 1) ? - (lineH / 2) : 0;
+
+        lines.forEach((l, i) => {
+          const tspan = document.createElementNS(NS, 'tspan');
+          tspan.setAttribute('x', a.x);
+          tspan.setAttribute('dy', i === 0 ? startY : lineH);
+          tspan.textContent = l;
+          textEl.appendChild(tspan);
+        });
+        return textEl;
+      }
+
       function moOff(d) {
         if (!d) return 0;
         const dt = (typeof d === 'string') ? new Date(d) : d;
@@ -3575,6 +4045,11 @@
       el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
       el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
       el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
+
+      tx('PROJECT NAME', { x: 78, y: HH / 2 + 1, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'var(--fh)', 'font-size': 11, 'font-weight': 700 }, GL);
+      tx('START', { x: 460, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'var(--fh)', 'font-size': 11, 'font-weight': 700 }, GL);
+      tx('FINISH', { x: 540, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'var(--fh)', 'font-size': 11, 'font-weight': 700 }, GL);
+      tx('PROGRESS (%)', { x: 625, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'var(--fh)', 'font-size': 11, 'font-weight': 700 }, GL);
 
       el('rect', { x: 0, y: 0, width: CW, height: totalSH, fill: '#FFFFFF' }, GT);
       el('rect', { x: 0, y: 0, width: CW, height: HH, fill: '#F1F5F9' }, GT);
@@ -3609,9 +4084,16 @@
         const arrow = tx(isExp ? '▼' : '▶', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
         arrow.onclick = () => { toggleGanttExpand(originalIdx); };
 
-        tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { toggleGanttExpand(originalIdx); };
-        tx(p.name, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11 }, GL);
-        el('circle', { cx: LW - 13, cy: ry + RH / 2, r: 4.5, fill: st.c }, GL);
+        tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+
+        // Single Line Name with Truncation
+        let displayName = p.name;
+        if (displayName.length > 55) displayName = displayName.substring(0, 52) + '...';
+        tx(displayName, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+
+        tx(p.start || '-', { x: 460, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+        tx(p.finish || '-', { x: 540, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+        tx((p.pct || 0) + '%', { x: 625, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: getPctColor(p.pct), 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, 'font-weight': 700, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
 
         // Timeline part
         el('rect', { x: 0, y: ry, width: CW, height: RH, fill: i % 2 ? '#FAFBFC' : '#FFFFFF' }, GT);
@@ -3639,17 +4121,24 @@
         // Render Sub-tasks if expanded
         if (isExp && p.tasks) {
           p.tasks.forEach((t, ti) => {
-            const ty = currentY, tby = ty + 6, tbh = 12;
+            const ty = currentY, tby = ty + 8, tbh = 16;
             const tbc = t.done ? '#10B981' : '#94A3B8';
 
             // Sub-label
-            el('rect', { x: 0, y: ty, width: LW, height: 24, fill: '#F1F5F9', opacity: 0.5 }, GL);
-            el('line', { x1: 10, y1: ty + 24, x2: LW, y2: ty + 24, stroke: '#E2E8F0', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GL);
-            tx(t.txt, { x: 92, y: ty + 12, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'Figtree,sans-serif', 'font-size': 10 }, GL);
+            el('rect', { x: 0, y: ty, width: LW, height: TRH, fill: '#F1F5F9', opacity: 0.5 }, GL);
+            el('line', { x1: 10, y1: ty + TRH, x2: LW, y2: ty + TRH, stroke: '#E2E8F0', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GL);
+
+            // Single Line Task Name
+            tx(t.txt, { x: 92, y: ty + TRH / 2 + 1, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'Figtree,sans-serif', 'font-size': 10 }, GL);
+
+            // Task dates & progress centered in columns
+            tx(fmtDate(t.sd) || '-', { x: 460, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
+            tx(fmtDate(t.ed) || '-', { x: 540, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
+            tx((t.pct || 0) + '%', { x: 625, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
 
             // Sub-timeline
-            el('rect', { x: 0, y: ty, width: CW, height: 24, fill: '#F8FAFC', opacity: 0.5 }, GT);
-            el('line', { x1: 0, y1: ty + 24, x2: CW, y2: ty + 24, stroke: '#F1F5F9', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GT);
+            el('rect', { x: 0, y: ty, width: CW, height: TRH, fill: '#F8FAFC', opacity: 0.5 }, GT);
+            el('line', { x1: 0, y1: ty + TRH, x2: CW, y2: ty + TRH, stroke: '#F1F5F9', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GT);
             if (t.sd) {
               const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
               const tbw = Math.max(8, tex - tsx);
@@ -3657,10 +4146,15 @@
               if (t.pct > 0) el('rect', { x: tsx, y: tby, width: tbw * (t.pct / 100), height: tbh, fill: tbc, rx: 2 }, GT);
             }
 
-            currentY += 24;
+            currentY += TRH;
           });
           currentY += 10; // Extra padding after tasks
         }
+      });
+
+      // ── VERTICAL GRID LINES (Drawn last to be on top of row backgrounds) ──
+      [0, 70, 420, 500, 580, LW].forEach(x => {
+        el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
       });
 
       // ── TODAY LINE (Rendered last to be on top) ──
@@ -4094,6 +4588,8 @@
       gotoView('ov');
     });
   </script>
+
+
 
 
 
