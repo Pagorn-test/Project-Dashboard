@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" style="--sb-width: 429px; --gt-label-width: 670px;"><head>
+<html lang="en" style="--sb-width: 420px; --gt-label-width: 670px;">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Project Dashboard — Pagorn | 28 Apr 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet">
   <style>
     *,
     *::before,
@@ -68,14 +72,14 @@
       overflow: hidden;
     }
 
-    /* ── LAYOUT ── */
+    /* ฤฤ LAYOUT ฤฤ */
     .app {
       display: flex;
       height: 100vh;
       overflow: hidden;
     }
 
-    /* ── SIDEBAR ── */
+    /* ฤฤ SIDEBAR ฤฤ */
     .sb {
       width: var(--sb-width, 280px);
       flex-shrink: 0;
@@ -300,7 +304,7 @@
       margin-top: 2px;
     }
 
-    /* ── STAGGERED ANIMATION ── */
+    /* ฤฤ STAGGERED ANIMATION ฤฤ */
     .stagger-item {
       animation: fadeInUp 0.4s ease-out both;
       animation-delay: calc(var(--i, 0) * 0.04s);
@@ -334,7 +338,7 @@
       color: rgba(255, 255, 255, 0.3);
     }
 
-    /* ── MAIN ── */
+    /* ฤฤ MAIN ฤฤ */
     .main {
       flex: 1;
       display: flex;
@@ -355,7 +359,7 @@
       animation: fadeInUp 0.4s ease-out both;
     }
 
-    /* ── VIEW HEADER ── */
+    /* ฤฤ VIEW HEADER ฤฤ */
     .vhdr {
       padding: 20px 32px 16px;
       border-bottom: none;
@@ -409,7 +413,7 @@
       border: 1px solid var(--blue-m);
     }
 
-    /* ── SCROLLABLE BODY ── */
+    /* ฤฤ SCROLLABLE BODY ฤฤ */
     .vbody {
       flex: 1;
       overflow-y: auto;
@@ -425,7 +429,7 @@
       border-radius: 3px;
     }
 
-    /* ── OVERVIEW ── */
+    /* ฤฤ OVERVIEW ฤฤ */
     .stat-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -637,7 +641,7 @@
       flex-shrink: 0;
     }
 
-    /* ── DETAIL ── */
+    /* ฤฤ DETAIL ฤฤ */
     .det-top {
       padding: 10px 28px;
       border-bottom: 1px solid var(--border);
@@ -1058,7 +1062,7 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── TIMELINE ── */
+    /* ฤฤ TIMELINE ฤฤ */
     #gantt-container {
       flex: 1;
       display: flex;
@@ -1145,7 +1149,7 @@
       flex-shrink: 0;
     }
 
-    /* ── GANTT FILTER ── */
+    /* ฤฤ GANTT FILTER ฤฤ */
     .gantt-filter-wrap {
       position: relative;
       margin-left: auto;
@@ -1268,7 +1272,7 @@
       line-height: 1.3;
     }
 
-    /* ══ MOBILE RESPONSIVE ══ */
+    /* ออ MOBILE RESPONSIVE ออ */
     @media (max-width: 768px) {
       .app {
         display: block;
@@ -1419,7 +1423,7 @@
   </style>
 </head>
 
-<body class="edit-on" style="cursor: default; user-select: auto;">
+<body>
   <div class="app">
     <!-- Mobile Menu Button -->
     <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
@@ -1430,19 +1434,20 @@
       </svg>
     </button>
 
-    <!-- ══ SIDEBAR ══ -->
+    <!-- ออ SIDEBAR ออ -->
     <aside class="sb">
       <div class="sb-head">
         <div class="sb-logo editable-text" contenteditable="true" spellcheck="false">Project Dashboard</div>
         <div class="sb-title editable-text" contenteditable="true" spellcheck="false">PROGRESS<br><b>UPDATE</b></div>
-        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>4 MAY 2026</div>
+        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>4 MAY 2026
+        </div>
         <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
         </div>
       </div>
 
 
       <div class="sb-nav">
-        <button class="nb" id="nb-ov" onclick="gotoView('ov')">
+        <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
             <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
@@ -1472,466 +1477,668 @@
         <div class="sb-sect" style="padding:0">PROJECTS (<span id="pj-count">13</span>)</div>
         <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
       </div>
-      <div class="sb-list" id="sb-list"><div class="sb-list-item stagger-item" draggable="true" style="--i: 0; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb0" style="flex: 1 1 0%;"><span class="pj-num">1</span><span class="pj-nm">Contaminate Inspection Line Q</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 1; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb1" style="flex: 1 1 0%;"><span class="pj-num">2</span><span class="pj-nm">Inspection Cap&amp;Level line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 2; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb2" style="flex: 1 1 0%;"><span class="pj-num">3</span><span class="pj-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 3; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb3" style="flex: 1 1 0%;"><span class="pj-num">4</span><span class="pj-nm">Connect Machine Data: Line P to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 4; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb4" style="flex: 1 1 0%;"><span class="pj-num">5</span><span class="pj-nm">Connect Machine Data: Line Q to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 5; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb5" style="flex: 1 1 0%;"><span class="pj-num">6</span><span class="pj-nm">Contaminate Inspection Vision System E</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb6" style="flex: 1 1 0%;"><span class="pj-num">7</span><span class="pj-nm">Contaminate Inspection Vision System C</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb7" style="flex: 1 1 0%;"><span class="pj-num">8</span><span class="pj-nm">Contaminate Inspection Vision System D</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 8; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb8" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection Cap: Line C, D, E, P</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 9; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb9" style="flex: 1 1 0%;"><span class="pj-num">10</span><span class="pj-nm">Inspection External Code: Line C, D, E</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb10" style="flex: 1 1 0%;"><span class="pj-num">11</span><span class="pj-nm">Install Interface: Carton Coding ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 11; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb11" style="flex: 1 1 0%;"><span class="pj-num">12</span><span class="pj-nm">Install Carton Counting System to Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)" title="Delete Project">×</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 12; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb12" style="flex: 1 1 0%;"><span class="pj-num">13</span><span class="pj-nm">Install Interface: Customer Coding (Bottle) ↔ Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(12)" title="Delete Project">×</button>
-      </div></div></div>
+      <div class="sb-list" id="sb-list">
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 0; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb0" style="flex: 1 1 0%;"><span class="pj-num">1</span><span class="pj-nm">Contaminate Inspection Line
+              Q</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 1; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb1" style="flex: 1 1 0%;"><span class="pj-num">2</span><span class="pj-nm">Inspection Cap&amp;Level
+              line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 2; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb2" style="flex: 1 1 0%;"><span class="pj-num">3</span><span class="pj-nm">Inspection sleeve, external
+              code and sticker line Q (2 M/C)</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 3; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb3" style="flex: 1 1 0%;"><span class="pj-num">4</span><span class="pj-nm">Connect Machine Data: Line P
+              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 4; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb4" style="flex: 1 1 0%;"><span class="pj-num">5</span><span class="pj-nm">Connect Machine Data: Line Q
+              to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 5; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb5" style="flex: 1 1 0%;"><span class="pj-num">6</span><span class="pj-nm">Contaminate Inspection
+              Vision System E</span><span class="pj-dot" style="background:#475569"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb6" style="flex: 1 1 0%;"><span class="pj-num">7</span><span class="pj-nm">Contaminate Inspection
+              Vision System C</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb7" style="flex: 1 1 0%;"><span class="pj-num">8</span><span class="pj-nm">Contaminate Inspection
+              Vision System D</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 8; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb8" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection Cap: Line C, D,
+              E, P</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 9; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb9" style="flex: 1 1 0%;"><span class="pj-num">10</span><span class="pj-nm">Inspection External Code:
+              Line C, D, E</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb10" style="flex: 1 1 0%;"><span class="pj-num">11</span><span class="pj-nm">Install Interface: Carton
+              Coding  Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 11; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb11" style="flex: 1 1 0%;"><span class="pj-num">12</span><span class="pj-nm">Install Carton Counting
+              System to Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+        <div class="sb-list-item stagger-item" draggable="true"
+          style="--i: 12; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn"
+            id="pb12" style="flex: 1 1 0%;"><span class="pj-num">13</span><span class="pj-nm">Install Interface:
+              Customer Coding (Bottle)  Data Tank</span><span class="pj-dot"
+              style="background:#6D28D9"></span></button>
+          <div class="pj-ctrls">
+            <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(12)"
+              title="Delete Project">×</button>
+          </div>
+        </div>
+      </div>
 
       <div class="sb-edit-btn">
         <button class="edit-btn" onclick="toggleEditMode()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
           </svg>
-          TOGGLE EDIT MODE
+          Edit Mode
         </button>
       </div>
     </aside>
 
-    <!-- ══ MAIN ══ -->
+    <!-- ออ MAIN ออ -->
     <main class="main">
 
       <!-- OVERVIEW -->
-      <div class="view" id="v-ov" style="">
+      <div class="view on" id="v-ov" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">OVERVIEW</div>
-            <div class="vsub">10 projects — Current Responsible: Pagorn</div>
+            <div class="vsub"><span id="vsub-count">${P.length}</span> projects — Current Responsible: Pagorn</div>
           </div>
-          <div class="vmeta">UPDATE: <span class="curr-date-long">4 May 2026</span></div>
+          <div class="vmeta">UPDATE: <span class="curr-date-long">5 May 2026</span></div>
         </div>
         <div class="vbody" id="ov-body">
-    <div class="stat-row">
-      <div class="sc"><div class="sc-lbl">Total Projects</div><div class="sc-val">13</div><div class="sc-note">Responsible: Pagorn</div></div>
-      <div class="sc"><div class="sc-lbl">Machine</div><div class="sc-val" style="color:var(--blue)">8</div><div class="sc-note">Project type</div></div>
-      <div class="sc"><div class="sc-lbl">System Integrate</div><div class="sc-val" style="color:var(--purple)">5</div><div class="sc-note">Project type</div></div>
-      <div class="sc"><div class="sc-lbl">Progress</div><div class="sc-val" style="color:hsl(55.199999999999996, 70%, 40%)">46%</div><div class="sc-note">Based on 8 started</div></div>
-    </div>
-    <div class="sec-hdr">
-      <div class="sec-title">ALL PROJECTS</div>
-      <div class="sec-hint">Click any row to view detail →</div>
-    </div>
-    <table class="ptbl" style="width: 100%; table-layout: auto;">
-      <thead><tr>
-        <th style="width:50px">No.</th>
-        <th style="width:400px">Project Name</th>
-        <th style="width:120px; white-space:nowrap">Start</th>
-        <th style="width:120px; white-space:nowrap">Finish</th>
-        <th style="width:110px; text-align:center">% Complete</th>
-        <th style="width:auto">Status</th>
-      </tr></thead>
-      <tbody>
-        
-        <tr onclick="openDetail(0)" class="stagger-item" style="--i: 0">
-          <td class="td-no">1</td>
-          <td class="td-nm">Contaminate Inspection Line Q</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">31 Jul 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:90%;height:100%;background:hsl(108, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(108, 70%, 40%);min-width:30px">90%</span>
+          <div class="stat-row">
+            <div class="sc">
+              <div class="sc-lbl">Total Projects</div>
+              <div class="sc-val">13</div>
+              <div class="sc-note">Responsible: Pagorn</div>
             </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ Supplier ส่งแผน SAT รอบที่ 2</span></td>
-        </tr>
-        <tr onclick="openDetail(1)" class="stagger-item" style="--i: 1">
-          <td class="td-no">2</td>
-          <td class="td-nm">Inspection Cap&amp;Level line Q (1 M/C)</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+            <div class="sc">
+              <div class="sc-lbl">Machine</div>
+              <div class="sc-val" style="color:var(--blue)">8</div>
+              <div class="sc-note">Project type</div>
             </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
-        </tr>
-        <tr onclick="openDetail(2)" class="stagger-item" style="--i: 2">
-          <td class="td-no">3</td>
-          <td class="td-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+            <div class="sc">
+              <div class="sc-lbl">System Integrate</div>
+              <div class="sc-val" style="color:var(--purple)">5</div>
+              <div class="sc-note">Project type</div>
             </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
-        </tr>
-        <tr onclick="openDetail(3)" class="stagger-item" style="--i: 3">
-          <td class="td-no">4</td>
-          <td class="td-nm">Connect Machine Data: Line P to Data Tank</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
+            <div class="sc">
+              <div class="sc-lbl">Progress</div>
+              <div class="sc-val" style="color:hsl(55.199999999999996, 70%, 40%)">46%</div>
+              <div class="sc-note">Based on 8 started</div>
             </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
-        </tr>
-        <tr onclick="openDetail(4)" class="stagger-item" style="--i: 4">
-          <td class="td-no">5</td>
-          <td class="td-nm">Connect Machine Data: Line Q to Data Tank</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
-        </tr>
-        <tr onclick="openDetail(5)" class="stagger-item" style="--i: 5">
-          <td class="td-no">6</td>
-          <td class="td-nm">Contaminate Inspection Vision System E<small>Priority No. 01 — Highest Priority</small></td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:10%;height:100%;background:hsl(12, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(12, 70%, 40%);min-width:30px">10%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว</span></td>
-        </tr>
-        <tr onclick="openDetail(6)" class="stagger-item" style="--i: 6">
-          <td class="td-no">7</td>
-          <td class="td-nm">Contaminate Inspection Vision System C<small>Priority No. 03</small></td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(7)" class="stagger-item" style="--i: 7">
-          <td class="td-no">8</td>
-          <td class="td-nm">Contaminate Inspection Vision System D<small>Priority No. 02</small></td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(8)" class="stagger-item" style="--i: 8">
-          <td class="td-no">9</td>
-          <td class="td-nm">Inspection Cap: Line C, D, E, P</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(9)" class="stagger-item" style="--i: 9">
-          <td class="td-no">10</td>
-          <td class="td-nm">Inspection External Code: Line C, D, E</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(10)" class="stagger-item" style="--i: 10">
-          <td class="td-no">11</td>
-          <td class="td-nm">Install Interface: Carton Coding ↔ Data Tank</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(11)" class="stagger-item" style="--i: 11">
-          <td class="td-no">12</td>
-          <td class="td-nm">Install Carton Counting System to Data Tank</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
-        </tr>
-        <tr onclick="openDetail(12)" class="stagger-item" style="--i: 12">
-          <td class="td-no">13</td>
-          <td class="td-nm">Install Interface: Customer Coding (Bottle) ↔ Data Tank</td>
-          <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
-          <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
-          <td>
-            <div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
-              </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
-            </div>
-          </td>
-          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
-        </tr>
-      </tbody>
-    </table></div>
+          </div>
+          <div class="sec-hdr">
+            <div class="sec-title">ALL PROJECTS</div>
+            <div class="sec-hint">Click any row to view detail </div>
+          </div>
+          <table class="ptbl" style="width: 100%; table-layout: auto;">
+            <thead>
+              <tr>
+                <th style="width:50px">No.</th>
+                <th style="width:400px">Project Name</th>
+                <th style="width:120px; white-space:nowrap">Start</th>
+                <th style="width:120px; white-space:nowrap">Finish</th>
+                <th style="width:110px; text-align:center">% Complete</th>
+                <th style="width:auto">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr onclick="openDetail(0)" class="stagger-item" style="--i: 0">
+                <td class="td-no">1</td>
+                <td class="td-nm">Contaminate Inspection Line Q</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">31 Jul 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:90%;height:100%;background:hsl(108, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(108, 70%, 40%);min-width:30px">90%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ Supplier ส่งแผน SAT รอบที่ 2</span>
+                </td>
+              </tr>
+              <tr onclick="openDetail(1)" class="stagger-item" style="--i: 1">
+                <td class="td-no">2</td>
+                <td class="td-nm">Inspection Cap&amp;Level line Q (1 M/C)</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT
+                    Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
+              </tr>
+              <tr onclick="openDetail(2)" class="stagger-item" style="--i: 2">
+                <td class="td-no">3</td>
+                <td class="td-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">18 Mar 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">30 Jun 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:70%;height:100%;background:hsl(84, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install - รอจ่ายงวด SAT
+                    Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</span></td>
+              </tr>
+              <tr onclick="openDetail(3)" class="stagger-item" style="--i: 3">
+                <td class="td-no">4</td>
+                <td class="td-nm">Connect Machine Data: Line P to Data Tank</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ
+                    Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
+              </tr>
+              <tr onclick="openDetail(4)" class="stagger-item" style="--i: 4">
+                <td class="td-no">5</td>
+                <td class="td-nm">Connect Machine Data: Line Q to Data Tank</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">13 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">5 Jun 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:65%;height:100%;background:hsl(78, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(78, 70%, 40%);min-width:30px">65%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">Send Requirement To Techlong ส่วนของ
+                    Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</span></td>
+              </tr>
+              <tr onclick="openDetail(5)" class="stagger-item" style="--i: 5">
+                <td class="td-no">6</td>
+                <td class="td-nm">Contaminate Inspection Vision System E<small>Priority No. 01 — Highest
+                    Priority</small></td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:10%;height:100%;background:hsl(12, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(12, 70%, 40%);min-width:30px">10%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#475569;background:#F1F5F9;">Sourcing Supplier เบื้องต้น Riverplus
+                    ได้นำขวดไปทดสอบแล้ว</span></td>
+              </tr>
+              <tr onclick="openDetail(6)" class="stagger-item" style="--i: 6">
+                <td class="td-no">7</td>
+                <td class="td-nm">Contaminate Inspection Vision System C<small>Priority No. 03</small></td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(7)" class="stagger-item" style="--i: 7">
+                <td class="td-no">8</td>
+                <td class="td-nm">Contaminate Inspection Vision System D<small>Priority No. 02</small></td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap">20 Apr 2026</td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap">28 Aug 2026</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(8)" class="stagger-item" style="--i: 8">
+                <td class="td-no">9</td>
+                <td class="td-nm">Inspection Cap: Line C, D, E, P</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(9)" class="stagger-item" style="--i: 9">
+                <td class="td-no">10</td>
+                <td class="td-nm">Inspection External Code: Line C, D, E</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(10)" class="stagger-item" style="--i: 10">
+                <td class="td-no">11</td>
+                <td class="td-nm">Install Interface: Carton Coding  Data Tank</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(11)" class="stagger-item" style="--i: 11">
+                <td class="td-no">12</td>
+                <td class="td-nm">Install Carton Counting System to Data Tank</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+              </tr>
+              <tr onclick="openDetail(12)" class="stagger-item" style="--i: 12">
+                <td class="td-no">13</td>
+                <td class="td-nm">Install Interface: Customer Coding (Bottle)  Data Tank</td>
+                <td style="font-family:var(--fm);font-size:12px; white-space:nowrap"></td>
+                <td style="font-family:var(--fm);font-size:12px; color:var(--t2); white-space:nowrap"></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+                    <div
+                      style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+                      <div style="width:0%;height:100%;background:hsl(0, 70%, 40%)"></div>
+                    </div>
+                    <span
+                      style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
+                  </div>
+                </td>
+                <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">IE Study Project</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- DETAIL -->
-      <div class="view on" id="v-det" style="">
+      <div class="view" id="v-det" style="">
         <div class="det-top">
-          <button class="back-btn" onclick="gotoView('ov')">← Overview</button>
+          <button class="back-btn" onclick="gotoView('ov')"> Overview</button>
           <span class="det-nav" id="det-nav">4 of 13</span>
         </div>
         <div class="det-hdr" id="det-hdr">
-    <div class="dhdr-row">
-      <div class="dhdr-left">
-        <span class="d-lbl">PROJECT</span>
-        <span class="d-num" data-key="num" contenteditable="true" spellcheck="false">4</span>
-        <div>
-          <div class="d-name" data-key="name" contenteditable="true" spellcheck="false">Connect Machine Data: Line P to Data Tank</div>
-          <div class="d-sub" data-key="sub" contenteditable="true" spellcheck="false" style="min-height:1em;background:#f0f0f0"></div>
+          <div class="dhdr-row">
+            <div class="dhdr-left">
+              <span class="d-lbl">PROJECT</span>
+              <span class="d-num" data-key="num" contenteditable="true" spellcheck="false">4</span>
+              <div>
+                <div class="d-name" data-key="name" contenteditable="true" spellcheck="false">Connect Machine Data: Line
+                  P to Data Tank</div>
+                <div class="d-sub" data-key="sub" contenteditable="true" spellcheck="false"
+                  style="min-height:1em;background:#f0f0f0"></div>
+              </div>
+            </div>
+            <div class="rank-tag" data-key="rank" contenteditable="true" spellcheck="false">B</div>
+          </div>
         </div>
-      </div>
-      <div class="rank-tag" data-key="rank" contenteditable="true" spellcheck="false">B</div>
-    </div></div>
         <div class="dbody" id="det-body">
-    <div class="igrid">
-      <div class="irow c3">
-        <div class="icell"><div class="ilab">IO / AUC</div><div class="ival mono" data-key="io" contenteditable="true" spellcheck="false">1200333/882000000297-(0-10)</div></div>
-        <div class="icell">
-          <div class="ilab">Start Date</div>
-          <input type="date" class="ival-date blue" data-key="start" value="2026-04-13">
-        </div>
-        <div class="icell">
-          <div class="ilab">Finish Date</div>
-          <input type="date" class="ival-date am" data-key="finish" value="2026-06-05">
-        </div>
-      </div>
-      <div class="irow c4">
-        <div class="icell"><div class="ilab">Location</div><div class="ival" data-key="loc" contenteditable="true" spellcheck="false">Line P</div></div>
-        <div class="icell"><div class="ilab">Size</div><div class="ival" data-key="size" contenteditable="true" spellcheck="false">Medium</div></div>
-        <div class="icell"><div class="ilab">Type</div><div class="ival" data-key="type" contenteditable="true" spellcheck="false" style="color:var(--purple)">System Integration</div></div>
-        <div class="icell"><div class="ilab">Lead Time</div><div class="ival" data-key="lead" contenteditable="true" spellcheck="false"></div></div>
-      </div>
-      <div class="icell-full"><div class="ilab">Impact / Goal</div><div class="ival blue sm" data-key="impact" contenteditable="true" spellcheck="false">Centralize capacity monitoring &amp; control for optimized new factory startup</div></div>
-    </div>
-
-    <div class="igrid">
-      <div class="irow c12">
-        <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
-          <div class="ilab">Status</div>
-          <div style="margin-top:6px; background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text" data-key="status" contenteditable="true" spellcheck="false">Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</div>
-        </div>
-        <div class="icell">
-          <div class="ilab">Progress</div>
-          <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
-            <span class="pct" data-key="pct" contenteditable="true" spellcheck="false" style="color:hsl(78, 70%, 40%)">65%</span>
-            <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
+          <div class="igrid">
+            <div class="irow c3">
+              <div class="icell">
+                <div class="ilab">IO / AUC</div>
+                <div class="ival mono" data-key="io" contenteditable="true" spellcheck="false">
+                  1200333/882000000297-(0-10)</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Start Date</div>
+                <input type="date" class="ival-date blue" data-key="start" value="2026-04-13">
+              </div>
+              <div class="icell">
+                <div class="ilab">Finish Date</div>
+                <input type="date" class="ival-date am" data-key="finish" value="2026-06-05">
+              </div>
+            </div>
+            <div class="irow c4">
+              <div class="icell">
+                <div class="ilab">Location</div>
+                <div class="ival" data-key="loc" contenteditable="true" spellcheck="false">Line P</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Size</div>
+                <div class="ival" data-key="size" contenteditable="true" spellcheck="false">Medium</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Type</div>
+                <div class="ival" data-key="type" contenteditable="true" spellcheck="false" style="color:var(--purple)">
+                  System Integration</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Lead Time</div>
+                <div class="ival" data-key="lead" contenteditable="true" spellcheck="false"></div>
+              </div>
+            </div>
+            <div class="icell-full">
+              <div class="ilab">Impact / Goal</div>
+              <div class="ival blue sm" data-key="impact" contenteditable="true" spellcheck="false">Centralize capacity
+                monitoring &amp; control for optimized new factory startup</div>
+            </div>
           </div>
-          <div class="pbar"><div class="pfill" style="width:65%; background:hsl(78, 70%, 40%)"></div></div>
-          <div class="pnote">Current progress as of 4 May 2026</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="igrid">
-      <div class="note-box">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-          <div class="note-lab">TASKS</div>
-          <button class="add-task-btn" onclick="addTask(3)" style="display:flex">+</button>
-        </div>
-        <div class="task-grid">
-          <div class="task-hrow">
-            <div></div>
-            <div>Task Description</div>
-            <div>Start Date</div>
-            <div>Finish Date</div>
-            <div style="text-align:center">%</div>
-            <div></div>
+          <div class="igrid">
+            <div class="irow c12">
+              <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
+                <div class="ilab">Status</div>
+                <div
+                  style="margin-top:6px; background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text"
+                  data-key="status" contenteditable="true" spellcheck="false">Send Requirement To Techlong ส่วนของ Sappe
+                  สร้าง Tag และ Mapping Kepware รอแล้ว</div>
+              </div>
+              <div class="icell">
+                <div class="ilab">Progress</div>
+                <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
+                  <span class="pct" data-key="pct" contenteditable="true" spellcheck="false"
+                    style="color:hsl(78, 70%, 40%)">65%</span>
+                  <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
+                </div>
+                <div class="pbar">
+                  <div class="pfill" style="width:65%; background:hsl(78, 70%, 40%)"></div>
+                </div>
+                <div class="pnote">Current progress as of 4 May 2026</div>
+              </div>
+            </div>
           </div>
-          <div id="task-list">
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 0)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 0)">
-                <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 0, this.checked)" title="Mark as done">
-                <div class="task-txt done" contenteditable="true">Create Kepware Tag</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-04-27" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-04-27" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 0)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 1)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 1)">
-                <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 1, this.checked)" title="Mark as done">
-                <div class="task-txt done" contenteditable="true">Send Requirement To Integra</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-04-28" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-04-28" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 1)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 2)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 2)">
-                <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 2, this.checked)" title="Mark as done">
-                <div class="task-txt done" contenteditable="true">Send Requirement To Techlong</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-04-30" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-04-30" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 2)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 3)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 3)">
-                <input type="checkbox" class="task-check" onchange="toggleTask(3, 3, this.checked)" title="Mark as done">
-                <div class="task-txt " contenteditable="true">Data Mapping Integra (ต้องเข้าไปตั้งค่า Default Gateway)</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-05-05" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-05-08" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 3)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 4)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 4)">
-                <input type="checkbox" class="task-check" onchange="toggleTask(3, 4, this.checked)" title="Mark as done">
-                <div class="task-txt " contenteditable="true">Data Mapping Techlong</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-05-11" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-05-22" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 4)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 5)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 5)">
-                <input type="checkbox" class="task-check" onchange="toggleTask(3, 5, this.checked)" title="Mark as done">
-                <div class="task-txt " contenteditable="true">Techlong&nbsp;Data Validation</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-05-18" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-05-29" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 5)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 6)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 6)">
-                <input type="checkbox" class="task-check" onchange="toggleTask(3, 6, this.checked)" title="Mark as done">
-                <div class="task-txt " contenteditable="true">Integra&nbsp;Data Validation</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-05-18" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-05-29" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 6)" style="display:block">×</button>
-              </div>
-            
-              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 7)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 7)">
-                <input type="checkbox" class="task-check" onchange="toggleTask(3, 7, this.checked)" title="Mark as done">
-                <div class="task-txt " contenteditable="true">Handover to IT</div>
-                <div class="t-sd">
-                  <input type="date" class="t-date-input" value="2026-06-01" data-task-field="sd">
-                </div>
-                <div class="t-ed">
-                  <input type="date" class="t-date-input" value="2026-06-05" data-task-field="ed">
-                </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                <button class="del-task-btn" onclick="delTask(3, 7)" style="display:block">×</button>
-              </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="det-pager">
-      <button class="back-btn" onclick="openDetail(2)">← 3</button>
-      <button class="back-btn" onclick="openDetail(4)">5 →</button>
-    </div></div>
+          <div class="igrid">
+            <div class="note-box">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <div class="note-lab">TASKS</div>
+                <button class="add-task-btn" onclick="addTask(3)" style="display:flex">+</button>
+              </div>
+              <div class="task-grid">
+                <div class="task-hrow">
+                  <div></div>
+                  <div>Task Description</div>
+                  <div>Start Date</div>
+                  <div>Finish Date</div>
+                  <div style="text-align:center">%</div>
+                  <div></div>
+                </div>
+                <div id="task-list">
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 0)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 0)">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 0, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt done" contenteditable="true">Create Kepware Tag</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-04-27" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-04-27" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 0)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 1)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 1)">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 1, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt done" contenteditable="true">Send Requirement To Integra</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-04-28" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-04-28" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 1)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 2)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 2)">
+                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(3, 2, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt done" contenteditable="true">Send Requirement To Techlong</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-04-30" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-04-30" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 2)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 3)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 3)">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 3, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="true">Data Mapping Integra (ต้องเข้าไปตั้งค่า Default
+                      Gateway)</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-05-05" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-05-08" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 3)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 4)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 4)">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 4, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="true">Data Mapping Techlong</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-05-11" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-05-22" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 4)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 5)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 5)">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 5, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="true">Techlong&nbsp;Data Validation</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-05-18" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-05-29" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 5)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 6)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 6)">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 6, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="true">Integra&nbsp;Data Validation</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-05-18" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-05-29" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 6)" style="display:block">×</button>
+                  </div>
+
+                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 7)"
+                    ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                    ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 7)">
+                    <input type="checkbox" class="task-check" onchange="toggleTask(3, 7, this.checked)"
+                      title="Mark as done">
+                    <div class="task-txt " contenteditable="true">Handover to IT</div>
+                    <div class="t-sd">
+                      <input type="date" class="t-date-input" value="2026-06-01" data-task-field="sd">
+                    </div>
+                    <div class="t-ed">
+                      <input type="date" class="t-date-input" value="2026-06-05" data-task-field="ed">
+                    </div>
+                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                    <button class="del-task-btn" onclick="delTask(3, 7)" style="display:block">×</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="det-pager">
+            <button class="back-btn" onclick="openDetail(2)"> 3</button>
+            <button class="back-btn" onclick="openDetail(4)">5 </button>
+          </div>
+        </div>
       </div>
 
       <!-- TIMELINE -->
@@ -1939,15 +2146,15 @@
         <div class="vhdr">
           <div>
             <div class="vtitle">PROJECT TIMELINE</div>
-            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ▶ Today: <span class="curr-date-long">4 May 2026</span>
+            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ? Today: <span class="curr-date-long">5 May 2026</span>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:12px">
-            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long">4 May 2026</span></div>
+            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long">5 May 2026</span></div>
             <!-- Filter Button -->
             <div class="gantt-filter-wrap">
               <button class="gantt-filter-btn" id="gantt-filter-btn" onclick="toggleFilterPanel()">
-                ☰ Filter Projects
+                ? Filter Projects
                 <span class="badge-count" id="gantt-filter-count">0</span>
               </button>
               <div class="gantt-filter-panel" id="gantt-filter-panel">
@@ -1965,10 +2172,306 @@
         </div>
         <div id="gantt-container">
           <div id="gantt-labels-wrap">
-            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="670" height="544" viewBox="0 0 670 544"><rect x="0" y="0" width="670" height="544" fill="#F8FAFC"></rect><rect x="0" y="0" width="670" height="30" fill="#EDF2F7"></rect><line x1="0" y1="30" x2="670" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="78" y="16" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROJECT NAME</text><text x="460" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">START</text><text x="540" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">FINISH</text><text x="625" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROGRESS (%)</text><rect x="0" y="36" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="74" x2="670" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="56" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Line Q</text><text x="460" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625" y="56" text-anchor="middle" dominant-baseline="middle" fill="hsl(108, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">90%</text><rect x="0" y="74" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="112" x2="670" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="94" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="94" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">2</text><text x="78" y="94" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap&amp;Level line Q (1 M/C)</text><text x="460" y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun 2026</text><text x="625" y="94" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text><rect x="0" y="112" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="150" x2="670" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="132" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="132" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">3</text><text x="78" y="132" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection sleeve, external code and sticker line Q ...</text><text x="460" y="132" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="132" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun 2026</text><text x="625" y="132" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text><rect x="0" y="150" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="188" x2="670" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="170" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="170" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">4</text><text x="78" y="170" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data: Line P to Data Tank</text><text x="460" y="170" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr 2026</text><text x="540" y="170" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625" y="170" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text><rect x="0" y="188" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="226" x2="670" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="208" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="208" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">5</text><text x="78" y="208" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data: Line Q to Data Tank</text><text x="460" y="208" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr 2026</text><text x="540" y="208" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625" y="208" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text><rect x="0" y="226" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="264" x2="670" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="246" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="246" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">6</text><text x="78" y="246" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Vision System E</text><text x="460" y="246" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr 2026</text><text x="540" y="246" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625" y="246" text-anchor="middle" dominant-baseline="middle" fill="hsl(12, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">10%</text><rect x="0" y="264" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="302" x2="670" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="284" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="284" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">7</text><text x="78" y="284" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Vision System C</text><text x="460" y="284" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr 2026</text><text x="540" y="284" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625" y="284" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="302" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="340" x2="670" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="322" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="322" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">8</text><text x="78" y="322" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Vision System D</text><text x="460" y="322" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr 2026</text><text x="540" y="322" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625" y="322" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="340" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="378" x2="670" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="360" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="360" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">9</text><text x="78" y="360" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap: Line C, D, E, P</text><text x="460" y="360" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="360" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="360" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="378" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="416" x2="670" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="398" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="398" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">10</text><text x="78" y="398" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection External Code: Line C, D, E</text><text x="460" y="398" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="398" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="398" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="416" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="454" x2="670" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="436" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="436" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">11</text><text x="78" y="436" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface: Carton Coding ↔ Data Tank</text><text x="460" y="436" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="436" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="436" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="454" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="492" x2="670" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="474" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="474" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">12</text><text x="78" y="474" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Carton Counting System to Data Tank</text><text x="460" y="474" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="474" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="474" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="492" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="530" x2="670" y2="530" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="512" dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▶</text><text x="26" y="512" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">13</text><text x="78" y="512" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface: Customer Coding (Bottle) ↔ Data Tank</text><text x="460" y="512" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="512" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="512" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><line x1="0" y1="0" x2="0" y2="544" stroke="#CBD5E1" stroke-width="1"></line><line x1="70" y1="0" x2="70" y2="544" stroke="#CBD5E1" stroke-width="1"></line><line x1="420" y1="0" x2="420" y2="544" stroke="#CBD5E1" stroke-width="1"></line><line x1="500" y1="0" x2="500" y2="544" stroke="#CBD5E1" stroke-width="1"></line><line x1="580" y1="0" x2="580" y2="544" stroke="#CBD5E1" stroke-width="1"></line><line x1="670" y1="0" x2="670" y2="544" stroke="#CBD5E1" stroke-width="1"></line></svg>
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="670" height="544"
+              viewBox="0 0 670 544">
+              <rect x="0" y="0" width="670" height="544" fill="#F8FAFC"></rect>
+              <rect x="0" y="0" width="670" height="30" fill="#EDF2F7"></rect>
+              <line x1="0" y1="30" x2="670" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="78" y="16"
+                dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11"
+                font-weight="700">PROJECT NAME</text><text x="460" y="16" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11"
+                font-weight="700">START</text><text x="540" y="16" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">FINISH</text><text x="625"
+                y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)"
+                font-size="11" font-weight="700">PROGRESS (%)</text>
+              <rect x="0" y="36" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="74" x2="670" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="56"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="56"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569"
+                font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Line
+                Q</text><text x="460" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540"
+                y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625"
+                y="56" text-anchor="middle" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">90%</text>
+              <rect x="0" y="74" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="112" x2="670" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="94"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="94"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">2</text><text x="78" y="94" dominant-baseline="middle" fill="#475569"
+                font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap&amp;Level line Q (1
+                M/C)</text><text x="460" y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540"
+                y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun 2026</text><text x="625"
+                y="94" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text>
+              <rect x="0" y="112" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="150" x2="670" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="132"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="132"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">3</text><text x="78" y="132" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection sleeve,
+                external code and sticker line Q ...</text><text x="460" y="132" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10"
+                cursor="pointer">18 Mar 2026</text><text x="540" y="132" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Jun
+                2026</text><text x="625" y="132" text-anchor="middle" dominant-baseline="middle"
+                fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700"
+                cursor="pointer">70%</text>
+              <rect x="0" y="150" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="188" x2="670" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="170"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="170"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">4</text><text x="78" y="170" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data:
+                Line P to Data Tank</text><text x="460" y="170" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr
+                2026</text><text x="540" y="170" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625"
+                y="170" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text>
+              <rect x="0" y="188" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="226" x2="670" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="208"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="208"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">5</text><text x="78" y="208" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data:
+                Line Q to Data Tank</text><text x="460" y="208" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr
+                2026</text><text x="540" y="208" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625"
+                y="208" text-anchor="middle" dominant-baseline="middle" fill="hsl(78, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">65%</text>
+              <rect x="0" y="226" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="264" x2="670" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="246"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="246"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">6</text><text x="78" y="246" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System E</text><text x="460" y="246" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="246" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="246" text-anchor="middle" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">10%</text>
+              <rect x="0" y="264" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="302" x2="670" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="284"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="284"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">7</text><text x="78" y="284" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System C</text><text x="460" y="284" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="284" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="284" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="302" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="340" x2="670" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="322"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="322"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">8</text><text x="78" y="322" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection
+                Vision System D</text><text x="460" y="322" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">20 Apr
+                2026</text><text x="540" y="322" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">28 Aug 2026</text><text x="625"
+                y="322" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="340" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="378" x2="670" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="360"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="360"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">9</text><text x="78" y="360" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap: Line C,
+                D, E, P</text><text x="460" y="360" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="360"
+                text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace"
+                font-size="10" cursor="pointer">-</text><text x="625" y="360" text-anchor="middle"
+                dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10"
+                font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="378" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="416" x2="670" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="398"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="398"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">10</text><text x="78" y="398" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection External
+                Code: Line C, D, E</text><text x="460" y="398" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="398" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="398"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="416" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="454" x2="670" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="436"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="436"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">11</text><text x="78" y="436" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface:
+                Carton Coding  Data Tank</text><text x="460" y="436" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="436" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="436"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="454" width="670" height="38" fill="#F1F5F9"></rect>
+              <line x1="0" y1="492" x2="670" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="474"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="474"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">12</text><text x="78" y="474" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Carton Counting
+                System to Data Tank</text><text x="460" y="474" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="540" y="474" text-anchor="middle" dominant-baseline="middle" fill="#64748B"
+                font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="625" y="474"
+                text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <rect x="0" y="492" width="670" height="38" fill="#F8FAFC"></rect>
+              <line x1="0" y1="530" x2="670" y2="530" stroke="#E2E8F0" stroke-width="0.7"></line><text x="10" y="512"
+                dominant-baseline="middle" fill="#94A3B8" cursor="pointer" font-size="10">▸</text><text x="26" y="512"
+                dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5"
+                font-weight="800" cursor="pointer">13</text><text x="78" y="512" dominant-baseline="middle"
+                fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface:
+                Customer Coding (Bottle)  Data Tank</text><text x="460" y="512" text-anchor="middle"
+                dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10"
+                cursor="pointer">-</text><text x="540" y="512" text-anchor="middle" dominant-baseline="middle"
+                fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text
+                x="625" y="512" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text>
+              <line x1="0" y1="0" x2="0" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="70" y1="0" x2="70" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="420" y1="0" x2="420" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="500" y1="0" x2="500" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="580" y1="0" x2="580" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+              <line x1="670" y1="0" x2="670" y2="544" stroke="#CBD5E1" stroke-width="1"></line>
+            </svg>
             <div class="gantt-resizer" id="gantt-resizer"></div>
           </div>
-          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="600" height="544" viewBox="0 0 600 544"><rect x="0" y="0" width="600" height="544" fill="#FFFFFF"></rect><rect x="0" y="0" width="600" height="30" fill="#F1F5F9"></rect><line x1="0" y1="30" x2="600" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text><line x1="75" y1="0" x2="75" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="150" y="0" width="75" height="544" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Apr 26</text><line x1="150" y1="0" x2="150" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">May 26</text><line x1="225" y1="0" x2="225" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jun 26</text><line x1="300" y1="0" x2="300" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jul 26</text><line x1="375" y1="0" x2="375" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Aug 26</text><line x1="450" y1="0" x2="450" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Sept 26</text><line x1="525" y1="0" x2="525" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="0" y="36" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="74" x2="600" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="45" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="120" y="45" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="120" y="45" width="332.5" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% — รอ Supplier ส่งแผน SAT รอบที่ 2</text><rect x="0" y="74" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="112" x2="600" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="83" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="120" y="83" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="120" y="83" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="94" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text><rect x="0" y="112" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="150" x2="600" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="121" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="120" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="120" y="121" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="132" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text><rect x="0" y="150" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="188" x2="600" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="159" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="182.50000000000003" y="159" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="182.50000000000003" y="159" width="129.99999999999997" height="20" fill="none" stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="170" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</text><rect x="0" y="188" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="226" x2="600" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="197" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="182.50000000000003" y="197" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="182.50000000000003" y="197" width="129.99999999999997" height="20" fill="none" stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="208" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว</text><rect x="0" y="226" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="264" x2="600" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="235" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="235" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="235" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="246" dominant-baseline="middle" fill="hsl(12, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% — Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว</text><rect x="0" y="264" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="302" x2="600" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="273" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="273" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text><rect x="0" y="302" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="340" x2="600" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="200" y="311" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move"></rect><rect x="200" y="311" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3" style="cursor: ew-resize;"></rect><rect x="200" y="311" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="213" y="322" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text><rect x="0" y="340" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="378" x2="600" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="378" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="416" x2="600" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="416" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="454" x2="600" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="454" width="600" height="38" fill="#FAFBFC"></rect><line x1="0" y1="492" x2="600" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="492" width="600" height="38" fill="#FFFFFF"></rect><line x1="0" y1="530" x2="600" y2="530" stroke="#F1F5F9" stroke-width="0.7"></line><line x1="235" y1="0" x2="235" y2="544" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"></line><text x="239" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">TODAY</text></svg></div>
+          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="600"
+              height="544" viewBox="0 0 600 544">
+              <rect x="0" y="0" width="600" height="544" fill="#FFFFFF"></rect>
+              <rect x="0" y="0" width="600" height="30" fill="#F1F5F9"></rect>
+              <line x1="0" y1="30" x2="600" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle"
+                fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text>
+              <line x1="75" y1="0" x2="75" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <rect x="150" y="0" width="75" height="544" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Apr 26</text>
+              <line x1="150" y1="0" x2="150" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">May 26</text>
+              <line x1="225" y1="0" x2="225" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Jun 26</text>
+              <line x1="300" y1="0" x2="300" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Jul 26</text>
+              <line x1="375" y1="0" x2="375" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Aug 26</text>
+              <line x1="450" y1="0" x2="450" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16"
+                text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace"
+                font-size="10">Sept 26</text>
+              <line x1="525" y1="0" x2="525" y2="544" stroke="#E4EAF2" stroke-width="0.8"></line>
+              <rect x="0" y="36" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="74" x2="600" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="45" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3"
+                cursor="move"></rect>
+              <rect x="120" y="45" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="120" y="45" width="332.5" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="56" dominant-baseline="middle" fill="hsl(108, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% — รอ Supplier ส่งแผน SAT
+                รอบที่ 2</text>
+              <rect x="0" y="74" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="112" x2="600" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="83" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
+              </rect>
+              <rect x="120" y="83" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="120" y="83" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="94" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install -
+                รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
+              <rect x="0" y="112" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="150" x2="600" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="120" y="121" width="255" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3"
+                cursor="move"></rect>
+              <rect x="120" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="120" y="121" width="255" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="133" y="132" dominant-baseline="middle" fill="hsl(84, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% — อยู่ใน Phase Install -
+                รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า</text>
+              <rect x="0" y="150" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="188" x2="600" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="159" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)"
+                opacity="0.16" rx="3" cursor="move"></rect>
+              <rect x="182.50000000000003" y="159" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="182.50000000000003" y="159" width="129.99999999999997" height="20" fill="none"
+                stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
+                y="170" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
+                Kepware รอแล้ว</text>
+              <rect x="0" y="188" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="226" x2="600" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="182.50000000000003" y="197" width="129.99999999999997" height="20" fill="hsl(78, 70%, 40%)"
+                opacity="0.16" rx="3" cursor="move"></rect>
+              <rect x="182.50000000000003" y="197" width="7" height="20" fill="hsl(78, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="182.50000000000003" y="197" width="129.99999999999997" height="20" fill="none"
+                stroke="hsl(78, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003"
+                y="208" dominant-baseline="middle" fill="hsl(78, 70%, 40%)" font-family="JetBrains Mono,monospace"
+                font-size="9" font-weight="600">65% — Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping
+                Kepware รอแล้ว</text>
+              <rect x="0" y="226" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="264" x2="600" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="235" width="320" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3"
+                cursor="move"></rect>
+              <rect x="200" y="235" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="200" y="235" width="320" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="246" dominant-baseline="middle" fill="hsl(12, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% — Sourcing Supplier เบื้องต้น
+                Riverplus ได้นำขวดไปทดสอบแล้ว</text>
+              <rect x="0" y="264" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="302" x2="600" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="273" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
+              </rect>
+              <rect x="200" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="200" y="273" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
+              <rect x="0" y="302" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="340" x2="600" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="200" y="311" width="320" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="move">
+              </rect>
+              <rect x="200" y="311" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"
+                style="cursor: ew-resize;"></rect>
+              <rect x="200" y="311" width="320" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9"
+                opacity="0.35" rx="3"></rect><text x="213" y="322" dominant-baseline="middle" fill="hsl(0, 70%, 40%)"
+                font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% — Study Project</text>
+              <rect x="0" y="340" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="378" x2="600" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="378" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="416" x2="600" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="416" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="454" x2="600" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="454" width="600" height="38" fill="#FAFBFC"></rect>
+              <line x1="0" y1="492" x2="600" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <rect x="0" y="492" width="600" height="38" fill="#FFFFFF"></rect>
+              <line x1="0" y1="530" x2="600" y2="530" stroke="#F1F5F9" stroke-width="0.7"></line>
+              <line x1="237.5" y1="0" x2="237.5" y2="544" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3">
+              </line><text x="241.5" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8"
+                font-weight="700">TODAY</text>
+            </svg></div>
         </div>
         <div class="tl-leg">
           <span style="font-family:var(--fm);font-size:9px;color:var(--t4);letter-spacing:.18em">LEGEND</span>
@@ -1990,21 +2493,30 @@
           <div class="leg">
             <div class="leg-sq" style="background:#94A3B8"></div>No Status
           </div>
-          <div class="leg" style="font-family:var(--fm);font-size:11px">▶ = TBD end</div>
+          <div class="leg" style="font-family:var(--fm);font-size:11px">? = TBD end</div>
         </div>
       </div>
 
     </main>
   </div>
 
-  <!-- ══ EDIT MODE CONTROLS ══ -->
-  <div id="edit-ctrls" style="display: none; position: fixed; bottom: 20px; right: 28px; z-index: 9999; background: var(--sb); color: rgb(255, 255, 255); padding: 12px 20px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 25px; align-items: center; gap: 15px; border: 1px solid var(--sb-bdr);">
-    <div style="font-size:12px;font-weight:600;color:var(--sb-t);letter-spacing:0.05em">EDIT MODE ACTIVE</div>
-    <button onclick="saveAllChanges()" style="background: rgb(93, 184, 244); color: rgb(15, 29, 46); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 6px 16px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; transition: transform 0.1s; transform: scale(1);" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">SAVE ALL
-      CHANGES</button>
-    <button onclick="exportAsHTML()" style="background:var(--green);color:#fff;border:none;padding:6px 16px;border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;transition:transform 0.1s">EXPORT
-      AS HTML</button>
-    <button onclick="toggleEditMode()" style="background:transparent;border:1px solid var(--sb-bdr);color:var(--sb-t);padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer">CANCEL</button>
+  <!-- ◆ EDIT MODE CONTROLS ◆ -->
+  <div id="edit-ctrls"
+    style="display: none; position: fixed; bottom: 24px; right: 32px; z-index: 9999; background: #0A1628; color: #fff; padding: 10px 12px 10px 20px; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); align-items: center; gap: 12px; border: 1px solid rgba(93, 184, 244, 0.2); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+    <div
+      style="font-size:11px;font-weight:700;color:rgba(93, 184, 244, 0.6);letter-spacing:0.1em;text-transform:uppercase">
+      Edit Mode</div>
+    <div style="width:1px; height:24px; background:rgba(255,255,255,0.1); margin:0 4px"></div>
+    <button onclick="saveAllChanges()"
+      style="background: #5DB8F4; color: #0A1628; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family:var(--fh); letter-spacing:0.02em;"
+      onmouseover="this.style.background='#4A9ED6'" onmouseout="this.style.background='#5DB8F4'">SAVE CHANGES</button>
+    <button onclick="exportAsHTML()"
+      style="background: #059669; color: #fff; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family:var(--fh); letter-spacing:0.02em;"
+      onmouseover="this.style.background='#047857'" onmouseout="this.style.background='#059669'">EXPORT AS HTML</button>
+    <button onclick="toggleEditMode()"
+      style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #94A3B8; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer; transition: all 0.2s; font-family:var(--fb);"
+      onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'"
+      onmouseout="this.style.background='transparent'; this.style.color='#94A3B8'">CANCEL</button>
   </div>
 
   <style>
@@ -2035,32 +2547,38 @@
 
     .edit-btn {
       width: 100%;
-      padding: 10px;
-      background: var(--sb2);
-      border: 1px solid var(--sb-bdr);
-      color: var(--sb-t);
-      border-radius: 6px;
-      font-family: var(--fm);
-      font-size: 10px;
-      font-weight: 600;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(93, 184, 244, 0.2);
+      border-radius: 8px;
+      color: #5DB8F4;
+      font-family: var(--fh);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      letter-spacing: 0.1em;
-      transition: all 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
+      transition: all 0.2s;
     }
 
     .edit-btn:hover {
-      background: var(--sb3);
-      color: var(--sb-ta);
+      background: rgba(93, 184, 244, 0.1);
+      border-color: #5DB8F4;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .edit-on .edit-btn {
-      background: #5DB8F4;
-      color: #0F1D2E;
-      border-color: #5DB8F4;
+      background: #EF4444;
+      /* Red when active to signal "Stop editing" */
+      color: #fff;
+    }
+
+    .edit-on .edit-btn:hover {
+      background: #DC2626;
     }
 
     .pj-ctrls {
@@ -2110,7 +2628,7 @@
       border-top: 2px solid #5DB8F4;
     }
 
-    /* ── TASK DRAGGING ── */
+    /* ฤฤ TASK DRAGGING ฤฤ */
     .task-item.dragging {
       opacity: 0.4;
       background: var(--blue-s) !important;
@@ -2154,600 +2672,600 @@
   </style>
 
   <script id="data-script">
-    // ── STATE ──
+    // ฤฤ STATE ฤฤ
     let editMode = false;
     let currentProjectIndex = -1;
     let ganttFilter = null; // null = show all; Set = show only matching indices
     let expandedProjects = new Set(); // Set of indices that are expanded in Gantt
 
-    // ── DATA & LOGIC ──
+    // ฤฤ DATA & LOGIC ฤฤ
     const DEFAULT_P = [
-  {
-    "num": "1",
-    "rank": "B",
-    "name": "Contaminate Inspection Line Q",
-    "sub": "",
-    "loc": "Line Q",
-    "status": "รอ Supplier ส่งแผน SAT รอบที่ 2",
-    "pct": 90,
-    "io": "TBD",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "New project impact",
-    "lead": "",
-    "start": "18 Mar 2026",
-    "finish": "31 Jul 2026",
-    "sd": "2026-03-18T00:00:00.000Z",
-    "fd": "2026-07-31T00:00:00.000Z",
-    "note": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
-    "tasks": [
       {
-        "txt": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
-        "done": true,
-        "sd": "2026-03-18",
-        "ed": "2026-03-18",
-        "pct": 100
+        "num": "1",
+        "rank": "B",
+        "name": "Contaminate Inspection Line Q",
+        "sub": "",
+        "loc": "Line Q",
+        "status": "รอ Supplier ส่งแผน SAT รอบที่ 2",
+        "pct": 90,
+        "io": "TBD",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "New project impact",
+        "lead": "",
+        "start": "18 Mar 2026",
+        "finish": "31 Jul 2026",
+        "sd": "2026-03-18T00:00:00.000Z",
+        "fd": "2026-07-31T00:00:00.000Z",
+        "note": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
+        "tasks": [
+          {
+            "txt": "Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%",
+            "done": true,
+            "sd": "2026-03-18",
+            "ed": "2026-03-18",
+            "pct": 100
+          },
+          {
+            "txt": "SAT รอบที่ 1",
+            "done": true,
+            "sd": "2026-03-18",
+            "ed": "2026-03-18",
+            "pct": 100
+          },
+          {
+            "txt": "ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2",
+            "done": true,
+            "sd": "2026-04-25",
+            "ed": "2026-04-25",
+            "pct": 100
+          },
+          {
+            "txt": "ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation",
+            "done": true,
+            "sd": "2026-05-02",
+            "ed": "2026-05-02",
+            "pct": 100
+          },
+          {
+            "txt": "SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Training",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "SAT รอบที่ 1",
-        "done": true,
-        "sd": "2026-03-18",
-        "ed": "2026-03-18",
-        "pct": 100
+        "num": "2",
+        "rank": "B",
+        "name": "Inspection Cap&Level line Q (1 M/C)",
+        "sub": "",
+        "loc": "Line Q",
+        "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
+        "pct": 70,
+        "io": "TBD",
+        "size": "Small",
+        "type": "Machine",
+        "impact": "New project impact",
+        "lead": "",
+        "start": "18 Mar 2026",
+        "finish": "30 Jun 2026",
+        "sd": "2026-03-18T00:00:00.000Z",
+        "fd": "2026-06-30T00:00:00.000Z",
+        "note": "Install Machine On Site",
+        "tasks": [
+          {
+            "txt": "Install Machine On Site",
+            "done": true,
+            "sd": "",
+            "ed": "",
+            "pct": 100
+          },
+          {
+            "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 50
+          },
+          {
+            "txt": "Site Acceptance Test",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Training",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2",
-        "done": true,
-        "sd": "2026-04-25",
-        "ed": "2026-04-25",
-        "pct": 100
+        "num": "3",
+        "rank": "B",
+        "name": "Inspection sleeve, external code and sticker line Q (2 M/C)",
+        "sub": "",
+        "loc": "Line Q",
+        "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
+        "pct": 70,
+        "io": "-",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "New project impact",
+        "lead": "",
+        "start": "18 Mar 2026",
+        "finish": "30 Jun 2026",
+        "sd": "2026-03-18T00:00:00.000Z",
+        "fd": "2026-06-30T00:00:00.000Z",
+        "note": "Install Machine On Site",
+        "tasks": [
+          {
+            "txt": "Install Machine On Site",
+            "done": true,
+            "sd": "",
+            "ed": "",
+            "pct": 100
+          },
+          {
+            "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 50
+          },
+          {
+            "txt": "Site Acceptance Test",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Training",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Handover Document",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation",
-        "done": true,
-        "sd": "2026-05-02",
-        "ed": "2026-05-02",
-        "pct": 100
+        "num": "4",
+        "rank": "B",
+        "name": "Connect Machine Data: Line P to Data Tank",
+        "sub": "",
+        "loc": "Line P",
+        "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
+        "pct": 65,
+        "io": "1200333/882000000297-(0-10)",
+        "size": "Medium",
+        "type": "System Integration",
+        "impact": "Centralize capacity monitoring & control for optimized new factory startup",
+        "lead": "",
+        "start": "13 Apr 2026",
+        "finish": "5 Jun 2026",
+        "note": "Create Kepware Tag",
+        "sd": "2026-04-13T00:00:00.000Z",
+        "fd": "2026-06-05T00:00:00.000Z",
+        "tasks": [
+          {
+            "txt": "Create Kepware Tag",
+            "done": true,
+            "sd": "2026-04-27",
+            "ed": "2026-04-27",
+            "pct": 100
+          },
+          {
+            "txt": "Send Requirement To Integra",
+            "done": true,
+            "sd": "2026-04-28",
+            "ed": "2026-04-28",
+            "pct": 100
+          },
+          {
+            "txt": "Send Requirement To Techlong",
+            "done": true,
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
+            "txt": "Data Mapping Integra (ต้องเข้าไปตั้งค่า Default Gateway)",
+            "done": false,
+            "sd": "2026-05-05",
+            "ed": "2026-05-08",
+            "pct": 0
+          },
+          {
+            "txt": "Data Mapping Techlong",
+            "done": false,
+            "sd": "2026-05-11",
+            "ed": "2026-05-22",
+            "pct": 0
+          },
+          {
+            "txt": "Techlong Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Integra Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Handover to IT",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "SAT รอบที่ 2 (รอ Supplier ส่งแผน SAT รอบที่ 2)",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
+        "num": "5",
+        "rank": "B",
+        "name": "Connect Machine Data: Line Q to Data Tank",
+        "sub": "",
+        "loc": "Line Q",
+        "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
+        "pct": 65,
+        "io": "1200345",
+        "size": "Small",
+        "type": "System Integration",
+        "impact": "OEE Up",
+        "lead": "",
+        "start": "13 Apr 2026",
+        "finish": "5 Jun 2026",
+        "note": "Create Kepware Tag",
+        "sd": "2026-04-13T00:00:00.000Z",
+        "fd": "2026-06-05T00:00:00.000Z",
+        "tasks": [
+          {
+            "txt": "Create Kepware Tag",
+            "done": true,
+            "sd": "2026-04-27",
+            "ed": "2026-04-28",
+            "pct": 100
+          },
+          {
+            "txt": "Send Requirement To Techlong",
+            "done": true,
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
+            "txt": "Data Mapping Tetra Pack (Supplier เข้ามา Sync Data 06/05/26)",
+            "done": false,
+            "sd": "2026-05-05",
+            "ed": "2026-05-08",
+            "pct": 0
+          },
+          {
+            "txt": "Data Mapping Techlong",
+            "done": false,
+            "sd": "2026-05-11",
+            "ed": "2026-05-15",
+            "pct": 0
+          },
+          {
+            "txt": "Tetra Pack Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Techlong Data Validation",
+            "done": false,
+            "sd": "2026-05-18",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Handover to IT",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "Training",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
+        "num": "6",
+        "rank": "AA",
+        "name": "Contaminate Inspection Vision System E",
+        "sub": "Priority No. 01 — Highest Priority",
+        "loc": "Line E",
+        "status": "Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว",
+        "pct": 10,
+        "io": "1200313/882000000218-0",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "Compliance / Foreign body contaminations down",
+        "lead": "",
+        "start": "20 Apr 2026",
+        "finish": "28 Aug 2026",
+        "note": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
+        "sd": "2026-04-20T00:00:00.000Z",
+        "fd": "2026-08-28T00:00:00.000Z",
+        "tasks": [
+          {
+            "txt": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
+            "done": false,
+            "sd": "2026-04-30",
+            "ed": "2026-04-30",
+            "pct": 100
+          },
+          {
+            "txt": "Demo",
+            "done": false,
+            "sd": "2026-05-01",
+            "ed": "2026-05-29",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
+            "done": false,
+            "sd": "2026-06-01",
+            "ed": "2026-06-05",
+            "pct": 0
+          }
+        ]
       },
       {
-        "txt": "Handover Document",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
+        "num": "7",
+        "rank": "AA",
+        "name": "Contaminate Inspection Vision System C",
+        "sub": "Priority No. 03",
+        "loc": "Line C",
+        "status": "Study Project",
+        "pct": 0,
+        "io": "1200313/882000000218-0",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "Compliance / Foreign body contaminations down",
+        "lead": "",
+        "start": "20 Apr 2026",
+        "finish": "28 Aug 2026",
+        "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.",
+        "sd": "2026-04-20T00:00:00.000Z",
+        "fd": "2026-08-28T00:00:00.000Z",
+        "tasks": [
+          {
+            "txt": "Study Project",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "8",
+        "rank": "AA",
+        "name": "Contaminate Inspection Vision System D",
+        "sub": "Priority No. 02",
+        "loc": "Line D",
+        "status": "Study Project",
+        "pct": 0,
+        "io": "1200313/882000000218-0",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "Compliance / Foreign body contaminations down",
+        "lead": "",
+        "start": "20 Apr 2026",
+        "finish": "28 Aug 2026",
+        "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO.",
+        "sd": "2026-04-20T00:00:00.000Z",
+        "fd": "2026-08-28T00:00:00.000Z",
+        "tasks": [
+          {
+            "txt": "Study Project",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          },
+          {
+            "txt": "Design Line Layout",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "9",
+        "rank": "AA",
+        "name": "Inspection Cap: Line C, D, E, P",
+        "sub": "",
+        "loc": "Build B",
+        "status": "IE Study Project",
+        "pct": 0,
+        "io": "Pending",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "Compliance / Foreign body contaminations down",
+        "lead": "",
+        "start": "",
+        "finish": "",
+        "note": "Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.",
+        "sd": null,
+        "fd": null,
+        "tasks": [
+          {
+            "txt": "Waiting for IE team study.",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "10",
+        "rank": "AA",
+        "name": "Inspection External Code: Line C, D, E",
+        "sub": "",
+        "loc": "Build B",
+        "status": "IE Study Project",
+        "pct": 0,
+        "io": "Pending — memo not written",
+        "size": "Medium",
+        "type": "Machine",
+        "impact": "Compliance / Foreign body contaminations down",
+        "lead": "",
+        "start": "",
+        "finish": "",
+        "note": "Waiting for IE team study. Project memo not yet written. No IO number assigned.",
+        "sd": null,
+        "fd": null,
+        "tasks": [
+          {
+            "txt": "Waiting for IE team study.",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "11",
+        "rank": "AA",
+        "name": "Install Interface: Carton Coding  Data Tank",
+        "sub": "",
+        "loc": "Build B",
+        "status": "IE Study Project",
+        "pct": 0,
+        "io": "Pending",
+        "size": "Small",
+        "type": "System Integration",
+        "impact": "Centralize capacity monitoring & control for new factory startup",
+        "lead": "",
+        "start": "",
+        "finish": "",
+        "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "sd": null,
+        "fd": null,
+        "tasks": [
+          {
+            "txt": "Waiting for IE team study.",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "12",
+        "rank": "AA",
+        "name": "Install Carton Counting System to Data Tank",
+        "sub": "",
+        "loc": "Build B",
+        "status": "IE Study Project",
+        "pct": 0,
+        "io": "Pending",
+        "size": "Medium",
+        "type": "System Integration",
+        "impact": "Centralize capacity monitoring & control for new factory startup",
+        "lead": "",
+        "start": "",
+        "finish": "",
+        "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "sd": null,
+        "fd": null,
+        "tasks": [
+          {
+            "txt": "Waiting for IE team study.",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
+      },
+      {
+        "num": "13",
+        "rank": "AA",
+        "name": "Install Interface: Customer Coding (Bottle)  Data Tank",
+        "sub": "",
+        "loc": "Build B",
+        "status": "IE Study Project",
+        "pct": 0,
+        "io": "Pending",
+        "size": "Small",
+        "type": "System Integration",
+        "impact": "Centralize capacity monitoring & control for new factory startup",
+        "lead": "",
+        "start": "",
+        "finish": "",
+        "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
+        "sd": null,
+        "fd": null,
+        "tasks": [
+          {
+            "txt": "Waiting for IE team study.",
+            "done": false,
+            "sd": "",
+            "ed": "",
+            "pct": 0
+          }
+        ]
       }
-    ]
-  },
-  {
-    "num": "2",
-    "rank": "B",
-    "name": "Inspection Cap&Level line Q (1 M/C)",
-    "sub": "",
-    "loc": "Line Q",
-    "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
-    "pct": 70,
-    "io": "TBD",
-    "size": "Small",
-    "type": "Machine",
-    "impact": "New project impact",
-    "lead": "",
-    "start": "18 Mar 2026",
-    "finish": "30 Jun 2026",
-    "sd": "2026-03-18T00:00:00.000Z",
-    "fd": "2026-06-30T00:00:00.000Z",
-    "note": "Install Machine On Site",
-    "tasks": [
-      {
-        "txt": "Install Machine On Site",
-        "done": true,
-        "sd": "",
-        "ed": "",
-        "pct": 100
-      },
-      {
-        "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 50
-      },
-      {
-        "txt": "Site Acceptance Test",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Training",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Handover Document",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "3",
-    "rank": "B",
-    "name": "Inspection sleeve, external code and sticker line Q (2 M/C)",
-    "sub": "",
-    "loc": "Line Q",
-    "status": "อยู่ใน Phase Install - รอจ่ายงวด SAT Line P ค้าง จ่ายตั้งแต่ 09/24 QA กำลัง Review ผลทดสอบเก่า",
-    "pct": 70,
-    "io": "-",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "New project impact",
-    "lead": "",
-    "start": "18 Mar 2026",
-    "finish": "30 Jun 2026",
-    "sd": "2026-03-18T00:00:00.000Z",
-    "fd": "2026-06-30T00:00:00.000Z",
-    "note": "Install Machine On Site",
-    "tasks": [
-      {
-        "txt": "Install Machine On Site",
-        "done": true,
-        "sd": "",
-        "ed": "",
-        "pct": 100
-      },
-      {
-        "txt": "Function Test After Install Machine (รอจ่าย Line P ก่อน)",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 50
-      },
-      {
-        "txt": "Site Acceptance Test",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Training",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Handover Document",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "4",
-    "rank": "B",
-    "name": "Connect Machine Data: Line P to Data Tank",
-    "sub": "",
-    "loc": "Line P",
-    "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
-    "pct": 65,
-    "io": "1200333/882000000297-(0-10)",
-    "size": "Medium",
-    "type": "System Integration",
-    "impact": "Centralize capacity monitoring & control for optimized new factory startup",
-    "lead": "",
-    "start": "13 Apr 2026",
-    "finish": "5 Jun 2026",
-    "note": "Create Kepware Tag",
-    "sd": "2026-04-13T00:00:00.000Z",
-    "fd": "2026-06-05T00:00:00.000Z",
-    "tasks": [
-      {
-        "txt": "Create Kepware Tag",
-        "done": true,
-        "sd": "2026-04-27",
-        "ed": "2026-04-27",
-        "pct": 100
-      },
-      {
-        "txt": "Send Requirement To Integra",
-        "done": true,
-        "sd": "2026-04-28",
-        "ed": "2026-04-28",
-        "pct": 100
-      },
-      {
-        "txt": "Send Requirement To Techlong",
-        "done": true,
-        "sd": "2026-04-30",
-        "ed": "2026-04-30",
-        "pct": 100
-      },
-      {
-        "txt": "Data Mapping Integra (ต้องเข้าไปตั้งค่า Default Gateway)",
-        "done": false,
-        "sd": "2026-05-05",
-        "ed": "2026-05-08",
-        "pct": 0
-      },
-      {
-        "txt": "Data Mapping Techlong",
-        "done": false,
-        "sd": "2026-05-11",
-        "ed": "2026-05-22",
-        "pct": 0
-      },
-      {
-        "txt": "Techlong Data Validation",
-        "done": false,
-        "sd": "2026-05-18",
-        "ed": "2026-05-29",
-        "pct": 0
-      },
-      {
-        "txt": "Integra Data Validation",
-        "done": false,
-        "sd": "2026-05-18",
-        "ed": "2026-05-29",
-        "pct": 0
-      },
-      {
-        "txt": "Handover to IT",
-        "done": false,
-        "sd": "2026-06-01",
-        "ed": "2026-06-05",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "5",
-    "rank": "B",
-    "name": "Connect Machine Data: Line Q to Data Tank",
-    "sub": "",
-    "loc": "Line Q",
-    "status": "Send Requirement To Techlong ส่วนของ Sappe สร้าง Tag และ Mapping Kepware รอแล้ว",
-    "pct": 65,
-    "io": "1200345",
-    "size": "Small",
-    "type": "System Integration",
-    "impact": "OEE Up",
-    "lead": "",
-    "start": "13 Apr 2026",
-    "finish": "5 Jun 2026",
-    "note": "Create Kepware Tag",
-    "sd": "2026-04-13T00:00:00.000Z",
-    "fd": "2026-06-05T00:00:00.000Z",
-    "tasks": [
-      {
-        "txt": "Create Kepware Tag",
-        "done": true,
-        "sd": "2026-04-27",
-        "ed": "2026-04-28",
-        "pct": 100
-      },
-      {
-        "txt": "Send Requirement To Techlong",
-        "done": true,
-        "sd": "2026-04-30",
-        "ed": "2026-04-30",
-        "pct": 100
-      },
-      {
-        "txt": "Data Mapping Tetra Pack (Supplier เข้ามา Sync Data 06/05/26)",
-        "done": false,
-        "sd": "2026-05-05",
-        "ed": "2026-05-08",
-        "pct": 0
-      },
-      {
-        "txt": "Data Mapping Techlong",
-        "done": false,
-        "sd": "2026-05-11",
-        "ed": "2026-05-15",
-        "pct": 0
-      },
-      {
-        "txt": "Tetra Pack Data Validation",
-        "done": false,
-        "sd": "2026-05-18",
-        "ed": "2026-05-29",
-        "pct": 0
-      },
-      {
-        "txt": "Techlong Data Validation",
-        "done": false,
-        "sd": "2026-05-18",
-        "ed": "2026-05-29",
-        "pct": 0
-      },
-      {
-        "txt": "Handover to IT",
-        "done": false,
-        "sd": "2026-06-01",
-        "ed": "2026-06-05",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "6",
-    "rank": "AA",
-    "name": "Contaminate Inspection Vision System E",
-    "sub": "Priority No. 01 — Highest Priority",
-    "loc": "Line E",
-    "status": "Sourcing Supplier เบื้องต้น Riverplus ได้นำขวดไปทดสอบแล้ว",
-    "pct": 10,
-    "io": "1200313/882000000218-0",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "Compliance / Foreign body contaminations down",
-    "lead": "",
-    "start": "20 Apr 2026",
-    "finish": "28 Aug 2026",
-    "note": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
-    "sd": "2026-04-20T00:00:00.000Z",
-    "fd": "2026-08-28T00:00:00.000Z",
-    "tasks": [
-      {
-        "txt": "Sourcing Supplier - Riverplus เข้ามารับ Requirement",
-        "done": false,
-        "sd": "2026-04-30",
-        "ed": "2026-04-30",
-        "pct": 100
-      },
-      {
-        "txt": "Demo",
-        "done": false,
-        "sd": "2026-05-01",
-        "ed": "2026-05-29",
-        "pct": 0
-      },
-      {
-        "txt": "Design Line Layout",
-        "done": false,
-        "sd": "2026-06-01",
-        "ed": "2026-06-05",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "7",
-    "rank": "AA",
-    "name": "Contaminate Inspection Vision System C",
-    "sub": "Priority No. 03",
-    "loc": "Line C",
-    "status": "Study Project",
-    "pct": 0,
-    "io": "1200313/882000000218-0",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "Compliance / Foreign body contaminations down",
-    "lead": "",
-    "start": "20 Apr 2026",
-    "finish": "28 Aug 2026",
-    "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO. Planned timeline: Jan–Jun 2025.",
-    "sd": "2026-04-20T00:00:00.000Z",
-    "fd": "2026-08-28T00:00:00.000Z",
-    "tasks": [
-      {
-        "txt": "Study Project",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Design Line Layout",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "8",
-    "rank": "AA",
-    "name": "Contaminate Inspection Vision System D",
-    "sub": "Priority No. 02",
-    "loc": "Line D",
-    "status": "Study Project",
-    "pct": 0,
-    "io": "1200313/882000000218-0",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "Compliance / Foreign body contaminations down",
-    "lead": "",
-    "start": "20 Apr 2026",
-    "finish": "28 Aug 2026",
-    "note": "Sub-project of Vision System (Project 6). Budget shared under parent IO.",
-    "sd": "2026-04-20T00:00:00.000Z",
-    "fd": "2026-08-28T00:00:00.000Z",
-    "tasks": [
-      {
-        "txt": "Study Project",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      },
-      {
-        "txt": "Design Line Layout",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "9",
-    "rank": "AA",
-    "name": "Inspection Cap: Line C, D, E, P",
-    "sub": "",
-    "loc": "Build B",
-    "status": "IE Study Project",
-    "pct": 0,
-    "io": "Pending",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "Compliance / Foreign body contaminations down",
-    "lead": "",
-    "start": "",
-    "finish": "",
-    "note": "Requested 23 Feb 2026. Received 27 Feb 2026. Pending IE team study.",
-    "sd": null,
-    "fd": null,
-    "tasks": [
-      {
-        "txt": "Waiting for IE team study.",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "10",
-    "rank": "AA",
-    "name": "Inspection External Code: Line C, D, E",
-    "sub": "",
-    "loc": "Build B",
-    "status": "IE Study Project",
-    "pct": 0,
-    "io": "Pending — memo not written",
-    "size": "Medium",
-    "type": "Machine",
-    "impact": "Compliance / Foreign body contaminations down",
-    "lead": "",
-    "start": "",
-    "finish": "",
-    "note": "Waiting for IE team study. Project memo not yet written. No IO number assigned.",
-    "sd": null,
-    "fd": null,
-    "tasks": [
-      {
-        "txt": "Waiting for IE team study.",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "11",
-    "rank": "AA",
-    "name": "Install Interface: Carton Coding ↔ Data Tank",
-    "sub": "",
-    "loc": "Build B",
-    "status": "IE Study Project",
-    "pct": 0,
-    "io": "Pending",
-    "size": "Small",
-    "type": "System Integration",
-    "impact": "Centralize capacity monitoring & control for new factory startup",
-    "lead": "",
-    "start": "",
-    "finish": "",
-    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
-    "sd": null,
-    "fd": null,
-    "tasks": [
-      {
-        "txt": "Waiting for IE team study.",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "12",
-    "rank": "AA",
-    "name": "Install Carton Counting System to Data Tank",
-    "sub": "",
-    "loc": "Build B",
-    "status": "IE Study Project",
-    "pct": 0,
-    "io": "Pending",
-    "size": "Medium",
-    "type": "System Integration",
-    "impact": "Centralize capacity monitoring & control for new factory startup",
-    "lead": "",
-    "start": "",
-    "finish": "",
-    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
-    "sd": null,
-    "fd": null,
-    "tasks": [
-      {
-        "txt": "Waiting for IE team study.",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  },
-  {
-    "num": "13",
-    "rank": "AA",
-    "name": "Install Interface: Customer Coding (Bottle) ↔ Data Tank",
-    "sub": "",
-    "loc": "Build B",
-    "status": "IE Study Project",
-    "pct": 0,
-    "io": "Pending",
-    "size": "Small",
-    "type": "System Integration",
-    "impact": "Centralize capacity monitoring & control for new factory startup",
-    "lead": "",
-    "start": "",
-    "finish": "",
-    "note": "Requested 28 Nov 2025. Received 23 Feb 2026. IE team study in progress.",
-    "sd": null,
-    "fd": null,
-    "tasks": [
-      {
-        "txt": "Waiting for IE team study.",
-        "done": false,
-        "sd": "",
-        "ed": "",
-        "pct": 0
-      }
-    ]
-  }
-];
+    ];
 
-    localStorage.removeItem("P_DATA"); let P = JSON.parse(JSON.stringify(DEFAULT_P));
+    let P = JSON.parse(localStorage.getItem('P_DATA')) || JSON.parse(JSON.stringify(DEFAULT_P));
 
-    // ── SIDEBAR RESIZE ──
+    // ฤฤ SIDEBAR RESIZE ฤฤ
     let sbWidth = localStorage.getItem('SB_WIDTH') || '280';
     let gtWidth = localStorage.getItem('GT_WIDTH') || '670';
     if (parseInt(gtWidth) < 670) gtWidth = '670'; // Force minimum to cover all columns
@@ -2806,15 +3324,15 @@
     }
     window.addEventListener('DOMContentLoaded', initResizer);
 
-    // ── GLOBAL META ──
-    let META = {
-  "logo": "Project Dashboard",
-  "title": "PROGRESS<br><b>UPDATE</b>",
-  "sub": "RESPONSIBLE: PAGORN<br>4 MAY 2026",
-  "chip": "ACCOUNTABLE: CHAINARA"
-};
+    // ฤฤ GLOBAL META ฤฤ
+    let META = JSON.parse(localStorage.getItem('DASHBOARD_META')) || {
+      "logo": "Project Dashboard",
+      "title": "PROGRESS<br><b>UPDATE</b>",
+      "sub": "RESPONSIBLE: PAGORN<br>4 MAY 2026",
+      "chip": "ACCOUNTABLE: CHAINARA"
+    };
 
-    // FORCE UPDATE: ล้างชื่อเก่าออกจากความจำเครื่องคุณ
+    // FORCE UPDATE: Clear old data from browser memory
     if (META.chip && (META.chip.includes('PANKAJ') || META.chip.includes('Chainara'))) {
       META.chip = 'ACCOUNTABLE: CHAINARA';
       localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
@@ -2830,10 +3348,23 @@
       if (subEl) subEl.innerHTML = META.sub;
       if (chipEl) chipEl.innerHTML = META.chip;
 
-      // Update all current date spans
       const now = new Date();
       const longDate = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+      // Update all current date spans
       document.querySelectorAll('.curr-date-long').forEach(el => el.textContent = longDate);
+
+      // Update Browser Title
+      document.title = `Project Dashboard — Pagorn | ${longDate}`;
+
+      // Update Sidebar Date in Meta
+      if (subEl && subEl.innerHTML.includes('202')) {
+        subEl.innerHTML = subEl.innerHTML.replace(/\d+\s+\w+\s+20\d+/g, longDate.toUpperCase());
+      }
+
+      // Update Overview Project Count
+      const vsubCount = document.getElementById('vsub-count');
+      if (vsubCount) vsubCount.textContent = P.length;
     }
 
     // Restore Date objects if loaded from localStorage
@@ -2859,7 +3390,7 @@
       return { c: '#475569', bg: '#F1F5F9', label: s };
     }
 
-    // ── SIDEBAR LIST ──
+    // ฤฤ SIDEBAR LIST ฤฤ
     let draggedIdx = -1;
 
     function buildSidebar(filterText = '') {
@@ -2961,7 +3492,7 @@
       if (currentProjectIndex === -1) gotoView('ov');
     }
 
-    // ── BADGE HTML ──
+    // ฤฤ BADGE HTML ฤฤ
     function badge(s, big) {
       const st = stInfo(s);
       const sz = big ? 'font-size:13px;padding:5px 13px' : '';
@@ -2974,7 +3505,7 @@
       return `hsl(${hue}, 70%, 40%)`;
     }
 
-    // ── OVERVIEW ──
+    // ฤฤ OVERVIEW ฤฤ
     function buildOverview() {
       const mC = P.filter(p => p.type === 'Machine').length;
       const sC = P.filter(p => p.type === 'System Integration' || p.type === 'System Integrate').length;
@@ -2993,7 +3524,7 @@
     </div>
     <div class="sec-hdr">
       <div class="sec-title">ALL PROJECTS</div>
-      <div class="sec-hint">Click any row to view detail →</div>
+      <div class="sec-hint">Click any row to view detail </div>
     </div>
     <table class="ptbl" style="width: 100%; table-layout: auto;">
       <thead><tr>
@@ -3026,7 +3557,7 @@
     }
     buildOverview();
 
-    // ── DETAIL ──
+    // ฤฤ DETAIL ฤฤ
     function openDetail(i) {
       currentProjectIndex = i;
       const p = P[i]; const st = stInfo(p.status);
@@ -3142,15 +3673,15 @@
     </div>
 
     <div class="det-pager">
-      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})">← ${P[i - 1].num}</button>` : ''}
-      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num} →</button>` : ''}
+      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})"> ${P[i - 1].num}</button>` : ''}
+      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num} </button>` : ''}
     </div>`;
 
       if (editMode) syncCurrentState();
       gotoView('det', false);
     }
 
-    // ── GANTT ──
+    // ฤฤ GANTT ฤฤ
     function buildGantt() {
       const NS = 'http://www.w3.org/2000/svg';
       const GL = document.getElementById('gantt-labels-svg');
@@ -3161,7 +3692,7 @@
         ? P.filter((_, i) => ganttFilter.has(i))
         : P;
 
-      // ── AUTO SCALE LOGIC ──
+      // ฤฤ AUTO SCALE LOGIC ฤฤ
       let minD = new Date(2026, 0, 1); // fallback
       let maxD = new Date(2026, 11, 31);
 
@@ -3246,10 +3777,10 @@
       }
       function toX(d) { return (moOff(d) / NM) * CW; }
 
-      // ── CLEAR SVGS ──
+      // ฤฤ CLEAR SVGS ฤฤ
       GL.innerHTML = ''; GT.innerHTML = '';
 
-      // ── BACKGROUNDS ──
+      // ฤฤ BACKGROUNDS ฤฤ
       el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
       el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
       el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
@@ -3289,7 +3820,7 @@
         el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
 
         // Expand/Collapse Arrow
-        const arrow = tx(isExp ? '▼' : '▶', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
+        const arrow = tx(isExp ? '▾' : '▸', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
         arrow.onclick = () => { toggleGanttExpand(originalIdx); };
 
         tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
@@ -3320,7 +3851,7 @@
               handle.onmousedown = (e) => { e.stopPropagation(); startGanttDrag(e, originalIdx, 'resize'); };
               handle.style.cursor = 'ew-resize';
             }
-            if (bw > 50) tx(p.pct + '% — ' + (p.status || ''), { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9, 'font-weight': 600 }, GT);
+            if (bw > 50) tx(p.pct + '% • ' + (p.status || ''), { x: sx + 13, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: bc, 'font-family': 'JetBrains Mono,monospace', 'font-size': 9, 'font-weight': 600 }, GT);
           }
         }
 
@@ -3360,12 +3891,12 @@
         }
       });
 
-      // ── VERTICAL GRID LINES (Drawn last to be on top of row backgrounds) ──
+      // ฤฤ VERTICAL GRID LINES (Drawn last to be on top of row backgrounds) ฤฤ
       [0, 70, 420, 500, 580, LW].forEach(x => {
         el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
       });
 
-      // ── TODAY LINE (Rendered last to be on top) ──
+      // ฤฤ TODAY LINE (Rendered last to be on top) ฤฤ
       const today = new Date();
       const TX = toX(today);
       if (TX >= 0 && TX <= CW) {
@@ -3443,7 +3974,7 @@
 
     buildGantt();
 
-    // ── VIEW SWITCHING ──
+    // ฤฤ VIEW SWITCHING ฤฤ
     function gotoView(v, resetSb = true) {
       if (editMode) syncCurrentState();
       const views = ['ov', 'det', 'tl'];
@@ -3469,7 +4000,7 @@
       }
     }
 
-    // ── EDIT MODE LOGIC ──
+    // ฤฤ EDIT MODE LOGIC ฤฤ
     function toggleEditMode() {
       editMode = !editMode;
       document.body.classList.toggle('edit-on', editMode);
@@ -3480,7 +4011,8 @@
         el.contentEditable = editMode;
         if (editMode) el.setAttribute('spellcheck', 'false');
       });
-
+      // Update sidebar
+      buildSidebar();
       // Update current view to enable/disable editing
       if (currentProjectIndex >= 0) {
         openDetail(currentProjectIndex);
@@ -3579,51 +4111,7 @@
       return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
     }
 
-    function exportAsHTML() {
-      // A. Sync everything from current UI to memory
-      syncCurrentState();
 
-      // B. Create a clean clone of the document
-      const clone = document.documentElement.cloneNode(true);
-
-      // C. Reset UI states for the exported file
-      clone.classList.remove('edit-on');
-      const ctrls = clone.querySelector('#edit-ctrls');
-      if (ctrls) ctrls.style.display = 'none';
-
-      // D. Update the Data Script inside the clone
-      const dataScript = clone.querySelector('#data-script');
-      if (dataScript) {
-        let code = dataScript.textContent;
-
-        // 1. Bake Projects (P)
-        const pJson = JSON.stringify(P, null, 2);
-        code = code.replace(/const\s+DEFAULT_P\s*=\s*\[[\s\S]*?\]\s*;/, `const DEFAULT_P = ${pJson};`);
-
-        // 2. Bake Meta
-        const metaJson = JSON.stringify(META, null, 2);
-        code = code.replace(/let\s+META\s*=\s*\{[\s\S]*?\}\s*;/, `let META = ${metaJson};`);
-
-        // 3. IMPORTANT: Force Exported file to IGNORE old localStorage
-        // This prevents Chrome from showing old data if a file with same name was opened before.
-        code = code.replace(
-          /let\s+P\s*=\s*JSON\.parse\(localStorage\.getItem\('P_DATA'\)\)\s*\|\|\s*/,
-          'localStorage.removeItem("P_DATA"); let P = '
-        );
-
-        dataScript.textContent = code;
-      }
-
-      // E. Download
-      const finalHTML = '<!DOCTYPE html>\n' + clone.outerHTML;
-      const blob = new Blob([finalHTML], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Dashboard_Fixed_${new Date().toISOString().split('T')[0]}.html`;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
 
     function addTask(idx) {
       if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, done: false, sd: '', ed: '', pct: 0 }] : [];
@@ -3682,7 +4170,7 @@
 
         // Replace DEFAULT_P and META
         code = code.replace(/const\s+DEFAULT_P\s*=\s*\[[\s\S]*?\]\s*;/, `const DEFAULT_P = ${pJson};`);
-        code = code.replace(/let\s+META\s*=\s*\{[\s\S]*?\}\s*;/, `let META = ${mJson};`);
+        code = code.replace(/let\s+META\s*=\s*(JSON\.parse\(localStorage\.getItem\('DASHBOARD_META'\)\)\s*\|\|\s*)?\{[\s\S]*?\}\s*;/, `localStorage.removeItem("DASHBOARD_META"); let META = ${mJson};`);
 
         // Force Priority: Remove localStorage dependency in the exported file
         code = code.replace(
@@ -3717,7 +4205,7 @@
     }
 
 
-    // ── GANTT FILTER ──
+    // ฤฤ GANTT FILTER ฤฤ
     // ganttFilter is declared in the main STATE section above
 
     function initGanttFilter() {
@@ -3812,4 +4300,6 @@
 
 
 
-</body></html>
+</body>
+
+</html>
