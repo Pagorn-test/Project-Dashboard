@@ -10,6 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
     rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <style>
     *,
     *::before,
@@ -1443,6 +1445,10 @@
         </div>
         <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
         </div>
+        <div class="sync-status">
+          <div class="dot"></div>
+          <span id="sync-msg">Connecting...</span>
+        </div>
       </div>
 
 
@@ -2669,14 +2675,43 @@
       border-color: #5DB8F4;
       color: #5DB8F4;
     }
+
+    .sync-status {
+      font-size: 10px;
+      color: rgba(93, 184, 244, 0.5);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .sync-status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #059669;
+    }
   </style>
 
   <script id="data-script">
-    // ฤฤ STATE ฤฤ
+    // ◆ FIREBASE CONFIG ◆
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPOGqumc5yvaAsj98WWtn16UGo-P5BU78",
+      authDomain: "project-dashboard-sappe.firebaseapp.com",
+      databaseURL: "https://project-dashboard-sappe-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "project-dashboard-sappe",
+      storageBucket: "project-dashboard-sappe.firebasestorage.app",
+      messagingSenderId: "986156315852",
+      appId: "1:986156315852:web:ceb6c019474047c8cefe69"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // ◆ STATE ◆
     let editMode = false;
     let currentProjectIndex = -1;
-    let ganttFilter = null; // null = show all; Set = show only matching indices
-    let expandedProjects = new Set(); // Set of indices that are expanded in Gantt
+    let ganttFilter = null;
+    let expandedProjects = new Set();
 
     // ฤฤ DATA & LOGIC ฤฤ
     const DEFAULT_P = [
@@ -3263,7 +3298,47 @@
       }
     ];
 
-    let P = JSON.parse(localStorage.getItem('P_DATA')) || JSON.parse(JSON.stringify(DEFAULT_P));
+    let P = JSON.parse(JSON.stringify(DEFAULT_P));
+    let isInitialLoad = true;
+
+    function updateSyncStatus(msg) {
+      const el = document.getElementById('sync-msg');
+      if (el) el.textContent = msg;
+    }
+
+    // Sync from Firebase
+    db.ref('/').on('value', (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        if (data.P_DATA) P = data.P_DATA;
+        if (data.DASHBOARD_META) {
+          // Merge meta to not lose local objects
+          Object.assign(META, data.DASHBOARD_META);
+        }
+
+        // Restore dates
+        P.forEach(p => {
+          if (p.sd) p.sd = new Date(p.sd);
+          if (p.fd) p.fd = new Date(p.fd);
+        });
+
+        if (isInitialLoad) {
+          isInitialLoad = false;
+          loadMeta();
+          refreshAllViews();
+        } else {
+          refreshAllViews();
+        }
+        updateSyncStatus('Cloud Synced');
+      } else {
+        // Initialize cloud with current defaults if empty
+        saveData();
+        updateSyncStatus('Cloud Ready');
+      }
+    }, (err) => {
+      console.error("Firebase Error:", err);
+      updateSyncStatus('Offline Mode');
+    });
 
     // ฤฤ SIDEBAR RESIZE ฤฤ
     let sbWidth = localStorage.getItem('SB_WIDTH') || '280';
@@ -3374,6 +3449,17 @@
     });
 
     function saveData() {
+      // Save to Firebase
+      db.ref('/').set({
+        P_DATA: P,
+        DASHBOARD_META: META
+      }).then(() => {
+        updateSyncStatus('Saved to Cloud');
+      }).catch(err => {
+        console.error("Save Error:", err);
+        updateSyncStatus('Save Failed');
+      });
+      // Also fallback to localStorage for redundancy
       localStorage.setItem('P_DATA', JSON.stringify(P));
       localStorage.setItem('DASHBOARD_META', JSON.stringify(META));
     }
