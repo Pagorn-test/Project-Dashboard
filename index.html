@@ -3310,17 +3310,22 @@
     db.ref('/').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        if (data.P_DATA) P = data.P_DATA;
+        // PREVENT JUMPING: If user is editing, don't overwrite local data from cloud yet.
+        if (editMode) {
+          updateSyncStatus('Cloud Updated (Sync Paused)');
+          return;
+        }
+
+        if (data.P_DATA) {
+          P = data.P_DATA;
+          if (!Array.isArray(P)) P = Object.values(P);
+        }
         if (data.DASHBOARD_META) {
-          // Merge meta to not lose local objects
           Object.assign(META, data.DASHBOARD_META);
         }
 
-        // Restore dates
-        P.forEach(p => {
-          if (p.sd) p.sd = new Date(p.sd);
-          if (p.fd) p.fd = new Date(p.fd);
-        });
+        // NO MORE conversion to Date objects in the global P array!
+        // We keep them as strings "YYYY-MM-DD" for stability.
 
         if (isInitialLoad) {
           isInitialLoad = false;
@@ -3330,14 +3335,20 @@
           refreshAllViews();
         }
         updateSyncStatus('Cloud Synced');
-      } else {
-        // Initialize cloud with current defaults if empty
-        saveData();
-        updateSyncStatus('Cloud Ready');
-      }
+      } 
     }, (err) => {
       console.error("Firebase Error:", err);
       updateSyncStatus('Offline Mode');
+      // FALLBACK: Load from local storage if cloud fails
+      const localP = localStorage.getItem('P_DATA');
+      if (localP) {
+        P = JSON.parse(localP);
+        P.forEach(p => {
+          if (p.sd) p.sd = new Date(p.sd);
+          if (p.fd) p.fd = new Date(p.fd);
+        });
+      }
+      refreshAllViews();
     });
 
     // ฤฤ SIDEBAR RESIZE ฤฤ
@@ -3731,20 +3742,20 @@
             <div></div>
           </div>
           <div id="task-list">
-            ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '—', ed: '—', pct: 0 }] : [])).map((t, ti) => `
+            ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '', ed: '', pct: 0 }] : [])).map((t, ti) => `
               <div class="task-item" ${editMode ? 'draggable="true" ondragstart="startTaskDrag(event, ' + ti + ')" ondragover="event.preventDefault(); this.classList.add(\'drag-over\')" ondragleave="this.classList.remove(\'drag-over\')" ondrop="dropTask(event, ' + ti + ')"' : ''}>
                 <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
                   onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
                 <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
                 <div class="t-sd">
                   ${editMode
-            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.sd)}" data-task-field="sd">`
+            ? `<input type="date" class="t-date-input" value="${t.sd || ''}" data-task-field="sd">`
             : fmtDate(t.sd)
           }
                 </div>
                 <div class="t-ed">
                   ${editMode
-            ? `<input type="date" class="t-date-input" value="${fmtInputDate(t.ed)}" data-task-field="ed">`
+            ? `<input type="date" class="t-date-input" value="${t.ed || ''}" data-task-field="ed">`
             : fmtDate(t.ed)
           }
                 </div>
@@ -3759,8 +3770,8 @@
     </div>
 
     <div class="det-pager">
-      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})"> ${P[i - 1].num}</button>` : ''}
-      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num} </button>` : ''}
+      ${i > 0 ? `<button class="back-btn" onclick="openDetail(${i - 1})">  ${P[i - 1].num}</button>` : ''}
+      ${i < P.length - 1 ? `<button class="back-btn" onclick="openDetail(${i + 1})">${P[i + 1].num}  </button>` : ''}
     </div>`;
 
       if (editMode) syncCurrentState();
@@ -3773,16 +3784,19 @@
       const GL = document.getElementById('gantt-labels-svg');
       const GT = document.getElementById('gantt-timeline-svg');
 
-      // Apply filter: show all if null, otherwise filter by index
-      const FP = (ganttFilter !== null)
-        ? P.filter((_, i) => ganttFilter.has(i))
-        : P;
+      const FP = (ganttFilter !== null) ? P.filter((_, i) => ganttFilter.has(i)) : P;
 
-      // ฤฤ AUTO SCALE LOGIC ฤฤ
-      let minD = new Date(2026, 0, 1); // fallback
+      // ◆ AUTO SCALE LOGIC ◆
+      let minD = new Date(2026, 0, 1);
       let maxD = new Date(2026, 11, 31);
 
-      const allDates = FP.flatMap(p => [p.sd, p.fd]).filter(d => d instanceof Date && !isNaN(d));
+      // Convert strings to temporary Date objects for calculation
+      const allDates = FP.flatMap(p => {
+        const d1 = p.sd ? new Date(p.sd) : null;
+        const d2 = p.fd ? new Date(p.fd) : null;
+        return [d1, d2];
+      }).filter(d => d && d instanceof Date && !isNaN(d.getTime()));
+
       if (allDates.length > 0) {
         minD = new Date(Math.min(...allDates));
         maxD = new Date(Math.max(...allDates));
@@ -3803,13 +3817,10 @@
       const LW = 670;
       const containerWrap = document.getElementById('gantt-timeline-wrap');
       const availW = containerWrap ? containerWrap.clientWidth : 800;
-      const MW = Math.max(75, availW / NM); // Auto-scale MW to fit, min 75px
+      const MW = Math.max(75, availW / NM); 
       const CW = NM * MW;
       const RH = 38, HH = 30, PT = 6;
-      const TRH = 24; // Task row height
-      const SH = HH + PT + FP.length * RH + 14;
-
-      // Calculate SH dynamically based on expansion
+      const TRH = 24; 
       let totalSH = HH + PT;
       FP.forEach((p, i) => {
         totalSH += RH;
@@ -3820,53 +3831,20 @@
       });
       totalSH += 14;
 
-      // Set SVG dimensions
       GL.setAttribute('width', LW); GL.setAttribute('height', totalSH); GL.setAttribute('viewBox', `0 0 ${LW} ${totalSH}`);
       GT.setAttribute('width', CW); GT.setAttribute('height', totalSH); GT.setAttribute('viewBox', `0 0 ${CW} ${totalSH}`);
 
       function el(t, a, p) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p && p.appendChild(e); return e; }
       function tx(s, a, p) { const e = el('text', a, p); e.textContent = s; return e; }
-
-      // Helper to wrap text into multiple tspans
-      function wrapTx(s, a, maxChars, p) {
-        const textEl = el('text', a, p);
-        if (!s) return textEl;
-        const words = s.split(' ');
-        let line = '', lines = [];
-        words.forEach(w => {
-          if ((line + w).length > maxChars) { lines.push(line.trim()); line = w + ' '; }
-          else { line += w + ' '; }
-        });
-        lines.push(line.trim());
-
-        // If more than 2 lines, truncate the rest
-        if (lines.length > 2) { lines = [lines[0], lines[1].substring(0, maxChars - 3) + '...']; }
-
-        const lineH = 12;
-        const startY = (lines.length > 1) ? - (lineH / 2) : 0;
-
-        lines.forEach((l, i) => {
-          const tspan = document.createElementNS(NS, 'tspan');
-          tspan.setAttribute('x', a.x);
-          tspan.setAttribute('dy', i === 0 ? startY : lineH);
-          tspan.textContent = l;
-          textEl.appendChild(tspan);
-        });
-        return textEl;
-      }
-
-      function moOff(d) {
+      function toX(d) {
         if (!d) return 0;
         const dt = (typeof d === 'string') ? new Date(d) : d;
         if (isNaN(dt.getTime())) return 0;
-        return (dt.getFullYear() - REF.getFullYear()) * 12 + (dt.getMonth() - REF.getMonth()) + dt.getDate() / 30;
+        const moOff = (dt.getFullYear() - REF.getFullYear()) * 12 + (dt.getMonth() - REF.getMonth()) + dt.getDate() / 30;
+        return (moOff / NM) * CW;
       }
-      function toX(d) { return (moOff(d) / NM) * CW; }
 
-      // ฤฤ CLEAR SVGS ฤฤ
       GL.innerHTML = ''; GT.innerHTML = '';
-
-      // ฤฤ BACKGROUNDS ฤฤ
       el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
       el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, GL);
       el('line', { x1: 0, y1: HH, x2: LW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
@@ -3880,38 +3858,28 @@
       el('rect', { x: 0, y: 0, width: CW, height: HH, fill: '#F1F5F9' }, GT);
       el('line', { x1: 0, y1: HH, x2: CW, y2: HH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
 
-      // month headers
       MONTHS.forEach((m, i) => {
         const x = i * MW;
         if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: totalSH, fill: '#F5F3FF', opacity: .45 }, GT);
-        tx(m, {
-          x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
-          fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10
-        }, GT);
+        tx(m, { x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10 }, GT);
         if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
       });
 
-      const typeC = { 'Machine': '#3B82F6', 'System Integration': '#8B5CF6' };
       let currentY = HH + PT;
-
       FP.forEach((p, i) => {
         const originalIdx = P.indexOf(p);
         const isExp = expandedProjects.has(originalIdx);
         const ry = currentY, by = ry + 9, bh = RH - 18;
-        const st = stInfo(p.status);
         const bc = getPctColor(p.pct);
 
-        // Label part
         el('rect', { x: 0, y: ry, width: LW, height: RH, fill: i % 2 ? '#F1F5F9' : '#F8FAFC' }, GL);
         el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
 
-        // Expand/Collapse Arrow
         const arrow = tx(isExp ? '▾' : '▸', { x: 10, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#94A3B8', cursor: 'pointer', 'font-size': 10 }, GL);
         arrow.onclick = () => { toggleGanttExpand(originalIdx); };
 
         tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
 
-        // Single Line Name with Truncation
         let displayName = p.name;
         if (displayName.length > 55) displayName = displayName.substring(0, 52) + '...';
         tx(displayName, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
@@ -4109,10 +4077,23 @@
     }
 
     function saveAllChanges() {
+      // 1. Sync current inputs to memory
       syncCurrentState();
-      saveData();
-      refreshAllViews();
-      alert('All changes saved to your browser!');
+      
+      // 2. Save memory to Firebase
+      db.ref('/').set({
+        P_DATA: P,
+        DASHBOARD_META: META
+      }).then(() => {
+        updateSyncStatus('Saved to Cloud');
+        if (editMode) toggleEditMode(); 
+        refreshAllViews();
+        alert('All changes saved to cloud!');
+      }).catch(err => {
+        console.error("Save Error:", err);
+        updateSyncStatus('Save Failed');
+        alert('Error saving to cloud. Please check your connection.');
+      });
     }
 
     // New helper to sync DOM to P array without refreshing the whole UI
@@ -4132,32 +4113,55 @@
       if (currentProjectIndex >= 0) {
         const p = P[currentProjectIndex];
 
-        // Sync basic fields + dates
+        // Direct Sync for Project Fields
+        const nameEl = document.querySelector('.d-name');
+        const numEl = document.querySelector('.d-num');
+        const subEl = document.querySelector('.d-sub');
+        const rankEl = document.querySelector('.rank-tag');
+        
+        if (nameEl) p.name = nameEl.innerText.trim();
+        if (numEl) p.num = numEl.innerText.trim();
+        if (subEl) p.sub = subEl.innerText.trim();
+        if (rankEl) p.rank = rankEl.innerText.trim();
+
+        // Specific fields with data-key
         document.querySelectorAll('#v-det [data-key]').forEach(el => {
           const key = el.getAttribute('data-key');
-          if (el.tagName === 'INPUT' && el.type === 'date') {
-            const val = el.value;
-            if (val) {
-              const d = new Date(val);
-              if (!isNaN(d.getTime())) {
-                if (key === 'start') { p.sd = d; p.start = fmtDate(d); }
-                else { p.fd = d; p.finish = fmtDate(d); }
-              }
-            } else {
-              if (key === 'start') { p.sd = null; p.start = ''; }
-              else { p.fd = null; p.finish = ''; }
-            }
-          } else {
+          if (el.tagName.toUpperCase() !== 'INPUT') {
             let val = el.innerText.trim();
             if (key === 'pct') {
-              val = parseInt(val.replace('%', '')) || 0;
-              if (val < 0) val = 0; if (val > 100) val = 100;
-              p[key] = val;
+              p[key] = Math.min(100, Math.max(0, parseInt(val.replace('%','')) || 0));
             } else {
               p[key] = val;
             }
           }
         });
+
+        // Date Inputs (Project Level)
+        const sdEl = document.querySelector('input[data-key="start"]');
+        const fdEl = document.querySelector('input[data-key="finish"]');
+        
+        if (sdEl) {
+          const val = sdEl.value;
+          if (val) {
+            p.sd = val; // Store as "YYYY-MM-DD" string
+            p.start = fmtDate(p.sd);
+          } else {
+            p.sd = null;
+            p.start = '';
+          }
+        }
+        
+        if (fdEl) {
+          const val = fdEl.value;
+          if (val) {
+            p.fd = val; // Store as "YYYY-MM-DD" string
+            p.finish = fmtDate(p.fd);
+          } else {
+            p.fd = null;
+            p.finish = 'TBD';
+          }
+        }
 
         // Sync Tasks (Safer)
         const taskElements = document.querySelectorAll('#task-list .task-item');
@@ -4191,7 +4195,7 @@
     }
 
     function fmtDate(d) {
-      if (!d || d === '—') return "";
+      if (!d || d === '—' || d === '' || d === 'null') return "";
       const dt = (typeof d === 'string') ? new Date(d) : d;
       if (isNaN(dt.getTime())) return "";
       return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -4288,6 +4292,7 @@
       buildOverview();
       buildGantt();
       loadMeta();
+      if (currentProjectIndex >= 0) openDetail(currentProjectIndex);
     }
 
 
