@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" style="--sb-width: 464px; --gt-label-width: 670px;"><head>
+<html lang="en" style="--sb-width: 344px; --gt-label-width: 670px;"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Project Dashboard — Pagorn | 25 May 2026</title>
+  <title>Project Dashboard — Pagorn | 3 Jun 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -1434,7 +1434,7 @@
   </style>
 </head>
 
-<body class="edit-on">
+<body class="edit-on" style="cursor: default; user-select: auto;">
   <div class="app">
     <!-- Mobile Menu Button -->
     <button class="mobile-toggle" onclick="document.querySelector('.sb').classList.toggle('show')">
@@ -1450,18 +1450,18 @@
       <div class="sb-head">
         <div class="sb-logo editable-text" contenteditable="true" spellcheck="false">Project Dashboard</div>
         <div class="sb-title editable-text" contenteditable="true" spellcheck="false">PROGRESS<br><b>UPDATE</b></div>
-        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>25 MAY 2026</div>
+        <div class="sb-sub editable-text" contenteditable="true" spellcheck="false">RESPONSIBLE: PAGORN<br>3 JUN 2026</div>
         <div><span class="sb-chip editable-text" contenteditable="true" spellcheck="false">ACCOUNTABLE: CHAINARA</span>
         </div>
         <div class="sync-status">
           <div class="dot"></div>
-          <span id="sync-msg">Cloud Synced</span>
+          <span id="sync-msg">Saved to Cloud</span>
         </div>
       </div>
 
 
       <div class="sb-nav">
-        <button class="nb on" id="nb-ov" onclick="gotoView('ov')">
+        <button class="nb" id="nb-ov" onclick="gotoView('ov')">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
             <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor"></rect>
@@ -1492,29 +1492,29 @@
         <button class="add-pj-btn" onclick="addNewProject()" title="Add New Project">+</button>
       </div>
       <div class="sb-list" id="sb-list"><div class="sb-list-item stagger-item" draggable="true" style="--i: 0; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb0" style="flex: 1 1 0%;"><span class="pj-num">1</span><span class="pj-nm">Connect Machine Data: Line P to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(0)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 1; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb1" style="flex: 1 1 0%;"><span class="pj-num">2</span><span class="pj-nm">Connect Machine Data: Line Q to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(1)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 2; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb2" style="flex: 1 1 0%;"><span class="pj-num">5</span><span class="pj-nm">Inspection sleeve, external code and sticker line Q (2 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(2)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 3; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb3" style="flex: 1 1 0%;"><span class="pj-num">3</span><span class="pj-nm">Inspection Cap&amp;Level line Q (1 M/C)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(3)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 4; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb4" style="flex: 1 1 0%;"><span class="pj-num">4</span><span class="pj-nm">Contaminate Inspection Line Q</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(4)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 5; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb5" style="flex: 1 1 0%;"><span class="pj-num">19</span><span class="pj-nm">Inspection Sleeve &amp; Sticker &amp; Datecode Line P</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)" title="Delete Project">?</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb6" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection External Code: Line C,D,E (3 Line)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)" title="Delete Project">?</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb7" style="flex: 1 1 0%;"><span class="pj-num">18</span><span class="pj-nm">Install Interface: Customer Coding (Bottle)  Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(5)" title="Delete Project">&times;</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 6; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn on" id="pb6" style="flex: 1 1 0%;"><span class="pj-num">9</span><span class="pj-nm">Inspection External Code: Line C,D,E (3 Line)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(6)" title="Delete Project">&times;</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 7; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb7" style="flex: 1 1 0%;"><span class="pj-num">18</span><span class="pj-nm">Install Interface: Customer Coding (Bottle)   Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(7)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 8; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb8" style="flex: 1 1 0%;"><span class="pj-num">12</span><span class="pj-nm">Inspection Cap: Line C,D,E,P (4 Line)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(8)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 9; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb9" style="flex: 1 1 0%;"><span class="pj-num">7</span><span class="pj-nm">Contaminate Inspection Vision System C,D,E (3 Line)</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)" title="Delete Project">?</button>
-      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb10" style="flex: 1 1 0%;"><span class="pj-num">17</span><span class="pj-nm">Install Interface: Carton Coding  Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(9)" title="Delete Project">&times;</button>
+      </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 10; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb10" style="flex: 1 1 0%;"><span class="pj-num">17</span><span class="pj-nm">Install Interface: Carton Coding   Data Tank</span><span class="pj-dot" style="background:#6D28D9"></span></button><div class="pj-ctrls">
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(10)" title="Delete Project">&times;</button>
       </div></div><div class="sb-list-item stagger-item" draggable="true" style="--i: 11; display: flex; align-items: center; padding-right: 8px; cursor: grab;"><button class="pj-btn" id="pb11" style="flex: 1 1 0%;"><span class="pj-num">16</span><span class="pj-nm">Install Carton Counting System to Data Tank</span><span class="pj-dot" style="background:#475569"></span></button><div class="pj-ctrls">
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(11)" title="Delete Project">&times;</button>
       </div></div></div>
 
       <div class="sb-edit-btn">
@@ -1532,13 +1532,13 @@
     <main class="main">
 
       <!-- OVERVIEW -->
-      <div class="view on" id="v-ov" style="">
+      <div class="view" id="v-ov" style="">
         <div class="vhdr">
           <div>
             <div class="vtitle">OVERVIEW</div>
             <div class="vsub"><span id="vsub-count">12</span> projects — Current Responsible: Pagorn</div>
           </div>
-          <div class="vmeta">UPDATE: <span class="curr-date-long">25 May 2026</span></div>
+          <div class="vmeta">UPDATE: <span class="curr-date-long">3 Jun 2026</span></div>
         </div>
         <div class="vbody" id="ov-body">
     <div class="stat-row">
@@ -1605,7 +1605,7 @@
               <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install Machine</span></td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ supplier ส่งแผนและเข้าดำเนินการทดสอบเครื่องเบื้องต้นหลัง Install</span></td>
         </tr>
         <tr onclick="openDetail(3)" class="stagger-item" style="--i: 3">
           <td class="td-no">3</td>
@@ -1620,7 +1620,7 @@
               <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(84, 70%, 40%);min-width:30px">70%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">อยู่ใน Phase Install Machine</span></td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">รอ supplier ส่งแผนและเข้าดำเนินการทดสอบเครื่องเบื้องต้นหลัง Install</span></td>
         </tr>
         <tr onclick="openDetail(4)" class="stagger-item" style="--i: 4">
           <td class="td-no">4</td>
@@ -1645,12 +1645,12 @@
           <td>
             <div style="display:flex;align-items:center;gap:8px;justify-content:center">
               <div style="width:50px;height:6px;background:#F1F5F9;border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-                <div style="width:94%;height:100%;background:hsl(112.8, 70%, 40%)"></div>
+                <div style="width:98%;height:100%;background:hsl(117.6, 70%, 40%)"></div>
               </div>
-              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(112.8, 70%, 40%);min-width:30px">94%</span>
+              <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(117.6, 70%, 40%);min-width:30px">98%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">มีผล SAT เก่าผ่านตั้งแต่ 09/24 แต่ทดสอบไม่ครบ ขาดฟังก์ชันตรวจฉลากพับ Project เข้าเพิ่ม Program และทดสอบใหม่ ผ่านแล้ว 1 SKU (Lychee ตามแผน Production) จาก 4 SKU &gt;&gt; SKU Melon SAT 22/05/26</span></td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">SAT - SKU สุดท้าย 03/06/26 supplier นัดส่ง Manual 05/06/26</span></td>
         </tr>
         <tr onclick="openDetail(6)" class="stagger-item" style="--i: 6">
           <td class="td-no">9</td>
@@ -1680,7 +1680,7 @@
               <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">คุย Scope งาน</span></td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">study project</span></td>
         </tr>
         <tr onclick="openDetail(8)" class="stagger-item" style="--i: 8">
           <td class="td-no">12</td>
@@ -1710,7 +1710,7 @@
               <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(12, 70%, 40%);min-width:30px">10%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">Supplier Riverplus รับขวดไปทดสอบแล้ว ส่ง Report ให้ 22/05/26</span></td>
+          <td><span class="badge" style="color:#475569;background:#F1F5F9;">supplier ขอเข้ามา demo ติดตั้งหน้างานจริง รอ supplier ส่ง dimension เครื่อง demo และหาจุดติดตั้งไม่ให้กระทบ production</span></td>
         </tr>
         <tr onclick="openDetail(10)" class="stagger-item" style="--i: 10">
           <td class="td-no">17</td>
@@ -1725,7 +1725,7 @@
               <span style="font-family:var(--fm);font-size:11px;font-weight:700;color:hsl(0, 70%, 40%);min-width:30px">0%</span>
             </div>
           </td>
-          <td><span class="badge" style="color:#475569;background:#F1F5F9;">คุย Scope งาน</span></td>
+          <td><span class="badge" style="color:#6D28D9;background:#F5F3FF;">study project</span></td>
         </tr>
         <tr onclick="openDetail(11)" class="stagger-item" style="--i: 11">
           <td class="td-no">16</td>
@@ -1747,247 +1747,128 @@
       </div>
 
       <!-- DETAIL -->
-      <div class="view" id="v-det" style="">
+      <div class="view on" id="v-det" style="">
         <div class="det-top">
           <button class="back-btn" onclick="gotoView('ov')"> Overview</button>
-          <span class="det-nav" id="det-nav">1 of 14</span>
+          <span class="det-nav" id="det-nav">7 of 12</span>
         </div>
         <div class="det-hdr" id="det-hdr">
-          <div class="dhdr-row">
-            <div class="dhdr-left">
-              <span class="d-lbl">PROJECT</span>
-              <span class="d-num" data-key="num" contenteditable="true" spellcheck="false">1</span>
-              <div>
-                <div class="d-name" data-key="name" contenteditable="true" spellcheck="false">Contaminate Inspection
-                  Line Q</div>
-                <div class="d-sub" data-key="sub" contenteditable="true" spellcheck="false" style="min-height:1em;background:#f0f0f0"></div>
-              </div>
-            </div>
-            <div class="rank-tag" data-key="rank" contenteditable="true" spellcheck="false">B</div>
-          </div>
+    <div class="dhdr-row">
+      <div class="dhdr-left">
+        <span class="d-lbl">PROJECT</span>
+        <span class="d-num" data-key="num" contenteditable="true" spellcheck="false">9</span>
+        <div>
+          <div class="d-name" data-key="name" contenteditable="true" spellcheck="false">Inspection External Code: Line C,D,E (3 Line)</div>
+          <div class="d-sub" data-key="sub" contenteditable="true" spellcheck="false" style="min-height:1em;background:#f0f0f0"></div>
         </div>
+      </div>
+      <div class="rank-tag" data-key="rank" contenteditable="true" spellcheck="false">AA</div>
+    </div></div>
         <div class="dbody" id="det-body">
-          <div class="igrid">
-            <div class="irow c3">
-              <div class="icell">
-                <div class="ilab">IO / AUC</div>
-                <div class="ival mono" data-key="io" contenteditable="true" spellcheck="false">TBD</div>
-              </div>
-              <div class="icell">
-                <div class="ilab">Start Date</div>
-                <input type="date" class="ival-date blue" data-key="start" value="2026-03-18">
-              </div>
-              <div class="icell">
-                <div class="ilab">Finish Date</div>
-                <input type="date" class="ival-date am" data-key="finish" value="2026-07-31">
-              </div>
-            </div>
-            <div class="irow c4">
-              <div class="icell">
-                <div class="ilab">Location</div>
-                <div class="ival" data-key="loc" contenteditable="true" spellcheck="false">Line Q</div>
-              </div>
-              <div class="icell">
-                <div class="ilab">Size</div>
-                <div class="ival" data-key="size" contenteditable="true" spellcheck="false">Medium</div>
-              </div>
-              <div class="icell">
-                <div class="ilab">Type</div>
-                <div class="ival" data-key="type" contenteditable="true" spellcheck="false" style="color:var(--blue)">
-                  Machine</div>
-              </div>
-              <div class="icell">
-                <div class="ilab">Lead Time</div>
-                <div class="ival" data-key="lead" contenteditable="true" spellcheck="false"></div>
-              </div>
-            </div>
-            <div class="icell-full">
-              <div class="ilab">Impact / Goal</div>
-              <div class="ival blue sm" data-key="impact" contenteditable="true" spellcheck="false">New project impact
-              </div>
-            </div>
+    <div class="igrid">
+      <div class="irow c3">
+        <div class="icell"><div class="ilab">IO / AUC</div><div class="ival mono" data-key="io" contenteditable="true" spellcheck="false">Pending — memo not written</div></div>
+        <div class="icell">
+          <div class="ilab">Start Date</div>
+          <input type="date" class="ival-date blue" data-key="start" value="2026-05-25">
+        </div>
+        <div class="icell">
+          <div class="ilab">Finish Date</div>
+          <input type="date" class="ival-date am" data-key="finish" value="2026-12-30">
+        </div>
+      </div>
+      <div class="irow c4">
+        <div class="icell"><div class="ilab">Location</div><div class="ival" data-key="loc" contenteditable="true" spellcheck="false">Build B</div></div>
+        <div class="icell"><div class="ilab">Size</div><div class="ival" data-key="size" contenteditable="true" spellcheck="false">Medium</div></div>
+        <div class="icell"><div class="ilab">Type</div><div class="ival" data-key="type" contenteditable="true" spellcheck="false" style="color:var(--blue)">Machine</div></div>
+        <div class="icell"><div class="ilab">Lead Time</div><div class="ival" data-key="lead" contenteditable="true" spellcheck="false"></div></div>
+      </div>
+      <div class="icell-full"><div class="ilab">Impact / Goal</div><div class="ival blue sm" data-key="impact" contenteditable="true" spellcheck="false">Compliance / Foreign body contaminations down</div></div>
+    </div>
+
+    <div class="igrid">
+      <div class="irow c12">
+        <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
+          <div class="ilab">Status</div>
+          <div style="margin-top:6px; background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text" data-key="status" contenteditable="true" spellcheck="false">เขียน TOR / Sourcing Supplier</div>
+        </div>
+        <div class="icell">
+          <div class="ilab">Progress</div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
+            <span class="pct" data-key="pct" contenteditable="true" spellcheck="false" style="color:hsl(0, 70%, 40%)">0%</span>
+            <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">Not started</span>
           </div>
+          <div class="pbar"><div class="pfill" style="width:0%; background:hsl(0, 70%, 40%)"></div></div>
+          <div class="pnote">Current progress as of 3 Jun 2026</div>
+        </div>
+      </div>
+    </div>
 
-          <div class="igrid">
-            <div class="irow c12">
-              <div class="icell" style="display:flex;flex-direction:column;justify-content:center">
-                <div class="ilab">Status</div>
-                <div style="margin-top:6px; background:var(--slate-s); border:1px dashed var(--border2); padding:4px 10px; border-radius:6px; min-height:24px; cursor:text" data-key="status" contenteditable="true" spellcheck="false">IIS ขอเข้ามาเก็บรูปเพื่อ Training Model AI
-                  หยดน้ำ เพิ่มเติม ช่วง 18-19/05/26</div>
-              </div>
-              <div class="icell">
-                <div class="ilab">Progress</div>
-                <div style="display:flex;align-items:baseline;gap:10px;margin-top:2px">
-                  <span class="pct" data-key="pct" contenteditable="true" spellcheck="false" style="color:hsl(108, 70%, 40%)">90%</span>
-                  <span style="font-size:12px;color:var(--t4);font-family:var(--fm)">In Progress</span>
-                </div>
-                <div class="pbar">
-                  <div class="pfill" style="width:90%; background:hsl(108, 70%, 40%)"></div>
-                </div>
-                <div class="pnote">Current progress as of 13 May 2026</div>
-              </div>
-            </div>
+    <div class="igrid">
+      <div class="note-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div class="note-lab">TASKS</div>
+          <button class="add-task-btn" onclick="addTask(6)" style="display:flex">+</button>
+        </div>
+        <div class="task-grid">
+          <div class="task-hrow">
+            <div></div>
+            <div>Task Description</div>
+            <div>Start Date</div>
+            <div>Finish Date</div>
+            <div style="text-align:center">%</div>
+            <div></div>
           </div>
-
-          <div class="igrid">
-            <div class="note-box">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                <div class="note-lab">TASKS</div>
-                <button class="add-task-btn" onclick="addTask(0)" style="display:flex">+</button>
-              </div>
-              <div class="task-grid">
-                <div class="task-hrow">
-                  <div></div>
-                  <div>Task Description</div>
-                  <div>Start Date</div>
-                  <div>Finish Date</div>
-                  <div style="text-align:center">%</div>
-                  <div></div>
+          <div id="task-list">
+            
+              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 0)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 0)">
+                <input type="checkbox" class="task-check" onchange="toggleTask(6, 0, this.checked)" title="Mark as done">
+                <div class="task-txt " contenteditable="true">TOR</div>
+                <div class="t-sd">
+                  <input type="date" class="t-date-input" value="2026-05-25" data-task-field="sd">
                 </div>
-                <div id="task-list">
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 0)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 0)">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 0, this.checked)" title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">Pre-SAT จ่ายงวดสุดท้าย 5% จาก 15%</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 0)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 1)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 1)">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 1, this.checked)" title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">SAT รอบที่ 1</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-03-18" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 1)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 2)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 2)">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 2, this.checked)" title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">ประชุมภายในสรุปรูปแบบการ SAT รอบที่ 2</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-04-25" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-04-25" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 2)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 3)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 3)">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 3, this.checked)" title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">ส่งเมลยืนให้รูปแบบการ SAT ให้ IIS Automation</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-05-02" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-05-02" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 3)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 4)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 4)">
-                    <input type="checkbox" class="task-check" checked="" onchange="toggleTask(0, 4, this.checked)" title="Mark as done">
-                    <div class="task-txt done" contenteditable="true">Supplier Meeting สรุปแนวทาง SAT /
-                      เคลียร์ประเด็นหยดน้ำ @Sappe</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-05-07" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-05-07" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">100</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 4)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 5)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 5)">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 5, this.checked)" title="Mark as done">
-                    <div class="task-txt " contenteditable="true">IIS Automation เข้าเก็บข้อมูล Training
-                      Dataset&nbsp;หยดน้ำ&nbsp;เพิ่มเติม</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="2026-05-18" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="2026-05-19" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 5)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 6)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 6)">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 6, this.checked)" title="Mark as done">
-                    <div class="task-txt " contenteditable="true">ทดสอบ Pre-Commissioning หลัง Train Data</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 6)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 7)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 7)">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 7, this.checked)" title="Mark as done">
-                    <div class="task-txt " contenteditable="true">SAT</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 7)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 8)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 8)">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 8, this.checked)" title="Mark as done">
-                    <div class="task-txt " contenteditable="true">Training</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 8)" style="display:block">?</button>
-                  </div>
-
-                  <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 9)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 9)">
-                    <input type="checkbox" class="task-check" onchange="toggleTask(0, 9, this.checked)" title="Mark as done">
-                    <div class="task-txt " contenteditable="true">Handover Document</div>
-                    <div class="t-sd">
-                      <input type="date" class="t-date-input" value="" data-task-field="sd">
-                    </div>
-                    <div class="t-ed">
-                      <input type="date" class="t-date-input" value="" data-task-field="ed">
-                    </div>
-                    <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
-                    <button class="del-task-btn" onclick="delTask(0, 9)" style="display:block">?</button>
-                  </div>
-
+                <div class="t-ed">
+                  <input type="date" class="t-date-input" value="2026-05-29" data-task-field="ed">
                 </div>
+                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                <button class="del-task-btn" onclick="delTask(6, 0)" style="display:block">?</button>
               </div>
-            </div>
-          </div>
-
-          <div class="det-pager">
-
-            <button class="back-btn" onclick="openDetail(1)">2 </button>
+            
+              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 1)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 1)">
+                <input type="checkbox" class="task-check" onchange="toggleTask(6, 1, this.checked)" title="Mark as done">
+                <div class="task-txt " contenteditable="true">Sourcing Supplier</div>
+                <div class="t-sd">
+                  <input type="date" class="t-date-input" value="2026-06-01" data-task-field="sd">
+                </div>
+                <div class="t-ed">
+                  <input type="date" class="t-date-input" value="2026-06-12" data-task-field="ed">
+                </div>
+                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                <button class="del-task-btn" onclick="delTask(6, 1)" style="display:block">?</button>
+              </div>
+            
+              <div class="task-item" draggable="true" ondragstart="startTaskDrag(event, 2)" ondragover="event.preventDefault(); this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropTask(event, 2)">
+                <input type="checkbox" class="task-check" onchange="toggleTask(6, 2, this.checked)" title="Mark as done">
+                <div class="task-txt " contenteditable="true">Demo @Line C</div>
+                <div class="t-sd">
+                  <input type="date" class="t-date-input" value="2026-06-15" data-task-field="sd">
+                </div>
+                <div class="t-ed">
+                  <input type="date" class="t-date-input" value="2026-06-19" data-task-field="ed">
+                </div>
+                <div class="t-pct-wrap"><span class="t-pct" contenteditable="true">0</span>%</div>
+                <button class="del-task-btn" onclick="delTask(6, 2)" style="display:block">?</button>
+              </div>
+            
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="det-pager">
+      <button class="back-btn" onclick="openDetail(5)">  19</button>
+      <button class="back-btn" onclick="openDetail(7)">18  </button>
+    </div></div>
       </div>
 
       <!-- TIMELINE -->
@@ -1995,18 +1876,18 @@
         <div class="vhdr">
           <div>
             <div class="vtitle">PROJECT TIMELINE</div>
-            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ? Today: <span class="curr-date-long">25 May 2026</span>
+            <div class="vsub">Nov 2025 – Aug 2026 &nbsp;|&nbsp; ? Today: <span class="curr-date-long">3 Jun 2026</span>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:12px">
-            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long">25 May 2026</span></div>
+            <div class="vmeta">PAGORN &nbsp;|&nbsp; <span class="curr-date-long">3 Jun 2026</span></div>
             <!-- Filter Button -->
             <div class="gantt-filter-wrap">
               <button class="gantt-filter-btn" id="gantt-filter-btn" onclick="toggleFilterPanel()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                 </svg> Filter Projects
-                <span class="badge-count" id="gantt-filter-count">0</span>
+                <span class="badge-count" id="gantt-filter-count">1</span>
               </button>
               <div class="gantt-filter-panel" id="gantt-filter-panel">
                 <div class="gfp-head">
@@ -2016,17 +1897,113 @@
                     <button onclick="setAllFilter(false)">None</button>
                   </div>
                 </div>
-                <div class="gfp-list" id="gantt-filter-list"></div>
+                <div class="gfp-list" id="gantt-filter-list">
+        <div class="gfp-item" onclick="toggleFilterItem(0)">
+          <input type="checkbox" id="gfp-cb-0" onclick="event.stopPropagation(); toggleFilterItem(0)">
+          <label for="gfp-cb-0">
+            <strong style="color:var(--blue)">1</strong>
+            &nbsp;Connect Machine Data: Line P to Data Tank
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(1)">
+          <input type="checkbox" id="gfp-cb-1" onclick="event.stopPropagation(); toggleFilterItem(1)">
+          <label for="gfp-cb-1">
+            <strong style="color:var(--blue)">2</strong>
+            &nbsp;Connect Machine Data: Line Q to Data Tank
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(2)">
+          <input type="checkbox" id="gfp-cb-2" onclick="event.stopPropagation(); toggleFilterItem(2)">
+          <label for="gfp-cb-2">
+            <strong style="color:var(--blue)">5</strong>
+            &nbsp;Inspection sleeve, external code and sticker line Q (2 M/C)
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(3)">
+          <input type="checkbox" id="gfp-cb-3" onclick="event.stopPropagation(); toggleFilterItem(3)">
+          <label for="gfp-cb-3">
+            <strong style="color:var(--blue)">3</strong>
+            &nbsp;Inspection Cap&amp;Level line Q (1 M/C)
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(4)">
+          <input type="checkbox" id="gfp-cb-4" onclick="event.stopPropagation(); toggleFilterItem(4)">
+          <label for="gfp-cb-4">
+            <strong style="color:var(--blue)">4</strong>
+            &nbsp;Contaminate Inspection Line Q
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(5)">
+          <input type="checkbox" id="gfp-cb-5" onclick="event.stopPropagation(); toggleFilterItem(5)">
+          <label for="gfp-cb-5">
+            <strong style="color:var(--blue)">19</strong>
+            &nbsp;Inspection Sleeve &amp; Sticker &amp; Datecode Line P
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(6)">
+          <input type="checkbox" id="gfp-cb-6" onclick="event.stopPropagation(); toggleFilterItem(6)">
+          <label for="gfp-cb-6">
+            <strong style="color:var(--blue)">9</strong>
+            &nbsp;Inspection External Code: Line C,D,E (3 Line)
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(7)">
+          <input type="checkbox" id="gfp-cb-7" onclick="event.stopPropagation(); toggleFilterItem(7)">
+          <label for="gfp-cb-7">
+            <strong style="color:var(--blue)">18</strong>
+            &nbsp;Install Interface: Customer Coding (Bottle)  Data Tank
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(8)">
+          <input type="checkbox" id="gfp-cb-8" onclick="event.stopPropagation(); toggleFilterItem(8)">
+          <label for="gfp-cb-8">
+            <strong style="color:var(--blue)">12</strong>
+            &nbsp;Inspection Cap: Line C,D,E,P (4 Line)
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(9)">
+          <input type="checkbox" id="gfp-cb-9" onclick="event.stopPropagation(); toggleFilterItem(9)">
+          <label for="gfp-cb-9">
+            <strong style="color:var(--blue)">7</strong>
+            &nbsp;Contaminate Inspection Vision System C,D,E (3 Line)
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(10)">
+          <input type="checkbox" id="gfp-cb-10" onclick="event.stopPropagation(); toggleFilterItem(10)">
+          <label for="gfp-cb-10">
+            <strong style="color:var(--blue)">17</strong>
+            &nbsp;Install Interface: Carton Coding  Data Tank
+          </label>
+        </div>
+      
+        <div class="gfp-item" onclick="toggleFilterItem(11)">
+          <input type="checkbox" id="gfp-cb-11" onclick="event.stopPropagation(); toggleFilterItem(11)">
+          <label for="gfp-cb-11">
+            <strong style="color:var(--blue)">16</strong>
+            &nbsp;Install Carton Counting System to Data Tank
+          </label>
+        </div>
+      </div>
               </div>
             </div>
           </div>
         </div>
         <div id="gantt-container">
           <div id="gantt-labels-wrap">
-            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="670" height="506" viewBox="0 0 670 506"><rect x="0" y="0" width="670" height="506" fill="#F8FAFC"></rect><rect x="0" y="0" width="670" height="30" fill="#EDF2F7"></rect><line x1="0" y1="30" x2="670" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="78" y="16" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROJECT NAME</text><text x="460" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">START</text><text x="540" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">FINISH</text><text x="625" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROGRESS (%)</text><rect x="0" y="36" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="74" x2="670" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="56" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="56" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">1</text><text x="78" y="56" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data: Line P to Data Tank</text><text x="460" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr 2026</text><text x="540" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625" y="56" text-anchor="middle" dominant-baseline="middle" fill="hsl(90, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">75%</text><rect x="0" y="74" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="112" x2="670" y2="112" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="94" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="94" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">2</text><text x="78" y="94" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Connect Machine Data: Line Q to Data Tank</text><text x="460" y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">13 Apr 2026</text><text x="540" y="94" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">5 Jun 2026</text><text x="625" y="94" text-anchor="middle" dominant-baseline="middle" fill="hsl(102, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">85%</text><rect x="0" y="112" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="150" x2="670" y2="150" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="132" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="132" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">5</text><text x="78" y="132" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection sleeve, external code and sticker line Q ...</text><text x="460" y="132" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="132" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625" y="132" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text><rect x="0" y="150" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="188" x2="670" y2="188" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="170" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="170" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">3</text><text x="78" y="170" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap&amp;Level line Q (1 M/C)</text><text x="460" y="170" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="170" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625" y="170" text-anchor="middle" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">70%</text><rect x="0" y="188" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="226" x2="670" y2="226" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="208" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="208" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">4</text><text x="78" y="208" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Line Q</text><text x="460" y="208" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">18 Mar 2026</text><text x="540" y="208" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">31 Jul 2026</text><text x="625" y="208" text-anchor="middle" dominant-baseline="middle" fill="hsl(108, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">90%</text><rect x="0" y="226" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="264" x2="670" y2="264" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="246" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="246" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">19</text><text x="78" y="246" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Sleeve &amp; Sticker &amp; Datecode Line P</text><text x="460" y="246" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">1 May 2026</text><text x="540" y="246" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 May 2026</text><text x="625" y="246" text-anchor="middle" dominant-baseline="middle" fill="hsl(112.8, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">94%</text><rect x="0" y="264" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="302" x2="670" y2="302" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="284" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="284" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">9</text><text x="78" y="284" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection External Code: Line C,D,E (3 Line)</text><text x="460" y="284" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">25 May 2026</text><text x="540" y="284" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Dec 2026</text><text x="625" y="284" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="302" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="340" x2="670" y2="340" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="322" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="322" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">18</text><text x="78" y="322" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface: Customer Coding (Bottle)  Data Tank</text><text x="460" y="322" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="322" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">TBD</text><text x="625" y="322" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="340" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="378" x2="670" y2="378" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="360" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="360" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">12</text><text x="78" y="360" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Inspection Cap: Line C,D,E,P (4 Line)</text><text x="460" y="360" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">25 May 2026</text><text x="540" y="360" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Dec 2026</text><text x="625" y="360" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="378" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="416" x2="670" y2="416" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="398" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="398" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">7</text><text x="78" y="398" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Contaminate Inspection Vision System C,D,E (3 Line)</text><text x="460" y="398" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">25 May 2026</text><text x="540" y="398" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">30 Dec 2026</text><text x="625" y="398" text-anchor="middle" dominant-baseline="middle" fill="hsl(12, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">10%</text><rect x="0" y="416" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="454" x2="670" y2="454" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="436" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="436" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">17</text><text x="78" y="436" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface: Carton Coding  Data Tank</text><text x="460" y="436" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="436" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">TBD</text><text x="625" y="436" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="454" width="670" height="38" fill="#F1F5F9"></rect><line x1="0" y1="492" x2="670" y2="492" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="474" dominant-baseline="middle" fill="#2563EB" cursor="pointer" font-size="16">?</text><text x="26" y="474" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">16</text><text x="78" y="474" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Carton Counting System to Data Tank</text><text x="460" y="474" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="474" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">TBD</text><text x="625" y="474" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><line x1="0" y1="0" x2="0" y2="506" stroke="#CBD5E1" stroke-width="1"></line><line x1="70" y1="0" x2="70" y2="506" stroke="#CBD5E1" stroke-width="1"></line><line x1="420" y1="0" x2="420" y2="506" stroke="#CBD5E1" stroke-width="1"></line><line x1="500" y1="0" x2="500" y2="506" stroke="#CBD5E1" stroke-width="1"></line><line x1="580" y1="0" x2="580" y2="506" stroke="#CBD5E1" stroke-width="1"></line><line x1="670" y1="0" x2="670" y2="506" stroke="#CBD5E1" stroke-width="1"></line></svg>
+            <svg id="gantt-labels-svg" xmlns="http://www.w3.org/2000/svg" width="670" height="314" viewBox="0 0 670 314"><rect x="0" y="0" width="670" height="314" fill="#F8FAFC"></rect><rect x="0" y="0" width="670" height="30" fill="#EDF2F7"></rect><line x1="0" y1="30" x2="670" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="78" y="16" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROJECT NAME</text><text x="460" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">START</text><text x="540" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">FINISH</text><text x="625" y="16" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="var(--fh)" font-size="11" font-weight="700">PROGRESS (%)</text><rect x="0" y="36" width="670" height="38" fill="#F8FAFC"></rect><line x1="0" y1="74" x2="670" y2="74" stroke="#E2E8F0" stroke-width="0.7"></line><text x="8" y="56" dominant-baseline="middle" fill="#3B82F6" cursor="pointer" font-size="12">▼</text><text x="26" y="56" dominant-baseline="middle" fill="#1D4ED8" font-family="Barlow Condensed,sans-serif" font-size="13.5" font-weight="800" cursor="pointer">18</text><text x="78" y="56" dominant-baseline="middle" fill="#475569" font-family="Figtree,sans-serif" font-size="11" cursor="pointer">Install Interface: Customer Coding (Bottle)  Data Tank</text><text x="460" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">-</text><text x="540" y="56" text-anchor="middle" dominant-baseline="middle" fill="#64748B" font-family="JetBrains Mono,monospace" font-size="10" cursor="pointer">TBD</text><text x="625" y="56" text-anchor="middle" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" cursor="pointer">0%</text><rect x="0" y="74" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="98" x2="670" y2="98" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="87" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">IE team study.</text><text x="460" y="87" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 May 2026</text><text x="540" y="87" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">20 May 2026</text><text x="625" y="87" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">100%</text><rect x="0" y="98" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="122" x2="670" y2="122" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="111" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">Study Project</text><text x="460" y="111" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">1 Jun 2026</text><text x="540" y="111" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">29 Jun 2026</text><text x="625" y="111" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="122" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="146" x2="670" y2="146" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="135" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">Draft System Architecture / Approve</text><text x="460" y="135" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">22 Jun 2026</text><text x="540" y="135" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">29 Jun 2026</text><text x="625" y="135" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">80%</text><rect x="0" y="146" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="170" x2="670" y2="170" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="159" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">PR สั่งซื้อ</text><text x="460" y="159" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="159" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="159" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="170" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="194" x2="670" y2="194" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="183" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">IT Implement ระบบ Data Tank</text><text x="460" y="183" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="183" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="183" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="194" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="218" x2="670" y2="218" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="207" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">Supplier เข้าติดตั้งระบบ</text><text x="460" y="207" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="207" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="207" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="218" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="242" x2="670" y2="242" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="231" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">เชื่อมต่อกับระบบ Data Tank</text><text x="460" y="231" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="231" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="231" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="242" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="266" x2="670" y2="266" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="255" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">ทดสอบระบบ</text><text x="460" y="255" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="255" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="255" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><rect x="0" y="266" width="670" height="24" fill="#F1F5F9" opacity="0.5"></rect><line x1="10" y1="290" x2="670" y2="290" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="2,2"></line><text x="92" y="279" dominant-baseline="middle" fill="#64748B" font-family="Figtree,sans-serif" font-size="10">ส่งมอบงาน</text><text x="460" y="279" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="540" y="279" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">-</text><text x="625" y="279" text-anchor="middle" dominant-baseline="middle" fill="#94A3B8" font-family="JetBrains Mono,monospace" font-size="9">0%</text><line x1="0" y1="0" x2="0" y2="314" stroke="#CBD5E1" stroke-width="1"></line><line x1="70" y1="0" x2="70" y2="314" stroke="#CBD5E1" stroke-width="1"></line><line x1="420" y1="0" x2="420" y2="314" stroke="#CBD5E1" stroke-width="1"></line><line x1="500" y1="0" x2="500" y2="314" stroke="#CBD5E1" stroke-width="1"></line><line x1="580" y1="0" x2="580" y2="314" stroke="#CBD5E1" stroke-width="1"></line><line x1="670" y1="0" x2="670" y2="314" stroke="#CBD5E1" stroke-width="1"></line></svg>
             <div class="gantt-resizer" id="gantt-resizer"></div>
           </div>
-          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="900" height="506" viewBox="0 0 900 506"><rect x="0" y="0" width="900" height="506" fill="#FFFFFF"></rect><rect x="0" y="0" width="900" height="30" fill="#F1F5F9"></rect><line x1="0" y1="30" x2="900" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="37.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Feb 26</text><text x="112.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text><line x1="75" y1="0" x2="75" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="150" y="0" width="75" height="506" fill="#F5F3FF" opacity="0.45"></rect><text x="187.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Apr 26</text><line x1="150" y1="0" x2="150" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="262.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">May 26</text><line x1="225" y1="0" x2="225" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="337.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jun 26</text><line x1="300" y1="0" x2="300" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="412.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jul 26</text><line x1="375" y1="0" x2="375" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="487.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Aug 26</text><line x1="450" y1="0" x2="450" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="562.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Sept 26</text><line x1="525" y1="0" x2="525" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="637.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Oct 26</text><line x1="600" y1="0" x2="600" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="712.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Nov 26</text><line x1="675" y1="0" x2="675" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="787.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Dec 26</text><line x1="750" y1="0" x2="750" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><text x="862.5" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jan 27</text><line x1="825" y1="0" x2="825" y2="506" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="0" y="36" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="74" x2="900" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="45" width="130.00000000000003" height="20" fill="hsl(90, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="182.50000000000003" y="45" width="7" height="20" fill="hsl(90, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="182.50000000000003" y="45" width="130.00000000000003" height="20" fill="none" stroke="hsl(90, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="56" dominant-baseline="middle" fill="hsl(90, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">75% • UHT 10T เชื่อมต่อเข้า Data Tank แล้ว , Machine Data รอ Techlong ดำเนินการ</text><rect x="0" y="74" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="112" x2="900" y2="112" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="182.50000000000003" y="83" width="130.00000000000003" height="20" fill="hsl(102, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="182.50000000000003" y="83" width="7" height="20" fill="hsl(102, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="182.50000000000003" y="83" width="130.00000000000003" height="20" fill="none" stroke="hsl(102, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="195.50000000000003" y="94" dominant-baseline="middle" fill="hsl(102, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">85% • UHT เชื่อมต่อเข้า Data Tank แล้ว , Machine Data รอ Techlong ดำเนินการ</text><rect x="0" y="112" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="150" x2="900" y2="150" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="121" width="332.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="120" y="121" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="120" y="121" width="332.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="132" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% • อยู่ใน Phase Install Machine</text><rect x="0" y="150" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="188" x2="900" y2="188" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="159" width="332.5" height="20" fill="hsl(84, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="120" y="159" width="7" height="20" fill="hsl(84, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="120" y="159" width="332.5" height="20" fill="none" stroke="hsl(84, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="170" dominant-baseline="middle" fill="hsl(84, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">70% • อยู่ใน Phase Install Machine</text><rect x="0" y="188" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="226" x2="900" y2="226" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="120" y="197" width="332.5" height="20" fill="hsl(108, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="120" y="197" width="7" height="20" fill="hsl(108, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="120" y="197" width="332.5" height="20" fill="none" stroke="hsl(108, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="133" y="208" dominant-baseline="middle" fill="hsl(108, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">90% • IIS เข้ามาเก็บ Dataset Train Model AI แล้ว กำลังทดสอบเก็บผลที่ Line P (เก็บรูป Defect ที่ Line Q ทดสอบที่ Line P เนื่องจากจะได้ใช้ Model เดียวกันทั้ง 2 line)</text><rect x="0" y="226" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="264" x2="900" y2="264" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="227.5" y="235" width="72.5" height="20" fill="hsl(112.8, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="227.5" y="235" width="7" height="20" fill="hsl(112.8, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="227.5" y="235" width="72.5" height="20" fill="none" stroke="hsl(112.8, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="240.5" y="246" dominant-baseline="middle" fill="hsl(112.8, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">94% • มีผล SAT เก่าผ่านตั้งแต่ 09/24 แต่ทดสอบไม่ครบ ขาดฟังก์ชันตรวจฉลากพับ Project เข้าเพิ่ม Program และทดสอบใหม่ ผ่านแล้ว 1 SKU (Lychee ตามแผน Production) จาก 4 SKU &gt;&gt; SKU Melon SAT 22/05/26</text><rect x="0" y="264" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="302" x2="900" y2="302" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="287.5" y="273" width="537.5" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="287.5" y="273" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="287.5" y="273" width="537.5" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="300.5" y="284" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% • เขียน TOR / Sourcing Supplier</text><rect x="0" y="302" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="340" x2="900" y2="340" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="340" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="378" x2="900" y2="378" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="287.5" y="349" width="537.5" height="20" fill="hsl(0, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="287.5" y="349" width="7" height="20" fill="hsl(0, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="287.5" y="349" width="537.5" height="20" fill="none" stroke="hsl(0, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="300.5" y="360" dominant-baseline="middle" fill="hsl(0, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">0% • เขียน TOR&nbsp;(line D,E,P มีเครื่องเก่าของ FT อยู่แล้ว ต้องการเพิ่ม Function)</text><rect x="0" y="378" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="416" x2="900" y2="416" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="287.5" y="387" width="537.5" height="20" fill="hsl(12, 70%, 40%)" opacity="0.16" rx="3" cursor="default"></rect><rect x="287.5" y="387" width="7" height="20" fill="hsl(12, 70%, 40%)" opacity="0.8" rx="3"></rect><rect x="287.5" y="387" width="537.5" height="20" fill="none" stroke="hsl(12, 70%, 40%)" stroke-width="0.9" opacity="0.35" rx="3"></rect><text x="300.5" y="398" dominant-baseline="middle" fill="hsl(12, 70%, 40%)" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">10% • Supplier Riverplus รับขวดไปทดสอบแล้ว ส่ง Report ให้ 22/05/26</text><rect x="0" y="416" width="900" height="38" fill="#FFFFFF"></rect><line x1="0" y1="454" x2="900" y2="454" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="454" width="900" height="38" fill="#FAFBFC"></rect><line x1="0" y1="492" x2="900" y2="492" stroke="#F1F5F9" stroke-width="0.7"></line><line x1="287.5" y1="0" x2="287.5" y2="506" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"></line><text x="291.5" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">TODAY</text></svg></div>
+          <div id="gantt-timeline-wrap"><svg id="gantt-timeline-svg" xmlns="http://www.w3.org/2000/svg" width="1566" height="314" viewBox="0 0 1566 314"><rect x="0" y="0" width="1566" height="314" fill="#FFFFFF"></rect><rect x="0" y="0" width="1566" height="30" fill="#F1F5F9"></rect><line x1="0" y1="30" x2="1566" y2="30" stroke="#CBD5E1" stroke-width="1"></line><text x="65.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jan 26</text><text x="195.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Feb 26</text><line x1="130.5" y1="0" x2="130.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="326.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Mar 26</text><line x1="261" y1="0" x2="261" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="391.5" y="0" width="130.5" height="314" fill="#F5F3FF" opacity="0.45"></rect><text x="456.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Apr 26</text><line x1="391.5" y1="0" x2="391.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="587.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">May 26</text><line x1="522" y1="0" x2="522" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="717.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jun 26</text><line x1="652.5" y1="0" x2="652.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="848.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Jul 26</text><line x1="783" y1="0" x2="783" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="978.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Aug 26</text><line x1="913.5" y1="0" x2="913.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="1109.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Sept 26</text><line x1="1044" y1="0" x2="1044" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="1239.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Oct 26</text><line x1="1174.5" y1="0" x2="1174.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="1370.25" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Nov 26</text><line x1="1305" y1="0" x2="1305" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><text x="1500.75" y="16" text-anchor="middle" dominant-baseline="middle" fill="#9CA3AF" font-family="JetBrains Mono,monospace" font-size="10">Dec 26</text><line x1="1435.5" y1="0" x2="1435.5" y2="314" stroke="#E4EAF2" stroke-width="0.8"></line><rect x="0" y="36" width="1566" height="38" fill="#FFFFFF"></rect><line x1="0" y1="74" x2="1566" y2="74" stroke="#F1F5F9" stroke-width="0.7"></line><rect x="0" y="74" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="98" x2="1566" y2="98" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="526.3499999999999" y="82" width="82.65000000000009" height="16" fill="#10B981" rx="2" opacity="0.6"></rect><rect x="526.3499999999999" y="82" width="82.65000000000009" height="16" fill="#10B981" rx="2"></rect><rect x="0" y="98" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="122" x2="1566" y2="122" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="656.85" y="106" width="121.79999999999995" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect><rect x="0" y="122" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="146" x2="1566" y2="146" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="748.2" y="130" width="30.449999999999932" height="16" fill="#94A3B8" rx="2" opacity="0.6"></rect><rect x="748.2" y="130" width="24.359999999999946" height="16" fill="#94A3B8" rx="2"></rect><rect x="0" y="146" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="170" x2="1566" y2="170" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="0" y="170" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="194" x2="1566" y2="194" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="0" y="194" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="218" x2="1566" y2="218" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="0" y="218" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="242" x2="1566" y2="242" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="0" y="242" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="266" x2="1566" y2="266" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><rect x="0" y="266" width="1566" height="24" fill="#F8FAFC" opacity="0.5"></rect><line x1="0" y1="290" x2="1566" y2="290" stroke="#F1F5F9" stroke-width="0.5" stroke-dasharray="2,2"></line><line x1="665.55" y1="0" x2="665.55" y2="314" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"></line><text x="669.55" y="11" fill="#DC2626" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">TODAY</text></svg></div>
         </div>
         <div class="tl-leg">
           <span style="font-family:var(--fm);font-size:9px;color:var(--t4);letter-spacing:.18em">LEGEND</span>
@@ -2417,7 +2394,7 @@
     "sd": "2026-03-18",
     "size": "Medium",
     "start": "18 Mar 2026",
-    "status": "อยู่ใน Phase Install Machine",
+    "status": "รอ supplier ส่งแผนและเข้าดำเนินการทดสอบเครื่องเบื้องต้นหลัง Install",
     "sub": "",
     "tasks": [
       {
@@ -2487,7 +2464,7 @@
     "sd": "2026-03-18",
     "size": "Small",
     "start": "18 Mar 2026",
-    "status": "อยู่ใน Phase Install Machine",
+    "status": "รอ supplier ส่งแผนและเข้าดำเนินการทดสอบเครื่องเบื้องต้นหลัง Install",
     "sub": "",
     "tasks": [
       {
@@ -2671,12 +2648,12 @@
     "name": "Inspection Sleeve & Sticker & Datecode Line P",
     "note": "Added on 5/13/2026",
     "num": "19",
-    "pct": 94,
+    "pct": 98,
     "rank": "B",
     "sd": "2026-05-01",
     "size": "Small",
     "start": "1 May 2026",
-    "status": "มีผล SAT เก่าผ่านตั้งแต่ 09/24 แต่ทดสอบไม่ครบ ขาดฟังก์ชันตรวจฉลากพับ Project เข้าเพิ่ม Program และทดสอบใหม่ ผ่านแล้ว 1 SKU (Lychee ตามแผน Production) จาก 4 SKU >> SKU Melon SAT 22/05/26",
+    "status": "SAT - SKU สุดท้าย 03/06/26 supplier นัดส่ง Manual 05/06/26",
     "sub": "",
     "tasks": [
       {
@@ -2701,9 +2678,9 @@
         "txt": "SAT SKU Melon ผ่านแล้ว พร้อมลายเซ็นต์ 220526"
       },
       {
-        "done": false,
+        "done": true,
         "ed": "2026-05-29",
-        "pct": 0,
+        "pct": 100,
         "sd": "2026-05-25",
         "txt": "SAT SKU Coco"
       },
@@ -2713,6 +2690,13 @@
         "pct": 0,
         "sd": "2026-05-25",
         "txt": "SAT SKU Peach"
+      },
+      {
+        "done": false,
+        "ed": "",
+        "pct": 0,
+        "sd": "",
+        "txt": "มีผล SAT เก่าผ่านตั้งแต่ 09/24 แต่ทดสอบไม่ครบ ขาดฟังก์ชันตรวจฉลากพับ Project เข้าเพิ่ม Program และทดสอบใหม่ ผ่านแล้ว 1 SKU (Lychee ตามแผน Production) จาก 4 SKU >> SKU Melon SAT 22/05/26"
       }
     ],
     "type": "Machine"
@@ -2736,32 +2720,32 @@
     "sub": "",
     "tasks": [
       {
+        "txt": "TOR",
         "done": false,
-        "ed": "2026-05-29",
-        "pct": 0,
         "sd": "2026-05-25",
-        "txt": "TOR"
+        "ed": "2026-05-29",
+        "pct": 0
       },
       {
+        "txt": "Sourcing Supplier",
         "done": false,
-        "ed": "2026-06-12",
-        "pct": 0,
         "sd": "2026-06-01",
-        "txt": "Sourcing Supplier"
+        "ed": "2026-06-12",
+        "pct": 0
       },
       {
+        "txt": "Demo @Line C",
         "done": false,
-        "ed": "2026-06-19",
-        "pct": 0,
         "sd": "2026-06-15",
-        "txt": "Demo @Line C"
+        "ed": "2026-06-19",
+        "pct": 0
       }
     ],
     "type": "Machine"
   },
   {
     "finish": "TBD",
-    "impact": "Centralize capacity monitoring & control for new factory startup",
+    "impact": "Centralize capacity monitoring & control for new factory startup Ref. Line P",
     "io": "Pending",
     "lead": "",
     "loc": "Build B",
@@ -2772,25 +2756,76 @@
     "rank": "AA",
     "size": "Small",
     "start": "",
-    "status": "คุย Scope งาน",
+    "status": "study project",
     "sub": "",
     "tasks": [
       {
+        "txt": "IE team study.",
         "done": true,
-        "ed": "2026-05-20",
-        "pct": 0,
         "sd": "2026-05-01",
-        "txt": "Waiting for IE team study."
+        "ed": "2026-05-20",
+        "pct": 100
       },
       {
+        "txt": "Study Project",
         "done": false,
-        "ed": "",
-        "pct": 0,
+        "sd": "2026-06-01",
+        "ed": "2026-06-29",
+        "pct": 0
+      },
+      {
+        "txt": "Draft System Architecture / Approve",
+        "done": false,
+        "sd": "2026-06-22",
+        "ed": "2026-06-29",
+        "pct": 80
+      },
+      {
+        "txt": "PR สั่งซื้อ",
+        "done": false,
         "sd": "",
-        "txt": "Scope / TOR"
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "IT Implement ระบบ Data Tank",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "Supplier เข้าติดตั้งระบบ",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "เชื่อมต่อกับระบบ Data Tank",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "ทดสอบระบบ",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
+      },
+      {
+        "txt": "ส่งมอบงาน",
+        "done": false,
+        "sd": "",
+        "ed": "",
+        "pct": 0
       }
     ],
-    "type": "System Integration"
+    "type": "System Integration",
+    "sd": null,
+    "fd": null
   },
   {
     "fd": "2026-12-30",
@@ -2849,7 +2884,7 @@
     "sd": "2026-05-25",
     "size": "Medium",
     "start": "25 May 2026",
-    "status": "Supplier Riverplus รับขวดไปทดสอบแล้ว ส่ง Report ให้ 22/05/26",
+    "status": "supplier ขอเข้ามา demo ติดตั้งหน้างานจริง รอ supplier ส่ง dimension เครื่อง demo และหาจุดติดตั้งไม่ให้กระทบ production",
     "sub": "Priority No. 03",
     "tasks": [
       {
@@ -2858,6 +2893,20 @@
         "pct": 0,
         "sd": "2026-05-01",
         "txt": "Sourcing Supplier"
+      },
+      {
+        "done": true,
+        "ed": "",
+        "pct": 0,
+        "sd": "",
+        "txt": "Supplier Riverplus รับขวดไปทดสอบแล้ว ส่ง Report ให้ 22/05/26"
+      },
+      {
+        "done": false,
+        "ed": "",
+        "pct": 0,
+        "sd": "",
+        "txt": "Riverplus ขอส่ง Report รอบที่ 2 เนื่องจากรอบแรก ผลทดสอบข้อจำกัดค่อนข้างเยอะ"
       },
       {
         "done": false,
@@ -2885,7 +2934,7 @@
   },
   {
     "finish": "TBD",
-    "impact": "Centralize capacity monitoring & control for new factory startup",
+    "impact": "Centralize capacity monitoring & control for new factory startup Ref. Line E,P",
     "io": "Pending",
     "lead": "",
     "loc": "Build B",
@@ -2896,15 +2945,22 @@
     "rank": "AA",
     "size": "Small",
     "start": "",
-    "status": "คุย Scope งาน",
+    "status": "study project",
     "sub": "",
     "tasks": [
       {
         "done": true,
         "ed": "2026-05-20",
-        "pct": 0,
+        "pct": 100,
         "sd": "2026-05-01",
         "txt": "Waiting for IE team study."
+      },
+      {
+        "done": false,
+        "ed": "2026-05-28",
+        "pct": 0,
+        "sd": "2026-05-27",
+        "txt": "Draft System Architecture / Approve"
       },
       {
         "done": false,
@@ -2953,6 +3009,7 @@
 
     let P = JSON.parse(JSON.stringify(DEFAULT_P));
     let isInitialLoad = true;
+    let collapsedTasks = new Set();
 
     function updateSyncStatus(msg) {
       const el = document.getElementById('sync-msg');
@@ -3068,10 +3125,10 @@
     window.addEventListener('DOMContentLoaded', initResizer);
 
     // ฤฤ GLOBAL META ฤฤ
-    localStorage.removeItem("DASHBOARD_META"); localStorage.removeItem("DASHBOARD_META"); let META = {
+    localStorage.removeItem("DASHBOARD_META"); localStorage.removeItem("DASHBOARD_META"); localStorage.removeItem("DASHBOARD_META"); let META = {
   "logo": "Project Dashboard",
   "title": "PROGRESS<br><b>UPDATE</b>",
-  "sub": "RESPONSIBLE: PAGORN<br>25 MAY 2026",
+  "sub": "RESPONSIBLE: PAGORN<br>3 JUN 2026",
   "chip": "ACCOUNTABLE: CHAINARA"
 };
 
@@ -3220,7 +3277,7 @@
           const ctrls = document.createElement('div');
           ctrls.className = 'pj-ctrls';
           ctrls.innerHTML = `
-        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(${i})" title="Delete Project">?</button>
+        <button class="pj-ctrl-btn del" onclick="event.stopPropagation(); deleteProject(${i})" title="Delete Project">&times;</button>
       `;
           item.appendChild(ctrls);
         }
@@ -3433,25 +3490,59 @@
           </div>
           <div id="task-list">
             ${(p.tasks || (p.note ? [{ txt: p.note, done: false, sd: '', ed: '', pct: 0 }] : [])).map((t, ti) => `
-              <div class="task-item" ${editMode ? 'draggable="true" ondragstart="startTaskDrag(event, ' + ti + ')" ondragover="event.preventDefault(); this.classList.add(\'drag-over\')" ondragleave="this.classList.remove(\'drag-over\')" ondrop="dropTask(event, ' + ti + ')"' : ''}>
-                <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
-                  onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
-                <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
-                <div class="t-sd">
-                  ${editMode
-            ? `<input type="date" class="t-date-input" value="${t.sd || ''}" data-task-field="sd">`
-            : fmtDate(t.sd)
-          }
+              <div class="task-group" data-task-index="${ti}">
+                <div class="task-item parent-task-item" ${editMode ? 'draggable="true" ondragstart="startTaskDrag(event, ' + ti + ')" ondragover="event.preventDefault(); this.classList.add(\'drag-over\')" ondragleave="this.classList.remove(\'drag-over\')" ondrop="dropTask(event, ' + ti + ')"' : ''}>
+                  <input type="checkbox" class="task-check" ${t.done ? 'checked' : ''} 
+                    onchange="toggleTask(${i}, ${ti}, this.checked)" title="Mark as done">
+                  <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
+                    <span class="subtask-toggle-btn" onclick="event.stopPropagation(); toggleSubtaskCollapse(${i}, ${ti})" style="cursor:pointer; user-select:none; font-size:10px; width:12px; display:${(t.subtasks && t.subtasks.length > 0) ? 'inline-block' : 'none'}">${collapsedTasks.has(`${i}-${ti}`) ? '▶' : '▼'}</span>
+                    ${!(t.subtasks && t.subtasks.length > 0) ? '<span style="width:12px; display:inline-block;"></span>' : ''}
+                    <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
+                  </div>
+                  <div class="t-sd">
+                    ${editMode
+              ? `<input type="date" class="t-date-input" value="${t.sd || ''}" data-task-field="sd">`
+              : fmtDate(t.sd)
+            }
+                  </div>
+                  <div class="t-ed">
+                    ${editMode
+              ? `<input type="date" class="t-date-input" value="${t.ed || ''}" data-task-field="ed">`
+              : fmtDate(t.ed)
+            }
+                  </div>
+                  <div class="t-pct-wrap"><span class="t-pct" contenteditable="${editMode}">${t.pct || 0}</span>%</div>
+                  <div style="display: flex; gap: 8px;">
+                    <button class="add-subtask-btn" onclick="addSubTask(${i}, ${ti})" style="display:${editMode ? 'block' : 'none'}; border:none; background:none; cursor:pointer; color:#D97706; font-weight:bold; font-size:14px;" title="Add sub-task">+</button>
+                    <button class="del-task-btn" onclick="delTask(${i}, ${ti})" style="display:${editMode ? 'block' : 'none'}">&times;</button>
+                  </div>
                 </div>
-                <div class="t-ed">
-                  ${editMode
-            ? `<input type="date" class="t-date-input" value="${t.ed || ''}" data-task-field="ed">`
-            : fmtDate(t.ed)
-          }
+                <div class="subtask-list" style="display: ${collapsedTasks.has(`${i}-${ti}`) ? 'none' : 'block'};">
+                  ${(t.subtasks || []).map((st, sti) => `
+                    <div class="subtask-item task-item" style="padding-left: 24px; border-bottom: 1px dashed rgba(217,119,6,0.06);">
+                      <input type="checkbox" class="task-check" ${st.done ? 'checked' : ''} 
+                        onchange="toggleSubTask(${i}, ${ti}, ${sti}, this.checked)" title="Mark as done">
+                      <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
+                        <span style="color: #D97706; font-size: 11px; user-select: none;">└─</span>
+                        <div class="task-txt ${st.done ? 'done' : ''}" contenteditable="${editMode}">${st.txt}</div>
+                      </div>
+                      <div class="t-sd">
+                        ${editMode
+                  ? `<input type="date" class="t-date-input" value="${st.sd || ''}" data-subtask-field="sd">`
+                  : fmtDate(st.sd)
+                }
+                      </div>
+                      <div class="t-ed">
+                        ${editMode
+                  ? `<input type="date" class="t-date-input" value="${st.ed || ''}" data-subtask-field="ed">`
+                  : fmtDate(st.ed)
+                }
+                      </div>
+                      <div class="t-pct-wrap"><span class="t-pct" contenteditable="${editMode}">${st.pct || 0}</span>%</div>
+                      <button class="del-task-btn" onclick="delSubTask(${i}, ${ti}, ${sti})" style="display:${editMode ? 'block' : 'none'}">&times;</button>
+                    </div>
+                  `).join('')}
                 </div>
-                <div class="t-pct-wrap"><span class="t-pct" contenteditable="${editMode}">${t.pct || 0}</span>%</div>
-                <button class="del-task-btn" onclick="delTask(${i}, ${ti})" 
-                  style="display:${editMode ? 'block' : 'none'}">?</button>
               </div>
             `).join('')}
           </div>
@@ -3516,7 +3607,15 @@
         totalSH += RH;
         const originalIdx = P.indexOf(p);
         if (expandedProjects.has(originalIdx)) {
-          totalSH += (p.tasks?.length || 0) * TRH + 10;
+          totalSH += (p.tasks?.length || 0) * TRH;
+          if (p.tasks) {
+            p.tasks.forEach((t, ti) => {
+              if (t.subtasks && !collapsedTasks.has(`${originalIdx}-${ti}`)) {
+                totalSH += t.subtasks.length * TRH;
+              }
+            });
+          }
+          totalSH += 10;
         }
       });
       totalSH += 14;
@@ -3552,7 +3651,7 @@
         const x = i * MW;
         if (m.includes('Apr 26')) el('rect', { x, y: 0, width: MW, height: totalSH, fill: '#F5F3FF', opacity: .45 }, GT);
         tx(m, { x: x + MW / 2, y: HH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#9CA3AF', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10 }, GT);
-        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#E4EAF2', 'stroke-width': .8 }, GT);
+        if (i > 0) el('line', { x1: x, y1: 0, x2: x, y2: totalSH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
       });
 
       let currentY = HH + PT;
@@ -3563,24 +3662,68 @@
         const bc = getPctColor(p.pct);
 
         el('rect', { x: 0, y: ry, width: LW, height: RH, fill: i % 2 ? '#F1F5F9' : '#F8FAFC' }, GL);
-        el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#E2E8F0', 'stroke-width': .7 }, GL);
+        el('line', { x1: 0, y1: ry + RH, x2: LW, y2: ry + RH, stroke: '#CBD5E1', 'stroke-width': 1 }, GL);
 
         const arrow = tx(isExp ? '▼' : '▶', { x: 8, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#3B82F6', cursor: 'pointer', 'font-size': 12 }, GL);
         arrow.onclick = () => { toggleGanttExpand(originalIdx); };
 
         tx(p.num, { x: 26, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#1D4ED8', 'font-family': 'Barlow Condensed,sans-serif', 'font-size': 13.5, 'font-weight': 800, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
 
-        let displayName = p.name;
-        if (displayName.length > 55) displayName = displayName.substring(0, 52) + '...';
-        tx(displayName, { x: 78, y: ry + RH / 2 + 1, 'dominant-baseline': 'middle', fill: '#475569', 'font-family': 'Figtree,sans-serif', 'font-size': 11, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+        const foP = el('foreignObject', { x: 78, y: ry, width: 340, height: RH, style: 'cursor:pointer' }, GL);
+        foP.onclick = () => { openDetail(originalIdx); };
+        const divP = document.createElement('div');
+        divP.style.width = '100%';
+        divP.style.height = '100%';
+        divP.style.display = 'flex';
+        divP.style.alignItems = 'center';
+        divP.style.padding = '2px 0';
+        const spanP = document.createElement('span');
+        spanP.style.fontFamily = 'Figtree,sans-serif';
+        spanP.style.fontSize = '11px';
+        spanP.style.fontWeight = 'bold';
+        spanP.style.color = '#475569';
+        spanP.style.lineHeight = '1.15';
+        spanP.style.whiteSpace = 'normal';
+        spanP.style.wordBreak = 'break-word';
+        spanP.style.overflow = 'hidden';
+        spanP.style.textOverflow = 'ellipsis';
+        spanP.style.display = '-webkit-box';
+        spanP.style.webkitLineClamp = '2';
+        spanP.style.webkitBoxOrient = 'vertical';
+        spanP.textContent = p.name;
+        divP.appendChild(spanP);
+        foP.appendChild(divP);
 
-        tx(p.start || '-', { x: 460, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
-        tx(p.finish || '-', { x: 540, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
-        tx((p.pct || 0) + '%', { x: 625, y: ry + RH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: getPctColor(p.pct), 'font-family': 'JetBrains Mono,monospace', 'font-size': 10, 'font-weight': 700, cursor: 'pointer' }, GL).onclick = () => { openDetail(originalIdx); };
+        const foPS = el('foreignObject', { x: 420, y: ry, width: 80, height: RH, style: 'cursor:pointer' }, GL);
+        foPS.onclick = () => { openDetail(originalIdx); };
+        const divPS = document.createElement('div');
+        divPS.style.width = '100%'; divPS.style.height = '100%'; divPS.style.display = 'flex';
+        divPS.style.alignItems = 'center'; divPS.style.justifyContent = 'center';
+        divPS.style.fontFamily = 'JetBrains Mono,monospace'; divPS.style.fontSize = '10px';
+        divPS.style.color = '#64748B'; divPS.textContent = p.start || '-';
+        foPS.appendChild(divPS);
+
+        const foPF = el('foreignObject', { x: 500, y: ry, width: 80, height: RH, style: 'cursor:pointer' }, GL);
+        foPF.onclick = () => { openDetail(originalIdx); };
+        const divPF = document.createElement('div');
+        divPF.style.width = '100%'; divPF.style.height = '100%'; divPF.style.display = 'flex';
+        divPF.style.alignItems = 'center'; divPF.style.justifyContent = 'center';
+        divPF.style.fontFamily = 'JetBrains Mono,monospace'; divPF.style.fontSize = '10px';
+        divPF.style.color = '#64748B'; divPF.textContent = p.finish || '-';
+        foPF.appendChild(divPF);
+
+        const foPP = el('foreignObject', { x: 580, y: ry, width: 90, height: RH, style: 'cursor:pointer' }, GL);
+        foPP.onclick = () => { openDetail(originalIdx); };
+        const divPP = document.createElement('div');
+        divPP.style.width = '100%'; divPP.style.height = '100%'; divPP.style.display = 'flex';
+        divPP.style.alignItems = 'center'; divPP.style.justifyContent = 'center';
+        divPP.style.fontFamily = 'JetBrains Mono,monospace'; divPP.style.fontSize = '10px'; divPP.style.fontWeight = '700';
+        divPP.style.color = getPctColor(p.pct); divPP.textContent = (p.pct || 0) + '%';
+        foPP.appendChild(divPP);
 
         // Timeline part
         el('rect', { x: 0, y: ry, width: CW, height: RH, fill: i % 2 ? '#FAFBFC' : '#FFFFFF' }, GT);
-        el('line', { x1: 0, y1: ry + RH, x2: CW, y2: ry + RH, stroke: '#F1F5F9', 'stroke-width': .7 }, GT);
+        el('line', { x1: 0, y1: ry + RH, x2: CW, y2: ry + RH, stroke: '#CBD5E1', 'stroke-width': 1 }, GT);
 
         if (p.sd) {
           const sx = toX(p.sd), ex = p.fd ? toX(p.fd) : CW;
@@ -3603,25 +3746,73 @@
 
         // Render Sub-tasks if expanded
         if (isExp && p.tasks) {
+          let taskRowIdx = 0;
           p.tasks.forEach((t, ti) => {
             const ty = currentY, tby = ty + 8, tbh = 16;
             const tbc = t.done ? '#10B981' : '#94A3B8';
+            const taskBg = (taskRowIdx % 2 === 0) ? '#FFFFFF' : '#F1F5F9';
+            taskRowIdx++;
 
-            // Sub-label
-            el('rect', { x: 0, y: ty, width: LW, height: TRH, fill: '#F1F5F9', opacity: 0.5 }, GL);
-            el('line', { x1: 10, y1: ty + TRH, x2: LW, y2: ty + TRH, stroke: '#E2E8F0', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GL);
+            // Sub-label background
+            el('rect', { x: 0, y: ty, width: LW, height: TRH, fill: taskBg }, GL);
 
-            // Single Line Task Name
-            tx(t.txt, { x: 92, y: ty + TRH / 2 + 1, 'dominant-baseline': 'middle', fill: '#64748B', 'font-family': 'Figtree,sans-serif', 'font-size': 10 }, GL);
+            // Single Line Task Name (split toggle and text for better style and interaction)
+            if (t.subtasks && t.subtasks.length > 0) {
+              const isCol = collapsedTasks.has(`${originalIdx}-${ti}`);
+              const tgl = tx(isCol ? '▶' : '▼', { x: 80, y: ty + TRH / 2 + 1, 'dominant-baseline': 'middle', fill: '#D97706', cursor: 'pointer', 'font-size': 9, 'font-weight': 'bold' }, GL);
+              tgl.onclick = (e) => { e.stopPropagation(); toggleSubtaskCollapse(originalIdx, ti, true); buildGantt(); };
+            }
+            const foT = el('foreignObject', { x: 92, y: ty, width: 320, height: TRH }, GL);
+            const divT = document.createElement('div');
+            divT.style.width = '100%';
+            divT.style.height = '100%';
+            divT.style.display = 'flex';
+            divT.style.alignItems = 'center';
+            divT.style.padding = '1px 0';
+            const spanT = document.createElement('span');
+            spanT.style.fontFamily = 'Figtree,sans-serif';
+            spanT.style.fontSize = '10px';
+            spanT.style.fontWeight = (t.subtasks && t.subtasks.length > 0) ? 'bold' : 'normal';
+            spanT.style.color = '#334155';
+            spanT.style.lineHeight = '1.15';
+            spanT.style.whiteSpace = 'normal';
+            spanT.style.wordBreak = 'break-word';
+            spanT.style.overflow = 'hidden';
+            spanT.style.textOverflow = 'ellipsis';
+            spanT.style.display = '-webkit-box';
+            spanT.style.webkitLineClamp = '2';
+            spanT.style.webkitBoxOrient = 'vertical';
+            spanT.textContent = t.txt;
+            divT.appendChild(spanT);
+            foT.appendChild(divT);
 
-            // Task dates & progress centered in columns
-            tx(fmtDate(t.sd) || '-', { x: 460, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
-            tx(fmtDate(t.ed) || '-', { x: 540, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
-            tx((t.pct || 0) + '%', { x: 625, y: ty + TRH / 2 + 1, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#94A3B8', 'font-family': 'JetBrains Mono,monospace', 'font-size': 9 }, GL);
+            // Task dates & progress centered in columns using foreignObject
+            const foTS = el('foreignObject', { x: 420, y: ty, width: 80, height: TRH }, GL);
+            const divTS = document.createElement('div');
+            divTS.style.width = '100%'; divTS.style.height = '100%'; divTS.style.display = 'flex';
+            divTS.style.alignItems = 'center'; divTS.style.justifyContent = 'center';
+            divTS.style.fontFamily = 'JetBrains Mono,monospace'; divTS.style.fontSize = '9px';
+            divTS.style.color = '#94A3B8'; divTS.textContent = fmtDate(t.sd) || '-';
+            foTS.appendChild(divTS);
 
-            // Sub-timeline
-            el('rect', { x: 0, y: ty, width: CW, height: TRH, fill: '#F8FAFC', opacity: 0.5 }, GT);
-            el('line', { x1: 0, y1: ty + TRH, x2: CW, y2: ty + TRH, stroke: '#F1F5F9', 'stroke-width': .5, 'stroke-dasharray': '2,2' }, GT);
+            const foTF = el('foreignObject', { x: 500, y: ty, width: 80, height: TRH }, GL);
+            const divTF = document.createElement('div');
+            divTF.style.width = '100%'; divTF.style.height = '100%'; divTF.style.display = 'flex';
+            divTF.style.alignItems = 'center'; divTF.style.justifyContent = 'center';
+            divTF.style.fontFamily = 'JetBrains Mono,monospace'; divTF.style.fontSize = '9px';
+            divTF.style.color = '#94A3B8'; divTF.textContent = fmtDate(t.ed) || '-';
+            foTF.appendChild(divTF);
+
+            const foTP = el('foreignObject', { x: 580, y: ty, width: 90, height: TRH }, GL);
+            const divTP = document.createElement('div');
+            divTP.style.width = '100%'; divTP.style.height = '100%'; divTP.style.display = 'flex';
+            divTP.style.alignItems = 'center'; divTP.style.justifyContent = 'center';
+            divTP.style.fontFamily = 'JetBrains Mono,monospace'; divTP.style.fontSize = '9px';
+            divTP.style.color = '#94A3B8'; divTP.textContent = (t.pct || 0) + '%';
+            foTP.appendChild(divTP);
+
+            // Sub-timeline background
+            el('rect', { x: 0, y: ty, width: CW, height: TRH, fill: taskBg }, GT);
             if (t.sd) {
               const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
               const tbw = Math.max(8, tex - tsx);
@@ -3630,6 +3821,84 @@
             }
 
             currentY += TRH;
+
+            // Render sub-tasks
+            if (t.subtasks && !collapsedTasks.has(`${originalIdx}-${ti}`)) {
+              // Draw vertical line from parent task's toggle button down to the last sub-task
+              const lineH = t.subtasks.length * TRH - TRH / 2;
+              el('line', { x1: 84, y1: ty + TRH - 2, x2: 84, y2: ty + TRH + lineH, stroke: '#CBD5E1', 'stroke-width': 1.2, 'stroke-dasharray': '2,2' }, GL);
+
+              t.subtasks.forEach((st, sti) => {
+                const sty = currentY, stby = sty + 8, stbh = 16;
+                const stbc = st.done ? '#10B981' : '#94A3B8';
+                const subtaskBg = (taskRowIdx % 2 === 0) ? '#FFFFFF' : '#F1F5F9';
+                taskRowIdx++;
+
+                el('rect', { x: 0, y: sty, width: LW, height: TRH, fill: subtaskBg }, GL);
+
+                // Draw nested branch lines
+                el('line', { x1: 84, y1: sty + TRH / 2, x2: 98, y2: sty + TRH / 2, stroke: '#CBD5E1', 'stroke-width': 1.2, 'stroke-dasharray': '2,2' }, GL);
+
+                const foST = el('foreignObject', { x: 104, y: sty, width: 308, height: TRH }, GL);
+                const divST = document.createElement('div');
+                divST.style.width = '100%';
+                divST.style.height = '100%';
+                divST.style.display = 'flex';
+                divST.style.alignItems = 'center';
+                divST.style.padding = '1px 0';
+                const spanST = document.createElement('span');
+                spanST.style.fontFamily = 'Figtree,sans-serif';
+                spanST.style.fontSize = '10px';
+                spanST.style.fontWeight = '500';
+                spanST.style.color = '#475569';
+                spanST.style.lineHeight = '1.15';
+                spanST.style.whiteSpace = 'normal';
+                spanST.style.wordBreak = 'break-word';
+                spanST.style.overflow = 'hidden';
+                spanST.style.textOverflow = 'ellipsis';
+                spanST.style.display = '-webkit-box';
+                spanST.style.webkitLineClamp = '2';
+                spanST.style.webkitBoxOrient = 'vertical';
+                spanST.textContent = st.txt;
+                divST.appendChild(spanST);
+                foST.appendChild(divST);
+
+                // Subtask dates & progress centered in columns using foreignObject
+                const foSTS = el('foreignObject', { x: 420, y: sty, width: 80, height: TRH }, GL);
+                const divSTS = document.createElement('div');
+                divSTS.style.width = '100%'; divSTS.style.height = '100%'; divSTS.style.display = 'flex';
+                divSTS.style.alignItems = 'center'; divSTS.style.justifyContent = 'center';
+                divSTS.style.fontFamily = 'JetBrains Mono,monospace'; divSTS.style.fontSize = '9px';
+                divSTS.style.color = '#94A3B8'; divSTS.textContent = fmtDate(st.sd) || '-';
+                foSTS.appendChild(divSTS);
+
+                const foSTF = el('foreignObject', { x: 500, y: sty, width: 80, height: TRH }, GL);
+                const divSTF = document.createElement('div');
+                divSTF.style.width = '100%'; divSTF.style.height = '100%'; divSTF.style.display = 'flex';
+                divSTF.style.alignItems = 'center'; divSTF.style.justifyContent = 'center';
+                divSTF.style.fontFamily = 'JetBrains Mono,monospace'; divSTF.style.fontSize = '9px';
+                divSTF.style.color = '#94A3B8'; divSTF.textContent = fmtDate(st.ed) || '-';
+                foSTF.appendChild(divSTF);
+
+                const foSTP = el('foreignObject', { x: 580, y: sty, width: 90, height: TRH }, GL);
+                const divSTP = document.createElement('div');
+                divSTP.style.width = '100%'; divSTP.style.height = '100%'; divSTP.style.display = 'flex';
+                divSTP.style.alignItems = 'center'; divSTP.style.justifyContent = 'center';
+                divSTP.style.fontFamily = 'JetBrains Mono,monospace'; divSTP.style.fontSize = '9px';
+                divSTP.style.color = '#94A3B8'; divSTP.textContent = (st.pct || 0) + '%';
+                foSTP.appendChild(divSTP);
+
+                el('rect', { x: 0, y: sty, width: CW, height: TRH, fill: subtaskBg }, GT);
+                if (st.sd) {
+                  const stsx = toX(st.sd), stex = st.ed ? toX(st.ed) : stsx + 10;
+                  const stbw = Math.max(8, stex - stsx);
+                  el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: stbc, rx: 2, opacity: 0.6 }, GT);
+                  if (st.pct > 0) el('rect', { x: stsx, y: stby, width: stbw * (st.pct / 100), height: stbh, fill: stbc, rx: 2 }, GT);
+                }
+
+                currentY += TRH;
+              });
+            }
           });
           currentY += 10; // Extra padding after tasks
         }
@@ -3857,15 +4126,17 @@
         }
 
         // Sync Tasks (Safer)
-        const taskElements = document.querySelectorAll('#task-list .task-item');
-        if (taskElements.length > 0) {
+        const taskGroups = document.querySelectorAll('#task-list .task-group');
+        if (taskGroups.length > 0) {
           p.tasks = [];
-          taskElements.forEach(el => {
-            const txtEl = el.querySelector('.task-txt');
-            const chkEl = el.querySelector('.task-check');
-            const sdEl = el.querySelector('[data-task-field="sd"]');
-            const edEl = el.querySelector('[data-task-field="ed"]');
-            const pctEl = el.querySelector('.t-pct');
+          taskGroups.forEach(groupEl => {
+            const parentEl = groupEl.querySelector('.parent-task-item');
+            if (!parentEl) return;
+            const txtEl = parentEl.querySelector('.task-txt');
+            const chkEl = parentEl.querySelector('.task-check');
+            const sdEl = parentEl.querySelector('[data-task-field="sd"]');
+            const edEl = parentEl.querySelector('[data-task-field="ed"]');
+            const pctEl = parentEl.querySelector('.t-pct');
 
             if (txtEl) {
               const txt = txtEl.innerText.trim();
@@ -3873,7 +4144,29 @@
               const sd = sdEl ? sdEl.value : "";
               const ed = edEl ? edEl.value : "";
               const pct = pctEl ? (parseInt(pctEl.innerText.trim()) || 0) : 0;
-              p.tasks.push({ txt, done, sd, ed, pct });
+              
+              // Now sync subtasks
+              const subtasks = [];
+              groupEl.querySelectorAll('.subtask-item').forEach(subEl => {
+                const subTxtEl = subEl.querySelector('.task-txt');
+                const subChkEl = subEl.querySelector('.task-check');
+                const subSdEl = subEl.querySelector('[data-subtask-field="sd"]');
+                const subEdEl = subEl.querySelector('[data-subtask-field="ed"]');
+                const subPctEl = subEl.querySelector('.t-pct');
+                
+                if (subTxtEl) {
+                  const subTxt = subTxtEl.innerText.trim();
+                  // Remove leading └─ if it exists
+                  const cleanTxt = subTxt.replace(/^└─\s*/, '');
+                  const subDone = subChkEl ? subChkEl.checked : false;
+                  const subSd = subSdEl ? subSdEl.value : "";
+                  const subEd = subEdEl ? subEdEl.value : "";
+                  const subPct = subPctEl ? (parseInt(subPctEl.innerText.trim()) || 0) : 0;
+                  subtasks.push({ txt: cleanTxt, done: subDone, sd: subSd, ed: subEd, pct: subPct });
+                }
+              });
+
+              p.tasks.push({ txt, done, sd, ed, pct, subtasks });
             }
           });
         }
@@ -3898,7 +4191,7 @@
 
     function addTask(idx) {
       if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, done: false, sd: '', ed: '', pct: 0 }] : [];
-      P[idx].tasks.push({ txt: 'New task...', done: false, sd: '', ed: '', pct: 0 });
+      P[idx].tasks.push({ txt: 'New task...', done: false, sd: '', ed: '', pct: 0, subtasks: [] });
       openDetail(idx);
     }
 
@@ -3910,6 +4203,40 @@
 
     function delTask(pIdx, tIdx) {
       P[pIdx].tasks.splice(tIdx, 1);
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function toggleSubtaskCollapse(pIdx, tIdx, preventViewChange = false) {
+      const key = `${pIdx}-${tIdx}`;
+      if (collapsedTasks.has(key)) {
+        collapsedTasks.delete(key);
+      } else {
+        collapsedTasks.add(key);
+      }
+      if (!preventViewChange) {
+        openDetail(pIdx);
+      }
+    }
+
+    function addSubTask(pIdx, tIdx) {
+      const p = P[pIdx];
+      if (!p.tasks[tIdx].subtasks) {
+        p.tasks[tIdx].subtasks = [];
+      }
+      p.tasks[tIdx].subtasks.push({ txt: 'New sub-task...', done: false, sd: '', ed: '', pct: 0 });
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function toggleSubTask(pIdx, tIdx, stIdx, done) {
+      P[pIdx].tasks[tIdx].subtasks[stIdx].done = done;
+      saveData();
+      openDetail(pIdx);
+    }
+
+    function delSubTask(pIdx, tIdx, stIdx) {
+      P[pIdx].tasks[tIdx].subtasks.splice(stIdx, 1);
       saveData();
       openDetail(pIdx);
     }
@@ -4068,6 +4395,7 @@
       gotoView('ov');
     });
   </script>
+
 
 
 
