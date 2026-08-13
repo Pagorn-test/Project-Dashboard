@@ -8738,14 +8738,14 @@
 
             // Sub-timeline background
             el('rect', { x: 0, y: ty, width: CW, height: TRH, fill: taskBg }, GT);
+            const tsx = t.sd ? toX(t.sd) : 0, tex = t.ed ? toX(t.ed) : tsx + 10;
+            const tbw = Math.max(8, tex - tsx);
+            const key = `t-${originalIdx}-${ti}`;
+            ganttTaskCoords[key] = { key, x1: tsx, x2: tsx + tbw, y: ty + TRH / 2, h: tbh, color: tbc, pIdx: originalIdx, name: t.txt };
             if (t.sd) {
-              const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
-              const tbw = Math.max(8, tex - tsx);
-              const key = `t-${originalIdx}-${ti}`;
-              ganttTaskCoords[key] = { key, x1: tsx, x2: tsx + tbw, y: ty + TRH / 2, h: tbh, color: tbc, pIdx: originalIdx, name: t.txt };
-              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: tbc, rx: 3, opacity: 0.3 }, GT);
-              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: 'none', stroke: tbc, 'stroke-width': 1, opacity: 0.7, rx: 3 }, GT);
-              if (t.pct > 0) el('rect', { x: tsx, y: tby, width: Math.max(4, tbw * (t.pct / 100)), height: tbh, fill: tbc, rx: 2 }, GT);
+              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: tbc, rx: 3, opacity: 0.3, 'data-key': key }, GT);
+              el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: 'none', stroke: tbc, 'stroke-width': 1, opacity: 0.7, rx: 3, 'data-key': key }, GT);
+              if (t.pct > 0) el('rect', { x: tsx, y: tby, width: Math.max(4, tbw * (t.pct / 100)), height: tbh, fill: tbc, rx: 2, 'data-key': key }, GT);
             }
 
             currentY += TRH;
@@ -8895,14 +8895,14 @@
                 }
 
                 el('rect', { x: 0, y: sty, width: CW, height: TRH, fill: subtaskBg }, GT);
+                const stsx = st.sd ? toX(st.sd) : 0, stex = st.ed ? toX(st.ed) : stsx + 10;
+                const stbw = Math.max(8, stex - stsx);
+                const key = `st-${originalIdx}-${ti}-${sti}`;
+                ganttTaskCoords[key] = { key, x1: stsx, x2: stsx + stbw, y: sty + TRH / 2, h: stbh, color: stbc, pIdx: originalIdx, name: st.txt };
                 if (st.sd) {
-                  const stsx = toX(st.sd), stex = st.ed ? toX(st.ed) : stsx + 10;
-                  const stbw = Math.max(8, stex - stsx);
-                  const key = `st-${originalIdx}-${ti}-${sti}`;
-                  ganttTaskCoords[key] = { key, x1: stsx, x2: stsx + stbw, y: sty + TRH / 2, h: stbh, color: stbc, pIdx: originalIdx, name: st.txt };
-                  el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: stbc, rx: 3, opacity: 0.3 }, GT);
-                  el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: 'none', stroke: stbc, 'stroke-width': 1, opacity: 0.7, rx: 3 }, GT);
-                  if (st.pct > 0) el('rect', { x: stsx, y: stby, width: Math.max(4, stbw * (st.pct / 100)), height: stbh, fill: stbc, rx: 2 }, GT);
+                  el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: stbc, rx: 3, opacity: 0.3, 'data-key': key }, GT);
+                  el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: 'none', stroke: stbc, 'stroke-width': 1, opacity: 0.7, rx: 3, 'data-key': key }, GT);
+                  if (st.pct > 0) el('rect', { x: stsx, y: stby, width: Math.max(4, stbw * (st.pct / 100)), height: stbh, fill: stbc, rx: 2, 'data-key': key }, GT);
                 }
 
                 currentY += TRH;
@@ -9034,12 +9034,14 @@
                     }
 
                     el('rect', { x: 0, y: ssty, width: CW, height: TRH, fill: subsubtaskBg }, GT);
+                    const sstsx = sst.sd ? toX(sst.sd) : 0, sstex = sst.ed ? toX(sst.ed) : sstsx + 10;
+                    const sstbw = Math.max(8, sstex - sstsx);
+                    const key = `sst-${originalIdx}-${ti}-${sti}-${ssti}`;
+                    ganttTaskCoords[key] = { key, x1: sstsx, x2: sstsx + sstbw, y: ssty + TRH / 2, h: sstbh, color: sstbc, pIdx: originalIdx, name: sst.txt };
                     if (sst.sd) {
-                      const sstsx = toX(sst.sd), sstex = sst.ed ? toX(sst.ed) : sstsx + 10;
-                      const sstbw = Math.max(8, sstex - sstsx);
-                      el('rect', { x: sstsx, y: sstby, width: sstbw, height: sstbh, fill: sstbc, rx: 3, opacity: 0.3 }, GT);
-                      el('rect', { x: sstsx, y: sstby, width: sstbw, height: sstbh, fill: 'none', stroke: sstbc, 'stroke-width': 1, opacity: 0.7, rx: 3 }, GT);
-                      if (sst.pct > 0) el('rect', { x: sstsx, y: sstby, width: Math.max(4, sstbw * (sst.pct / 100)), height: sstbh, fill: sstbc, rx: 2 }, GT);
+                      el('rect', { x: sstsx, y: sstby, width: sstbw, height: sstbh, fill: sstbc, rx: 3, opacity: 0.3, 'data-key': key }, GT);
+                      el('rect', { x: sstsx, y: sstby, width: sstbw, height: sstbh, fill: 'none', stroke: sstbc, 'stroke-width': 1, opacity: 0.7, rx: 3, 'data-key': key }, GT);
+                      if (sst.pct > 0) el('rect', { x: sstsx, y: sstby, width: Math.max(4, sstbw * (sst.pct / 100)), height: sstbh, fill: sstbc, rx: 2, 'data-key': key }, GT);
                     }
 
                     currentY += TRH;
@@ -9144,40 +9146,6 @@
     let activeDepDrag = null;
 
     function renderGanttDependencies(GT, el, editMode, totalSH, CW) {
-      if (editMode) {
-        Object.values(ganttTaskCoords).forEach(item => {
-          el('circle', {
-            cx: item.x1,
-            cy: item.y,
-            r: 4.5,
-            fill: '#FFFFFF',
-            stroke: item.color || '#3B82F6',
-            'stroke-width': 2,
-            style: 'cursor: pointer;',
-            'data-key': item.key,
-            class: 'gantt-dep-in'
-          }, GT);
-
-          const outDot = el('circle', {
-            cx: item.x2,
-            cy: item.y,
-            r: 4.5,
-            fill: item.color || '#3B82F6',
-            stroke: '#FFFFFF',
-            'stroke-width': 1.5,
-            style: 'cursor: crosshair;',
-            'data-key': item.key,
-            class: 'gantt-dep-out'
-          }, GT);
-
-          outDot.onmousedown = (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            startDepDrag(e, item, GT, el, CW, totalSH);
-          };
-        });
-      }
-
       const defs = el('defs', {}, GT);
       const createdMarkers = new Set();
 
@@ -9189,10 +9157,10 @@
           const m = el('marker', {
             id: id,
             viewBox: '0 0 10 10',
-            refX: 8,
+            refX: 7.5,
             refY: 5,
-            markerWidth: 6,
-            markerHeight: 6,
+            markerWidth: 4.5,
+            markerHeight: 4.5,
             orient: 'auto-start-reverse'
           }, defs);
           el('path', { d: 'M 0 1 L 10 5 L 0 9 z', fill: color || '#3B82F6' }, m);
@@ -9239,11 +9207,12 @@
               d: pathD,
               fill: 'none',
               stroke: color,
-              'stroke-width': 2,
+              'stroke-width': 1.2,
+              'stroke-dasharray': '4,3',
               'marker-end': `url(#${markerId})`,
               'stroke-linejoin': 'round',
               'stroke-linecap': 'round',
-              opacity: 0.85
+              opacity: 0.9
             }, GT);
 
             if (editMode) {
@@ -9257,6 +9226,40 @@
           }
         });
       });
+
+      if (editMode) {
+        Object.values(ganttTaskCoords).forEach(item => {
+          el('circle', {
+            cx: item.x1,
+            cy: item.y,
+            r: 5,
+            fill: '#FFFFFF',
+            stroke: item.color || '#3B82F6',
+            'stroke-width': 2,
+            style: 'cursor: pointer;',
+            'data-key': item.key,
+            class: 'gantt-dep-in'
+          }, GT);
+
+          const outDot = el('circle', {
+            cx: item.x2,
+            cy: item.y,
+            r: 5,
+            fill: item.color || '#3B82F6',
+            stroke: '#FFFFFF',
+            'stroke-width': 1.5,
+            style: 'cursor: crosshair;',
+            'data-key': item.key,
+            class: 'gantt-dep-out'
+          }, GT);
+
+          outDot.onmousedown = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            startDepDrag(e, item, GT, el, CW, totalSH);
+          };
+        });
+      }
     }
 
     function startDepDrag(e, sourceItem, GT, el, CW, totalSH) {
@@ -9289,7 +9292,7 @@
 
     function stopDepDrag(e) {
       if (!activeDepDrag) return;
-      const { tempLine, source } = activeDepDrag;
+      const { tempLine, source, GT, CW, totalSH } = activeDepDrag;
       if (tempLine && tempLine.parentNode) tempLine.parentNode.removeChild(tempLine);
 
       const dropTarget = document.elementFromPoint(e.clientX, e.clientY);
@@ -9300,6 +9303,19 @@
           const closestHandle = dropTarget.closest('[data-key]');
           if (closestHandle) targetKey = closestHandle.getAttribute('data-key');
         }
+      }
+
+      if (!targetKey && GT && CW && totalSH) {
+        const rect = GT.getBoundingClientRect();
+        const svgY = ((e.clientY - rect.top) / rect.height) * totalSH;
+        let minDist = 16;
+        Object.values(ganttTaskCoords).forEach(item => {
+          const dist = Math.abs(svgY - item.y);
+          if (dist < minDist) {
+            minDist = dist;
+            targetKey = item.key;
+          }
+        });
       }
 
       const srcKey = source.key;
