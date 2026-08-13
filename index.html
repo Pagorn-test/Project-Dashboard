@@ -9214,19 +9214,17 @@
             const markerId = getMarkerId(color);
 
             const offset = 14;
-            const topOffset = 12;
+            const rightX = x1 + offset;
+            const leftX = x2 - offset;
             let pathD = '';
-            if (y2 > y1 && x2 >= x1 + 10) {
-              pathD = `M ${x1} ${y1} L ${x2} ${y1} L ${x2} ${y2}`;
+            if (y2 > y1 && x2 >= rightX + offset) {
+              pathD = `M ${x1} ${y1} L ${rightX} ${y1} L ${rightX} ${y2} L ${x2} ${y2}`;
+            } else if (y2 > y1) {
+              const midY = y1 + (y2 - y1) / 2;
+              pathD = `M ${x1} ${y1} L ${rightX} ${y1} L ${rightX} ${midY} L ${leftX} ${midY} L ${leftX} ${y2} L ${x2} ${y2}`;
             } else {
-              const rightX = Math.max(x1 + offset, x2 + offset);
-              const approachY = y2 - topOffset;
-              if (x2 >= x1 + 10) {
-                const midX = x1 + (x2 - x1) / 2;
-                pathD = `M ${x1} ${y1} L ${midX} ${y1} L ${midX} ${approachY} L ${x2} ${approachY} L ${x2} ${y2}`;
-              } else {
-                pathD = `M ${x1} ${y1} L ${rightX} ${y1} L ${rightX} ${approachY} L ${x2} ${approachY} L ${x2} ${y2}`;
-              }
+              const downY = y1 + offset;
+              pathD = `M ${x1} ${y1} L ${rightX} ${y1} L ${rightX} ${downY} L ${leftX} ${downY} L ${leftX} ${y2} L ${x2} ${y2}`;
             }
 
             const hitPath = el('path', {
