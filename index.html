@@ -8214,9 +8214,7 @@
                       <span class="subtask-toggle-btn" onclick="event.stopPropagation(); toggleSubtaskCollapse(${i}, ${ti})" style="cursor:pointer; user-select:none; font-size:10px; width:12px; display:${(t.subtasks && t.subtasks.length > 0) ? 'inline-block' : 'none'}">${collapsedTasks.has(`${i}-${ti}`) ? '▶' : '▼'}</span>
                       ${!(t.subtasks && t.subtasks.length > 0) ? '<span style="width:12px; display:inline-block;"></span>' : ''}
                       ${editMode ? `
-                      <label style="display:inline-flex; align-items:center; justify-content:center; width:13px; height:13px; border-radius:50%; background-color:${t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; position:relative; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Task">
-                        <input type="color" class="task-color-input" value="${(t.color && t.color.startsWith('#') && t.color.length === 7) ? t.color : '#3B82F6'}" onchange="updateTaskColor(${i}, ${ti}, this.value)" style="position:absolute; opacity:0; width:100%; height:100%; cursor:pointer;">
-                      </label>
+                      <span onclick="showTaskColorPickerPopup(event, '${(t.color && t.color.startsWith('#') && t.color.length === 7) ? t.color : '#3B82F6'}', function(c){ updateTaskColor(${i}, ${ti}, c); }, 'เปลี่ยนสี Task')" style="display:inline-flex; align-items:center; justify-content:center; width:13px; height:13px; border-radius:50%; background-color:${t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Task"></span>
                       ` : ''}
                       <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
                     </div>
@@ -8262,9 +8260,7 @@
                           ${!(st.subtasks && st.subtasks.length > 0) ? '<span style="width:12px; display:inline-block;"></span>' : ''}
                           <span style="color: #D97706; font-size: 11px; user-select: none;">└─</span>
                           ${editMode ? `
-                          <label style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background-color:${st.color || t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; position:relative; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Sub-task">
-                            <input type="color" class="subtask-color-input" value="${(st.color && st.color.startsWith('#') && st.color.length === 7) ? st.color : (t.color || '#3B82F6')}" onchange="updateSubTaskColor(${i}, ${ti}, ${sti}, this.value)" style="position:absolute; opacity:0; width:100%; height:100%; cursor:pointer;">
-                          </label>
+                          <span onclick="showTaskColorPickerPopup(event, '${(st.color && st.color.startsWith('#') && st.color.length === 7) ? st.color : (t.color || '#3B82F6')}', function(c){ updateSubTaskColor(${i}, ${ti}, ${sti}, c); }, 'เปลี่ยนสี Sub-task')" style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background-color:${st.color || t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Sub-task"></span>
                           ` : ''}
                           <div class="task-txt ${st.done ? 'done' : ''}" contenteditable="${editMode}">${st.txt}</div>
                         </div>
@@ -8308,9 +8304,7 @@
                             <div style="display: flex; align-items: center; gap: 6px; flex: 1;">
                               <span style="color: #64748B; font-size: 11px; user-select: none;">└─└─</span>
                               ${editMode ? `
-                              <label style="display:inline-flex; align-items:center; justify-content:center; width:11px; height:11px; border-radius:50%; background-color:${sst.color || st.color || t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; position:relative; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Sub-subtask">
-                                <input type="color" class="subsubtask-color-input" value="${(sst.color && sst.color.startsWith('#') && sst.color.length === 7) ? sst.color : (st.color || t.color || '#3B82F6')}" onchange="updateSubSubTaskColor(${i}, ${ti}, ${sti}, ${ssti}, this.value)" style="position:absolute; opacity:0; width:100%; height:100%; cursor:pointer;">
-                              </label>
+                              <span onclick="showTaskColorPickerPopup(event, '${(sst.color && sst.color.startsWith('#') && sst.color.length === 7) ? sst.color : (st.color || t.color || '#3B82F6')}', function(c){ updateSubSubTaskColor(${i}, ${ti}, ${sti}, ${ssti}, c); }, 'เปลี่ยนสี Sub-subtask')" style="display:inline-flex; align-items:center; justify-content:center; width:11px; height:11px; border-radius:50%; background-color:${sst.color || st.color || t.color || '#3B82F6'}; cursor:pointer; flex-shrink:0; box-shadow:0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3);" title="เปลี่ยนสี Sub-subtask"></span>
                               ` : ''}
                               <div class="task-txt ${sst.done ? 'done' : ''}" contenteditable="${editMode}">${sst.txt}</div>
                             </div>
@@ -8478,6 +8472,7 @@
       }
 
       GL.innerHTML = ''; GT.innerHTML = '';
+      ganttTaskCoords = {};
       el('rect', { x: 0, y: 0, width: LW, height: totalSH, fill: '#F8FAFC' }, GL);
       el('rect', { x: 0, y: 0, width: CW, height: totalSH, fill: '#FFFFFF' }, GT);
 
@@ -8592,6 +8587,8 @@
           const sx = toX(p.sd), ex = p.fd ? toX(p.fd) : CW;
           if (ex > 0 && sx < CW) {
             const bw = Math.max(6, ex - sx);
+            const key = `p-${originalIdx}`;
+            ganttTaskCoords[key] = { key, x1: sx, x2: sx + bw, y: ry + RH / 2, h: bh, color: bc, pIdx: originalIdx, name: p.name };
             const bar = el('rect', { x: sx, y: by, width: bw, height: bh, fill: bc, opacity: .16, rx: 3, cursor: editMode ? 'move' : 'default' }, GT);
             const handle = el('rect', { x: sx, y: by, width: 7, height: bh, fill: bc, opacity: .8, rx: 3 }, GT);
             el('rect', { x: sx, y: by, width: bw, height: bh, fill: 'none', stroke: bc, 'stroke-width': .9, opacity: .35, rx: 3 }, GT);
@@ -8744,6 +8741,8 @@
             if (t.sd) {
               const tsx = toX(t.sd), tex = t.ed ? toX(t.ed) : tsx + 10;
               const tbw = Math.max(8, tex - tsx);
+              const key = `t-${originalIdx}-${ti}`;
+              ganttTaskCoords[key] = { key, x1: tsx, x2: tsx + tbw, y: ty + TRH / 2, h: tbh, color: tbc, pIdx: originalIdx, name: t.txt };
               el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: tbc, rx: 3, opacity: 0.3 }, GT);
               el('rect', { x: tsx, y: tby, width: tbw, height: tbh, fill: 'none', stroke: tbc, 'stroke-width': 1, opacity: 0.7, rx: 3 }, GT);
               if (t.pct > 0) el('rect', { x: tsx, y: tby, width: Math.max(4, tbw * (t.pct / 100)), height: tbh, fill: tbc, rx: 2 }, GT);
@@ -8899,6 +8898,8 @@
                 if (st.sd) {
                   const stsx = toX(st.sd), stex = st.ed ? toX(st.ed) : stsx + 10;
                   const stbw = Math.max(8, stex - stsx);
+                  const key = `st-${originalIdx}-${ti}-${sti}`;
+                  ganttTaskCoords[key] = { key, x1: stsx, x2: stsx + stbw, y: sty + TRH / 2, h: stbh, color: stbc, pIdx: originalIdx, name: st.txt };
                   el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: stbc, rx: 3, opacity: 0.3 }, GT);
                   el('rect', { x: stsx, y: stby, width: stbw, height: stbh, fill: 'none', stroke: stbc, 'stroke-width': 1, opacity: 0.7, rx: 3 }, GT);
                   if (st.pct > 0) el('rect', { x: stsx, y: stby, width: Math.max(4, stbw * (st.pct / 100)), height: stbh, fill: stbc, rx: 2 }, GT);
@@ -9063,6 +9064,9 @@
         el('line', { x1: TX, y1: 0, x2: TX, y2: totalSH, stroke: '#DC2626', 'stroke-width': 1.5, 'stroke-dasharray': '5,3' }, GT);
       }
 
+      // ฤฤ DEPENDENCIES LINES & CONNECTORS ฤฤ
+      renderGanttDependencies(GT, el, editMode, totalSH, CW);
+
       // ฤฤ FREEZE ROW HEADER GROUPS (Rendered last to sit on top of scrolling rows) ฤฤ
       const headerGroup = el('g', { id: 'gantt-labels-header-group' }, GL);
       el('rect', { x: 0, y: 0, width: LW, height: HH, fill: '#EDF2F7' }, headerGroup);
@@ -9134,6 +9138,316 @@
         window.onmousemove = null; window.onmouseup = null;
         saveData(); refreshAllViews();
       }
+    }
+
+    let ganttTaskCoords = {};
+    let activeDepDrag = null;
+
+    function renderGanttDependencies(GT, el, editMode, totalSH, CW) {
+      if (editMode) {
+        Object.values(ganttTaskCoords).forEach(item => {
+          el('circle', {
+            cx: item.x1,
+            cy: item.y,
+            r: 4.5,
+            fill: '#FFFFFF',
+            stroke: item.color || '#3B82F6',
+            'stroke-width': 2,
+            style: 'cursor: pointer;',
+            'data-key': item.key,
+            class: 'gantt-dep-in'
+          }, GT);
+
+          const outDot = el('circle', {
+            cx: item.x2,
+            cy: item.y,
+            r: 4.5,
+            fill: item.color || '#3B82F6',
+            stroke: '#FFFFFF',
+            'stroke-width': 1.5,
+            style: 'cursor: crosshair;',
+            'data-key': item.key,
+            class: 'gantt-dep-out'
+          }, GT);
+
+          outDot.onmousedown = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            startDepDrag(e, item, GT, el, CW, totalSH);
+          };
+        });
+      }
+
+      const defs = el('defs', {}, GT);
+      const createdMarkers = new Set();
+
+      function getMarkerId(color) {
+        const clean = (color || '3B82F6').replace(/[^a-zA-Z0-9]/g, '');
+        const id = `arr-${clean}`;
+        if (!createdMarkers.has(id)) {
+          createdMarkers.add(id);
+          const m = el('marker', {
+            id: id,
+            viewBox: '0 0 10 10',
+            refX: 8,
+            refY: 5,
+            markerWidth: 6,
+            markerHeight: 6,
+            orient: 'auto-start-reverse'
+          }, defs);
+          el('path', { d: 'M 0 1 L 10 5 L 0 9 z', fill: color || '#3B82F6' }, m);
+        }
+        return id;
+      }
+
+      P.forEach((p, pIdx) => {
+        if (!p.dependencies) p.dependencies = [];
+        p.dependencies.forEach((dep, dIdx) => {
+          const src = ganttTaskCoords[dep.from];
+          const tgt = ganttTaskCoords[dep.to];
+          if (src && tgt) {
+            const x1 = src.x2;
+            const y1 = src.y;
+            const x2 = tgt.x1;
+            const y2 = tgt.y;
+            const color = dep.color || src.color || '#3B82F6';
+            const markerId = getMarkerId(color);
+
+            const offset = 14;
+            const topOffset = 12;
+            let pathD = '';
+            if (y2 > y1 && x2 >= x1 + 10) {
+              pathD = `M ${x1} ${y1} L ${x2} ${y1} L ${x2} ${y2}`;
+            } else {
+              const rightX = Math.max(x1 + offset, x2 + offset);
+              const approachY = y2 - topOffset;
+              if (x2 >= x1 + 10) {
+                const midX = x1 + (x2 - x1) / 2;
+                pathD = `M ${x1} ${y1} L ${midX} ${y1} L ${midX} ${approachY} L ${x2} ${approachY} L ${x2} ${y2}`;
+              } else {
+                pathD = `M ${x1} ${y1} L ${rightX} ${y1} L ${rightX} ${approachY} L ${x2} ${approachY} L ${x2} ${y2}`;
+              }
+            }
+
+            const hitPath = el('path', {
+              d: pathD,
+              fill: 'none',
+              stroke: 'transparent',
+              'stroke-width': 10,
+              style: editMode ? 'cursor: pointer;' : 'cursor: default;'
+            }, GT);
+
+            const visPath = el('path', {
+              d: pathD,
+              fill: 'none',
+              stroke: color,
+              'stroke-width': 2,
+              'marker-end': `url(#${markerId})`,
+              'stroke-linejoin': 'round',
+              'stroke-linecap': 'round',
+              opacity: 0.85
+            }, GT);
+
+            if (editMode) {
+              const onLineClick = (e) => {
+                e.stopPropagation();
+                showDependencyMenu(e, pIdx, dIdx, dep, color);
+              };
+              hitPath.onclick = onLineClick;
+              visPath.onclick = onLineClick;
+            }
+          }
+        });
+      });
+    }
+
+    function startDepDrag(e, sourceItem, GT, el, CW, totalSH) {
+      const rect = GT.getBoundingClientRect();
+      const svgX = ((e.clientX - rect.left) / rect.width) * CW;
+      const svgY = ((e.clientY - rect.top) / rect.height) * totalSH;
+
+      const tempLine = el('path', {
+        d: `M ${sourceItem.x2} ${sourceItem.y} L ${svgX} ${svgY}`,
+        fill: 'none',
+        stroke: sourceItem.color || '#3B82F6',
+        'stroke-width': 2,
+        'stroke-dasharray': '4,3'
+      }, GT);
+
+      activeDepDrag = { source: sourceItem, tempLine, GT, CW, totalSH };
+
+      window.onmousemove = doDepDrag;
+      window.onmouseup = stopDepDrag;
+    }
+
+    function doDepDrag(e) {
+      if (!activeDepDrag) return;
+      const { GT, CW, totalSH, source, tempLine } = activeDepDrag;
+      const rect = GT.getBoundingClientRect();
+      const svgX = ((e.clientX - rect.left) / rect.width) * CW;
+      const svgY = ((e.clientY - rect.top) / rect.height) * totalSH;
+      tempLine.setAttribute('d', `M ${source.x2} ${source.y} L ${svgX} ${svgY}`);
+    }
+
+    function stopDepDrag(e) {
+      if (!activeDepDrag) return;
+      const { tempLine, source } = activeDepDrag;
+      if (tempLine && tempLine.parentNode) tempLine.parentNode.removeChild(tempLine);
+
+      const dropTarget = document.elementFromPoint(e.clientX, e.clientY);
+      let targetKey = null;
+      if (dropTarget) {
+        targetKey = dropTarget.getAttribute('data-key');
+        if (!targetKey) {
+          const closestHandle = dropTarget.closest('[data-key]');
+          if (closestHandle) targetKey = closestHandle.getAttribute('data-key');
+        }
+      }
+
+      const srcKey = source.key;
+      const srcPIdx = source.pIdx;
+      const srcColor = source.color || '#3B82F6';
+
+      activeDepDrag = null;
+      window.onmousemove = null;
+      window.onmouseup = null;
+
+      if (targetKey && targetKey !== srcKey) {
+        const pObj = P[srcPIdx];
+        if (pObj) {
+          pObj.dependencies = pObj.dependencies || [];
+          const exists = pObj.dependencies.some(d => d.from === srcKey && d.to === targetKey);
+          if (!exists) {
+            pObj.dependencies.push({
+              id: 'dep-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+              from: srcKey,
+              to: targetKey,
+              color: srcColor
+            });
+            saveData();
+            buildGantt();
+          }
+        }
+      }
+    }
+
+    function showDependencyMenu(e, pIdx, dIdx, dep, currentColor) {
+      const existing = document.getElementById('dep-menu-popup');
+      if (existing) existing.remove();
+
+      const menu = document.createElement('div');
+      menu.id = 'dep-menu-popup';
+      menu.style.position = 'fixed';
+      menu.style.left = `${e.clientX + 10}px`;
+      menu.style.top = `${e.clientY - 10}px`;
+      menu.style.background = '#FFFFFF';
+      menu.style.border = '1px solid #CBD5E1';
+      menu.style.borderRadius = '10px';
+      menu.style.padding = '12px';
+      menu.style.boxShadow = '0 10px 25px rgba(15,23,42,0.18)';
+      menu.style.zIndex = '99999';
+      menu.style.display = 'flex';
+      menu.style.flexDirection = 'column';
+      menu.style.gap = '10px';
+      menu.style.minWidth = '200px';
+
+      const title = document.createElement('div');
+      title.style.fontSize = '12px';
+      title.style.fontWeight = 'bold';
+      title.style.color = '#0F172A';
+      title.style.fontFamily = 'Figtree, sans-serif';
+      title.textContent = 'ปรับแต่งเส้นเชื่อมโยง (Dependency Arrow)';
+      menu.appendChild(title);
+
+      const colorLabel = document.createElement('div');
+      colorLabel.style.fontSize = '10.5px';
+      colorLabel.style.color = '#64748B';
+      colorLabel.textContent = 'เลือกสีเส้นลูกศร:';
+      menu.appendChild(colorLabel);
+
+      const colorsRow = document.createElement('div');
+      colorsRow.style.display = 'flex';
+      colorsRow.style.alignItems = 'center';
+      colorsRow.style.gap = '6px';
+      colorsRow.style.flexWrap = 'wrap';
+
+      const presetColors = ['#2563EB', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EA580C', '#475569', '#090D16'];
+
+      presetColors.forEach(c => {
+        const dot = document.createElement('div');
+        dot.style.width = '18px';
+        dot.style.height = '18px';
+        dot.style.borderRadius = '50%';
+        dot.style.backgroundColor = c;
+        dot.style.cursor = 'pointer';
+        dot.style.boxShadow = c.toLowerCase() === (currentColor || '').toLowerCase() ? '0 0 0 2px #0F172A' : '0 0 0 1px rgba(0,0,0,0.15)';
+        dot.onclick = () => {
+          dep.color = c;
+          saveData();
+          menu.remove();
+          buildGantt();
+        };
+        colorsRow.appendChild(dot);
+      });
+
+      const pickerLabel = document.createElement('label');
+      pickerLabel.title = 'เลือกสีแบบกำหนดเอง';
+      pickerLabel.style.display = 'inline-flex';
+      pickerLabel.style.width = '18px';
+      pickerLabel.style.height = '18px';
+      pickerLabel.style.borderRadius = '50%';
+      pickerLabel.style.border = '1.5px dashed #64748B';
+      pickerLabel.style.cursor = 'pointer';
+      pickerLabel.style.position = 'relative';
+
+      const pickerInput = document.createElement('input');
+      pickerInput.type = 'color';
+      pickerInput.value = currentColor || '#2563EB';
+      pickerInput.style.position = 'absolute';
+      pickerInput.style.opacity = '0';
+      pickerInput.style.width = '100%';
+      pickerInput.style.height = '100%';
+      pickerInput.style.cursor = 'pointer';
+      pickerInput.onchange = (evt) => {
+        dep.color = evt.target.value;
+        saveData();
+        menu.remove();
+        buildGantt();
+      };
+      pickerLabel.appendChild(pickerInput);
+      colorsRow.appendChild(pickerLabel);
+
+      menu.appendChild(colorsRow);
+
+      const delBtn = document.createElement('button');
+      delBtn.type = 'button';
+      delBtn.textContent = '🗑 ลบเส้นเชื่อมโยง';
+      delBtn.style.padding = '6px 10px';
+      delBtn.style.background = '#FEF2F2';
+      delBtn.style.color = '#EF4444';
+      delBtn.style.border = '1px solid #FCA5A5';
+      delBtn.style.borderRadius = '6px';
+      delBtn.style.fontSize = '11px';
+      delBtn.style.cursor = 'pointer';
+      delBtn.style.fontWeight = '600';
+      delBtn.style.marginTop = '4px';
+      delBtn.onclick = () => {
+        P[pIdx].dependencies.splice(dIdx, 1);
+        saveData();
+        menu.remove();
+        buildGantt();
+      };
+      menu.appendChild(delBtn);
+
+      document.body.appendChild(menu);
+
+      const closeMenu = (evt) => {
+        if (!menu.contains(evt.target)) {
+          menu.remove();
+          window.removeEventListener('click', closeMenu);
+        }
+      };
+      setTimeout(() => window.addEventListener('click', closeMenu), 10);
     }
 
     function toggleGanttExpand(idx) {
@@ -9809,42 +10123,124 @@
       openDetail(pIdx);
     }
 
+    function showTaskColorPickerPopup(e, currentColor, onChangeFn, titleText = 'เลือกสี Task') {
+      e.stopPropagation();
+      e.preventDefault();
+
+      const existing = document.getElementById('task-color-menu-popup');
+      if (existing) existing.remove();
+
+      const menu = document.createElement('div');
+      menu.id = 'task-color-menu-popup';
+      menu.style.position = 'fixed';
+      menu.style.left = `${Math.min(e.clientX + 10, window.innerWidth - 230)}px`;
+      menu.style.top = `${Math.min(e.clientY - 10, window.innerHeight - 150)}px`;
+      menu.style.background = '#FFFFFF';
+      menu.style.border = '1px solid #CBD5E1';
+      menu.style.borderRadius = '10px';
+      menu.style.padding = '12px';
+      menu.style.boxShadow = '0 10px 25px rgba(15,23,42,0.18)';
+      menu.style.zIndex = '99999';
+      menu.style.display = 'flex';
+      menu.style.flexDirection = 'column';
+      menu.style.gap = '8px';
+      menu.style.minWidth = '190px';
+
+      const title = document.createElement('div');
+      title.style.fontSize = '12px';
+      title.style.fontWeight = 'bold';
+      title.style.color = '#0F172A';
+      title.style.fontFamily = 'Figtree, sans-serif';
+      title.textContent = titleText;
+      menu.appendChild(title);
+
+      const colorLabel = document.createElement('div');
+      colorLabel.style.fontSize = '10.5px';
+      colorLabel.style.color = '#64748B';
+      colorLabel.textContent = 'เลือกสีแถบ Task:';
+      menu.appendChild(colorLabel);
+
+      const colorsRow = document.createElement('div');
+      colorsRow.style.display = 'flex';
+      colorsRow.style.alignItems = 'center';
+      colorsRow.style.gap = '6px';
+      colorsRow.style.flexWrap = 'wrap';
+
+      const presetColors = ['#2563EB', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EA580C', '#475569', '#090D16'];
+
+      presetColors.forEach(c => {
+        const dot = document.createElement('div');
+        dot.style.width = '18px';
+        dot.style.height = '18px';
+        dot.style.borderRadius = '50%';
+        dot.style.backgroundColor = c;
+        dot.style.cursor = 'pointer';
+        dot.style.boxShadow = c.toLowerCase() === (currentColor || '').toLowerCase() ? '0 0 0 2px #0F172A' : '0 0 0 1px rgba(0,0,0,0.15)';
+        dot.onclick = (evt) => {
+          evt.stopPropagation();
+          onChangeFn(c);
+          menu.remove();
+        };
+        colorsRow.appendChild(dot);
+      });
+
+      const pickerLabel = document.createElement('label');
+      pickerLabel.title = 'เลือกสีแบบกำหนดเอง';
+      pickerLabel.style.display = 'inline-flex';
+      pickerLabel.style.width = '18px';
+      pickerLabel.style.height = '18px';
+      pickerLabel.style.borderRadius = '50%';
+      pickerLabel.style.border = '1.5px dashed #64748B';
+      pickerLabel.style.cursor = 'pointer';
+      pickerLabel.style.position = 'relative';
+
+      const pickerInput = document.createElement('input');
+      pickerInput.type = 'color';
+      pickerInput.value = (currentColor && currentColor.startsWith('#') && currentColor.length === 7) ? currentColor : '#2563EB';
+      pickerInput.style.position = 'absolute';
+      pickerInput.style.opacity = '0';
+      pickerInput.style.width = '100%';
+      pickerInput.style.height = '100%';
+      pickerInput.style.cursor = 'pointer';
+      pickerInput.onchange = (evt) => {
+        onChangeFn(evt.target.value);
+        menu.remove();
+      };
+      pickerLabel.appendChild(pickerInput);
+      colorsRow.appendChild(pickerLabel);
+
+      menu.appendChild(colorsRow);
+      document.body.appendChild(menu);
+
+      const closeMenu = (evt) => {
+        if (!menu.contains(evt.target)) {
+          menu.remove();
+          window.removeEventListener('click', closeMenu);
+        }
+      };
+      setTimeout(() => window.addEventListener('click', closeMenu), 10);
+    }
+
     function createColorPicker(currentColor, onChangeFn) {
-      const wrap = document.createElement('label');
-      wrap.title = 'เปลี่ยนสี Task';
-      wrap.style.display = 'inline-flex';
-      wrap.style.alignItems = 'center';
-      wrap.style.justifyContent = 'center';
-      wrap.style.width = '13px';
-      wrap.style.height = '13px';
-      wrap.style.borderRadius = '50%';
-      wrap.style.backgroundColor = currentColor || '#3B82F6';
-      wrap.style.boxShadow = '0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3)';
-      wrap.style.cursor = 'pointer';
-      wrap.style.flexShrink = '0';
-      wrap.style.position = 'relative';
-      wrap.style.marginRight = '4px';
+      const dot = document.createElement('div');
+      dot.title = 'เปลี่ยนสี Task';
+      dot.style.display = 'inline-flex';
+      dot.style.alignItems = 'center';
+      dot.style.justifyContent = 'center';
+      dot.style.width = '13px';
+      dot.style.height = '13px';
+      dot.style.borderRadius = '50%';
+      dot.style.backgroundColor = currentColor || '#3B82F6';
+      dot.style.boxShadow = '0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.3)';
+      dot.style.cursor = 'pointer';
+      dot.style.flexShrink = '0';
+      dot.style.marginRight = '4px';
 
-      const input = document.createElement('input');
-      input.type = 'color';
-      const hexVal = (currentColor && currentColor.startsWith('#') && currentColor.length === 7) ? currentColor : '#3B82F6';
-      input.value = hexVal;
-      input.style.position = 'absolute';
-      input.style.top = '0';
-      input.style.left = '0';
-      input.style.width = '100%';
-      input.style.height = '100%';
-      input.style.opacity = '0';
-      input.style.cursor = 'pointer';
-
-      input.onchange = (e) => {
-        const val = e.target.value;
-        wrap.style.backgroundColor = val;
-        onChangeFn(val);
+      dot.onclick = (e) => {
+        showTaskColorPickerPopup(e, currentColor, onChangeFn, 'เปลี่ยนสี Task');
       };
 
-      wrap.appendChild(input);
-      return wrap;
+      return dot;
     }
 
     function updateTaskColor(pIdx, tIdx, color) {
