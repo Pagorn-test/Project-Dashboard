@@ -1113,7 +1113,7 @@
     .task-hrow,
     .task-item {
       display: grid;
-      grid-template-columns: 30px 1fr 80px 100px 100px 60px 30px;
+      grid-template-columns: 30px 1fr 110px 80px 100px 100px 60px 30px;
       gap: 12px;
       align-items: center;
       border-bottom: 1px solid var(--border);
@@ -1166,7 +1166,8 @@
     .t-sd,
     .t-ed,
     .t-dur,
-    .t-pct-wrap {
+    .t-pct-wrap,
+    .t-resp {
       font-size: 11px;
       color: var(--t2);
       font-family: var(--fm);
@@ -2526,6 +2527,7 @@
                 <div class="task-hrow">
                   <div></div>
                   <div>Task Description</div>
+                  <div>Assignee</div>
                   <div style="text-align:center">Duration (days)</div>
                   <div>Start Date</div>
                   <div>Finish Date</div>
@@ -2545,6 +2547,7 @@
 
                         <div class="task-txt " contenteditable="false">Install</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -2579,6 +2582,7 @@
 
                           <div class="task-txt " contenteditable="false">ติดตั้งเสา Support กล้อง Topview</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2615,6 +2619,7 @@
 
                           <div class="task-txt " contenteditable="false">ติดตั้งกล้อง Side View</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2651,6 +2656,7 @@
 
                           <div class="task-txt " contenteditable="false">ติดตั้งตู้ Control</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2688,6 +2694,7 @@
 
                         <div class="task-txt " contenteditable="false">โปรแกรมระบบ Counter กล่อง</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -2722,6 +2729,7 @@
 
                           <div class="task-txt " contenteditable="false">Programming ระบบ Counter กล่อง</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2759,6 +2767,7 @@
                           <div class="task-txt " contenteditable="false">Program ส่งค่า Pallet no, Layer, Counter
                             ให้ระบบ Data Tank</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2796,6 +2805,7 @@
 
                         <div class="task-txt " contenteditable="false">โปรแกรมฝั่ง IT Sappe</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -2831,6 +2841,7 @@
                           <div class="task-txt " contenteditable="false">สร้าง DB เก็บข้อมูล Pallet no, Layer, Counter
                           </div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2867,6 +2878,7 @@
 
                           <div class="task-txt " contenteditable="false">ตรวจสอบความถูกต้องของข้อมูล DB</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2903,6 +2915,7 @@
 
                           <div class="task-txt " contenteditable="false">Data Tank Send Data To Auto Sticker</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2939,6 +2952,7 @@
 
                           <div class="task-txt " contenteditable="false">ตรวจสอบความถูกต้องของข้อมูล Sticker</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                         <div class="t-dur"
                           style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                           <span>-</span>
@@ -2976,6 +2990,7 @@
 
                         <div class="task-txt " contenteditable="false">Commend จาก Production</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -3011,6 +3026,7 @@
 
                         <div class="task-txt " contenteditable="false">Commend จาก Engineer</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -3046,6 +3062,7 @@
 
                         <div class="task-txt " contenteditable="false">Commend จาก Project</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -3082,6 +3099,7 @@
                         <div class="task-txt " contenteditable="false">ขอราคา, Layout, Final Concept, Timeline
                           การติดตั้ง</div>
                       </div>
+                      <div class="t-resp" style="font-size:11px; color:var(--t4); font-family:var(--fm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">-</div>
                       <div class="t-dur"
                         style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
                         <span>-</span>
@@ -9603,6 +9621,7 @@
             <div class="task-hrow">
               <div></div>
               <div>Task Description</div>
+              <div>Assignee</div>
               <div style="text-align:center">Duration (days)</div>
               <div>Start Date</div>
               <div>Finish Date</div>
@@ -9623,8 +9642,16 @@
                       ` : ''}
                       <div class="task-txt ${t.done ? 'done' : ''}" contenteditable="${editMode}">${t.txt}</div>
                     </div>
+                    <div class="t-resp" style="font-size:11px; color:${(t.resp || t.assignee) ? '#92400E' : 'var(--t4)'}; font-family:var(--fm); outline:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; ${editMode ? 'padding:2px 4px; border:1px dashed rgba(217,119,6,0.3); border-radius:4px; min-height:18px; background:rgba(254,243,199,0.3);' : ''}" contenteditable="${editMode}" data-task-field="resp" title="${t.resp || t.assignee || ''}">${editMode ? (t.resp || t.assignee || '') : (t.resp || t.assignee || '-')}</div>
                     <div class="t-dur" style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                      <span>${getDurationDays(t.sd, t.ed, t.skipWeekend) || '-'}</span>
+                      ${editMode ? `
+                        <input type="number" min="1" class="t-dur-input" value="${getDurationDays(t.sd, t.ed, t.skipWeekend) || ''}" placeholder="-" 
+                          oninput="handleDurationInput(this)" 
+                          onkeydown="if(event.key==='Enter')this.blur()" 
+                          style="width: 44px; text-align: center; font-family: var(--fm); font-size: 11px; font-weight: 600; color: #92400E; background: rgba(254,243,199,0.3); border: 1px dashed rgba(217,119,6,0.3); border-radius: 4px; padding: 1px 2px; outline: none;">
+                      ` : `
+                        <span>${getDurationDays(t.sd, t.ed, t.skipWeekend) || '-'}</span>
+                      `}
                       ${editMode ? `<label style="font-size: 8px; cursor: pointer; display: flex; align-items: center; gap: 2px; white-space: nowrap;"><input type="checkbox" class="task-skip-weekend" ${t.skipWeekend ? 'checked' : ''} onchange="toggleTaskSkipWeekend(${i}, ${ti}, this.checked)" style="width: 10px; height: 10px; cursor: pointer;">ข้าม ส-อา</label>` : ''}
                     </div>
                     <div class="t-sd">
@@ -9632,7 +9659,7 @@
               ? `
                 <div class="t-date-display-wrapper" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center;">
                   <input type="text" class="t-date-text-input" value="${fmtDateSlash(t.sd)}" data-task-field="sd" onblur="handleCustomDateInput(this, 'sd')" onkeydown="if(event.key==='Enter')this.blur()" style="width: 100%; font-family: var(--fm); font-size: 11px; color: #92400E; background: transparent; border: 1px solid rgba(217,119,6,0.2); border-radius: 4px; padding: 2px 4px; outline: none;">
-                  <input type="date" class="t-date-input" value="${t.sd || ''}" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.value = fmtDateSlash(this.value); this.previousElementSibling.dataset.val = this.value;" style="position: absolute; right: 2px; width: 18px; height: 18px; opacity: 0.3; cursor: pointer;">
+                  <input type="date" class="t-date-input" value="${t.sd || ''}" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.value = fmtDateSlash(this.value); this.previousElementSibling.dataset.val = this.value; this.previousElementSibling.dataset.iso = this.value; updateRowDurationFromDates(this.closest('.task-item'));" style="position: absolute; right: 2px; width: 18px; height: 18px; opacity: 0.3; cursor: pointer;">
                 </div>
                 `
               : fmtDate(t.sd)
@@ -9669,8 +9696,16 @@
                           ` : ''}
                           <div class="task-txt ${st.done ? 'done' : ''}" contenteditable="${editMode}">${st.txt}</div>
                         </div>
+                        <div class="t-resp" style="font-size:11px; color:${(st.resp || st.assignee) ? '#92400E' : 'var(--t4)'}; font-family:var(--fm); outline:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; ${editMode ? 'padding:2px 4px; border:1px dashed rgba(217,119,6,0.3); border-radius:4px; min-height:18px; background:rgba(254,243,199,0.3);' : ''}" contenteditable="${editMode}" data-subtask-field="resp" title="${st.resp || st.assignee || ''}">${editMode ? (st.resp || st.assignee || '') : (st.resp || st.assignee || '-')}</div>
                         <div class="t-dur" style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                          <span>${getDurationDays(st.sd, st.ed, st.skipWeekend) || '-'}</span>
+                          ${editMode ? `
+                            <input type="number" min="1" class="t-dur-input" value="${getDurationDays(st.sd, st.ed, st.skipWeekend) || ''}" placeholder="-" 
+                              oninput="handleDurationInput(this)" 
+                              onkeydown="if(event.key==='Enter')this.blur()" 
+                              style="width: 44px; text-align: center; font-family: var(--fm); font-size: 11px; font-weight: 600; color: #92400E; background: rgba(254,243,199,0.3); border: 1px dashed rgba(217,119,6,0.3); border-radius: 4px; padding: 1px 2px; outline: none;">
+                          ` : `
+                            <span>${getDurationDays(st.sd, st.ed, st.skipWeekend) || '-'}</span>
+                          `}
                           ${editMode ? `<label style="font-size: 8px; cursor: pointer; display: flex; align-items: center; gap: 2px; white-space: nowrap;"><input type="checkbox" class="subtask-skip-weekend" ${st.skipWeekend ? 'checked' : ''} onchange="toggleSubTaskSkipWeekend(${i}, ${ti}, ${sti}, this.checked)" style="width: 10px; height: 10px; cursor: pointer;">ข้าม ส-อา</label>` : ''}
                         </div>
                         <div class="t-sd">
@@ -9688,8 +9723,8 @@
                           ${editMode
                 ? `
                   <div class="t-date-display-wrapper" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center;">
-                    <div class="t-date-display-text" style="font-family: var(--fm); font-size: 11px; color: #92400E; pointer-events: none; width: 100%; text-align: left;">${fmtDateSlash(st.ed)}</div>
-                    <input type="date" class="t-date-input" value="${st.ed || ''}" data-subtask-field="ed" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.textContent = fmtDateSlash(this.value);" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                    <input type="text" class="t-date-text-input" value="${fmtDateSlash(st.ed)}" data-subtask-field="ed" onblur="handleCustomDateInput(this, 'ed')" onkeydown="if(event.key==='Enter')this.blur()" style="width: 100%; font-family: var(--fm); font-size: 11px; color: #92400E; background: transparent; border: 1px solid rgba(217,119,6,0.2); border-radius: 4px; padding: 2px 4px; outline: none;">
+                    <input type="date" class="t-date-input" value="${st.ed || ''}" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.value = fmtDateSlash(this.value); this.previousElementSibling.dataset.val = this.value; this.previousElementSibling.dataset.iso = this.value; updateRowDurationFromDates(this.closest('.task-item'));" style="position: absolute; right: 2px; width: 18px; height: 18px; opacity: 0.3; cursor: pointer;">
                   </div>
                   `
                 : fmtDate(st.ed)
@@ -9713,16 +9748,24 @@
                               ` : ''}
                               <div class="task-txt ${sst.done ? 'done' : ''}" contenteditable="${editMode}">${sst.txt}</div>
                             </div>
+                            <div class="t-resp" style="font-size:11px; color:${(sst.resp || sst.assignee) ? '#92400E' : 'var(--t4)'}; font-family:var(--fm); outline:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; ${editMode ? 'padding:2px 4px; border:1px dashed rgba(217,119,6,0.3); border-radius:4px; min-height:18px; background:rgba(254,243,199,0.3);' : ''}" contenteditable="${editMode}" data-subsubtask-field="resp" title="${sst.resp || sst.assignee || ''}">${editMode ? (sst.resp || sst.assignee || '') : (sst.resp || sst.assignee || '-')}</div>
                             <div class="t-dur" style="text-align:center; font-size:11px; color:#92400E; font-family:var(--fm); display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                              <span>${getDurationDays(sst.sd, sst.ed, sst.skipWeekend) || '-'}</span>
+                              ${editMode ? `
+                                <input type="number" min="1" class="t-dur-input" value="${getDurationDays(sst.sd, sst.ed, sst.skipWeekend) || ''}" placeholder="-" 
+                                  oninput="handleDurationInput(this)" 
+                                  onkeydown="if(event.key==='Enter')this.blur()" 
+                                  style="width: 44px; text-align: center; font-family: var(--fm); font-size: 11px; font-weight: 600; color: #92400E; background: rgba(254,243,199,0.3); border: 1px dashed rgba(217,119,6,0.3); border-radius: 4px; padding: 1px 2px; outline: none;">
+                              ` : `
+                                <span>${getDurationDays(sst.sd, sst.ed, sst.skipWeekend) || '-'}</span>
+                              `}
                               ${editMode ? `<label style="font-size: 8px; cursor: pointer; display: flex; align-items: center; gap: 2px; white-space: nowrap;"><input type="checkbox" class="subsubtask-skip-weekend" ${sst.skipWeekend ? 'checked' : ''} onchange="toggleSubSubTaskSkipWeekend(${i}, ${ti}, ${sti}, ${ssti}, this.checked)" style="width: 10px; height: 10px; cursor: pointer;">ข้าม ส-อา</label>` : ''}
                             </div>
                             <div class="t-sd">
                               ${editMode
                   ? `
                     <div class="t-date-display-wrapper" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center;">
-                      <div class="t-date-display-text" style="font-family: var(--fm); font-size: 11px; color: #92400E; pointer-events: none; width: 100%; text-align: left;">${fmtDateSlash(sst.sd)}</div>
-                      <input type="date" class="t-date-input" value="${sst.sd || ''}" data-subsubtask-field="sd" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.textContent = fmtDateSlash(this.value);" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                      <input type="text" class="t-date-text-input" value="${fmtDateSlash(sst.sd)}" data-subsubtask-field="sd" onblur="handleCustomDateInput(this, 'sd')" onkeydown="if(event.key==='Enter')this.blur()" style="width: 100%; font-family: var(--fm); font-size: 11px; color: #92400E; background: transparent; border: 1px solid rgba(217,119,6,0.2); border-radius: 4px; padding: 2px 4px; outline: none;">
+                      <input type="date" class="t-date-input" value="${sst.sd || ''}" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.value = fmtDateSlash(this.value); this.previousElementSibling.dataset.val = this.value; this.previousElementSibling.dataset.iso = this.value; updateRowDurationFromDates(this.closest('.task-item'));" style="position: absolute; right: 2px; width: 18px; height: 18px; opacity: 0.3; cursor: pointer;">
                     </div>
                     `
                   : fmtDate(sst.sd)
@@ -9732,8 +9775,8 @@
                               ${editMode
                   ? `
                     <div class="t-date-display-wrapper" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center;">
-                      <div class="t-date-display-text" style="font-family: var(--fm); font-size: 11px; color: #92400E; pointer-events: none; width: 100%; text-align: left;">${fmtDateSlash(sst.ed)}</div>
-                      <input type="date" class="t-date-input" value="${sst.ed || ''}" data-subsubtask-field="ed" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.textContent = fmtDateSlash(this.value);" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                      <input type="text" class="t-date-text-input" value="${fmtDateSlash(sst.ed)}" data-subsubtask-field="ed" onblur="handleCustomDateInput(this, 'ed')" onkeydown="if(event.key==='Enter')this.blur()" style="width: 100%; font-family: var(--fm); font-size: 11px; color: #92400E; background: transparent; border: 1px solid rgba(217,119,6,0.2); border-radius: 4px; padding: 2px 4px; outline: none;">
+                      <input type="date" class="t-date-input" value="${sst.ed || ''}" onclick="try{this.showPicker();}catch(e){}" onchange="this.previousElementSibling.value = fmtDateSlash(this.value); this.previousElementSibling.dataset.val = this.value; this.previousElementSibling.dataset.iso = this.value; updateRowDurationFromDates(this.closest('.task-item'));" style="position: absolute; right: 2px; width: 18px; height: 18px; opacity: 0.3; cursor: pointer;">
                     </div>
                     `
                   : fmtDate(sst.ed)
@@ -11299,6 +11342,7 @@
               const edEl = parentEl.querySelector('[data-task-field="ed"]');
               const pctEl = parentEl.querySelector('.t-pct');
               const colorEl = parentEl.querySelector('.task-color-input');
+              const respEl = parentEl.querySelector('[data-task-field="resp"], .t-resp');
 
               const skipWeekendEl = parentEl.querySelector('.task-skip-weekend');
 
@@ -11310,6 +11354,7 @@
                 const pct = pctEl ? (parseInt(pctEl.innerText.trim()) || 0) : 0;
                 const skipWeekend = skipWeekendEl ? skipWeekendEl.checked : false;
                 const color = colorEl ? colorEl.value : (p.tasks && p.tasks[tIdx] ? p.tasks[tIdx].color : '');
+                const resp = respEl ? respEl.innerText.trim().replace(/^—$|^-$/, '') : (p.tasks && p.tasks[tIdx] ? (p.tasks[tIdx].resp || p.tasks[tIdx].assignee || '') : '');
 
                 // Now sync subtasks
                 const subtasks = [];
@@ -11321,6 +11366,7 @@
                   const subPctEl = subEl.querySelector('.t-pct');
                   const subSkipWeekendEl = subEl.querySelector('.subtask-skip-weekend');
                   const subColorEl = subEl.querySelector('.subtask-color-input');
+                  const subRespEl = subEl.querySelector('[data-subtask-field="resp"], .t-resp');
 
                   if (subTxtEl) {
                     const subTxt = subTxtEl.innerText.trim();
@@ -11331,6 +11377,7 @@
                     const subPct = subPctEl ? (parseInt(subPctEl.innerText.trim()) || 0) : 0;
                     const subSkipWeekend = subSkipWeekendEl ? subSkipWeekendEl.checked : false;
                     const subColor = subColorEl ? subColorEl.value : (p.tasks && p.tasks[tIdx]?.subtasks?.[sti]?.color || '');
+                  const subResp = subRespEl ? subRespEl.innerText.trim().replace(/^—$|^-$/, '') : (p.tasks && p.tasks[tIdx]?.subtasks?.[sti] ? (p.tasks[tIdx].subtasks[sti].resp || p.tasks[tIdx].subtasks[sti].assignee || '') : '');
 
                     // Now sync sub-subtasks
                     const subsubtasks = [];
@@ -11344,6 +11391,7 @@
                         const sstPctEl = subsubEl.querySelector('.t-pct');
                         const sstSkipWeekendEl = subsubEl.querySelector('.subsubtask-skip-weekend');
                         const sstColorEl = subsubEl.querySelector('.subsubtask-color-input');
+                        const sstRespEl = subsubEl.querySelector('[data-subsubtask-field="resp"], .t-resp');
 
                         if (sstTxtEl) {
                           const sstTxt = sstTxtEl.innerText.trim();
@@ -11354,17 +11402,18 @@
                           const sstPct = sstPctEl ? (parseInt(sstPctEl.innerText.trim()) || 0) : 0;
                           const sstSkipWeekend = sstSkipWeekendEl ? sstSkipWeekendEl.checked : false;
                           const sstColor = sstColorEl ? sstColorEl.value : (p.tasks && p.tasks[tIdx]?.subtasks?.[sti]?.subtasks?.[ssti]?.color || '');
+                        const sstResp = sstRespEl ? sstRespEl.innerText.trim().replace(/^—$|^-$/, '') : (p.tasks && p.tasks[tIdx]?.subtasks?.[sti]?.subtasks?.[ssti] ? (p.tasks[tIdx].subtasks[sti].subtasks[ssti].resp || p.tasks[tIdx].subtasks[sti].subtasks[ssti].assignee || '') : '');
 
-                          subsubtasks.push({ txt: cleanSstTxt, done: sstDone, sd: sstSd, ed: sstEd, pct: sstPct, skipWeekend: sstSkipWeekend, color: sstColor });
+                          subsubtasks.push({ txt: cleanSstTxt, resp: sstResp, done: sstDone, sd: sstSd, ed: sstEd, pct: sstPct, skipWeekend: sstSkipWeekend, color: sstColor });
                         }
                       });
                     }
 
-                    subtasks.push({ txt: cleanTxt, done: subDone, sd: subSd, ed: subEd, pct: subPct, skipWeekend: subSkipWeekend, color: subColor, subtasks: subsubtasks });
+                    subtasks.push({ txt: cleanTxt, resp: subResp, done: subDone, sd: subSd, ed: subEd, pct: subPct, skipWeekend: subSkipWeekend, color: subColor, subtasks: subsubtasks });
                   }
                 });
 
-                p.tasks.push({ txt, done, sd, ed, pct, skipWeekend, color, subtasks });
+                p.tasks.push({ txt, resp, done, sd, ed, pct, skipWeekend, color, subtasks });
               }
             });
           }
@@ -11415,28 +11464,31 @@
 
       let lines = [];
       lines.push(`Project:\t${p.name || ''}`);
-      lines.push(`Task Name\tDuration (Days)\tStart Date\tFinish Date\t% Complete`);
+      lines.push(`Task Name\tAssignee\tDuration (Days)\tStart Date\tFinish Date\t% Complete`);
 
       if (p.tasks && p.tasks.length > 0) {
         p.tasks.forEach(t => {
           const tDur = getDurationDays(t.sd, t.ed, t.skipWeekend) || '-';
           const tSd = fmtDateSlash(t.sd);
           const tEd = fmtDateSlash(t.ed);
-          lines.push(`${t.txt}\t${tDur}\t${tSd}\t${tEd}\t${t.pct || 0}%`);
+          const tResp = t.resp || t.assignee || '-';
+          lines.push(`${t.txt}\t${tResp}\t${tDur}\t${tSd}\t${tEd}\t${t.pct || 0}%`);
 
           if (t.subtasks && t.subtasks.length > 0) {
             t.subtasks.forEach(st => {
               const stDur = getDurationDays(st.sd, st.ed, st.skipWeekend) || '-';
               const stSd = fmtDateSlash(st.sd);
               const stEd = fmtDateSlash(st.ed);
-              lines.push(`  └─ ${st.txt}\t${stDur}\t${stSd}\t${stEd}\t${st.pct || 0}%`);
+              const stResp = st.resp || st.assignee || '-';
+              lines.push(`  └─ ${st.txt}\t${stResp}\t${stDur}\t${stSd}\t${stEd}\t${st.pct || 0}%`);
 
               if (st.subtasks && st.subtasks.length > 0) {
                 st.subtasks.forEach(sst => {
                   const sstDur = getDurationDays(sst.sd, sst.ed, sst.skipWeekend) || '-';
                   const sstSd = fmtDateSlash(sst.sd);
                   const sstEd = fmtDateSlash(sst.ed);
-                  lines.push(`    └─└─ ${sst.txt}\t${sstDur}\t${sstSd}\t${sstEd}\t${sst.pct || 0}%`);
+                  const sstResp = sst.resp || sst.assignee || '-';
+                  lines.push(`    └─└─ ${sst.txt}\t${sstResp}\t${sstDur}\t${sstSd}\t${sstEd}\t${sst.pct || 0}%`);
                 });
               }
             });
@@ -11508,6 +11560,8 @@
         const picker = el.nextElementSibling;
         if (picker && picker.tagName === 'INPUT') picker.value = iso;
       }
+      const rowEl = el.closest('.task-item');
+      if (rowEl) updateRowDurationFromDates(rowEl);
     }
 
     function getDateValFromInput(inputEl) {
@@ -11610,6 +11664,102 @@
       parentEl.appendChild(container);
     }
 
+    
+    function calculateEndDateFromDuration(sdVal, days, skipWeekend = false) {
+      if (!sdVal || !days || isNaN(days) || days <= 0) return "";
+      const iso = parseDateToISO(sdVal) || sdVal;
+      const parts = iso.split('-');
+      if (parts.length !== 3) return "";
+      let cur = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10), 0, 0, 0);
+      if (isNaN(cur.getTime())) return "";
+
+      days = parseInt(days, 10);
+      if (days <= 0) return "";
+
+      if (!skipWeekend) {
+        cur.setDate(cur.getDate() + (days - 1));
+        const y = cur.getFullYear();
+        const m = String(cur.getMonth() + 1).padStart(2, '0');
+        const d = String(cur.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+
+      let count = 0;
+      let lastValid = new Date(cur);
+      while (count < days) {
+        const day = cur.getDay();
+        if (day !== 0 && day !== 6) {
+          count++;
+          lastValid = new Date(cur);
+        }
+        if (count < days) {
+          cur.setDate(cur.getDate() + 1);
+        }
+      }
+      const y = lastValid.getFullYear();
+      const m = String(lastValid.getMonth() + 1).padStart(2, '0');
+      const d = String(lastValid.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    function handleDurationInput(durInputEl) {
+      const rowEl = durInputEl.closest('.task-item');
+      if (!rowEl) return;
+
+      const sdInput = rowEl.querySelector('[data-task-field="sd"], [data-subtask-field="sd"], [data-subsubtask-field="sd"], .t-sd input');
+      const sdVal = getDateValFromInput(sdInput);
+      if (!sdVal) return;
+
+      const skipWeekendCb = rowEl.querySelector('.task-skip-weekend, .subtask-skip-weekend, .subsubtask-skip-weekend');
+      const skipWeekend = skipWeekendCb ? skipWeekendCb.checked : false;
+
+      const days = parseInt(durInputEl.value.trim(), 10);
+      if (!days || isNaN(days) || days <= 0) return;
+
+      const newEd = calculateEndDateFromDuration(sdVal, days, skipWeekend);
+      if (!newEd) return;
+
+      // Update ED text input
+      const edTextInput = rowEl.querySelector('.t-ed .t-date-text-input, .t-ed input[type="text"]');
+      if (edTextInput) {
+        edTextInput.value = fmtDateSlash(newEd);
+        edTextInput.dataset.iso = newEd;
+        edTextInput.dataset.val = newEd;
+      }
+
+      // Update ED date picker input
+      const edPicker = rowEl.querySelector('.t-ed .t-date-input, .t-ed input[type="date"]');
+      if (edPicker) {
+        edPicker.value = newEd;
+      }
+
+      // Update ED display text if any
+      const edDisplayText = rowEl.querySelector('.t-ed .t-date-display-text');
+      if (edDisplayText) {
+        edDisplayText.textContent = fmtDateSlash(newEd);
+      }
+    }
+
+    function updateRowDurationFromDates(rowEl) {
+      if (!rowEl) return;
+      const sdInput = rowEl.querySelector('[data-task-field="sd"], [data-subtask-field="sd"], [data-subsubtask-field="sd"], .t-sd input');
+      const edInput = rowEl.querySelector('[data-task-field="ed"], [data-subtask-field="ed"], [data-subsubtask-field="ed"], .t-ed input');
+      const sdVal = getDateValFromInput(sdInput);
+      const edVal = getDateValFromInput(edInput);
+
+      const skipWeekendCb = rowEl.querySelector('.task-skip-weekend, .subtask-skip-weekend, .subsubtask-skip-weekend');
+      const skipWeekend = skipWeekendCb ? skipWeekendCb.checked : false;
+
+      const dur = getDurationDays(sdVal, edVal, skipWeekend);
+      const durInput = rowEl.querySelector('.t-dur-input');
+      if (durInput) {
+        durInput.value = dur || '';
+      } else {
+        const durSpan = rowEl.querySelector('.t-dur span');
+        if (durSpan) durSpan.textContent = dur || '-';
+      }
+    }
+
     function getDurationDays(sdVal, fdVal, skipWeekend = false) {
       if (!sdVal || !fdVal) return "";
       const d1 = (typeof sdVal === 'string') ? new Date(sdVal) : sdVal;
@@ -11643,8 +11793,8 @@
 
     function addTask(idx) {
       if (editMode) syncCurrentState();
-      if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, done: false, sd: '', ed: '', pct: 0 }] : [];
-      P[idx].tasks.push({ txt: 'New task...', done: false, sd: '', ed: '', pct: 0, subtasks: [] });
+      if (!P[idx].tasks) P[idx].tasks = P[idx].note ? [{ txt: P[idx].note, resp: '', done: false, sd: '', ed: '', pct: 0 }] : [];
+      P[idx].tasks.push({ txt: 'New task...', resp: '', done: false, sd: '', ed: '', pct: 0, subtasks: [] });
       openDetail(idx);
     }
 
@@ -11681,7 +11831,7 @@
       if (!p.tasks[tIdx].subtasks) {
         p.tasks[tIdx].subtasks = [];
       }
-      p.tasks[tIdx].subtasks.push({ txt: 'New sub-task...', done: false, sd: '', ed: '', pct: 0 });
+      p.tasks[tIdx].subtasks.push({ txt: 'New sub-task...', resp: '', done: false, sd: '', ed: '', pct: 0 });
       saveData();
       openDetail(pIdx);
     }
@@ -11731,7 +11881,7 @@
       if (!st.subtasks) {
         st.subtasks = [];
       }
-      st.subtasks.push({ txt: 'New sub-subtask...', done: false, sd: '', ed: '', pct: 0 });
+      st.subtasks.push({ txt: 'New sub-subtask...', resp: '', done: false, sd: '', ed: '', pct: 0 });
       saveData();
       openDetail(pIdx);
     }
